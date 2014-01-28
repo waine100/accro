@@ -1,0 +1,52 @@
+Zenweb\Accro\ParcBundle\Entity\Coupon:
+    type: entity
+    table: null
+    repositoryClass: Zenweb\Accro\ParcBundle\Entity\CouponRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        description:
+            type: string
+            length: 255
+        code:
+            type: string
+            length: 255
+        fromDate:
+            type: date
+            column: from_date
+        toDate:
+            type: date
+            column: to_date
+        usesPerCustomer:
+            type: integer
+            column: uses_per_customer
+        isActive:
+            type: smallint
+            column: is_active
+        stopRulesProcessing:
+            type: smallint
+            column: stop_rules_processing
+        sortOrder:
+            type: integer
+            column: sort_order
+        simpleAction:
+            type: string
+            length: '32'
+            column: simple_action
+        discountAmount:
+            type: decimal
+            column: discount_amount
+        timesUsed:
+            type: integer
+            column: times_used
+        usesPerCoupon:
+            type: integer
+            column: uses_per_coupon
+    lifecycleCallbacks: {  }

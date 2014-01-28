@@ -1,0 +1,4 @@
+Zenweb\Accro\ParcBundle\Entity\Coupon:
+    properties:
+        name:
+            - NotBlank: ~

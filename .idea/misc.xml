@@ -5,6 +5,9 @@
     <strategy useRoutes="false" mediaReduce="false" fileReduce="false" />
     <routes />
   </component>
+  <component name="ProjectResources">
+    <resource url="http://docs.oasis-open.org/xliff/v1.2/cs02/xliff-core-1.2-strict.xsd" location="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Translation/Loader/schema/dic/xliff-core/xliff-core-1.2-strict.xsd" />
+  </component>
   <component name="ProjectRootManager" version="2" />
 </project>
 

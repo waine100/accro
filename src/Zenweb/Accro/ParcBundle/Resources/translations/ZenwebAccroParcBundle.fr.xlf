@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="help.coupon.name">
+                <source>help.coupon.name</source>
+                <target>Message d'aide pour le nom d'essai</target>
+            </trans-unit>
+            <trans-unit id="label.name">
+                <source>Name</source>
+                <target>Nom</target>
+            </trans-unit>
+            <trans-unit id="label.description">
+                <source>Description</source>
+                <target>Description</target>
+            </trans-unit>
+            <trans-unit id="label.from.date">
+                <source>From Date</source>
+                <target>Date de début</target>
+            </trans-unit>
+            <trans-unit id="label.to.date">
+                <source>To Date</source>
+                <target>Date de fin</target>
+            </trans-unit>
+            <trans-unit id="label.is.active">
+                <source>Is Active</source>
+                <target>Statut</target>
+            </trans-unit>
+            <trans-unit id="choice.enable">
+                <source>choice.enable</source>
+                <target>Actif</target>
+            </trans-unit>
+            <trans-unit id="choice.disable">
+                <source>choice.disable</source>
+                <target>Inactif</target>
+            </trans-unit>
+            <trans-unit id="label.simple.action">
+                <source>Simple Action</source>
+                <target>Appliquer</target>
+            </trans-unit>
+            <trans-unit id="label.discount.amount">
+                <source>Discount Amount</source>
+                <target>Montant de la remise</target>
+            </trans-unit>
+            <trans-unit id="choice.by.fixed">
+                <source>choice.by_fixed</source>
+                <target>Remise d'un montant fixe</target>
+            </trans-unit>
+            <trans-unit id="choice.by.percent">
+                <source>choice.by_percent</source>
+                <target>Remise d'un pourcentage</target>
+            </trans-unit>
+            <trans-unit id="label.uses.per.customer">
+                <source>Uses Per Customer</source>
+                <target>Utilisations par client</target>
+            </trans-unit>
+            <trans-unit id="label.uses.per.coupon">
+                <source>Uses Per Coupon</source>
+                <target>Utilisations par coupon</target>
+            </trans-unit>
+            <trans-unit id="label.stop.rules.Processing">
+                <source>Stop Rules Processing</source>
+                <target>Bloquer le traitement des règles suivantes</target>
+            </trans-unit>
+            <trans-unit id="label.sort.order">
+                <source>Sort Order</source>
+                <target>Priorité</target>
+            </trans-unit>
+            <trans-unit id="choice.yes">
+                <source>choice.yes</source>
+                <target>Oui</target>
+            </trans-unit>
+            <trans-unit id="choice.no">
+                <source>choice.no</source>
+                <target>Non</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
