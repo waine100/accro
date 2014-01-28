@@ -1,0 +1,11 @@
+services:
+    sonata.admin.parc:
+        class: Zenweb\Accro\ParcBundle\Admin\ParcAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Parcs", label: "Parcs" }
+        arguments:
+            - ~
+            - Zenweb\Accro\ParcBundle\Entity\Parc
+            - ~
+        calls:
+            - [ setTranslationDomain, [ZenwebAccroParcBundle]]

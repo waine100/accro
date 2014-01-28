@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: @ZenwebAccroUserBundle/Resources/config/admin.yml }
+    - { resource: @ZenwebAccroParcBundle/Resources/config/admin.yml }
 
 framework:
     #esi:             ~

@@ -1,0 +1,24 @@
+Zenweb\Accro\ParcBundle\Entity\Parc:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        description:
+            type: text
+        address:
+            type: text
+        mail:
+            type: string
+            length: 255
+        image:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

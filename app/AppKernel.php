@@ -33,7 +33,7 @@ class AppKernel extends Kernel
              * Zenweb Bundles
              */
             new Zenweb\Accro\UserBundle\ZenwebAccroUserBundle(),
-
+            new Zenweb\Accro\ParcBundle\ZenwebAccroParcBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

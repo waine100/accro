@@ -1,3 +1,7 @@
+zenweb_accro_parc:
+    resource: "@ZenwebAccroParcBundle/Resources/config/routing.yml"
+    prefix:   /
+
 zenweb_accro_user:
     resource: "@ZenwebAccroUserBundle/Resources/config/routing.yml"
     prefix:   /
