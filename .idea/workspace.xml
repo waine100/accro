@@ -91,7 +91,7 @@
       <file leaf-file-name="Parc.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/Parc.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2422">
+            <state line="39" column="26" selection-start="458" selection-end="458" vertical-scroll-proportion="-14.0" vertical-offset="224" max-vertical-offset="2408">
               <folding />
             </state>
           </provider>
@@ -109,7 +109,7 @@
       <file leaf-file-name="CouponAdmin.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Admin/CouponAdmin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="68" selection-start="3018" selection-end="3018" vertical-scroll-proportion="-27.826086" vertical-offset="592" max-vertical-offset="1526">
+            <state line="97" column="21" selection-start="3076" selection-end="3076" vertical-scroll-proportion="-24.652174" vertical-offset="693" max-vertical-offset="1638">
               <folding />
             </state>
           </provider>
@@ -147,7 +147,16 @@
       <file leaf-file-name="Coupon.orm.yml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/doctrine/Coupon.orm.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="26" selection-start="827" selection-end="827" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="812">
+            <state line="53" column="59" selection-start="1387" selection-end="1387" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="854">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Parc.orm.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/doctrine/Parc.orm.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="26" selection-start="503" selection-end="503" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="434">
               <folding />
             </state>
           </provider>
@@ -165,7 +174,7 @@
       <file leaf-file-name="Coupon.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/Coupon.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="26" selection-start="1042" selection-end="1042" vertical-scroll-proportion="1.2977984" vertical-offset="0" max-vertical-offset="5824">
+            <state line="88" column="13" selection-start="1131" selection-end="1131" vertical-scroll-proportion="0.72421783" vertical-offset="607" max-vertical-offset="6132">
               <folding />
             </state>
           </provider>
@@ -190,9 +199,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/UserBundle/Resources/config/doctrine/User.orm.yml" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/UserBundle/Entity/User.php" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/UserBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/Zenweb/Accro/UserBundle/Resources/config/admin.yml" />
         <option value="$PROJECT_DIR$/src/Zenweb/Accro/UserBundle/Admin/UserAdmin.php" />
         <option value="$PROJECT_DIR$/composer.json" />
@@ -208,8 +214,11 @@
         <option value="$PROJECT_DIR$/vendor/sonata-project/admin-bundle/Sonata/AdminBundle/Admin/Admin.php" />
         <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/translations/messages.fr.xlf" />
         <option value="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Translation/Translator.php" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Admin/CouponAdmin.php" />
         <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/translations/ZenwebAccroParcBundle.fr.xlf" />
+        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Admin/CouponAdmin.php" />
+        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/doctrine/Coupon.orm.yml" />
+        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/Parc.php" />
+        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/doctrine/Parc.orm.yml" />
         <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/Coupon.php" />
       </list>
     </option>
@@ -942,16 +951,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/UserBundle/Resources/config/doctrine/User.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="30" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="182" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="8" selection-start="2755" selection-end="2755" vertical-scroll-proportion="0.0" vertical-offset="636" max-vertical-offset="1204" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Form/FormConfigBuilder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="177" column="20" selection-start="3072" selection-end="3079" vertical-scroll-proportion="0.33291772" vertical-offset="2015" max-vertical-offset="12754" />
@@ -964,7 +963,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/sonata-project/admin-bundle/Sonata/AdminBundle/Form/FormMapper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="34" selection-start="4214" selection-end="4214" vertical-scroll-proportion="0.725" vertical-offset="931" max-vertical-offset="2968" />
+        <state line="121" column="34" selection-start="4214" selection-end="4214" vertical-scroll-proportion="0.725" vertical-offset="931" max-vertical-offset="2968">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
@@ -1046,21 +1047,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Admin/CouponAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="68" selection-start="3018" selection-end="3018" vertical-scroll-proportion="-27.826086" vertical-offset="592" max-vertical-offset="1526">
+        <state line="97" column="21" selection-start="3076" selection-end="3076" vertical-scroll-proportion="-24.652174" vertical-offset="693" max-vertical-offset="1638">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/doctrine/Coupon.orm.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="26" selection-start="827" selection-end="827" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="812">
+        <state line="53" column="59" selection-start="1387" selection-end="1387" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="854">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/doctrine/Parc.orm.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="26" selection-start="503" selection-end="503" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="434">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/Parc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="26" selection-start="458" selection-end="458" vertical-scroll-proportion="-14.0" vertical-offset="224" max-vertical-offset="2408">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/Coupon.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="26" selection-start="1042" selection-end="1042" vertical-scroll-proportion="1.2977984" vertical-offset="0" max-vertical-offset="5824">
+        <state line="88" column="13" selection-start="1131" selection-end="1131" vertical-scroll-proportion="0.72421783" vertical-offset="607" max-vertical-offset="6132">
           <folding />
         </state>
       </provider>

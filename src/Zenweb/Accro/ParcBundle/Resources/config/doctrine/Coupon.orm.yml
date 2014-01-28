@@ -49,4 +49,7 @@ Zenweb\Accro\ParcBundle\Entity\Coupon:
         usesPerCoupon:
             type: integer
             column: uses_per_coupon
+    manyToOne:
+        parc:
+          targetEntity: Zenweb\Accro\ParcBundle\Entity\Parc
     lifecycleCallbacks: {  }

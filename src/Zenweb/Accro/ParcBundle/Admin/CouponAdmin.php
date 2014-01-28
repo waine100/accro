@@ -87,9 +87,17 @@ class CouponAdmin extends Admin
             ->add('name', 'text', array('required' => true, 'help' => $this->trans('help.coupon.name')))
             ->add('description', 'textarea', array('required' => true))
             ->add('code', 'text', array('required' => true))
-            ->add('fromDate', 'date', array('required' => true, 'format'=>'dMMMyyyy'))
-            ->add('toDate', 'date', array('required' => true, 'format'=>'dMMMyyyy'))
+            ->add('fromDate', 'date', array('required' => true, 'format' => 'dMMMyyyy'))
+            ->add('toDate', 'date', array('required' => true, 'format' => 'dMMMyyyy'))
             ->add('isActive', 'choice', array('required' => true, 'choices' => array(0 => $this->trans('choice.disable'), 1 => $this->trans('choice.enable'))))
+            ->add('parc', 'sonata_type_model_list', array(
+                'btn_add'       => 'Add parc', //Specify a custom label
+                'btn_list'      => 'button.list', //which will be translated
+                'btn_delete'    => false, //or hide the button.
+                'btn_catalogue' => 'SonataNewsBundle' //Custom translation domain for buttons
+            ), array(
+                'placeholder' => 'No parc selected'
+            ))
             ->end()
             ->with('Actions')
             ->add('simpleAction', 'choice', array('required' => true, 'choices' => array(Coupon::BY_FIXED_ACTION => $this->trans('choice.by_fixed'), Coupon::BY_PERCENT_ACTION => $this->trans('choice.by_percent'))))

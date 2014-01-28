@@ -85,6 +85,10 @@ class Coupon
      */
     private $usesPerCoupon;
 
+    /**
+     * @var \Zenweb\Accro\ParcBundle\Entity\Parc
+     */
+    private $parc;
 
     /**
      * Get id
@@ -406,5 +410,23 @@ class Coupon
     public function getUsesPerCoupon()
     {
         return $this->usesPerCoupon;
+    }
+
+    /**
+     * Set parc
+     */
+    public function setParc(\Zenweb\Accro\ParcBundle\Entity\Parc $parc)
+    {
+        $this->parc = $parc;
+    }
+
+    /**
+     * Get parc
+     *
+     * @return \Zenweb\Accro\ParcBundle\Entity\Parc
+     */
+    public function getParc()
+    {
+        return $this->parc;
     }
 }

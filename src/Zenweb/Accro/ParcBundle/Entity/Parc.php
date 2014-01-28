@@ -37,8 +37,7 @@ class Parc
     /**
      * @var string
      */
-    private $image;
-
+    private $image = null;
 
     /**
      * Get id

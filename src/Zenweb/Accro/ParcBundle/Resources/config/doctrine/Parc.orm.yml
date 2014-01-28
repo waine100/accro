@@ -21,4 +21,5 @@ Zenweb\Accro\ParcBundle\Entity\Parc:
         image:
             type: string
             length: 255
+            nullable: true
     lifecycleCallbacks: {  }
