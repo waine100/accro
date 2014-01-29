@@ -1,0 +1,12 @@
+{% extends "SonataAdminBundle::standard_layout.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('Dp/CalendarBundle/css/calendar.css') }}" media="all">
+{% endblock %}
+
+{% block sonata_page_content %}
+
+{{ render(controller('DpCalendarBundle:Default:calendarDisplay', { 'admin': true })) }}
+
+{% endblock %}

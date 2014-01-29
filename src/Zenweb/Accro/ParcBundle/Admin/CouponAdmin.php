@@ -91,10 +91,10 @@ class CouponAdmin extends Admin
             ->add('toDate', 'date', array('required' => true, 'format' => 'dMMMyyyy'))
             ->add('isActive', 'choice', array('required' => true, 'choices' => array(0 => $this->trans('choice.disable'), 1 => $this->trans('choice.enable'))))
             ->add('parc', 'sonata_type_model_list', array(
-                'btn_add'       => 'Add parc', //Specify a custom label
+                'btn_add'       => 'button.add', //Specify a custom label
                 'btn_list'      => 'button.list', //which will be translated
                 'btn_delete'    => false, //or hide the button.
-                'btn_catalogue' => 'SonataNewsBundle' //Custom translation domain for buttons
+                'btn_catalogue' => 'ZenwebAccroParcBundle' //Custom translation domain for buttons
             ), array(
                 'placeholder' => 'No parc selected'
             ))

@@ -9,13 +9,31 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [ZenwebAccroParcBundle]]
+
     sonata.admin.coupon:
-            class: Zenweb\Accro\ParcBundle\Admin\CouponAdmin
-            tags:
-                - { name: sonata.admin, manager_type: orm, group: "Promotions", label: "Coupon" }
-            arguments:
-                - ~
-                - Zenweb\Accro\ParcBundle\Entity\Coupon
-                - ~
-            calls:
-                - [ setTranslationDomain, [ZenwebAccroParcBundle]]
+        class: Zenweb\Accro\ParcBundle\Admin\CouponAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Promotions", label: "Coupon" }
+        arguments:
+            - ~
+            - Zenweb\Accro\ParcBundle\Entity\Coupon
+            - ~
+        calls:
+            - [ setTranslationDomain, [ZenwebAccroParcBundle]]
+
+    sonata.admin.typicalday:
+        class: Zenweb\Accro\ParcBundle\Admin\TypicalDayAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Parcs", label: "Journée type" }
+        arguments:
+            - ~
+            - Zenweb\Accro\ParcBundle\Entity\TypicalDay
+            - ~
+        calls:
+            - [ setTranslationDomain, [ZenwebAccroParcBundle]]
+
+    sonata.block.service.calendar:
+        class: Zenweb\Accro\ParcBundle\Block\AdminCalendarBlockService
+        arguments: [ "sonata.block.service.calendar", @templating ]
+        tags:
+            - { name: sonata.block }

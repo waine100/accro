@@ -29,11 +29,17 @@ class AppKernel extends Kernel
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
+
             /**
              * Zenweb Bundles
              */
             new Zenweb\Accro\UserBundle\ZenwebAccroUserBundle(),
-            new Zenweb\Accro\ParcBundle\ZenwebAccroParcBundle()
+            new Zenweb\Accro\ParcBundle\ZenwebAccroParcBundle(),
+
+            /**
+             * Third party bundles
+             */
+            new Dp\CalendarBundle\DpCalendarBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

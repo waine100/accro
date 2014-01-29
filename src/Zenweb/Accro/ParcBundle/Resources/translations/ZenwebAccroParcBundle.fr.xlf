@@ -74,6 +74,18 @@
                 <source>choice.no</source>
                 <target>Non</target>
             </trans-unit>
+            <trans-unit id="button.list">
+                <source>button.list</source>
+                <target>Lister</target>
+            </trans-unit>
+            <trans-unit id="button.add">
+                <source>button.add</source>
+                <target>Ajouter</target>
+            </trans-unit>
+            <trans-unit id="help.typicalday.frequency">
+                <source>help.typicalday.frequency</source>
+                <target>Indiquez ici le temps en mn entre chaque activité</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

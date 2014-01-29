@@ -5,9 +5,9 @@ namespace Zenweb\Accro\ParcBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Parc
+ * TypicalDay
  */
-class Parc
+class TypicalDay
 {
     /**
      * @var integer
@@ -25,24 +25,25 @@ class Parc
     private $description;
 
     /**
-     * @var string
+     * @var \DateTime
      */
-    private $address;
+    private $beginTime;
 
     /**
-     * @var string
+     * @var \DateTime
      */
-    private $mail;
+    private $endTime;
 
     /**
-     * @var string
+     * @var integer
      */
-    private $image = null;
+    private $frequency;
+
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -53,7 +54,8 @@ class Parc
      * Set name
      *
      * @param string $name
-     * @return Parc
+     *
+     * @return TypicalDay
      */
     public function setName($name)
     {
@@ -65,7 +67,7 @@ class Parc
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -76,7 +78,8 @@ class Parc
      * Set description
      *
      * @param string $description
-     * @return Parc
+     *
+     * @return TypicalDay
      */
     public function setDescription($description)
     {
@@ -88,7 +91,7 @@ class Parc
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -96,79 +99,88 @@ class Parc
     }
 
     /**
-     * Set address
+     * Set beginTime
      *
-     * @param string $address
-     * @return Parc
+     * @param \DateTime $beginTime
+     *
+     * @return TypicalDay
      */
-    public function setAddress($address)
+    public function setBeginTime($beginTime)
     {
-        $this->address = $address;
+        $this->beginTime = $beginTime;
 
         return $this;
     }
 
     /**
-     * Get address
+     * Get beginTime
      *
-     * @return string 
+     * @return \DateTime
      */
-    public function getAddress()
+    public function getBeginTime()
     {
-        return $this->address;
+        return $this->beginTime;
     }
 
     /**
-     * Set mail
+     * Set endTime
      *
-     * @param string $mail
-     * @return Parc
+     * @param \DateTime $endTime
+     *
+     * @return TypicalDay
      */
-    public function setMail($mail)
+    public function setEndTime($endTime)
     {
-        $this->mail = $mail;
+        $this->endTime = $endTime;
 
         return $this;
     }
 
     /**
-     * Get mail
+     * Get endTime
      *
-     * @return string 
+     * @return \DateTime
      */
-    public function getMail()
+    public function getEndTime()
     {
-        return $this->mail;
+        return $this->endTime;
     }
 
     /**
-     * Set image
+     * Set frequency
      *
-     * @param string $image
-     * @return Parc
+     * @param integer $frequency
+     *
+     * @return TypicalDay
      */
-    public function setImage($image)
+    public function setFrequency($frequency)
     {
-        $this->image = $image;
+        $this->frequency = $frequency;
 
         return $this;
     }
 
     /**
-     * Get image
+     * Get frequency
      *
-     * @return string 
+     * @return integer
      */
-    public function getImage()
+    public function getFrequency()
     {
-        return $this->image;
+        return $this->frequency;
     }
+
+    /**
+     * Now some real methods
+     */
 
     /**
      * Display a nice name
+     *
      * @return string
      */
-    public function __toString(){
+    public function __toString()
+    {
         return $this->name;
     }
 }

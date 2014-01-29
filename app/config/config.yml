@@ -36,7 +36,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ ]
+    bundles:        [ DpCalendarBundle ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -87,9 +87,15 @@ sonata_block:
             contexts:   [admin]
         sonata.user.block.menu:    # used to display the menu in profile pages
         sonata.user.block.account: # used to display menu option (login option)
+        sonata.block.service.calendar: ~
 
 sonata_admin:
     title: Accro Administration
+    dashboard:
+        blocks:
+            # display a dashboard block
+            - { position: left, type: sonata.admin.block.admin_list }
+            - { position: left, type: sonata.block.service.calendar}
 
 sonata_user:
     security_acl: true

@@ -1,0 +1,12 @@
+{% stylesheets 'Dp/CalendarBundle/css/*' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
+
+{# {% extends "::layout.html.twig" %} #}
+
+{% block body %}
+
+{% block DpCalendar_body %}
+{% endblock %}
+
+{% endblock %}

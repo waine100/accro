@@ -429,4 +429,18 @@ class Coupon
     {
         return $this->parc;
     }
+
+    /**
+     * Now some real methods
+     */
+
+    /**
+     * Display a nice name
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->name;
+    }
 }
