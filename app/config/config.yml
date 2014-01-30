@@ -91,11 +91,13 @@ sonata_block:
 
 sonata_admin:
     title: Accro Administration
+    templates:
+       layout: ZenwebAccroParcBundle:Admin:standard_layout.html.twig
     dashboard:
         blocks:
             # display a dashboard block
             - { position: left, type: sonata.admin.block.admin_list }
-            - { position: left, type: sonata.block.service.calendar}
+            - { position: right, type: sonata.block.service.calendar}
 
 sonata_user:
     security_acl: true
