@@ -22,4 +22,7 @@ Zenweb\Accro\ParcBundle\Entity\TypicalDay:
             column: end_time
         frequency:
             type: integer
+        color:
+            type: string
+            length: 25
     lifecycleCallbacks: {  }

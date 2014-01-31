@@ -18,7 +18,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Dp\CalendarBundle\Entity\Booking
  *
- * @ORM\Table()
+ * @ORM\Table(name="dp_booking")
  * @ORM\Entity(repositoryClass="Dp\CalendarBundle\Entity\BookingRepository")
  */
 class Booking

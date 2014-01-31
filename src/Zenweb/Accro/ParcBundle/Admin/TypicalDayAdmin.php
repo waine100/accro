@@ -57,6 +57,7 @@ class TypicalDayAdmin extends Admin
             ->add('beginTime')
             ->add('endTime')
             ->add('frequency')
+            ->add('color')
             ->end();
     }
 
@@ -72,6 +73,7 @@ class TypicalDayAdmin extends Admin
             ->add('beginTime', 'time', array('required' => true))
             ->add('endTime', 'time', array('required' => true))
             ->add('frequency', 'choice', array('required' => true,'choices' => array(30 => 30, 60 => 60, 90 => 90, 120 => 120), 'help' => $this->trans('help.typicalday.frequency')))
+            ->add('color', 'choice', array('required' => true,'choices' => array("admin_red" => "Rouge", "admin_pink" => "Rose", "admin_orange" => "Orange", "admin_green" => "Vert"), 'help' => $this->trans('help.typicalday.frequency')))
             ->end();
 
     }
