@@ -30,7 +30,7 @@ class User extends BaseUser
     /**
      * @var integer
      */
-    private $id;
+    protected  $id;
 
 
     /**
