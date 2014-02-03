@@ -1,0 +1,27 @@
+Zenweb\Accro\ParcBundle\Entity\Extra:
+    type: entity
+    table: null
+    repositoryClass: Zenweb\Accro\ParcBundle\Entity\ExtraRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        description:
+            type: text
+        pricePerUnit:
+            type: decimal
+            column: price_per_unit
+        qtyMin:
+            type: integer
+            column: qty_min
+        visibility:
+            type: boolean
+        status:
+            type: boolean
+    lifecycleCallbacks: {  }
