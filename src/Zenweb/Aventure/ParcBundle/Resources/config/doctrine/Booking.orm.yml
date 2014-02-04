@@ -1,0 +1,22 @@
+Zenweb\Aventure\ParcBundle\Entity\Booking:
+    type: entity
+    table: null
+    repositoryClass: Zenweb\Aventure\ParcBundle\Entity\BookingRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        theDate:
+            type: date
+            column: the_date
+
+    manyToOne:
+        parc:
+          targetEntity: Zenweb\Aventure\ParcBundle\Entity\Parc
+        typicalDay:
+          targetEntity: Zenweb\Aventure\ParcBundle\Entity\TypicalDay
+
+    lifecycleCallbacks: {  }

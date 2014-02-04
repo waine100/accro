@@ -1,0 +1,11 @@
+services:
+    sonata.admin.user:
+        class: Zenweb\Aventure\UserBundle\Admin\UserAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "User" }
+        arguments:
+            - ~
+            - Zenweb\Aventure\UserBundle\Entity\User
+            - ~
+        calls:
+            - [ setTranslationDomain, [ZenwebAventureUserBundle]]

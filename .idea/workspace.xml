@@ -24,92 +24,223 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="TypicalDayAdmin.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Admin/TypicalDayAdmin.php">
+        <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Admin/TypicalDayAdmin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="164" selection-start="2299" selection-end="2299" vertical-scroll-proportion="-38.576923" vertical-offset="153" max-vertical-offset="1326">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TimeSlot.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/TimeSlot.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="179" column="40" selection-start="2952" selection-end="2952" vertical-scroll-proportion="-27.73077" vertical-offset="2322" max-vertical-offset="3230">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="7.304348" vertical-offset="168" max-vertical-offset="1092">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="TimeSlot.orm.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/doctrine/TimeSlot.orm.yml">
+        <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Resources/config/doctrine/TimeSlot.orm.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="33" selection-start="600" selection-end="600" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+            <state line="25" column="28" selection-start="725" selection-end="725" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="448">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Activity.orm.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/doctrine/Activity.orm.yml">
+      <file leaf-file-name="Extra.orm.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Resources/config/doctrine/Extra.orm.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="0" selection-start="545" selection-end="545" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+            <state line="30" column="22" selection-start="711" selection-end="711" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="784">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="calendarstyle.css" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/public/css/calendarstyle.css">
+      <file leaf-file-name="log.txt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/log.txt">
+          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="22" selection-start="124" selection-end="124" vertical-scroll-proportion="0.07447974" vertical-offset="0" max-vertical-offset="6001">
+            <state line="22" column="44" selection-start="252989" selection-end="252989" vertical-scroll-proportion="-6.16" vertical-offset="0" max-vertical-offset="4116">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TypicalDay.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/TypicalDay.php">
+      <file leaf-file-name="Configuration.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/DependencyInjection/Configuration.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="245" column="0" selection-start="3817" selection-end="3817" vertical-scroll-proportion="-23.807692" vertical-offset="3546" max-vertical-offset="4454">
+            <state line="20" column="47" selection-start="654" selection-end="654" vertical-scroll-proportion="-11.565217" vertical-offset="0" max-vertical-offset="476">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TypicalDayRepository.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/TypicalDayRepository.php">
+      <file leaf-file-name="routing.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="1" selection-start="272" selection-end="272" vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="357">
+            <state line="0" column="8" selection-start="8" selection-end="8" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="196">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="services.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Resources/config/services.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="12" selection-start="24" selection-end="24" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="182">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="calendar.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/views/Admin/calendar.html.twig">
+        <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Resources/views/Admin/calendar.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="179" column="58" selection-start="7294" selection-end="7294" vertical-scroll-proportion="-26.576923" vertical-offset="2352" max-vertical-offset="3298">
+            <state line="44" column="39" selection-start="1404" selection-end="1404" vertical-scroll-proportion="-7.9130435" vertical-offset="434" max-vertical-offset="2716">
+              <folding>
+                <marker date="1391505773346" expanded="true" signature="7:5848" placeholder="..." />
+                <marker date="1391505773346" expanded="true" signature="14:299" placeholder="/*...*/" />
+                <marker date="1391505773346" expanded="true" signature="568:621" placeholder="{...}" />
+                <marker date="1391505773346" expanded="true" signature="663:5837" placeholder="{...}" />
+                <marker date="1391505773346" expanded="true" signature="840:911" placeholder="{...}" />
+                <marker date="1391505773346" expanded="true" signature="977:1049" placeholder="{...}" />
+                <marker date="1391505773346" expanded="true" signature="1101:3694" placeholder="{...}" />
+                <marker date="1391505773346" expanded="true" signature="1506:1610" placeholder="{...}" />
+                <marker date="1391505773346" expanded="true" signature="1628:3656" placeholder="{...}" />
+                <marker date="1391505773346" expanded="true" signature="1731:3348" placeholder="{...}" />
+                <marker date="1391505773346" expanded="true" signature="2006:3281" placeholder="{...}" />
+                <marker date="1391505773346" expanded="true" signature="2193:2482" placeholder="{...}" />
+                <marker date="1391505773346" expanded="true" signature="2512:2703" placeholder="{...}" />
+                <marker date="1391505773346" expanded="true" signature="2592:2675" placeholder="{...}" />
+                <marker date="1391505773346" expanded="true" signature="3429:3489" placeholder="{...}" />
+                <marker date="1391505773346" expanded="true" signature="3511:3642" placeholder="{...}" />
+                <marker date="1391505773346" expanded="true" signature="3852:4365" placeholder="{...}" />
+                <marker date="1391505773346" expanded="true" signature="4064:4111" placeholder="{...}" />
+                <marker date="1391505773346" expanded="true" signature="4408:4577" placeholder="{...}" />
+                <marker date="1391505773346" expanded="true" signature="4477:4565" placeholder="{...}" />
+                <marker date="1391505773346" expanded="true" signature="4711:5831" placeholder="{...}" />
+                <marker date="1391505773346" expanded="true" signature="4948:5059" placeholder="{...}" />
+                <marker date="1391505773346" expanded="true" signature="5084:5222" placeholder="{...}" />
+                <marker date="1391505773346" expanded="true" signature="5240:5819" placeholder="{...}" />
+                <marker date="1391505773346" expanded="true" signature="5288:5581" placeholder="{...}" />
+                <marker date="1391505773346" expanded="true" signature="5633:5706" placeholder="{...}" />
+                <marker date="1391505773346" expanded="true" signature="5728:5805" placeholder="{...}" />
+                <marker date="1391505773346" expanded="true" signature="5896:7481" placeholder="..." />
+                <marker date="1391505773346" expanded="true" signature="5919:6289" placeholder="..." />
+                <marker date="1391505773346" expanded="true" signature="5991:6278" placeholder="..." />
+                <marker date="1391505773346" expanded="true" signature="6030:6263" placeholder="..." />
+                <marker date="1391505773346" expanded="true" signature="6316:6415" placeholder="..." />
+                <marker date="1391505773346" expanded="true" signature="6451:6634" placeholder="..." />
+                <marker date="1391505773346" expanded="true" signature="6674:7205" placeholder="..." />
+                <marker date="1391505773346" expanded="true" signature="6705:7194" placeholder="..." />
+                <marker date="1391505773346" expanded="true" signature="6722:6895" placeholder="..." />
+                <marker date="1391505773346" expanded="true" signature="6791:6877" placeholder="..." />
+                <marker date="1391505773346" expanded="true" signature="6956:7152" placeholder="..." />
+                <marker date="1391505773346" expanded="true" signature="7240:7473" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="standard_layout.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Resources/views/Admin/standard_layout.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="57" selection-start="161" selection-end="161" vertical-scroll-proportion="-1.826087" vertical-offset="0" max-vertical-offset="154">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="TimeSlotAdmin.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Admin/TimeSlotAdmin.php">
+        <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Admin/TimeSlotAdmin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="31" selection-start="916" selection-end="916" vertical-scroll-proportion="-6.5" vertical-offset="257" max-vertical-offset="1479">
-              <folding>
-                <element signature="e#48#83#0" expanded="true" />
-              </folding>
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="13.826087" vertical-offset="318" max-vertical-offset="1120">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="admin.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/admin.yml">
+        <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Resources/config/admin.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="57" selection-start="1804" selection-end="1804" vertical-scroll-proportion="0.0" vertical-offset="188" max-vertical-offset="1122">
+            <state line="62" column="61" selection-start="2280" selection-end="2280" vertical-scroll-proportion="0.0" vertical-offset="143" max-vertical-offset="1078">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CouponAdmin.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Admin/CouponAdmin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="92" column="49" selection-start="2722" selection-end="2744" vertical-scroll-proportion="-20.217392" vertical-offset="725" max-vertical-offset="1638">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActivityAdmin.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Admin/ActivityAdmin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="69" column="33" selection-start="1725" selection-end="1725" vertical-scroll-proportion="-25.47826" vertical-offset="282" max-vertical-offset="1050">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Configuration.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/UserBundle/DependencyInjection/Configuration.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="47" selection-start="654" selection-end="654" vertical-scroll-proportion="-11.565217" vertical-offset="0" max-vertical-offset="476">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routing.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/UserBundle/Resources/config/routing.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="8" selection-start="8" selection-end="8" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="378">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="services.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/UserBundle/Resources/config/services.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="12" selection-start="24" selection-end="24" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="182">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ZenwebAventureParcExtension.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/DependencyInjection/ZenwebAventureParcExtension.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="17" selection-start="24" selection-end="24" vertical-scroll-proportion="-1.2173913" vertical-offset="0" max-vertical-offset="434">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CouponRepository.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Entity/CouponRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="17" selection-start="24" selection-end="24" vertical-scroll-proportion="-1.2173913" vertical-offset="0" max-vertical-offset="294">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Extra.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Entity/Extra.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="44" column="19" selection-start="521" selection-end="527" vertical-scroll-proportion="-26.782608" vertical-offset="0" max-vertical-offset="3990">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExtraAdmin.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Admin/ExtraAdmin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="75" column="38" selection-start="2031" selection-end="2031" vertical-scroll-proportion="0.84375" vertical-offset="304" max-vertical-offset="1148">
               <folding />
             </state>
           </provider>
@@ -125,49 +256,36 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Dp/CalendarBundle/Controller/DefaultController.php" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/views/Default/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/views/Block/block/block_calendar.html.twig" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/services.yml" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Block/AdminCalendarBlockService.php" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/views/Admin/Calendar/calendar.html.twig" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/views/Block/block_calendar.html.twig" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/views/Admin/standard_layout.html.twig" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/TypicalDay.php" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Admin/TypicalDayAdmin.php" />
-        <option value="$PROJECT_DIR$/src/Dp/CalendarBundle/Entity/Booking.php" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/doctrine/Booking.orm.yml" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/Dp/CalendarBundle/Entity/BookingRepository.php" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/BookingRepository.php" />
         <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Controller/CalendarController.php" />
-        <option value="$PROJECT_DIR$/web/app_dev.php" />
-        <option value="$PROJECT_DIR$/app/AppKernel.php" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/UserBundle/Entity/User.php" />
-        <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
-        <option value="$PROJECT_DIR$/app/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/doctrine/Activity.orm.yml" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Admin/Activity.php" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Admin/ActivityAdmin.php" />
+        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Controller/DefaultController.php" />
+        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/DependencyInjection/ZenwebAccroParcExtension.php" />
         <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/Activity.php" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/admin.yml" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/TimeSlot.php" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Admin/TimeSlotAdmin.php" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/doctrine/TypicalDay.orm.yml" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/doctrine/TimeSlot.orm.yml" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/TypicalDayRepository.php" />
+        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/ActivityRepository.php" />
+        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/Booking.php" />
+        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/BookingRepository.php" />
+        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/Coupon.php" />
+        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/CouponRepository.php" />
+        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/Extra.php" />
+        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/DependencyInjection/Configuration.php" />
+        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/routing.yml" />
+        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/services.yml" />
         <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/views/Admin/calendar.html.twig" />
-        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/public/css/calendarstyle.css" />
+        <option value="$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/views/Admin/standard_layout.html.twig" />
+        <option value="$PROJECT_DIR$/src/Zenweb/Accro/UserBundle/DependencyInjection/Configuration.php" />
+        <option value="$PROJECT_DIR$/src/Zenweb/Accro/UserBundle/Resources/config/routing.yml" />
+        <option value="$PROJECT_DIR$/src/Zenweb/Accro/UserBundle/Resources/config/services.yml" />
+        <option value="$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Resources/config/doctrine/Extra.orm.yml" />
+        <option value="$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Resources/config/admin.yml" />
+        <option value="$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Admin/ExtraAdmin.php" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+    <option name="x" value="1672" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1066" />
+    <option name="width" value="1296" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -209,7 +327,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="accro" />
+              <option name="myItemId" value="Accro" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -219,7 +337,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="accro" />
+              <option name="myItemId" value="Accro" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -233,29 +351,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="accro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zenweb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Accro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Accro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="accro" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -267,7 +363,361 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Aventure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zenweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Aventure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zenweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Aventure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Default" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zenweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Aventure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="translations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zenweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Aventure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zenweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Aventure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zenweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Aventure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zenweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Aventure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Entity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zenweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Aventure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyInjection" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zenweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Aventure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zenweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Aventure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zenweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Aventure" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -281,7 +731,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="accro" />
+              <option name="myItemId" value="Accro" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -293,7 +743,71 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Aventure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ParcBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zenweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Aventure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ParcBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zenweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Aventure" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -308,6 +822,10 @@
               <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Default" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -315,7 +833,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="accro" />
+              <option name="myItemId" value="Accro" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -327,7 +845,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Accro" />
+              <option name="myItemId" value="Aventure" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -338,6 +856,14 @@
               <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Block" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -345,7 +871,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="accro" />
+              <option name="myItemId" value="Accro" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -357,7 +883,79 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Aventure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ParcBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zenweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Aventure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ParcBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="translations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zenweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Aventure" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -379,7 +977,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="accro" />
+              <option name="myItemId" value="Accro" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -391,7 +989,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Accro" />
+              <option name="myItemId" value="Aventure" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -403,11 +1001,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="doc" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -417,7 +1011,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="accro" />
+              <option name="myItemId" value="Accro" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -429,7 +1023,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Accro" />
+              <option name="myItemId" value="Aventure" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -451,7 +1045,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="accro" />
+              <option name="myItemId" value="Accro" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -463,7 +1057,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Accro" />
+              <option name="myItemId" value="Aventure" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -489,11 +1083,27 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="accro" />
+              <option name="myItemId" value="Accro" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zenweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Aventure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ParcBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Entity" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -503,15 +1113,57 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="accro" />
+              <option name="myItemId" value="Accro" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="Zenweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Aventure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ParcBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyInjection" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zenweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Aventure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ParcBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -534,11 +1186,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Projets\Accro\src\Zenweb\Aventure\ParcBundle\Admin" />
       <recent name="F:\projects\aventure\accro\src\Zenweb\Accro\ParcBundle\Admin" />
       <recent name="E:\Projets\Accro\src\Zenweb\Accro\ParcBundle\Resources\public\images" />
       <recent name="E:\Projets\Accro\src\Zenweb\Accro\ParcBundle\Resources\views\Admin" />
       <recent name="E:\Projets\Accro\src\Zenweb\Accro\ParcBundle\Resources\public\css" />
-      <recent name="E:\Projets\Accro\src\Zenweb\Accro\ParcBundle\Resources\views\Admin\Calendar" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Projets\Accro\src\Zenweb\Accro\ParcBundle\Resources\views\Admin" />
@@ -588,12 +1240,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
+    <frame x="1672" y="-8" width="1296" height="1040" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32708332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32690248" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -601,8 +1253,8 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22395833" sideWeight="0.22291666" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22395833" sideWeight="0.7760417" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2996769" sideWeight="0.22352941" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2996769" sideWeight="0.7764706" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -613,7 +1265,7 @@
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
-    <option name="RECENTLY_FILTERED_USER_GROUPS">
+    <option name="RECENTLY_FILTERED_USERS">
       <collection />
     </option>
   </component>
@@ -630,343 +1282,192 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/Parc.php">
+    <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Entity/Coupon.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="172" column="5" selection-start="2286" selection-end="2414" vertical-scroll-proportion="0.0" vertical-offset="2924" max-vertical-offset="3060">
+        <state line="2" column="17" selection-start="24" selection-end="24" vertical-scroll-proportion="-1.2173913" vertical-offset="0" max-vertical-offset="6328">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/doctrine/TypicalDay.orm.yml">
+    <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Entity/CouponRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="22" selection-start="638" selection-end="638" vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="578">
+        <state line="2" column="17" selection-start="24" selection-end="24" vertical-scroll-proportion="-1.2173913" vertical-offset="0" max-vertical-offset="294">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/views/Block/block_calendar.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/DependencyInjection/Configuration.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="60" selection-start="60" selection-end="60" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
+        <state line="20" column="47" selection-start="654" selection-end="654" vertical-scroll-proportion="-11.565217" vertical-offset="0" max-vertical-offset="476">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/public/css/calendarstyle.css">
+    <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="228" column="0" selection-start="4432" selection-end="4432" vertical-scroll-proportion="0.0" vertical-offset="3876" max-vertical-offset="6018">
+        <state line="0" column="8" selection-start="8" selection-end="8" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="560">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/doctrine/Coupon.orm.yml">
+    <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Resources/config/services.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="59" selection-start="1303" selection-end="1387" vertical-scroll-proportion="0.0" vertical-offset="901" max-vertical-offset="1037">
+        <state line="1" column="12" selection-start="24" selection-end="24" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="182">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/CouponRepository.php">
+    <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Resources/views/Admin/calendar.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+        <state line="44" column="39" selection-start="1404" selection-end="1404" vertical-scroll-proportion="-7.9130435" vertical-offset="434" max-vertical-offset="2716">
+          <folding>
+            <marker date="1391505773346" expanded="true" signature="7:5848" placeholder="..." />
+            <marker date="1391505773346" expanded="true" signature="14:299" placeholder="/*...*/" />
+            <marker date="1391505773346" expanded="true" signature="568:621" placeholder="{...}" />
+            <marker date="1391505773346" expanded="true" signature="663:5837" placeholder="{...}" />
+            <marker date="1391505773346" expanded="true" signature="840:911" placeholder="{...}" />
+            <marker date="1391505773346" expanded="true" signature="977:1049" placeholder="{...}" />
+            <marker date="1391505773346" expanded="true" signature="1101:3694" placeholder="{...}" />
+            <marker date="1391505773346" expanded="true" signature="1506:1610" placeholder="{...}" />
+            <marker date="1391505773346" expanded="true" signature="1628:3656" placeholder="{...}" />
+            <marker date="1391505773346" expanded="true" signature="1731:3348" placeholder="{...}" />
+            <marker date="1391505773346" expanded="true" signature="2006:3281" placeholder="{...}" />
+            <marker date="1391505773346" expanded="true" signature="2193:2482" placeholder="{...}" />
+            <marker date="1391505773346" expanded="true" signature="2512:2703" placeholder="{...}" />
+            <marker date="1391505773346" expanded="true" signature="2592:2675" placeholder="{...}" />
+            <marker date="1391505773346" expanded="true" signature="3429:3489" placeholder="{...}" />
+            <marker date="1391505773346" expanded="true" signature="3511:3642" placeholder="{...}" />
+            <marker date="1391505773346" expanded="true" signature="3852:4365" placeholder="{...}" />
+            <marker date="1391505773346" expanded="true" signature="4064:4111" placeholder="{...}" />
+            <marker date="1391505773346" expanded="true" signature="4408:4577" placeholder="{...}" />
+            <marker date="1391505773346" expanded="true" signature="4477:4565" placeholder="{...}" />
+            <marker date="1391505773346" expanded="true" signature="4711:5831" placeholder="{...}" />
+            <marker date="1391505773346" expanded="true" signature="4948:5059" placeholder="{...}" />
+            <marker date="1391505773346" expanded="true" signature="5084:5222" placeholder="{...}" />
+            <marker date="1391505773346" expanded="true" signature="5240:5819" placeholder="{...}" />
+            <marker date="1391505773346" expanded="true" signature="5288:5581" placeholder="{...}" />
+            <marker date="1391505773346" expanded="true" signature="5633:5706" placeholder="{...}" />
+            <marker date="1391505773346" expanded="true" signature="5728:5805" placeholder="{...}" />
+            <marker date="1391505773346" expanded="true" signature="5896:7481" placeholder="..." />
+            <marker date="1391505773346" expanded="true" signature="5919:6289" placeholder="..." />
+            <marker date="1391505773346" expanded="true" signature="5991:6278" placeholder="..." />
+            <marker date="1391505773346" expanded="true" signature="6030:6263" placeholder="..." />
+            <marker date="1391505773346" expanded="true" signature="6316:6415" placeholder="..." />
+            <marker date="1391505773346" expanded="true" signature="6451:6634" placeholder="..." />
+            <marker date="1391505773346" expanded="true" signature="6674:7205" placeholder="..." />
+            <marker date="1391505773346" expanded="true" signature="6705:7194" placeholder="..." />
+            <marker date="1391505773346" expanded="true" signature="6722:6895" placeholder="..." />
+            <marker date="1391505773346" expanded="true" signature="6791:6877" placeholder="..." />
+            <marker date="1391505773346" expanded="true" signature="6956:7152" placeholder="..." />
+            <marker date="1391505773346" expanded="true" signature="7240:7473" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Resources/views/Admin/standard_layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="57" selection-start="161" selection-end="161" vertical-scroll-proportion="-1.826087" vertical-offset="0" max-vertical-offset="154">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dp/CalendarBundle/Resources/views/Default/indexAdmin.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/UserBundle/DependencyInjection/Configuration.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="251" selection-end="338" vertical-scroll-proportion="-5.478261" vertical-offset="0" max-vertical-offset="238" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dp/CalendarBundle/Resources/views/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="137" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="238" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dp/CalendarBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="339" selection-end="454" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="392" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/translations/ZenwebAccroParcBundle.fr.xlf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="33" selection-start="2883" selection-end="2883" vertical-scroll-proportion="-20.173914" vertical-offset="460" max-vertical-offset="1358" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/views/Admin/standard_layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="14" selection-start="226" selection-end="226" vertical-scroll-proportion="-2.4347825" vertical-offset="0" max-vertical-offset="154" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dp/CalendarBundle/Controller/BookingController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2562" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dp/CalendarBundle/Entity/Booking.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="12" selection-start="442" selection-end="442" vertical-scroll-proportion="-6.695652" vertical-offset="0" max-vertical-offset="1456" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dp/CalendarBundle/Entity/BookingRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="261" selection-end="261" vertical-scroll-proportion="0.23333333" vertical-offset="0" max-vertical-offset="840" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/BookingRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="44" selection-start="695" selection-end="695" vertical-scroll-proportion="-14.608696" vertical-offset="0" max-vertical-offset="476" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dp/CalendarBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="328" column="5" selection-start="12628" selection-end="13840" vertical-scroll-proportion="-31.086956" vertical-offset="3765" max-vertical-offset="4592" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/app_dev.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="110" selection-start="691" selection-end="691" vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="595">
+        <state line="20" column="47" selection-start="654" selection-end="654" vertical-scroll-proportion="-11.565217" vertical-offset="0" max-vertical-offset="476">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/logs/dev.log">
+    <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/UserBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="8" selection-start="8" selection-end="8" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="539">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/UserBundle/Resources/config/services.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="12" selection-start="24" selection-end="24" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="182">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/DependencyInjection/ZenwebAventureParcExtension.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="17" selection-start="24" selection-end="24" vertical-scroll-proportion="-1.2173913" vertical-offset="0" max-vertical-offset="434">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Resources/config/doctrine/TimeSlot.orm.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="28" selection-start="725" selection-end="725" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="448">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log.txt">
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3371" column="80" selection-start="639979" selection-end="639979" vertical-scroll-proportion="206.56" vertical-offset="62471" max-vertical-offset="63563">
+        <state line="22" column="44" selection-start="252989" selection-end="252989" vertical-scroll-proportion="-6.16" vertical-offset="0" max-vertical-offset="4116">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
+    <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Resources/config/doctrine/Extra.orm.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="67" selection-start="1399" selection-end="1399" vertical-scroll-proportion="-5.6538463" vertical-offset="346" max-vertical-offset="1088">
+        <state line="30" column="22" selection-start="711" selection-end="711" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="784">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/sonata-project/user-bundle/Sonata/UserBundle/Entity/BaseUser.php">
+    <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Resources/config/admin.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="4" selection-start="289" selection-end="317" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="867">
-          <folding>
-            <element signature="e#285#336#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/sonata-project/user-bundle/Sonata/UserBundle/Model/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="0" selection-start="1241" selection-end="1241" vertical-scroll-proportion="-14.384615" vertical-offset="765" max-vertical-offset="9673">
+        <state line="62" column="61" selection-start="2280" selection-end="2280" vertical-scroll-proportion="0.0" vertical-offset="143" max-vertical-offset="1078">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/UserBundle/Entity/User.php">
+    <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Entity/Extra.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="14" selection-start="539" selection-end="539" vertical-scroll-proportion="-10.423077" vertical-offset="273" max-vertical-offset="867">
+        <state line="44" column="19" selection-start="521" selection-end="527" vertical-scroll-proportion="-26.782608" vertical-offset="0" max-vertical-offset="3990">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/UserBundle/Resources/config/doctrine/User.orm.yml">
+    <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Admin/TimeSlotAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="620">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="13.826087" vertical-offset="318" max-vertical-offset="1120">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
+    <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Admin/TypicalDayAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="45" selection-start="784" selection-end="788" vertical-scroll-proportion="3.9230769" vertical-offset="459" max-vertical-offset="1071">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="7.304348" vertical-offset="168" max-vertical-offset="1092">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+    <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Admin/CouponAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="620">
+        <state line="92" column="49" selection-start="2722" selection-end="2744" vertical-scroll-proportion="-20.217392" vertical-offset="725" max-vertical-offset="1638">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+    <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Admin/ActivityAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="1" selection-start="542" selection-end="542" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
+        <state line="69" column="33" selection-start="1725" selection-end="1725" vertical-scroll-proportion="-25.47826" vertical-offset="282" max-vertical-offset="1050">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Controller/CalendarController.php">
+    <entry file="file://$PROJECT_DIR$/src/Zenweb/Aventure/ParcBundle/Admin/ExtraAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="52" selection-start="6605" selection-end="6605" vertical-scroll-proportion="0.6923077" vertical-offset="2569" max-vertical-offset="4590">
-          <folding>
-            <element signature="e#54#111#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/doctrine/Coupon.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="59" selection-start="1303" selection-end="1387" vertical-scroll-proportion="1.4532259" vertical-offset="0" max-vertical-offset="1037">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/doctrine/Parc.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="22" selection-start="305" selection-end="309" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/doctrine/Booking.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="65" selection-start="350" selection-end="520" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="34" selection-start="351" selection-end="351" vertical-scroll-proportion="0.127409" vertical-offset="0" max-vertical-offset="934">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/services.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="934">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/validation.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="95" selection-end="95" vertical-scroll-proportion="0.07280514" vertical-offset="0" max-vertical-offset="934">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="25" selection-start="2379" selection-end="2379" vertical-scroll-proportion="1.4925053" vertical-offset="0" max-vertical-offset="1870">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Admin/CouponAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="121" selection-start="3719" selection-end="3799" vertical-scroll-proportion="-23.961538" vertical-offset="1094" max-vertical-offset="1989">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Admin/ActivityAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="46" selection-start="1804" selection-end="1804" vertical-scroll-proportion="-27.076923" vertical-offset="486" max-vertical-offset="1394">
-          <folding>
-            <element signature="e#48#83#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/Booking.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="29" selection-start="1187" selection-end="1187" vertical-scroll-proportion="-51.0" vertical-offset="0" max-vertical-offset="1989">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/Coupon.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="444" column="5" selection-start="6629" selection-end="6815" vertical-scroll-proportion="-29.692308" vertical-offset="6776" max-vertical-offset="7684">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/Activity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="179" column="5" selection-start="2583" selection-end="2583" vertical-scroll-proportion="-33.615383" vertical-offset="2169" max-vertical-offset="3179">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/admin.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="57" selection-start="1804" selection-end="1804" vertical-scroll-proportion="0.0" vertical-offset="188" max-vertical-offset="1122">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Admin/TimeSlotAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="31" selection-start="916" selection-end="916" vertical-scroll-proportion="-6.5" vertical-offset="257" max-vertical-offset="1479">
-          <folding>
-            <element signature="e#48#83#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Admin/TypicalDayAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="164" selection-start="2299" selection-end="2299" vertical-scroll-proportion="-38.576923" vertical-offset="153" max-vertical-offset="1326">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/doctrine/TypicalDay.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="32" selection-start="741" selection-end="741" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/doctrine/Activity.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="545" selection-end="545" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/config/doctrine/TimeSlot.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="33" selection-start="600" selection-end="600" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/TimeSlot.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="179" column="40" selection-start="2952" selection-end="2952" vertical-scroll-proportion="-27.73077" vertical-offset="2322" max-vertical-offset="3230">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/TypicalDayRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="1" selection-start="272" selection-end="272" vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="357">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Entity/TypicalDay.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="245" column="0" selection-start="3817" selection-end="3817" vertical-scroll-proportion="-23.807692" vertical-offset="3546" max-vertical-offset="4454">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/views/Admin/calendar.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="179" column="58" selection-start="7294" selection-end="7294" vertical-scroll-proportion="-26.576923" vertical-offset="2352" max-vertical-offset="3298">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zenweb/Accro/ParcBundle/Resources/public/css/calendarstyle.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="22" selection-start="124" selection-end="124" vertical-scroll-proportion="0.07447974" vertical-offset="0" max-vertical-offset="6001">
+        <state line="75" column="38" selection-start="2031" selection-end="2031" vertical-scroll-proportion="0.84375" vertical-offset="304" max-vertical-offset="1148">
           <folding />
         </state>
       </provider>

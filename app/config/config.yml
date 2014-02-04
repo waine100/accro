@@ -1,8 +1,8 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-    - { resource: @ZenwebAccroUserBundle/Resources/config/admin.yml }
-    - { resource: @ZenwebAccroParcBundle/Resources/config/admin.yml }
+    - { resource: @ZenwebAventureUserBundle/Resources/config/admin.yml }
+    - { resource: @ZenwebAventureParcBundle/Resources/config/admin.yml }
 
 framework:
     #esi:             ~
@@ -90,9 +90,9 @@ sonata_block:
         sonata.block.service.calendar: ~
 
 sonata_admin:
-    title: Accro Administration
+    title: Aventure Administration
     templates:
-       layout: ZenwebAccroParcBundle:Admin:standard_layout.html.twig
+       layout: ZenwebAventureParcBundle:Admin:standard_layout.html.twig
     dashboard:
         blocks:
             # display a dashboard block

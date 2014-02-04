@@ -1,0 +1,4 @@
+{% extends 'SonataBlockBundle:Block:block_base.html.twig' %}
+{% block block %}
+    {{ render(controller('ZenwebAventureParcBundle:Calendar:calendarDisplay', { 'admin': true })) }}
+{% endblock %}

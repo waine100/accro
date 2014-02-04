@@ -1,0 +1,25 @@
+Zenweb\Aventure\ParcBundle\Entity\Activity:
+    type: entity
+    table: null
+    repositoryClass: Zenweb\Aventure\ParcBundle\Entity\ActivityRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        description:
+            type: text
+        capacity:
+            type: integer
+        qtyMin:
+            type: integer
+            column: qty_min
+        visibility:
+            type: boolean
+
+    lifecycleCallbacks: {  }

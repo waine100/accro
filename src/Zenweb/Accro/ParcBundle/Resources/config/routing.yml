@@ -1,9 +1,0 @@
-#zenweb_accro_parc_homepage:
-#    pattern:  /hello/{name}
-#    defaults: { _controller: ZenwebAccroParcBundle:Default:index }
-zenweb_accro_parc_calendar_ajax_admin:
-    pattern:  /admin/calendar/ajax_admin
-    defaults: { _controller: ZenwebAccroParcBundle:Calendar:ajaxAdmin }
-zenweb_accro_parc_calendar_admin_load:
-    pattern:  /admin/calendar/load
-    defaults: { _controller: ZenwebAccroParcBundle:Calendar:load }

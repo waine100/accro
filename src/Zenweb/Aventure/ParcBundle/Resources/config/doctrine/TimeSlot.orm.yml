@@ -1,0 +1,26 @@
+Zenweb\Aventure\ParcBundle\Entity\TimeSlot:
+    type: entity
+    table: null
+    repositoryClass: Zenweb\Aventure\ParcBundle\Entity\TimeSlotRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        beginTime:
+            type: time
+            column: begin_time
+        endTime:
+            type: time
+            column: end_time
+        capacity:
+            type: integer
+    manyToOne:
+        typicalDay:
+            targetEntity: Zenweb\Aventure\ParcBundle\Entity\TypicalDay
+            inversedBy: TimeSlots
+        activity:
+            targetEntity: Zenweb\Aventure\ParcBundle\Entity\Activity
+    lifecycleCallbacks: {  }

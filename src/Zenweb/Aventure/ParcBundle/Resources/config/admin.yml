@@ -1,0 +1,72 @@
+services:
+    sonata.admin.parc:
+        class: Zenweb\Aventure\ParcBundle\Admin\ParcAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Parcs", label: "Parcs" }
+        arguments:
+            - ~
+            - Zenweb\Aventure\ParcBundle\Entity\Parc
+            - ~
+        calls:
+            - [ setTranslationDomain, [ZenwebAventureParcBundle]]
+
+    sonata.admin.coupon:
+        class: Zenweb\Aventure\ParcBundle\Admin\CouponAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Promotions", label: "Coupon" }
+        arguments:
+            - ~
+            - Zenweb\Aventure\ParcBundle\Entity\Coupon
+            - ~
+        calls:
+            - [ setTranslationDomain, [ZenwebAventureParcBundle]]
+
+    sonata.admin.typicalday:
+        class: Zenweb\Aventure\ParcBundle\Admin\TypicalDayAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Parcs", label: "Journée type" }
+        arguments:
+            - ~
+            - Zenweb\Aventure\ParcBundle\Entity\TypicalDay
+            - ~
+        calls:
+            - [ setTranslationDomain, [ZenwebAventureParcBundle]]
+
+    sonata.admin.activity:
+        class: Zenweb\Aventure\ParcBundle\Admin\ActivityAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Parcs", label: "Activité" }
+        arguments:
+            - ~
+            - Zenweb\Aventure\ParcBundle\Entity\Activity
+            - ~
+        calls:
+            - [ setTranslationDomain, [ZenwebAventureParcBundle]]
+
+    sonata.admin.timeslot:
+            class: Zenweb\Aventure\ParcBundle\Admin\TimeSlotAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: "Parcs", label: "Créneau" }
+            arguments:
+                - ~
+                - Zenweb\Aventure\ParcBundle\Entity\TimeSlot
+                - ~
+            calls:
+                - [ setTranslationDomain, [ZenwebAventureParcBundle]]
+
+    sonata.admin.extra:
+                class: Zenweb\Aventure\ParcBundle\Admin\ExtraAdmin
+                tags:
+                    - { name: sonata.admin, manager_type: orm, group: "Parcs", label: "Options" }
+                arguments:
+                    - ~
+                    - Zenweb\Aventure\ParcBundle\Entity\Extra
+                    - ~
+                calls:
+                    - [ setTranslationDomain, [ZenwebAventureParcBundle]]
+
+    sonata.block.service.calendar:
+        class: Zenweb\Aventure\ParcBundle\Block\AdminCalendarBlockService
+        arguments: [ "sonata.block.service.calendar", @templating ]
+        tags:
+            - { name: sonata.block }

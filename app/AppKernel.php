@@ -33,8 +33,8 @@ class AppKernel extends Kernel
             /**
              * Zenweb Bundles
              */
-            new Zenweb\Accro\UserBundle\ZenwebAccroUserBundle(),
-            new Zenweb\Accro\ParcBundle\ZenwebAccroParcBundle(),
+            new Zenweb\Aventure\UserBundle\ZenwebAventureUserBundle(),
+            new Zenweb\Aventure\ParcBundle\ZenwebAventureParcBundle(),
 
             /**
              * Third party bundles

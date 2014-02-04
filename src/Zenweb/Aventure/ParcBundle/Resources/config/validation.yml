@@ -1,0 +1,4 @@
+Zenweb\Aventure\ParcBundle\Entity\Coupon:
+    properties:
+        name:
+            - NotBlank: ~
