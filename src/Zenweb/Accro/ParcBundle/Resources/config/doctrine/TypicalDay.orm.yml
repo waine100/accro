@@ -25,4 +25,10 @@ Zenweb\Accro\ParcBundle\Entity\TypicalDay:
         color:
             type: string
             length: 25
+
+    oneToMany:
+        TimeSlots:
+            targetEntity: TimeSlot
+            mappedBy: typicalDay
+
     lifecycleCallbacks: {  }

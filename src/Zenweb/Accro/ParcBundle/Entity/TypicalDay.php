@@ -208,4 +208,49 @@ class TypicalDay
     {
         return $this->name;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $TimeSlots;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->TimeSlots = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add TimeSlots
+     *
+     * @param \Zenweb\Accro\ParcBundle\Entity\TimeSlot $timeSlots
+     * @return TypicalDay
+     */
+    public function addTimeSlot(\Zenweb\Accro\ParcBundle\Entity\TimeSlot $timeSlots)
+    {
+        $this->TimeSlots[] = $timeSlots;
+
+        return $this;
+    }
+
+    /**
+     * Remove TimeSlots
+     *
+     * @param \Zenweb\Accro\ParcBundle\Entity\TimeSlot $timeSlots
+     */
+    public function removeTimeSlot(\Zenweb\Accro\ParcBundle\Entity\TimeSlot $timeSlots)
+    {
+        $this->TimeSlots->removeElement($timeSlots);
+    }
+
+    /**
+     * Get TimeSlots
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTimeSlots()
+    {
+        return $this->TimeSlots;
+    }
 }

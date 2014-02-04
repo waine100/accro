@@ -32,6 +32,28 @@ services:
         calls:
             - [ setTranslationDomain, [ZenwebAccroParcBundle]]
 
+    sonata.admin.activity:
+        class: Zenweb\Accro\ParcBundle\Admin\ActivityAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Parcs", label: "Activité" }
+        arguments:
+            - ~
+            - Zenweb\Accro\ParcBundle\Entity\Activity
+            - ~
+        calls:
+            - [ setTranslationDomain, [ZenwebAccroParcBundle]]
+
+    sonata.admin.timeslot:
+            class: Zenweb\Accro\ParcBundle\Admin\TimeSlotAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: "Parcs", label: "Créneau" }
+            arguments:
+                - ~
+                - Zenweb\Accro\ParcBundle\Entity\TimeSlot
+                - ~
+            calls:
+                - [ setTranslationDomain, [ZenwebAccroParcBundle]]
+
     sonata.block.service.calendar:
         class: Zenweb\Accro\ParcBundle\Block\AdminCalendarBlockService
         arguments: [ "sonata.block.service.calendar", @templating ]
