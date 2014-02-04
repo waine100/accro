@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 use Zenweb\Accro\ParcBundle\Entity\Booking;
+use Zenweb\Accro\ParcBundle\Util\Date;
 
 class CalendarController extends Controller
 {
@@ -31,8 +32,6 @@ class CalendarController extends Controller
             'month'       => $month,
             'day'         => $day,
             'admin'       => $admin,
-            'items'       => $items,
-            'item'        => $item,
             'parcs'       => $parcs,
             'typicalDays' => $typicalDays,
         ));
@@ -114,6 +113,11 @@ class CalendarController extends Controller
 
     public function loadAction() //controller called via ajax to fill calendar for a specific month, year and item
     {
+        /**
+         * @TODO use symfo locale
+         */
+        $dateUtil = new Date();
+
         $oneday = new \DateInterval('P1D');
 
         $em = $this->getDoctrine()->getManager();
@@ -147,11 +151,11 @@ class CalendarController extends Controller
 
         $return = '';
 
-        $current_month = $this->getMonth($monthKey);
+        $current_month = $dateUtil->getMonth($monthKey);
         $title         = htmlentities($current_month . " " . $yearKey, ENT_QUOTES);
         $return .= '"current_month" : "' . $title . '" , ';
 
-        $previous_month      = $this->getOtherMonth($monthKey, $yearKey, -1); //needed to calculate the number of days of previous month
+        $previous_month      = $dateUtil->getOtherMonth($monthKey, $yearKey, -1); //needed to calculate the number of days of previous month
         $days_previous_month = date('t', mktime(0, 0, 0, $previous_month[$monthKey], 1, $previous_month[$yearKey])); //number of days of the previous month, used to populate the calendar cells corresponding to the previous month.
         $return .= '"days_previous_month" : "' . $days_previous_month . '" , ';
 
@@ -161,7 +165,7 @@ class CalendarController extends Controller
         $tab_class  = array();
         $tab_dates  = array();
 
-        $num_day         = $this->getFirstDay($monthKey, $yearKey);
+        $num_day         = $dateUtil->getFirstDay($monthKey, $yearKey);
         $count           = 1;
         $num_day_current = 1;
         $nb_days_prev    = 0;
@@ -223,42 +227,5 @@ class CalendarController extends Controller
         $return = '{"responseCode" : "200", ' . $return;
 
         return new Response($return, 200, array('Content-Type' => 'application/json')); //make sure it has the correct content type
-    }
-
-
-    /**
-     * TODO MOVE TO HELPER
-     *
-     */
-
-
-
-    
-    //Function returning the name of the month based on its number - accents are javascript encoded
-    function getMonth($monthKey)
-    {
-        $monthKey = sprintf("%d", $monthKey);
-        $tab_mois = array(1 => "Janvier", "F\351vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Ao\373t", "Septembre", "Octobre", "Novembre", "D\351cembre");
-        return $tab_mois[$monthKey];
-    }
-
-    //Function returning following or previous month and year based on $pas
-    function getOtherMonth($monthKey, $yearKey, $pas)
-    {
-        $tmstp_suivant            = mktime(0, 0, 0, ($monthKey + $pas), 1, $yearKey);
-        $date_suivante[$monthKey] = date("m", $tmstp_suivant);
-        $date_suivante[$yearKey]  = date("Y", $tmstp_suivant);
-        return $date_suivante;
-    }
-
-    //Function returning the first day of the month
-    function getFirstDay($monthKey, $yearKey)
-    {
-        $tmstp  = mktime(0, 0, 0, $monthKey, 1, $yearKey);
-        $dayKey = date("w", $tmstp);
-
-        $tab_jour = array(0 => 7, 1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6); //This is for calendars with weeks starting on Mondays. Sunday returns a 0 which must be changed to 7
-
-        return $tab_jour[$dayKey]; //for calendars with weeks starting on Sundays, just return $dayKey.
     }
 }
