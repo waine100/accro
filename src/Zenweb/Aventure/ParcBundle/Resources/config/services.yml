@@ -5,3 +5,7 @@ services:
 #    zenweb_aventure_parc.example:
 #        class: %zenweb_aventure_parc.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+    zenweb_aventure_parc.form.admin.flow.create.order:
+        class: Zenweb\Aventure\ParcBundle\Form\Admin\CreateOrderFlow
+        parent: craue.form.flow
+        scope: request

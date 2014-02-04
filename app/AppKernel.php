@@ -39,7 +39,9 @@ class AppKernel extends Kernel
             /**
              * Third party bundles
              */
-            new Dp\CalendarBundle\DpCalendarBundle()
+            new Dp\CalendarBundle\DpCalendarBundle(),
+            new Craue\FormFlowBundle\CraueFormFlowBundle(),
+            new Genemu\Bundle\FormBundle\GenemuFormBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

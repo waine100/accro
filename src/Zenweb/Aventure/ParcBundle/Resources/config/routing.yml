@@ -7,3 +7,9 @@ zenweb_aventure_parc_calendar_ajax_admin:
 zenweb_aventure_parc_calendar_admin_load:
     pattern:  /admin/calendar/load
     defaults: { _controller: ZenwebAventureParcBundle:Calendar:load }
+zenweb_aventure_parc_order_create_form:
+    pattern:  /admin/order/create
+    defaults: { _controller: ZenwebAventureParcBundle:Admin/Order:createOrder }
+zenweb_aventure_parc_orders:
+    pattern:  /admin/order
+    defaults: { _controller: ZenwebAventureParcBundle:Admin/Order:list }

@@ -1,0 +1,18 @@
+Zenweb\Aventure\ParcBundle\Entity\Orders:
+    type: entity
+    table: null
+    repositoryClass: Zenweb\Aventure\ParcBundle\Entity\OrdersRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        parc:
+            type: string
+            length: 255
+        reservationDate:
+            type: date
+            column: reservation_date
+    lifecycleCallbacks: {  }
