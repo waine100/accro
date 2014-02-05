@@ -1,18 +1,26 @@
-<div>
-    Steps:
-    {% include 'CraueFormFlowBundle:FormFlow:stepList.html.twig' %}
-</div>
-<form method="post" {{ form_enctype(form) }}>
-    {{ form_errors(form) }}
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+{% block top_bar_after_nav %}
+    <li>
+        <a href="{{ path('zenweb_aventure_parc_order_create_form') }}">Create an order</a>
+    </li>
+{% endblock %}
+{% block sonata_page_content %}
+    <div>
+        Steps:
+        {% include 'CraueFormFlowBundle:FormFlow:stepList.html.twig' %}
+    </div>
+    <form method="post" {{ form_enctype(form) }}>
+        {{ form_errors(form) }}
 
-    {% if flow.getCurrentStepNumber() == 1 %}
-        <div>
-            When selecting four wheels you have to choose the engine in the next step.<br />
-            {{ form_row(form.parc) }}
-        </div>
-    {% endif %}
+        {% if flow.getCurrentStepNumber() == 1 %}
+            <div>
+                When selecting four wheels you have to choose the engine in the next step.<br />
+                {{ form_row(form.parc) }}
+            </div>
+        {% endif %}
 
-    {{ form_rest(form) }}
+        {{ form_rest(form) }}
 
-    {% include 'CraueFormFlowBundle:FormFlow:buttons.html.twig' %}
-</form>
+        {% include 'CraueFormFlowBundle:FormFlow:buttons.html.twig' %}
+    </form>
+{% endblock %}

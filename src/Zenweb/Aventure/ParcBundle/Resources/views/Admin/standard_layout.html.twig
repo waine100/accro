@@ -3,3 +3,8 @@
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('bundles/zenwebaventureparc/css/calendarstyle.css') }}" media="all">
 {% endblock %}
+{% block top_bar_after_nav %}
+    <li>
+        <a href="{{ path('zenweb_aventure_parc_order_create_form') }}">Create an order</a>
+    </li>
+{% endblock %}

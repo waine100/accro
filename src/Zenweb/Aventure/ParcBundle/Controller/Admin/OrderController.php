@@ -36,6 +36,7 @@ class OrderController extends Controller
         return $this->render('ZenwebAventureParcBundle:Admin:create_order.html.twig', array(
             'form' => $form->createView(),
             'flow' => $flow,
+            'admin_pool' => $this->get('sonata.admin.pool')
         ));
     }
 }

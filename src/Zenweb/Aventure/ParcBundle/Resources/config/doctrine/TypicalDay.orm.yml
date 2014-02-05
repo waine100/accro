@@ -14,14 +14,6 @@ Zenweb\Aventure\ParcBundle\Entity\TypicalDay:
             length: 255
         description:
             type: text
-        beginTime:
-            type: time
-            column: begin_time
-        endTime:
-            type: time
-            column: end_time
-        frequency:
-            type: integer
         color:
             type: string
             length: 25

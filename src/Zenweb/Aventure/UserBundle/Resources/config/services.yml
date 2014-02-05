@@ -1,7 +1,0 @@
-parameters:
-#    zenweb_aventure_user.example.class: Zenweb\Aventure\UserBundle\Example
-
-services:
-#    zenweb_aventure_user.example:
-#        class: %zenweb_aventure_user.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]

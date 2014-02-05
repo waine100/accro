@@ -25,21 +25,6 @@ class TypicalDay
     private $description;
 
     /**
-     * @var \DateTime
-     */
-    private $beginTime;
-
-    /**
-     * @var \DateTime
-     */
-    private $endTime;
-
-    /**
-     * @var integer
-     */
-    private $frequency;
-
-    /**
      * @var string
      */
     private $color;
@@ -101,79 +86,6 @@ class TypicalDay
     {
         return $this->description;
     }
-
-    /**
-     * Set beginTime
-     *
-     * @param \DateTime $beginTime
-     *
-     * @return TypicalDay
-     */
-    public function setBeginTime($beginTime)
-    {
-        $this->beginTime = $beginTime;
-
-        return $this;
-    }
-
-    /**
-     * Get beginTime
-     *
-     * @return \DateTime
-     */
-    public function getBeginTime()
-    {
-        return $this->beginTime;
-    }
-
-    /**
-     * Set endTime
-     *
-     * @param \DateTime $endTime
-     *
-     * @return TypicalDay
-     */
-    public function setEndTime($endTime)
-    {
-        $this->endTime = $endTime;
-
-        return $this;
-    }
-
-    /**
-     * Get endTime
-     *
-     * @return \DateTime
-     */
-    public function getEndTime()
-    {
-        return $this->endTime;
-    }
-
-    /**
-     * Set frequency
-     *
-     * @param integer $frequency
-     *
-     * @return TypicalDay
-     */
-    public function setFrequency($frequency)
-    {
-        $this->frequency = $frequency;
-
-        return $this;
-    }
-
-    /**
-     * Get frequency
-     *
-     * @return integer
-     */
-    public function getFrequency()
-    {
-        return $this->frequency;
-    }
-
 
     /**
      * Set color

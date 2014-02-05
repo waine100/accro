@@ -1,7 +1,6 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-    - { resource: @ZenwebAventureUserBundle/Resources/config/admin.yml }
     - { resource: @ZenwebAventureParcBundle/Resources/config/admin.yml }
 
 framework:
