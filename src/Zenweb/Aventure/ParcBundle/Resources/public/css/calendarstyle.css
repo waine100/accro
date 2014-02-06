@@ -131,28 +131,9 @@
     border:1px solid #61c763;
 }
 
-.calendar a.admin_red {
+.calendar a.colored {
     color:#fff;
-    background:#ff0033;
-    border:1px solid #ff0033;
-}
-
-.calendar a.admin_pink {
-    color:#fff;
-    background:#f03098;
-    border:1px solid #f03098;
-}
-
-.calendar a.admin_orange {
-    color:#fff;
-    background:#ff8000;
-    border:1px solid #ff8000;
-}
-
-.calendar a.admin_green {
-    color:#fff;
-    background:#61c763;
-    border:1px solid #61c763;
+    border:1px solid;
 }
 
 #symfocal_admin .cell_calendar a:not(.dates_preview):active {

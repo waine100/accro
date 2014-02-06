@@ -124,9 +124,9 @@
                 if (data.responseCode == 200) {
                     var id_returned = data.id_returned;
                     var date_returned = data.date_returned;
-                    var state = data.state;
-                    $('#' + id_returned).removeClass();
-                    $('#' + id_returned).addClass(state);
+                    var color = data.color;
+                    $('#' + id_returned).css('color', '#'.color);
+                    $('#' + id_returned).css('background-color', '#'.color);
                 }
                 else if (data.responseCode == 400) {//bad request
                     alert(data.message);
@@ -169,7 +169,7 @@
             </tr>
             {% for td in typicalDays %}
                 <tr>
-                    <td><a href="#" onclick="setTypicalDay({{ td.id }});" class="{{ td.color }}"></a></td>
+                    <td><a href="#" onclick="setTypicalDay({{ td.id }});" class="colored" style="background-color:#{{ td.color }};border-color:#{{ td.color }}"></a></td>
                     <td class="legend_calendar">{{ td.name }}</td>
                 </tr>
             {% endfor %}

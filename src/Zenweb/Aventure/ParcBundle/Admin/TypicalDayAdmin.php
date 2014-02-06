@@ -67,7 +67,9 @@ class TypicalDayAdmin extends Admin
             ->with('General')
             ->add('name', 'text', array('required' => true, 'help' => $this->trans('help.coupon.name')))
             ->add('description', 'textarea', array('required' => true))
-            ->add('color', 'choice', array('required' => true,'choices' => array("admin_red" => "Rouge", "admin_pink" => "Rose", "admin_orange" => "Orange", "admin_green" => "Vert"), 'help' => $this->trans('help.typicalday.frequency')))
+            ->add('color', 'genemu_jquerycolor', array(
+                'widget' => 'image'
+            ))
             ->end();
 
     }

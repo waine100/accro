@@ -1,10 +1,25 @@
 {% extends 'SonataAdminBundle::standard_layout.html.twig' %}
 {% block stylesheets %}
     {{ parent() }}
+    {% if form is defined %}
+        {{ form_stylesheet(form) }}
+    {% endif %}
     <link rel="stylesheet" href="{{ asset('bundles/zenwebaventureparc/css/calendarstyle.css') }}" media="all">
+    <link rel="stylesheet" href="{{ asset('bundles/zenwebaventureparc/css/colorpicker.css') }}" media="all">
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+
+    {% if form is defined %}
+        <script type="text/javascript" src="{{ asset('bundles/zenwebaventureparc/js/colorpicker.js') }}"></script>
+        {{ form_javascript(form) }}
+    {% endif %}
+    }
 {% endblock %}
 {% block top_bar_after_nav %}
+    {% if app.security.token and is_granted('ROLE_SONATA_ADMIN') %}
     <li>
         <a href="{{ path('zenweb_aventure_parc_order_create_form') }}">Create an order</a>
     </li>
+    {% endif %}
 {% endblock %}

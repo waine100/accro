@@ -98,12 +98,12 @@ class CalendarController extends Controller
             $booking->setTypicalDay($typicalDay);
             $em->persist($booking);
             $em->flush();
-            $return .= '"state" : "' . $booking->getTypicalDay()->getColor() . '" }';
+            $return .= '"color" : "' . $booking->getTypicalDay()->getColor() . '" }';
         } else { //Update it
             $booking->setTypicalDay($typicalDay);
             $em->persist($booking);
             $em->flush();
-            $return .= '"state" : "' . $booking->getTypicalDay()->getColor() . '" }';
+            $return .= '"color" : "' . $booking->getTypicalDay()->getColor() . '" }';
         }
 
         $return = '{"responseCode" : "200", ' . $return;
