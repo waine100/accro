@@ -65,10 +65,17 @@
                                 e.preventDefault();
                             });
                         }
-                        if (data.calendar[(count - 1)].booked == -1) $('#' + id + '_cell_' + count).html(days_previous_month - nb_days_prev + count);
-                        else $('#' + id + '_cell_' + count).html(data.calendar[(count - 1)].fill);
-                        if (data.calendar[(count - 1)].booked == 1) $('#' + id + '_cell_' + count).addClass(data.calendar[(count - 1)].classe);
-                        else if (data.calendar[(count - 1)].booked < 0) $('#' + id + '_cell_' + count).addClass("dates_preview");
+                        if (data.calendar[(count - 1)].booked == -1) {
+                            $('#' + id + '_cell_' + count).html(days_previous_month - nb_days_prev + count);
+                        } else {
+                            $('#' + id + '_cell_' + count).html(data.calendar[(count - 1)].fill);
+                        }
+                        if (data.calendar[(count - 1)].booked == 1) {
+                            var square_color = data.calendar[(count - 1)].couleur;
+                            $('#' + id + '_cell_' + count).css('background-color',"#"+square_color);
+                        } else if (data.calendar[(count - 1)].booked < 0){
+                            $('#' + id + '_cell_' + count).addClass("dates_preview");
+                        }
                         count++;
                     }
                     cal.css('display', 'block');
@@ -125,7 +132,6 @@
                     var id_returned = data.id_returned;
                     var date_returned = data.date_returned;
                     var color = data.color;
-                    $('#' + id_returned).css('color', '#'.color);
                     $('#' + id_returned).css('background-color', '#'.color);
                 }
                 else if (data.responseCode == 400) {//bad request

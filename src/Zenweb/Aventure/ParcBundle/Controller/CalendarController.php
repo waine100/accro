@@ -162,7 +162,7 @@ class CalendarController extends Controller
         //The following 4 arrays will contain all the information for each cell of the calendar table.
         $tab_days   = array();
         $tab_booked = array();
-        $tab_class  = array();
+        $tab_color  = array();
         $tab_dates  = array();
 
         $num_day         = $dateUtil->getFirstDay($monthKey, $yearKey);
@@ -175,7 +175,7 @@ class CalendarController extends Controller
                 $nb_days_prev++; //counts the number of days of previous month appearing on a calendar.
                 $tab_days[$count]   = 0;
                 $tab_booked[$count] = -1;
-                $tab_class[$count]  = ""; //only actual days of the targeted month will have their class stored here
+                $tab_color[$count]  = ""; //only actual days of the targeted month will have their color stored here
                 $tab_dates[$count]  = ""; //only actual days of the targeted month will have their date stored here
             } else {
                 if (checkdate($monthKey, $num_day_current, $yearKey)) //if the date is valid
@@ -187,11 +187,11 @@ class CalendarController extends Controller
                     {
                         $tab_days[$count]   = $num_day_current;
                         $tab_booked[$count] = 1;
-                        $tab_class[$count]  = $bookings[$date];
+                        $tab_color[$count]  = $bookings[$date];
                     } else {
                         $tab_days[$count]   = $num_day_current;
                         $tab_booked[$count] = 0;
-                        $tab_class[$count]  = ""; //if the date has not been found in the booking table for the targeted item, then we apply the class of the first state
+                        $tab_color[$count]  = ""; //if the date has not been found in the booking table for the targeted item, then we apply the color of the first state
                     }
 
                     $num_day_current++;
@@ -199,7 +199,7 @@ class CalendarController extends Controller
                 } else {
                     $tab_days[$count]   = $count - $num_day_current - $nb_days_prev + 1; //used to display the days of the next month displayed on the calendar
                     $tab_booked[$count] = -2;
-                    $tab_class[$count]  = "";
+                    $tab_color[$count]  = "";
                     $tab_dates[$count]  = "";
                 }
 
@@ -215,9 +215,9 @@ class CalendarController extends Controller
             $count = 1;
             while ($count < 43) {
                 if ($count == 42) {
-                    $return .= ' { "fill" : "' . $tab_days[$count] . '", "booked" : "' . $tab_booked[$count] . '", "classe" : "' . $tab_class[$count] . '", "dates" : "' . $tab_dates[$count] . '" } ';
+                    $return .= ' { "fill" : "' . $tab_days[$count] . '", "booked" : "' . $tab_booked[$count] . '", "couleur" : "' . $tab_color[$count] . '", "dates" : "' . $tab_dates[$count] . '" } ';
                 } else {
-                    $return .= ' { "fill" : "' . $tab_days[$count] . '", "booked" : "' . $tab_booked[$count] . '", "classe" : "' . $tab_class[$count] . '", "dates" : "' . $tab_dates[$count] . '" } , ';
+                    $return .= ' { "fill" : "' . $tab_days[$count] . '", "booked" : "' . $tab_booked[$count] . '", "couleur" : "' . $tab_color[$count] . '", "dates" : "' . $tab_dates[$count] . '" } , ';
                 }
                 $count++;
             }
