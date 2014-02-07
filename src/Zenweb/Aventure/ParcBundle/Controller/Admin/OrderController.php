@@ -3,12 +3,12 @@
 namespace Zenweb\Aventure\ParcBundle\Controller\Admin;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Zenweb\Aventure\ParcBundle\Entity\Orders;
+use Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder;
 
 class OrderController extends Controller
 {
     public function createOrderAction() {
-        $formData = new Orders();
+        $formData = new SalesFlatOrder();
 
         $flow = $this->get('zenweb_aventure_parc.form.admin.flow.create.order');
         $flow->bind($formData);

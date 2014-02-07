@@ -132,7 +132,7 @@
                     var id_returned = data.id_returned;
                     var date_returned = data.date_returned;
                     var color = data.color;
-                    $('#' + id_returned).css('background-color', '#'.color);
+                    $('#' + id_returned).css('background-color', '#'+color);
                 }
                 else if (data.responseCode == 400) {//bad request
                     alert(data.message);

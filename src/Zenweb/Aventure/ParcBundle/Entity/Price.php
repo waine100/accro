@@ -136,4 +136,32 @@ class Price
     {
         return $this->activity;
     }
+    /**
+     * @var boolean
+     */
+    private $visibility;
+
+
+    /**
+     * Set visibility
+     *
+     * @param boolean $visibility
+     * @return Price
+     */
+    public function setVisibility($visibility)
+    {
+        $this->visibility = $visibility;
+
+        return $this;
+    }
+
+    /**
+     * Get visibility
+     *
+     * @return boolean 
+     */
+    public function getVisibility()
+    {
+        return $this->visibility;
+    }
 }

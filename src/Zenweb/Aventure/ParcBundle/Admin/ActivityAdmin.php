@@ -53,6 +53,7 @@ class ActivityAdmin extends Admin
         $showMapper
             ->with('General')
             ->add('name')
+            ->add('description')
             ->add('capacity')
             ->add('qtyMin')
             ->add('visibility')

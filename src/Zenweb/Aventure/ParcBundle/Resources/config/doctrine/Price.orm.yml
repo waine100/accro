@@ -16,6 +16,8 @@ Zenweb\Aventure\ParcBundle\Entity\Price:
             type: text
         price:
             type: decimal
+        visibility:
+            type: boolean
 
     manyToOne:
         activity:

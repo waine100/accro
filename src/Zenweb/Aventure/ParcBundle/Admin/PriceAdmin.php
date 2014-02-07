@@ -10,7 +10,7 @@ use Sonata\UserBundle\Model\UserInterface;
 
 use Zenweb\Aventure\ParcBundle\Entity\Activity;
 
-class ActivityAdmin extends Admin
+class PriceAdmin extends Admin
 {
 
     /**
@@ -53,9 +53,9 @@ class ActivityAdmin extends Admin
         $showMapper
             ->with('General')
             ->add('name')
-            ->add('capacity')
-            ->add('qtyMin')
-            ->add('visibility')
+            ->add('description')
+            ->add('activity')
+            ->add('price')
             ->end();
     }
 
@@ -68,8 +68,8 @@ class ActivityAdmin extends Admin
             ->with('General')
             ->add('name', 'text', array('required' => true, 'help' => $this->trans('help.coupon.name')))
             ->add('description', 'textarea', array('required' => true))
-            ->add('capacity', null, array('required' => true))
-            ->add('qtyMin', null, array('required' => true))
+            ->add('activity', null, array('required' => true))
+            ->add('price', null, array('required' => true))
             ->add('visibility', 'choice', array('required' => true, 'choices' => array(0 => 'Non', 1 => 'Oui')))
             ->end();
 
