@@ -1,0 +1,31 @@
+Zenweb\Aventure\ParcBundle\Entity\SalesFlatItem:
+    type: entity
+    table: sales_flat_item
+    repositoryClass: Zenweb\Aventure\ParcBundle\Entity\SalesFlatItemRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        createdAt:
+            type: datetime
+            column: created_at
+        updatedAt:
+            type: datetime
+            column: updated_at
+        name:
+            type: string
+            length: 255
+        description:
+            type: text
+        qty:
+            type: integer
+        basePrice:
+            type: decimal
+            column: base_price
+        rowTotal:
+            type: decimal
+            column: row_total
+    lifecycleCallbacks: {  }

@@ -1,0 +1,46 @@
+Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder:
+    type: entity
+    table: sales_flat_order
+    repositoryClass: Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrderRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        createdAt:
+            type: datetime
+            column: created_at
+        updatedAt:
+            type: datetime
+            column: updated_at
+        state:
+            type: string
+            length: '32'
+        status:
+            type: string
+            length: '32'
+        baseTotal:
+            type: decimal
+            column: base_total
+        baseTotalPaid:
+            type: decimal
+            column: base_total_paid
+        parc:
+            type: string
+            length: '255'
+        bookingDate:
+            type: date
+            column: booking_date
+        checkoutMethod:
+            type: string
+            length: 255
+            column: checkout_method
+        comment:
+            type: text
+        couponCode:
+            type: string
+            length: 255
+            column: coupon_code
+    lifecycleCallbacks: {  }

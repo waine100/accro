@@ -1,0 +1,23 @@
+Zenweb\Aventure\ParcBundle\Entity\Price:
+    type: entity
+    table: price
+    repositoryClass: Zenweb\Aventure\ParcBundle\Entity\PriceRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        description:
+            type: text
+        price:
+            type: decimal
+
+    manyToOne:
+        activity:
+            targetEntity: Zenweb\Aventure\ParcBundle\Entity\Activity
+    lifecycleCallbacks: {  }
