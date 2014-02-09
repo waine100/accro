@@ -1,6 +1,6 @@
 <?php
 
-namespace Zenweb\Accro\ParcBundle\Entity;
+namespace Zenweb\Aventure\ParcBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -86,7 +86,7 @@ class Coupon
     private $usesPerCoupon;
 
     /**
-     * @var \Zenweb\Accro\ParcBundle\Entity\Parc
+     * @var \Zenweb\Aventure\ParcBundle\Entity\Parc
      */
     private $parc;
 
@@ -415,7 +415,7 @@ class Coupon
     /**
      * Set parc
      */
-    public function setParc(\Zenweb\Accro\ParcBundle\Entity\Parc $parc)
+    public function setParc(\Zenweb\Aventure\ParcBundle\Entity\Parc $parc)
     {
         $this->parc = $parc;
     }
@@ -423,7 +423,7 @@ class Coupon
     /**
      * Get parc
      *
-     * @return \Zenweb\Accro\ParcBundle\Entity\Parc
+     * @return \Zenweb\Aventure\ParcBundle\Entity\Parc
      */
     public function getParc()
     {

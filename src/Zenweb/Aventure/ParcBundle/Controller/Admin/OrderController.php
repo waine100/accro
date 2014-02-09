@@ -3,22 +3,36 @@
 namespace Zenweb\Aventure\ParcBundle\Controller\Admin;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
+
 use Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder;
 
 class OrderController extends Controller
 {
-    public function createOrderAction() {
+    public function createOrderAction()
+    {
         $formData = new SalesFlatOrder();
 
+        /** @var $flow \Zenweb\Aventure\ParcBundle\Form\Admin\CreateOrderFlow */
         $flow = $this->get('zenweb_aventure_parc.form.admin.flow.create.order');
         $flow->bind($formData);
 
         // form of the current step
         $form = $flow->createForm();
+
         if ($flow->isValid($form)) {
             $flow->saveCurrentStepData($form);
 
             if ($flow->nextStep()) {
+                /**
+                 * We have choose a date and a parc, get the typicalDayId needed for other purpose.
+                 */
+                if ($flow->getCurrentStepNumber() > 2) {
+                    $parc = $flow->getFormData()->getParc()->getId();
+                    $date = $flow->getFormData()->getBookingDate();
+                    $em = $this->getDoctrine()->getManager()->getRepository('ZenwebAventureParcBundle:Booking');
+                    $flow->getFormData()->setBooking($em->findOneBy(array('theDate' => $date, 'parc' => $parc)));
+                }
                 // form for the next step
                 $form = $flow->createForm();
             } else {
@@ -38,5 +52,32 @@ class OrderController extends Controller
             'flow' => $flow,
             'admin_pool' => $this->get('sonata.admin.pool')
         ));
+    }
+
+    public function getPricesAction()
+    {
+        $request = $this->get('request');
+
+        if($request->isXmlHttpRequest()) // pour vérifier la présence d'une requete Ajax
+        {
+            $idTimeSlot = $request->request->get('id');
+
+            if ($idTimeSlot != null)
+            {
+                $prices = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository('ZenwebAventureParcBundle:Price')
+                    ->getPricesByTimeSlot($idTimeSlot);
+
+                $response = new Response();
+                $prices = json_encode($prices);
+                $response->setStatusCode(200);
+                $response->headers->set('Content-Type', 'application/json');
+                $response->setContent($prices);
+                return $response;
+            }
+        }
+
+        return new Response("Something wrong happened", 400);
     }
 }

@@ -400,32 +400,4 @@ class SalesFlatOrder
     }
 
 
-    /**
-     * @var \Zenweb\Aventure\ParcBundle\Entity\User
-     */
-    private $user;
-
-
-    /**
-     * Set user
-     *
-     * @param \Zenweb\Aventure\ParcBundle\Entity\User $user
-     * @return SalesFlatOrder
-     */
-    public function setUser(\Zenweb\Aventure\ParcBundle\Entity\User $user = null)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \Zenweb\Aventure\ParcBundle\Entity\User 
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
 }

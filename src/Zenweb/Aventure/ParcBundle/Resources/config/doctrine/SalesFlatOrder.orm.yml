@@ -43,4 +43,15 @@ Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder:
             type: string
             length: 255
             column: coupon_code
+    oneToMany:
+        items:
+            targetEntity: SalesFlatItem
+            mappedBy: order
+    oneToOne:
+        user:
+            targetEntity: User
+            inversedBy: flat_order
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
     lifecycleCallbacks: {  }

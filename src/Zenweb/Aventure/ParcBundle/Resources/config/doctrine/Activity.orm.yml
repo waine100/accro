@@ -21,5 +21,9 @@ Zenweb\Aventure\ParcBundle\Entity\Activity:
             column: qty_min
         visibility:
             type: boolean
+    oneToMany:
+        Prices:
+            targetEntity: Price
+            mappedBy: price
 
     lifecycleCallbacks: {  }

@@ -1,4 +1,8 @@
-{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+{% extends 'ZenwebAventureParcBundle:Admin:standard_layout.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/craueformflowbundle/css/buttons.css') }}" media="all">
+{% endblock %}
 {% block top_bar_after_nav %}
     <li>
         <a href="{{ path('zenweb_aventure_parc_order_create_form') }}">Create an order</a>
@@ -14,13 +18,81 @@
 
         {% if flow.getCurrentStepNumber() == 1 %}
             <div>
-                When selecting four wheels you have to choose the engine in the next step.<br />
                 {{ form_row(form.parc) }}
             </div>
+        {% elseif flow.getCurrentStepNumber() == 3 %}
+            {{ form_row(form.items) }}
         {% endif %}
-
         {{ form_rest(form) }}
+
 
         {% include 'CraueFormFlowBundle:FormFlow:buttons.html.twig' %}
     </form>
+    <!-- Javascript needed for activites -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var $container = $('div#createOrderActivity_items');
+            var $lienAjout = $('<a href="#" id="ajout_item" class="btn">Ajouter une activité</a>');
+            $container.append($lienAjout);
+            $lienAjout.click(function (e) {
+                ajouterCategorie($container);
+                e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+                return false;
+            });
+            var index = $container.find(':input').length;
+            if (index == 0) {
+                ajouterCategorie($container);
+            } else {
+                $container.children('div').each(function () {
+                    ajouterLienSuppression($(this));
+                });
+            }
+            function ajouterCategorie($container) {
+                var $prototype = $($container.attr('data-prototype').replace(/__name__label__/g, 'Activité n°' + (index + 1))
+                        .replace(/__name__/g, index));
+                ajouterLienSuppression($prototype);
+                $container.append($prototype);
+                addChangePriceListener($prototype);
+                index++;
+            }
+
+            function ajouterLienSuppression($prototype) {
+                $lienSuppression = $('<a href="#" class="btn btn-danger">Supprimer</a>');
+                $prototype.append($lienSuppression);
+                $lienSuppression.click(function (e) {
+                    $prototype.remove();
+                    e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+                    return false;
+                });
+            }
+
+            function addChangePriceListener($prototype) {
+                $prototype.find("select:first").change(function () {
+                            getPrices($(this).val(), $(this).parent().parent().find('select:last'));
+                        }
+
+                );
+            }
+
+
+            //Load prices:
+            function getPrices($tsId, $priceSelect) {
+                var DATA = 'id=' + $tsId;
+                $.ajax({
+                    type: "POST",
+                    dataType: 'json',
+                    url: "{{ path('zenweb_aventure_parc_admin_order_create_get_prices') }}",
+                    data: DATA,
+                    success: function (msg) {
+                        $priceSelect.html('');
+                        $.each(msg, function (index, price) {
+                            $priceSelect.append('<option value="' + price.id + '" selected="selected"> ' + price.name +' ('+price.price+' €) </option>');
+                        });
+                    }
+                });
+            }
+
+        });
+    </script>
 {% endblock %}
+

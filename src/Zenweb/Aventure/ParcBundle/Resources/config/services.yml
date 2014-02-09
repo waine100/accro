@@ -9,3 +9,4 @@ services:
         class: Zenweb\Aventure\ParcBundle\Form\Admin\CreateOrderFlow
         parent: craue.form.flow
         scope: request
+        arguments: [ @doctrine.orm.entity_manager ]

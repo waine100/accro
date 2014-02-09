@@ -12,4 +12,10 @@ use Doctrine\ORM\EntityRepository;
  */
 class TimeSlotRepository extends EntityRepository
 {
+    public function getTsByParcAndDate($parc, $date)
+    {
+        $query = $this->_em->createQuery("select ts from ZenwebAventureParcBundle:TimeSlot ts join ts.typicalDay td join ZenwebAventureParcBundle:Booking b with b.typicalDay=td.id where b.parc = :parc and b.theDate = :date");
+        $query->setParameters(array('parc' => $parc, 'date' => $date));
+        return $query->getResult();
+    }
 }

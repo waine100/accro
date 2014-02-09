@@ -12,4 +12,12 @@ use Doctrine\ORM\EntityRepository;
  */
 class PriceRepository extends EntityRepository
 {
+    public function getPricesByTimeSlot($idTimeSlot)
+    {
+        return $this->createQueryBuilder("p")
+            ->innerJoin("ZenwebAventureParcBundle:TimeSlot", "ts", "WITH", "ts.activity = p.activity")
+            ->where("ts.id=:idTs")
+            ->setParameter("idTs", $idTimeSlot)
+            ->getQuery()->getArrayResult();
+    }
 }

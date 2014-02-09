@@ -22,4 +22,5 @@ Zenweb\Aventure\ParcBundle\Entity\Price:
     manyToOne:
         activity:
             targetEntity: Zenweb\Aventure\ParcBundle\Entity\Activity
+            inversedBy: Prices
     lifecycleCallbacks: {  }

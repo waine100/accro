@@ -1,6 +1,6 @@
 <?php
 
-namespace Zenweb\Accro\ParcBundle\Entity;
+namespace Zenweb\Aventure\ParcBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -23,21 +23,6 @@ class TypicalDay
      * @var string
      */
     private $description;
-
-    /**
-     * @var \DateTime
-     */
-    private $beginTime;
-
-    /**
-     * @var \DateTime
-     */
-    private $endTime;
-
-    /**
-     * @var integer
-     */
-    private $frequency;
 
     /**
      * @var string
@@ -103,79 +88,6 @@ class TypicalDay
     }
 
     /**
-     * Set beginTime
-     *
-     * @param \DateTime $beginTime
-     *
-     * @return TypicalDay
-     */
-    public function setBeginTime($beginTime)
-    {
-        $this->beginTime = $beginTime;
-
-        return $this;
-    }
-
-    /**
-     * Get beginTime
-     *
-     * @return \DateTime
-     */
-    public function getBeginTime()
-    {
-        return $this->beginTime;
-    }
-
-    /**
-     * Set endTime
-     *
-     * @param \DateTime $endTime
-     *
-     * @return TypicalDay
-     */
-    public function setEndTime($endTime)
-    {
-        $this->endTime = $endTime;
-
-        return $this;
-    }
-
-    /**
-     * Get endTime
-     *
-     * @return \DateTime
-     */
-    public function getEndTime()
-    {
-        return $this->endTime;
-    }
-
-    /**
-     * Set frequency
-     *
-     * @param integer $frequency
-     *
-     * @return TypicalDay
-     */
-    public function setFrequency($frequency)
-    {
-        $this->frequency = $frequency;
-
-        return $this;
-    }
-
-    /**
-     * Get frequency
-     *
-     * @return integer
-     */
-    public function getFrequency()
-    {
-        return $this->frequency;
-    }
-
-
-    /**
      * Set color
      *
      * @param string $color
@@ -207,5 +119,50 @@ class TypicalDay
     public function __toString()
     {
         return $this->name;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $TimeSlots;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->TimeSlots = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add TimeSlots
+     *
+     * @param \Zenweb\Aventure\ParcBundle\Entity\TimeSlot $timeSlots
+     * @return TypicalDay
+     */
+    public function addTimeSlot(\Zenweb\Aventure\ParcBundle\Entity\TimeSlot $timeSlots)
+    {
+        $this->TimeSlots[] = $timeSlots;
+
+        return $this;
+    }
+
+    /**
+     * Remove TimeSlots
+     *
+     * @param \Zenweb\Aventure\ParcBundle\Entity\TimeSlot $timeSlots
+     */
+    public function removeTimeSlot(\Zenweb\Aventure\ParcBundle\Entity\TimeSlot $timeSlots)
+    {
+        $this->TimeSlots->removeElement($timeSlots);
+    }
+
+    /**
+     * Get TimeSlots
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTimeSlots()
+    {
+        return $this->TimeSlots;
     }
 }

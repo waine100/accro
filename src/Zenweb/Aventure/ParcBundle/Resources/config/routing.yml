@@ -13,3 +13,6 @@ zenweb_aventure_parc_order_create_form:
 zenweb_aventure_parc_orders:
     pattern:  /admin/order
     defaults: { _controller: ZenwebAventureParcBundle:Admin/Order:list }
+zenweb_aventure_parc_admin_order_create_get_prices:
+    pattern:  /admin/order/get_prices
+    defaults: { _controller: ZenwebAventureParcBundle:Admin/Order:getPrices }

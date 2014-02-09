@@ -33,7 +33,7 @@ class TimeSlot
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -56,7 +56,7 @@ class TimeSlot
     /**
      * Get beginTime
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getBeginTime()
     {
@@ -79,7 +79,7 @@ class TimeSlot
     /**
      * Get endTime
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getEndTime()
     {
@@ -102,12 +102,13 @@ class TimeSlot
     /**
      * Get capacity
      *
-     * @return integer 
+     * @return integer
      */
     public function getCapacity()
     {
         return $this->capacity;
     }
+
     /**
      * @var \Zenweb\Aventure\ParcBundle\Entity\TypicalDay
      */
@@ -179,6 +180,8 @@ class TimeSlot
         /**
          * @TODO add a nice display name
          */
-        //return $this->name;
+        if (!empty($this->activity)) {
+            return $this->activity->getName().' ('.$this->beginTime->format("H:i").' -> '.$this->endTime->format("H:i").')';
+        }
     }
 }

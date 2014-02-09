@@ -1,0 +1,14 @@
+Zenweb\Aventure\ParcBundle\Entity\User:
+    type:  entity
+    table: fos_user_user
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    oneToOne:
+        flat_order:
+            targetEntity: SalesFlatOrder
+            mappedBy: user
+
+    lifecycleCallbacks: {  }

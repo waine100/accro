@@ -1,6 +1,6 @@
 <?php
 
-namespace Zenweb\Accro\ParcBundle\Entity;
+namespace Zenweb\Aventure\ParcBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -33,7 +33,7 @@ class TimeSlot
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -56,7 +56,7 @@ class TimeSlot
     /**
      * Get beginTime
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getBeginTime()
     {
@@ -79,7 +79,7 @@ class TimeSlot
     /**
      * Get endTime
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getEndTime()
     {
@@ -102,19 +102,20 @@ class TimeSlot
     /**
      * Get capacity
      *
-     * @return integer 
+     * @return integer
      */
     public function getCapacity()
     {
         return $this->capacity;
     }
+
     /**
-     * @var \Zenweb\Accro\ParcBundle\Entity\TypicalDay
+     * @var \Zenweb\Aventure\ParcBundle\Entity\TypicalDay
      */
     private $typicalDay;
 
     /**
-     * @var \Zenweb\Accro\ParcBundle\Entity\Activity
+     * @var \Zenweb\Aventure\ParcBundle\Entity\Activity
      */
     private $activity;
 
@@ -122,10 +123,10 @@ class TimeSlot
     /**
      * Set typicalDay
      *
-     * @param \Zenweb\Accro\ParcBundle\Entity\TypicalDay $typicalDay
+     * @param \Zenweb\Aventure\ParcBundle\Entity\TypicalDay $typicalDay
      * @return TimeSlot
      */
-    public function setTypicalDay(\Zenweb\Accro\ParcBundle\Entity\TypicalDay $typicalDay = null)
+    public function setTypicalDay(\Zenweb\Aventure\ParcBundle\Entity\TypicalDay $typicalDay = null)
     {
         $this->typicalDay = $typicalDay;
 
@@ -135,7 +136,7 @@ class TimeSlot
     /**
      * Get typicalDay
      *
-     * @return \Zenweb\Accro\ParcBundle\Entity\TypicalDay 
+     * @return \Zenweb\Aventure\ParcBundle\Entity\TypicalDay
      */
     public function getTypicalDay()
     {
@@ -145,10 +146,10 @@ class TimeSlot
     /**
      * Set activity
      *
-     * @param \Zenweb\Accro\ParcBundle\Entity\Activity $activity
+     * @param \Zenweb\Aventure\ParcBundle\Entity\Activity $activity
      * @return TimeSlot
      */
-    public function setActivity(\Zenweb\Accro\ParcBundle\Entity\Activity $activity = null)
+    public function setActivity(\Zenweb\Aventure\ParcBundle\Entity\Activity $activity = null)
     {
         $this->activity = $activity;
 
@@ -158,7 +159,7 @@ class TimeSlot
     /**
      * Get activity
      *
-     * @return \Zenweb\Accro\ParcBundle\Entity\Activity 
+     * @return \Zenweb\Aventure\ParcBundle\Entity\Activity
      */
     public function getActivity()
     {
@@ -179,6 +180,8 @@ class TimeSlot
         /**
          * @TODO add a nice display name
          */
-        //return $this->name;
+        if (!empty($this->activity)) {
+            return $this->activity->getName();
+        }
     }
 }

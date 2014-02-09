@@ -28,4 +28,11 @@ Zenweb\Aventure\ParcBundle\Entity\SalesFlatItem:
         rowTotal:
             type: decimal
             column: row_total
+    manyToOne:
+        order:
+            targetEntity: Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder
+            inversedBy: items
+            joinColumn:
+                name: order_id
+                referencedColumnName: id
     lifecycleCallbacks: {  }

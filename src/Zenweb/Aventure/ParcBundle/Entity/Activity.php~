@@ -5,9 +5,9 @@ namespace Zenweb\Aventure\ParcBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Price
+ * Activity
  */
-class Price
+class Activity
 {
     /**
      * @var integer
@@ -25,9 +25,19 @@ class Price
     private $description;
 
     /**
-     * @var string
+     * @var integer
      */
-    private $price;
+    private $capacity;
+
+    /**
+     * @var integer
+     */
+    private $qtyMin;
+
+    /**
+     * @var boolean
+     */
+    private $visibility;
 
 
     /**
@@ -44,7 +54,7 @@ class Price
      * Set name
      *
      * @param string $name
-     * @return Price
+     * @return Activity
      */
     public function setName($name)
     {
@@ -67,7 +77,7 @@ class Price
      * Set description
      *
      * @param string $description
-     * @return Price
+     * @return Activity
      */
     public function setDescription($description)
     {
@@ -87,66 +97,56 @@ class Price
     }
 
     /**
-     * Set price
+     * Set capacity
      *
-     * @param string $price
-     * @return Price
+     * @param integer $capacity
+     * @return Activity
      */
-    public function setPrice($price)
+    public function setCapacity($capacity)
     {
-        $this->price = $price;
+        $this->capacity = $capacity;
 
         return $this;
     }
 
     /**
-     * Get price
+     * Get capacity
      *
-     * @return string 
+     * @return integer 
      */
-    public function getPrice()
+    public function getCapacity()
     {
-        return $this->price;
+        return $this->capacity;
     }
-    /**
-     * @var \Zenweb\Aventure\ParcBundle\Entity\Activity
-     */
-    private $activity;
-
 
     /**
-     * Set activity
+     * Set qtyMin
      *
-     * @param \Zenweb\Aventure\ParcBundle\Entity\Activity $activity
-     * @return Price
+     * @param integer $qtyMin
+     * @return Activity
      */
-    public function setActivity(\Zenweb\Aventure\ParcBundle\Entity\Activity $activity = null)
+    public function setQtyMin($qtyMin)
     {
-        $this->activity = $activity;
+        $this->qtyMin = $qtyMin;
 
         return $this;
     }
 
     /**
-     * Get activity
+     * Get qtyMin
      *
-     * @return \Zenweb\Aventure\ParcBundle\Entity\Activity 
+     * @return integer 
      */
-    public function getActivity()
+    public function getQtyMin()
     {
-        return $this->activity;
+        return $this->qtyMin;
     }
-    /**
-     * @var boolean
-     */
-    private $visibility;
-
 
     /**
      * Set visibility
      *
      * @param boolean $visibility
-     * @return Price
+     * @return Activity
      */
     public function setVisibility($visibility)
     {
@@ -166,10 +166,16 @@ class Price
     }
 
     /**
+     * Now some real methods
+     */
+
+    /**
      * Display a nice name
+     *
      * @return string
      */
-    public function __toString(){
+    public function __toString()
+    {
         return $this->name;
     }
 }

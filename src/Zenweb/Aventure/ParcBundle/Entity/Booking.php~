@@ -1,6 +1,6 @@
 <?php
 
-namespace Zenweb\Accro\ParcBundle\Entity;
+namespace Zenweb\Aventure\ParcBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -53,7 +53,7 @@ class Booking
         return $this->theDate;
     }
     /**
-     * @var \Zenweb\Accro\ParcBundle\Entity\Parc
+     * @var \Zenweb\Aventure\ParcBundle\Entity\Parc
      */
     private $parc;
 
@@ -61,10 +61,10 @@ class Booking
     /**
      * Set parc
      *
-     * @param \Zenweb\Accro\ParcBundle\Entity\Parc $parc
+     * @param \Zenweb\Aventure\ParcBundle\Entity\Parc $parc
      * @return Booking
      */
-    public function setParc(\Zenweb\Accro\ParcBundle\Entity\Parc $parc = null)
+    public function setParc(\Zenweb\Aventure\ParcBundle\Entity\Parc $parc = null)
     {
         $this->parc = $parc;
 
@@ -74,14 +74,14 @@ class Booking
     /**
      * Get parc
      *
-     * @return \Zenweb\Accro\ParcBundle\Entity\Parc 
+     * @return \Zenweb\Aventure\ParcBundle\Entity\Parc
      */
     public function getParc()
     {
         return $this->parc;
     }
     /**
-     * @var \Zenweb\Accro\ParcBundle\Entity\TypicalDay
+     * @var \Zenweb\Aventure\ParcBundle\Entity\TypicalDay
      */
     private $typicalDay;
 
@@ -89,10 +89,10 @@ class Booking
     /**
      * Set typicalDay
      *
-     * @param \Zenweb\Accro\ParcBundle\Entity\TypicalDay $typicalDay
+     * @param \Zenweb\Aventure\ParcBundle\Entity\TypicalDay $typicalDay
      * @return Booking
      */
-    public function setTypicalDay(\Zenweb\Accro\ParcBundle\Entity\TypicalDay $typicalDay = null)
+    public function setTypicalDay(\Zenweb\Aventure\ParcBundle\Entity\TypicalDay $typicalDay = null)
     {
         $this->typicalDay = $typicalDay;
 
@@ -102,7 +102,7 @@ class Booking
     /**
      * Get typicalDay
      *
-     * @return \Zenweb\Accro\ParcBundle\Entity\TypicalDay 
+     * @return \Zenweb\Aventure\ParcBundle\Entity\TypicalDay
      */
     public function getTypicalDay()
     {

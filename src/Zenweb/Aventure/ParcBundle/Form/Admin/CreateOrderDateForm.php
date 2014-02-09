@@ -6,7 +6,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 class CreateOrderDateForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options) {
-        $builder->add('reservationDate', 'genemu_jquerydate', array(
+        $builder->add('bookingDate', 'genemu_jquerydate', array(
             'widget' => 'single_text'
         ));
     }

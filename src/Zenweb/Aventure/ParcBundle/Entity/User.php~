@@ -1,0 +1,24 @@
+<?php
+namespace Zenweb\Aventure\ParcBundle\Entity;
+
+use Sonata\UserBundle\Entity\BaseUser as BaseUser;
+
+class User extends BaseUser
+{
+    protected $id;
+
+    /**
+     * Get id
+     *
+     * @return integer $id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function __construct()
+    {
+        parent::__construct();
+    }
+}
