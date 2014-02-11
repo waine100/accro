@@ -18,15 +18,19 @@ Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder:
         state:
             type: string
             length: '32'
+            nullable: true
         status:
             type: string
             length: '32'
+            nullable: true
         baseTotal:
             type: decimal
             column: base_total
+            nullable: true
         baseTotalPaid:
             type: decimal
             column: base_total_paid
+            nullable: true
         parc:
             type: string
             length: '255'
@@ -37,16 +41,20 @@ Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder:
             type: string
             length: 255
             column: checkout_method
+            nullable: true
         comment:
             type: text
+            nullable: true
         couponCode:
             type: string
             length: 255
             column: coupon_code
+            nullable: true
     oneToMany:
         items:
             targetEntity: SalesFlatItem
             mappedBy: order
+            cascade: ["persist"]
     oneToOne:
         user:
             targetEntity: User
@@ -54,4 +62,6 @@ Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder:
             joinColumn:
                 name: user_id
                 referencedColumnName: id
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks:
+        prePersist: [updatedTimestamps]
+        preUpdate: [updatedTimestamps]

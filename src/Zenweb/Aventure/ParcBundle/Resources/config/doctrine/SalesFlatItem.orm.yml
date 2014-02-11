@@ -18,16 +18,21 @@ Zenweb\Aventure\ParcBundle\Entity\SalesFlatItem:
         name:
             type: string
             length: 255
+            nullable: true
         description:
             type: text
+            nullable: true
         qty:
             type: integer
+            nullable: true
         basePrice:
             type: decimal
             column: base_price
+            nullable: true
         rowTotal:
             type: decimal
             column: row_total
+            nullable: true
     manyToOne:
         order:
             targetEntity: Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder
@@ -35,4 +40,6 @@ Zenweb\Aventure\ParcBundle\Entity\SalesFlatItem:
             joinColumn:
                 name: order_id
                 referencedColumnName: id
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks:
+             prePersist: [updatedTimestamps]
+             preUpdate: [updatedTimestamps]

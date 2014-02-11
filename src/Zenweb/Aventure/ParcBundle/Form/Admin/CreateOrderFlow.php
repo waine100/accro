@@ -81,9 +81,6 @@ class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
                 'label' => 'Choose your customer or create a new one',
                 'type' => new CreateOrderUserForm(),
             ),
-            array(
-                'label' => 'confirmation',
-            ),
         );
     }
 } 

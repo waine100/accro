@@ -248,4 +248,13 @@ class SalesFlatItem
     {
         return $this->order;
     }
+
+    public function updatedTimestamps()
+    {
+        $this->setUpdatedAt(new \DateTime('now'));
+
+        if ($this->getCreatedAt() == null) {
+            $this->setCreatedAt(new \DateTime('now'));
+        }
+    }
 }

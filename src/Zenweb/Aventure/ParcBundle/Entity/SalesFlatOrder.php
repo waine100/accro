@@ -428,4 +428,13 @@ class SalesFlatOrder
     {
         return $this->user;
     }
+
+    public function updatedTimestamps()
+    {
+        $this->setUpdatedAt(new \DateTime('now'));
+
+        if ($this->getCreatedAt() == null) {
+            $this->setCreatedAt(new \DateTime('now'));
+        }
+    }
 }

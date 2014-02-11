@@ -28,12 +28,10 @@ class AppKernel extends Kernel
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
-            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
 
             /**
              * Zenweb Bundles
              */
-            //new Zenweb\Aventure\UserBundle\ZenwebAventureUserBundle(),
             new Zenweb\Aventure\ParcBundle\ZenwebAventureParcBundle(),
 
             /**
