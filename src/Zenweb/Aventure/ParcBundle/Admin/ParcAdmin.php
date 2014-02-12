@@ -75,7 +75,7 @@ class ParcAdmin extends Admin
         $formMapper
             ->with('General')
             ->add('name')
-            ->add('description')
+            ->add('description', null, array('attr' => array('class' => 'ckeditor')))
             ->add('address')
             ->add('mail')
             ->end();

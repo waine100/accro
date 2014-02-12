@@ -91,7 +91,8 @@ sonata_block:
 sonata_admin:
     title: Aventure Administration
     templates:
-       layout: ZenwebAventureParcBundle:Admin:standard_layout.html.twig
+        layout: ZenwebAventureParcBundle:Admin:standard_layout.html.twig
+        edit:   ZenwebAventureParcBundle:CRUD:base_edit.html.twig
     dashboard:
         blocks:
             # display a dashboard block
