@@ -77,6 +77,8 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: Zenweb\Aventure\ParcBundle\Entity\User
+    group:
+        group_class: Zenweb\Aventure\ParcBundle\Entity\Group
 
 sonata_block:
     default_contexts: [cms]
@@ -102,6 +104,12 @@ sonata_admin:
 sonata_user:
     security_acl: true
     manager_type: orm # can be orm or mongodb
+    class:                  # Entity Classes
+        user:               Zenweb\Aventure\ParcBundle\Entity\User
+        group:              Zenweb\Aventure\ParcBundle\Entity\Group
 
 genemu_form:
     date: ~
+
+parameters:
+    sonata.user.admin.user.class: Zenweb\Aventure\ParcBundle\Admin\Model\UserAdmin
