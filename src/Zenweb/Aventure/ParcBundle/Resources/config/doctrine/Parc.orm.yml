@@ -22,4 +22,5 @@ Zenweb\Aventure\ParcBundle\Entity\Parc:
             type: string
             length: 255
             nullable: true
+
     lifecycleCallbacks: {  }

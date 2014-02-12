@@ -31,9 +31,6 @@ Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder:
             type: decimal
             column: base_total_paid
             nullable: true
-        parc:
-            type: string
-            length: '255'
         bookingDate:
             type: date
             column: booking_date
@@ -62,6 +59,12 @@ Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder:
             joinColumn:
                 name: user_id
                 referencedColumnName: id
+        #parc:
+        #    targetEntity: Parc
+        #    inversedBy: flat_order
+        #    joinColumn:
+        #        name: parc_id
+        #        referencedColumnName: id
     lifecycleCallbacks:
         prePersist: [updatedTimestamps]
         preUpdate: [updatedTimestamps]

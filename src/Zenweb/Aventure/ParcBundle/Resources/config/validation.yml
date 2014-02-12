@@ -2,3 +2,16 @@ Zenweb\Aventure\ParcBundle\Entity\Coupon:
     properties:
         name:
             - NotBlank: ~
+Zenweb\Aventure\ParcBundle\Entity\Parc:
+    constraints:
+            - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+                fields: name
+                message: Le nom du parc est déjà utilisé pour un autre parc.
+    properties:
+        name:
+            - NotBlank: ~
+        mail:
+            - Email:
+                message: "{{ value }} n'est pas un email valide."
+                checkMX: true
+
