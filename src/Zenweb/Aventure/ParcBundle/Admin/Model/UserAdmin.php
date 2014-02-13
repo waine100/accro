@@ -20,6 +20,10 @@ class UserAdmin extends SonataUserAdmin {
     {
         $formMapper
             ->with('General')
+            ->add('gender', 'sonata_user_gender', array(
+                'required' => true,
+                'translation_domain' => $this->getTranslationDomain()
+            ))
             ->add('lastname', null, array('required' => true))
             ->add('firstname', null, array('required' => true))
             //->add('username')
@@ -27,6 +31,11 @@ class UserAdmin extends SonataUserAdmin {
             ->add('plainPassword', 'text', array(
                 'required' => (!$this->getSubject() || is_null($this->getSubject()->getId()))
             ))
+            ->add('phone', null, array('required' => false, 'label' => 'Téléphone portable'))
+            ->add('mobile', null, array('required' => false, 'label' => 'Téléphone portable'))
+            ->add('address', null, array('required' => false, 'label' => 'Adresse'))
+            ->add('newsletter', null, array('required' => false, 'label' => 'Inscription à la newsletter'))
+            ->add('commentary', null, array('required' => false, 'label' => 'Commentaires'))
             ->end()
             ->with('Groups')
             ->add('groups', 'sonata_type_model', array(
@@ -34,26 +43,6 @@ class UserAdmin extends SonataUserAdmin {
                 'expanded' => true,
                 'multiple' => true
             ))
-            ->end()
-            ->with('Profile')
-            ->add('dateOfBirth', 'birthday', array('required' => false))
-            ->add('website', 'url', array('required' => false))
-            ->add('biography', 'text', array('required' => false))
-            ->add('gender', 'sonata_user_gender', array(
-                'required' => true,
-                'translation_domain' => $this->getTranslationDomain()
-            ))
-            ->add('locale', 'locale', array('required' => false))
-            ->add('timezone', 'timezone', array('required' => false))
-            ->add('phone', null, array('required' => false))
-            ->end()
-            ->with('Social')
-            ->add('facebookUid', null, array('required' => false))
-            ->add('facebookName', null, array('required' => false))
-            ->add('twitterUid', null, array('required' => false))
-            ->add('twitterName', null, array('required' => false))
-            ->add('gplusUid', null, array('required' => false))
-            ->add('gplusName', null, array('required' => false))
             ->end()
         ;
 

@@ -6,6 +6,20 @@ Zenweb\Aventure\ParcBundle\Entity\User:
             type: integer
             generator:
                 strategy: AUTO
+    fields:
+        mobile:
+            type: string
+            length: 64
+            nullable: true
+        address:
+            type: text
+            nullable: true
+        commentary:
+            type: text
+            nullable: true
+        newsletter:
+            type: boolean
+
     oneToOne:
         flat_order:
             targetEntity: SalesFlatOrder

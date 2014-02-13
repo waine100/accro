@@ -21,4 +21,43 @@ class User extends BaseUser
     {
         parent::__construct();
     }
+    /**
+     * @var \Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder
+     */
+    private $flat_order;
+
+
+    /**
+     * Set flat_order
+     *
+     * @param \Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder $flatOrder
+     * @return User
+     */
+    public function setFlatOrder(\Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder $flatOrder = null)
+    {
+        $this->flat_order = $flatOrder;
+
+        return $this;
+    }
+
+    /**
+     * Get flat_order
+     *
+     * @return \Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder 
+     */
+    public function getFlatOrder()
+    {
+        return $this->flat_order;
+    }
+
+    /**
+     * http://stackoverflow.com/questions/8832916/remove-replace-the-username-field-with-email-using-fosuserbundle-in-symfony2
+     * @param string $email
+     * @return $this|void
+     */
+    public function setEmail($email)
+    {
+        parent::setEmail($email);
+        $this->setUsername($email);
+    }
 }

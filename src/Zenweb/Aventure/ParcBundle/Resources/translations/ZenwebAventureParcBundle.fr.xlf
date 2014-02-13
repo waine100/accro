@@ -86,6 +86,10 @@
                 <source>help.typicalday.frequency</source>
                 <target>Indiquez ici le temps en mn entre chaque activité</target>
             </trans-unit>
+            <trans-unit id="form.label_mobile">
+                <source>form.label_mobile</source>
+                <target>Téléphone portable</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

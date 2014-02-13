@@ -36,7 +36,8 @@ class ParcAdmin extends Admin
             ->addIdentifier('name')
             ->add('description')
             ->add('address')
-            ->add('mail');
+            ->add('mail')
+            ->add('enabled', null, array('editable' => true, 'label' => 'Activé'));
 
     }
 

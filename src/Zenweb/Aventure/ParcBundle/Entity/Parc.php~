@@ -171,4 +171,32 @@ class Parc
     public function __toString(){
         return $this->name;
     }
+    /**
+     * @var boolean
+     */
+    private $enabled;
+
+
+    /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     * @return Parc
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return boolean 
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
 }
