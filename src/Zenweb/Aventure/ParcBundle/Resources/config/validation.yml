@@ -4,9 +4,9 @@ Zenweb\Aventure\ParcBundle\Entity\Coupon:
             - NotBlank: ~
 Zenweb\Aventure\ParcBundle\Entity\Parc:
     constraints:
-            - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
-                fields: name
-                message: Le nom du parc est déjà utilisé pour un autre parc.
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: name
+            message: Le nom du parc est déjà utilisé pour un autre parc.
     properties:
         name:
             - NotBlank: ~
@@ -14,4 +14,19 @@ Zenweb\Aventure\ParcBundle\Entity\Parc:
             - Email:
                 message: "{{ value }} n'est pas un email valide."
                 checkMX: true
+        fileImage:
+            - File:
+                maxSize: 8192k
+        filePlan:
+            - File:
+                maxSize: 8192k
+                mimeTypes: [application/pdf, application/x-pdf]
+                mimeTypesMessage: Choisissez un fichier PDF valide
 
+Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder:
+    properties:
+        bookingDate:
+            - Date: ~
+            - Zenweb\Aventure\ParcBundle\Validator\Constraints\DateRange:
+                min: "today"
+                groups: [flow_createOrder_step2]

@@ -62,25 +62,25 @@ class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
     {
         return array(
             array(
-                'label' => 'Choose a parc',
+                'label' => 'Choisir un parc',
                 'type' => new CreateOrderParcForm(),
             ),
             array(
-                'label' => 'Choose a date',
+                'label' => 'Choisir une date',
                 'type' => new CreateOrderDateForm(),
             ),
             array(
-                'label' => 'Choose your activities.',
-                'type' => new CreateOrderActivitiesForm(),
-            ),
-            array(
-                'label' => 'Choose your options.',
-                //'type' => new CreateOrderActivitiesForm(),
-            ),
-            array(
-                'label' => 'Choose your customer or create a new one',
+                'label' => 'Choisir le client',
                 'type' => new CreateOrderUserForm(),
             ),
+            array(
+                'label' => 'Choisir ses activités',
+                'type' => new CreateOrderActivitiesForm(),
+            ),
+            /*array(
+                'label' => 'Choose your options.',
+                //'type' => new CreateOrderActivitiesForm(),
+            ),*/
         );
     }
 } 

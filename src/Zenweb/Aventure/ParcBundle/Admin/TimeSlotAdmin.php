@@ -40,11 +40,13 @@ class TimeSlotAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('activity')
-            ->add('typicalDay')
-            ->add('beginTime')
-            ->add('endTime')
-            ->add('capacity')
+            ->addIdentifier('id')
+            ->add('activity', null, array('label' => 'Activité'))
+            ->add('typicalDay', null, array('label' => 'Journée Type'))
+            ->add('beginTime', null, array('label' => 'Heure de début'))
+            ->add('endTime', null, array('label' => 'Heure de fin'))
+            ->add('capacity', null, array('label' => 'Capacité'))
+            ->add('enabled',  null, array('editable' => true, 'label' => 'Activé'))
             ;
 
     }
@@ -56,11 +58,12 @@ class TimeSlotAdmin extends Admin
     {
         $showMapper
             ->with('General')
-            ->add('typicalDay')
-            ->add('activity')
-            ->add('beginTime')
-            ->add('endTime')
-            ->add('capacity')
+            ->add('typicalDay', null, array('label' => 'Journée Type'))
+            ->add('activity', null, array('label' => 'Activité'))
+            ->add('beginTime', null, array('label' => 'Heure de début'))
+            ->add('endTime', null, array('label' => 'Heure de fin'))
+            ->add('capacity', null, array('label' => 'Capacité'))
+            ->add('enabled', null, array('label' => 'Activé'))
             ->end();
     }
 
@@ -71,11 +74,12 @@ class TimeSlotAdmin extends Admin
     {
         $formMapper
             ->with('General')
-            ->add('typicalDay', null, array('required' => true))
-            ->add('activity', null, array('required' => true))
-            ->add('beginTime', null, array('required' => true))
-            ->add('endTime', null, array('required' => true))
-            ->add('capacity', null, array('required' => true))
+            ->add('typicalDay', null, array('label' => 'Journée Type'))
+            ->add('activity', null, array('label' => 'Activité'))
+            ->add('beginTime', null, array('label' => 'Heure de début'))
+            ->add('endTime', null, array('label' => 'Heure de fin'))
+            ->add('capacity', null, array('label' => 'Capacité'))
+            ->add('enabled', 'choice', array('label' => 'Activé', 'choices' => array(0 => 'Non', 1 => 'Oui')))
             ->end();
 
     }

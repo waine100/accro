@@ -22,8 +22,16 @@ Zenweb\Aventure\ParcBundle\Entity\Parc:
             type: string
             length: 255
             nullable: true
+        plan:
+            type: string
+            length: 255
+            nullable: true
         enabled:
             type: boolean
 
-
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks: { }
+        #prePersist: [preUpload]
+        #preUpdate: [preUpload]
+        #postPersist: [upload]
+        #postUpdate: [upload]
+        #postRemove: [removeUpload]

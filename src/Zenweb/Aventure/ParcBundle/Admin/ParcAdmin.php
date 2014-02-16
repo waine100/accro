@@ -47,7 +47,6 @@ class ParcAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $filterMapper)
     {
         $filterMapper
-            ->add('id')
             ->add('name')
             ->add('mail');
     }
@@ -59,12 +58,11 @@ class ParcAdmin extends Admin
     {
         $showMapper
             ->with('General')
-                ->add('name')
-                ->add('description')
-                ->add('address')
-                ->add('mail')
-            ->end()
-            /*->with('Security')
+            ->add('name')
+            ->add('description')
+            ->add('address')
+            ->add('mail')
+            ->end()/*->with('Security')
                 ->add('token')
                 ->add('twoStepVerificationCode')
             ->end()*/
@@ -79,6 +77,9 @@ class ParcAdmin extends Admin
             ->add('description', null, array('attr' => array('class' => 'ckeditor')))
             ->add('address')
             ->add('mail')
+            ->add('fileImage', 'file', array('label' => 'Image', 'required' => false))
+            ->add('filePlan', 'file', array('label' => 'Plan', 'required' => false))
+            ->add('enabled', 'choice', array('label' => 'Activé', 'choices' => array(0 => 'Non', 1 => 'Oui')))
             ->end();
 
         /*$formMapper
@@ -86,6 +87,31 @@ class ParcAdmin extends Admin
             ->add('token', null, array('required' => false))
             ->add('twoStepVerificationCode', null, array('required' => false))
             ->end();*/
+    }
+
+    public function prePersist($parc)
+    {
+        $parc->preUpload();
+    }
+
+    public function preUpdate($parc)
+    {
+        $parc->preUpload();
+    }
+
+    public function postPersist($parc)
+    {
+        $parc->upload();
+    }
+
+    public function postUpdate($parc)
+    {
+        $parc->upload();
+    }
+
+    public function postRemove($parc)
+    {
+        $parc->removeUpload();
     }
 
 }

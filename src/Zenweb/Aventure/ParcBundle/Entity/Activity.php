@@ -35,12 +35,6 @@ class Activity
     private $qtyMin;
 
     /**
-     * @var boolean
-     */
-    private $visibility;
-
-
-    /**
      * Get id
      *
      * @return integer 
@@ -141,33 +135,6 @@ class Activity
     {
         return $this->qtyMin;
     }
-
-    /**
-     * Set visibility
-     *
-     * @param boolean $visibility
-     * @return Activity
-     */
-    public function setVisibility($visibility)
-    {
-        $this->visibility = $visibility;
-
-        return $this;
-    }
-
-    /**
-     * Get visibility
-     *
-     * @return boolean 
-     */
-    public function getVisibility()
-    {
-        return $this->visibility;
-    }
-
-    /**
-     * Now some real methods
-     */
 
     /**
      * Display a nice name

@@ -178,4 +178,49 @@ class Activity
     {
         return $this->name;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $Prices;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->Prices = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add Prices
+     *
+     * @param \Zenweb\Aventure\ParcBundle\Entity\Price $prices
+     * @return Activity
+     */
+    public function addPrice(\Zenweb\Aventure\ParcBundle\Entity\Price $prices)
+    {
+        $this->Prices[] = $prices;
+
+        return $this;
+    }
+
+    /**
+     * Remove Prices
+     *
+     * @param \Zenweb\Aventure\ParcBundle\Entity\Price $prices
+     */
+    public function removePrice(\Zenweb\Aventure\ParcBundle\Entity\Price $prices)
+    {
+        $this->Prices->removeElement($prices);
+    }
+
+    /**
+     * Get Prices
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPrices()
+    {
+        return $this->Prices;
+    }
 }

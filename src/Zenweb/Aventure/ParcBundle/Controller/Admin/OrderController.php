@@ -22,6 +22,10 @@ class OrderController extends Controller
 
         $parc = 0;
 
+        if($flow->getCurrentStepNumber() >= 1) {
+            $parc = $flow->getFormData()->getParc()->getId();
+        }
+
         if ($flow->isValid($form)) {
             $flow->saveCurrentStepData($form);
 

@@ -127,3 +127,10 @@
 .stepList .craue_formflow_done_step:hover a:after, .stepList .craue_formflow_current_step:hover a:after {
     border-left: 12px solid #8F061E;
 }
+
+/**
+* Random
+*/
+.craue_formflow_buttons {
+    margin-top : 25px;
+}

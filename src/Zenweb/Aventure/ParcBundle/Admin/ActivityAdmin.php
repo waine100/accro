@@ -32,7 +32,6 @@ class ActivityAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $filterMapper)
     {
         $filterMapper
-            ->add('id')
             ->add('name')
             ->add('description');
     }
@@ -56,7 +55,6 @@ class ActivityAdmin extends Admin
             ->add('description')
             ->add('capacity')
             ->add('qtyMin')
-            ->add('visibility')
             ->end();
     }
 
@@ -67,11 +65,10 @@ class ActivityAdmin extends Admin
     {
         $formMapper
             ->with('General')
-            ->add('name', 'text', array('required' => true, 'help' => $this->trans('help.coupon.name')))
-            ->add('description', 'textarea', array('required' => true))
-            ->add('capacity', null, array('required' => true))
-            ->add('qtyMin', null, array('required' => true))
-            ->add('visibility', 'choice', array('required' => true, 'choices' => array(0 => 'Non', 1 => 'Oui')))
+            ->add('name')
+            ->add('description', 'textarea', array('attr' => array('class' => 'ckeditor')))
+            ->add('capacity', null, array('label' => 'Capacité'))
+            ->add('qtyMin', null, array('label' => 'Nombre de personnes minimum'))
             ->end();
 
     }

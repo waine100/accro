@@ -19,8 +19,6 @@ Zenweb\Aventure\ParcBundle\Entity\Activity:
         qtyMin:
             type: integer
             column: qty_min
-        visibility:
-            type: boolean
     oneToMany:
         Prices:
             targetEntity: Price

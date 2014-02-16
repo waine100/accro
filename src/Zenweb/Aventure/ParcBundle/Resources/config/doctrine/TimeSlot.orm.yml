@@ -17,6 +17,8 @@ Zenweb\Aventure\ParcBundle\Entity\TimeSlot:
             column: end_time
         capacity:
             type: integer
+        enabled:
+            type: boolean
     manyToOne:
         typicalDay:
             targetEntity: Zenweb\Aventure\ParcBundle\Entity\TypicalDay

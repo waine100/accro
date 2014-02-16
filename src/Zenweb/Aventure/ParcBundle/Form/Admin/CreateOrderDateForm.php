@@ -11,7 +11,8 @@ class CreateOrderDateForm extends AbstractType
          */
         $builder->add('bookingDate', 'date', array(
             'widget' => 'single_text',
-            'read_only' => true
+            //'read_only' => true,
+            'required' => true,
         ));
     }
 

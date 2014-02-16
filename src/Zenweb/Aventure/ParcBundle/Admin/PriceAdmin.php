@@ -32,7 +32,6 @@ class PriceAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $filterMapper)
     {
         $filterMapper
-            ->add('id')
             ->add('name')
             ->add('description');
     }
@@ -41,7 +40,8 @@ class PriceAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('name')
-            ->add('description');
+            ->add('description')
+            ->add('enabled', null, array('editable' => true, 'label' => 'Activé'));
 
     }
 
@@ -66,11 +66,11 @@ class PriceAdmin extends Admin
     {
         $formMapper
             ->with('General')
-            ->add('name', 'text', array('required' => true, 'help' => $this->trans('help.coupon.name')))
-            ->add('description', 'textarea', array('required' => true))
-            ->add('activity', null, array('required' => true))
-            ->add('price', null, array('required' => true))
-            ->add('visibility', 'choice', array('required' => true, 'choices' => array(0 => 'Non', 1 => 'Oui')))
+            ->add('name')
+            ->add('description', null, array('attr' => array('class' => 'ckeditor')))
+            ->add('activity', null, array('label' => 'Activité'))
+            ->add('price', null, array('label' => 'Prix'))
+            ->add('enabled', 'choice', array('label' => 'Activé', 'choices' => array(0 => 'Non', 1 => 'Oui')))
             ->end();
 
     }

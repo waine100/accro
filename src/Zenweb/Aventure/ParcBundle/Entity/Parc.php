@@ -2,6 +2,8 @@
 
 namespace Zenweb\Aventure\ParcBundle\Entity;
 
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -38,6 +40,10 @@ class Parc
      * @var string
      */
     private $image = null;
+
+    private $fileImage;
+
+    private $filePlan;
 
     /**
      * Get id
@@ -198,5 +204,128 @@ class Parc
     public function getEnabled()
     {
         return $this->enabled;
+    }
+    /**
+     * @var string
+     */
+    private $plan;
+
+
+    /**
+     * Set plan
+     *
+     * @param string $plan
+     * @return Parc
+     */
+    public function setPlan($plan)
+    {
+        $this->plan = $plan;
+
+        return $this;
+    }
+
+    /**
+     * Get plan
+     *
+     * @return string 
+     */
+    public function getPlan()
+    {
+        return $this->plan;
+    }
+
+    /**
+     * @param mixed $fileImage
+     */
+    public function setFileImage($fileImage)
+    {
+        $this->fileImage = $fileImage;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFileImage()
+    {
+        return $this->fileImage;
+    }
+
+    /**
+     * @param mixed $filePlan
+     */
+    public function setFilePlan($filePlan)
+    {
+        $this->filePlan = $filePlan;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFilePlan()
+    {
+        return $this->filePlan;
+    }
+
+    protected function getUploadRootDir()
+    {
+        return __DIR__.'/../../../../../web/'.$this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+        return 'uploads/media';
+    }
+
+    public function getAbsoluteImage()
+    {
+        return null === $this->image ? null : $this->getUploadRootDir().'/'.$this->image;
+    }
+
+    public function getWebImage()
+    {
+        return null === $this->image ? null : $this->getUploadDir().'/'.$this->image;
+    }
+
+    public function getAbsolutePlan()
+    {
+        return null === $this->plan ? null : $this->getUploadRootDir().'/'.$this->plan;
+    }
+
+    public function getWebPlan()
+    {
+        return null === $this->plan ? null : $this->getUploadDir().'/'.$this->plan;
+    }
+
+    public function preUpload()
+    {
+        if (null !== $this->fileImage) {
+            $this->image = sha1(uniqid(mt_rand(), true)).'.'.$this->fileImage->guessExtension();
+        }
+        if (null !== $this->filePlan) {
+            $this->plan = sha1(uniqid(mt_rand(), true)).'.'.$this->filePlan->guessExtension();
+        }
+    }
+
+    public function upload()
+    {
+        if (null !== $this->fileImage) {
+            $this->fileImage->move($this->getUploadRootDir(), $this->image);
+            unset($this->fileImage);
+        }
+
+        if (null !== $this->filePlan) {
+            $this->filePlan->move($this->getUploadRootDir(), $this->plan);
+            unset($this->filePlan);
+        }
+    }
+
+    public function removeUpload()
+    {
+        if ($file = $this->getAbsoluteImage()) {
+            unlink($file);
+        }
+        if ($file = $this->getAbsolutePlan()) {
+            unlink($file);
+        }
     }
 }

@@ -65,10 +65,11 @@ class TypicalDayAdmin extends Admin
     {
         $formMapper
             ->with('General')
-            ->add('name', 'text', array('required' => true, 'help' => $this->trans('help.coupon.name')))
-            ->add('description', 'textarea', array('required' => true))
+            ->add('name', 'text')
+            ->add('description', 'textarea', array('attr' => array('class' => 'ckeditor')))
             ->add('color', 'genemu_jquerycolor', array(
-                'widget' => 'image'
+                'widget' => 'image',
+                'help' => 'Couleur affichée dans le calendrier en back office.'
             ))
             ->end();
 

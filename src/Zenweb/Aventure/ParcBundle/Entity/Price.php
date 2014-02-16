@@ -136,34 +136,6 @@ class Price
     {
         return $this->activity;
     }
-    /**
-     * @var boolean
-     */
-    private $visibility;
-
-
-    /**
-     * Set visibility
-     *
-     * @param boolean $visibility
-     * @return Price
-     */
-    public function setVisibility($visibility)
-    {
-        $this->visibility = $visibility;
-
-        return $this;
-    }
-
-    /**
-     * Get visibility
-     *
-     * @return boolean 
-     */
-    public function getVisibility()
-    {
-        return $this->visibility;
-    }
 
     /**
      * Display a nice name
@@ -171,5 +143,33 @@ class Price
      */
     public function __toString(){
         return $this->name;
+    }
+    /**
+     * @var boolean
+     */
+    private $enabled;
+
+
+    /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     * @return Price
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return boolean 
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
     }
 }

@@ -181,7 +181,7 @@ class TimeSlot
          * @TODO add a nice display name
          */
         if (!empty($this->activity)) {
-            return $this->activity->getName();
+            return $this->activity->getName().' ('.$this->beginTime->format("H:i").' -> '.$this->endTime->format("H:i").')';
         }
     }
 }

@@ -8,7 +8,7 @@ class CreateOrderParcForm extends AbstractType
 {
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
-        $builder->add('parc', 'entity', array('class'=>'ZenwebAventureParcBundle:Parc'));
+        $builder->add('parc', 'entity', array('class'=>'ZenwebAventureParcBundle:Parc', 'label' => "Veuillez sélectionner le parc"));
     }
 
     public function getName()
