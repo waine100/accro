@@ -10,6 +10,6 @@ services:
         parent: craue.form.flow
         scope: request
         arguments: [ @doctrine.orm.entity_manager ]
-    zenweb_aventure_parc.user_creation:
-        class: Zenweb\Aventure\ParcBundle\Form\EventListener\UserCreationListener
-        arguments: [ @doctrine.orm.entity_manager ]
+    #zenweb_aventure_parc.user_creation:
+    #    class: Zenweb\Aventure\ParcBundle\Form\EventListener\UserCreationListener
+    #    arguments: [ @doctrine.orm.entity_manager ]

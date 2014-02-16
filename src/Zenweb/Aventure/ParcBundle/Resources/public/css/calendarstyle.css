@@ -19,7 +19,7 @@
     width: 960px;
     bottom:-15px;
     left:0;
-    content: url('../images/separator.png');
+    #content: url('../images/separator.png');
 }
 
 .shadow_effect {
@@ -38,7 +38,7 @@
 }
 
 .calendar_wrapper {
-    background:#e1d6ca url(loading.gif) no-repeat 50% 50%;
+    background:#e1d6ca url(../images/loading.gif) no-repeat 50% 50%;
     float: left;
     margin-right: 15px;
     width:240px;

@@ -20,15 +20,24 @@ class OrderController extends Controller
         // form of the current step
         $form = $flow->createForm();
 
+        $parc = 0;
+
         if ($flow->isValid($form)) {
             $flow->saveCurrentStepData($form);
+
+            /**
+             * Needed for calendars
+             */
+            if($flow->getCurrentStepNumber() >= 1) {
+                $parc = $flow->getFormData()->getParc()->getId();
+            }
 
             if ($flow->nextStep()) {
                 /**
                  * We have choose a date and a parc, get the typicalDayId needed for other purpose.
                  */
+
                 if ($flow->getCurrentStepNumber() > 2) {
-                    $parc = $flow->getFormData()->getParc()->getId();
                     $date = $flow->getFormData()->getBookingDate();
                     $em = $this->getDoctrine()->getManager()->getRepository('ZenwebAventureParcBundle:Booking');
                     $flow->getFormData()->setBooking($em->findOneBy(array('theDate' => $date, 'parc' => $parc)));
@@ -50,7 +59,10 @@ class OrderController extends Controller
         return $this->render('ZenwebAventureParcBundle:Admin:create_order.html.twig', array(
             'form' => $form->createView(),
             'flow' => $flow,
-            'admin_pool' => $this->get('sonata.admin.pool')
+            'admin_pool' => $this->get('sonata.admin.pool'),
+            'parc_id' => $parc,
+            'month' => date('m'),
+            'year' => date('Y'),
         ));
     }
 
@@ -58,12 +70,11 @@ class OrderController extends Controller
     {
         $request = $this->get('request');
 
-        if($request->isXmlHttpRequest()) // pour vérifier la présence d'une requete Ajax
+        if ($request->isXmlHttpRequest()) // pour vérifier la présence d'une requete Ajax
         {
             $idTimeSlot = $request->request->get('id');
 
-            if ($idTimeSlot != null)
-            {
+            if ($idTimeSlot != null) {
                 $prices = $this->getDoctrine()
                     ->getManager()
                     ->getRepository('ZenwebAventureParcBundle:Price')

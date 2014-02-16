@@ -13,20 +13,13 @@
     var gap = 0;//global variable to follow what months to display
     var month = {{ month }};
     var year = {{ year }};
-    var parcId = 0;//Default parcId
+    var parcId = {{ parc_id }};//Default parcId
     var typicalDay = null; //Which typicalDay are we adding to our booking.
-
-    function setTypicalDay(id) {
-        typicalDay = id;
-        return true;
-    }
-
 
     jQuery(document).ready(function () {
 
         var cal1 = $('#cal1');
         var cal2 = $('#cal2');
-        var $parcSelected = $('#parcs_select');
 
         $('#link_next').attr('onclick', '').click(function (e) {
             e.preventDefault();
@@ -59,7 +52,10 @@
                     while (count < 43) {
                         if (data.calendar[(count - 1)].dates != "")//in admin, if the date is valid, we attach an action to change date state on the click event
                         {
-                            $('#' + id + '_cell_' + count).attr("title", data.calendar[(count - 1)].dates).click(changeState);//This is a trick to pass an event to a non-anonymous function, which is not posible with the classic .click(function(e){myFunction()})
+                            $('#' + id + '_cell_' + count).attr("title", data.calendar[(count - 1)].dates).click(function(e){
+                                e.preventDefault();
+                                $('#createOrderDate_bookingDate').val(($(this).attr('title')));
+                            });//This is a trick to pass an event to a non-anonymous function, which is not posible with the classic .click(function(e){myFunction()})
                         }
                         else {
                             $('#' + id + '_cell_' + count).click(function (e) {
@@ -105,59 +101,13 @@
             fillCalendar(newMonth - 12 * Math.floor((newMonth) / 13), newYear + Math.floor((newMonth) / 13), cal1);
             fillCalendar(newMonth + 1 - 12 * Math.floor((newMonth + 1) / 13), newYear + Math.floor((newMonth + 1) / 13), cal2);
         }
-
-        $parcSelected.change(function () {
-            $parcSelected.find("option:selected").each(function () {
-                parcId = $(this).val();
-                changeMonths(0);
-            });
-        })
-
-        function changeState(e)//admn function to change class of the date that has been clicked on based on the new state
-        {
-            e.preventDefault();
-            var date = $(this).attr("title");
-            var id = $(this).attr("id");
-            var url = "{{ path('zenweb_aventure_parc_calendar_ajax_admin') }}";
-            if (typicalDay == null) {
-                alert('Please select at least one typical day.');
-                return false;
-            }
-            $.post(url, {
-                date: date,
-                id: id,
-                parcId: parcId,
-                typicalDay: typicalDay
-            }, function (data) {
-                if (data.responseCode == 200) {
-                    var id_returned = data.id_returned;
-                    var date_returned = data.date_returned;
-                    var color = data.color;
-                    $('#' + id_returned).css('background-color', '#'+color);
-                }
-                else if (data.responseCode == 400) {//bad request
-                    alert(data.message);
-                }
-                else {
-                    alert("An unexpeded error occured.");
-                }
-            });
-        }
+        changeMonths(0);
     });
 </script>
 <div id="symfocal_admin" class="shadow_effect">
     <div id="manager">
-        <span>1. Please select a parc</span>
-        <div id="selects">
-            <select id="parcs_select">
-                <option value="0">click through all parcs</option>
-                {% for parc in parcs %}
-                    <option value="{{ parc.id }}">{{ parc.name }}</option>
-                {% endfor %}
-            </select>
-        </div>
     </div>
-    <div id="control_nav">
+    <div id="control_nav" style="width: 470px;">
         <a id="link_prev" href="#">Prev</a>
         <a id="link_next" href="#">Next</a>
     </div>
@@ -166,30 +116,5 @@
         {% include 'DpCalendarBundle:Default:cal.html.twig' with {'calId': 'cal1'} %}
         {% include 'DpCalendarBundle:Default:cal.html.twig' with {'calId': 'cal2'} %}
     </div>
-
-    <div id="legend" class="calendar">
-        <table align="center">
-            <tr>
-                <td class="title_calendar" colspan="2" width="100%">
-                    <span>2. Please select a typical day</span>
-                </td>
-            </tr>
-            {% for td in typicalDays %}
-                <tr>
-                    <td><a href="#" onclick="setTypicalDay({{ td.id }});" class="colored" style="background-color:#{{ td.color }};border-color:#{{ td.color }}"></a></td>
-                    <td class="legend_calendar">{{ td.name }}</td>
-                </tr>
-            {% endfor %}
-        </table>
-    </div>
-
-    <div id="details_typicalDay">
-        @TODO AFFICHER LES DETAILS DE LA JOURNEE TYPE<br/>
-        {% for td in typicalDays %}
-            {% for ts in td.getTimeSlots %}
-                {{ ts.getActivity }}
-            {% endfor %}
-        {% endfor %}
-    </div>
-
+    <div id="clear" style="clear:both">&nbsp;</div>
 </div>

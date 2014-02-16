@@ -16,7 +16,7 @@ class CreateOrderUserForm extends AbstractType
         ), array(
             'placeholder' => 'No user selected'
         ));*/
-        $builder->add('user', 'entity', array('class'=>'ZenwebAventureParcBundle:User'));
+        $builder->add('user', 'genemu_jqueryselect2_entity', array('class'=>'ZenwebAventureParcBundle:User'));
     }
 
     public function getName()

@@ -25,7 +25,7 @@
         "sonata-project/easy-extends-bundle": "dev-master",
         "sonata-project/user-bundle": "dev-master",
         "craue/formflow-bundle": "~2.0",
-        "genemu/form-bundle": "2.2.*",
+        "genemu/form-bundle": "2.2.*@dev",
         "doctrine/doctrine-fixtures-bundle": "dev-master"
     },
     "scripts": {

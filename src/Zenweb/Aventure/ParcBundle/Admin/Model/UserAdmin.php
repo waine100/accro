@@ -7,11 +7,13 @@
  */
 
 namespace Zenweb\Aventure\ParcBundle\Admin\Model;
+
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\UserBundle\Admin\Model\UserAdmin as SonataUserAdmin;
 
 
-class UserAdmin extends SonataUserAdmin {
+class UserAdmin extends SonataUserAdmin
+{
 
     /**
      * {@inheritdoc}
@@ -43,14 +45,13 @@ class UserAdmin extends SonataUserAdmin {
                 'expanded' => true,
                 'multiple' => true
             ))
-            ->end()
-        ;
+            ->end();
 
         if ($this->getSubject() && !$this->getSubject()->hasRole('ROLE_SUPER_ADMIN')) {
             $formMapper
                 ->with('Management')
                 ->add('realRoles', 'sonata_security_roles', array(
-                    'label'    => 'form.label_roles',
+                    'label' => 'form.label_roles',
                     'expanded' => true,
                     'multiple' => true,
                     'required' => false
@@ -59,16 +60,20 @@ class UserAdmin extends SonataUserAdmin {
                 ->add('expired', null, array('required' => false))
                 ->add('enabled', null, array('required' => false))
                 ->add('credentialsExpired', null, array('required' => false))
-                ->end()
-            ;
+                ->end();
         }
     }
 
     /**
+     * Add user to Particulier group by default if no groups are selected
      * {@inheritdoc}
      */
-    public function preUpdate($user)
+    public function prePersist($user)
     {
-        parent::preUpdate($user);
+        parent::prePersist($user);
+        if (!$user->getGroups()->count()) {
+            $entity = $this->getConfigurationPool()->getContainer()->get('doctrine')->getRepository('ZenwebAventureParcBundle:Group')->findOneByName('Particulier');
+            $user->addGroup($entity);
+        }
     }
 } 

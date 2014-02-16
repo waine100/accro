@@ -1,7 +1,7 @@
 {% extends 'ZenwebAventureParcBundle:Admin:standard_layout.html.twig' %}
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('bundles/craueformflowbundle/css/buttons.css') }}" media="all">
+    <link rel="stylesheet" href="{{ asset('bundles/zenwebaventureparc/css/step.css') }}" media="all">
 {% endblock %}
 {% block top_bar_after_nav %}
     <li>
@@ -9,10 +9,7 @@
     </li>
 {% endblock %}
 {% block sonata_page_content %}
-    <div>
-        Steps:
-        {% include 'CraueFormFlowBundle:FormFlow:stepList.html.twig' %}
-    </div>
+    {% include 'ZenwebAventureParcBundle:Admin:stepList.html.twig' %}
     <form method="post" {{ form_enctype(form) }}>
         {{ form_errors(form) }}
 
@@ -20,13 +17,15 @@
             <div>
                 {{ form_row(form.parc) }}
             </div>
+        {% elseif flow.getCurrentStepNumber() == 2 %}
+            {% include 'ZenwebAventureParcBundle:Admin:pick_date.html.twig' %}
         {% elseif flow.getCurrentStepNumber() == 3 %}
             {{ form_row(form.items) }}
         {% endif %}
         {{ form_rest(form) }}
 
 
-        {% include 'CraueFormFlowBundle:FormFlow:buttons.html.twig' %}
+        {% include 'ZenwebAventureParcBundle:Admin:buttons.html.twig' %}
     </form>
     <!-- Javascript needed for activites -->
     <script type="text/javascript">
@@ -91,7 +90,6 @@
                     }
                 });
             }
-
         });
     </script>
 {% endblock %}

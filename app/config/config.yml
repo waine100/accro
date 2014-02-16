@@ -110,6 +110,13 @@ sonata_user:
 
 genemu_form:
     date: ~
+    select2:
+        enabled: true
+        configs:
+            placeholder: Veuillez sélectioner
+            width: element
+            allowClear: false
+            minimumInputLength: 0
 
 parameters:
     sonata.user.admin.user.class: Zenweb\Aventure\ParcBundle\Admin\Model\UserAdmin

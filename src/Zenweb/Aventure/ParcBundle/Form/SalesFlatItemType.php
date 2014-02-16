@@ -27,12 +27,12 @@ class SalesFlatItemType extends AbstractType
                         ->where('u.typicalDay = :typicalDay')
                         ->orderBy('u.beginTime', 'ASC')
                         ->setParameter('typicalDay', $typicalDayId);
-                },
+                }, 'empty_value' => 'Choisissez une activité'
             ))
             //->add('description', 'textarea')
             ->add('qty', 'integer')
-            ->add('basePrice', 'entity', array('class' => 'ZenwebAventureParcBundle:Price'))
-            //->add('rowTotal', 'money')//->add('order', 'int');
+            ->add('basePrice', 'entity', array('class' => 'ZenwebAventureParcBundle:Price', 'empty_value' => 'Choisissez un prix'))
+            ->add('rowTotal', 'money')
         ;
     }
 
