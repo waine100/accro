@@ -1,0 +1,20 @@
+{% block collection_widget %}
+{% spaceless %}
+    {% if prototype is defined %}
+        {% set attr = attr|merge({'data-prototype': block('collection_widget_row') }) %}
+    {% endif %}
+    {{ block('form_widget') }}
+{% endspaceless %}
+{% endblock collection_widget %}
+
+{% block collection_widget_row %}
+{% spaceless %}
+    {% if prototype is defined %}
+        <tr>
+        {% for child in prototype %}
+            <td class="sonata-ba-list-field sonata-ba-list-field-text">{{ form_widget(child) }}</td>
+        {% endfor %}
+        </tr>
+    {% endif %}
+{% endspaceless %}
+{% endblock %}

@@ -5,6 +5,14 @@
 		Thus, all buttons are defined in reverse order and will be reversed again via CSS.
 		See http://stackoverflow.com/questions/1963245/multiple-submit-buttons-specifying-default-button
 	#}
+
+    {% if renderBackButton %}
+        {# see http://www.html5rocks.com/en/tutorials/forms/html5forms/ #}
+        <button class="btn btn-success" type="submit" name="{{ flow.getFormTransitionKey() }}" value="back" formnovalidate="formnovalidate">
+            {{- 'button.back' | trans({}, 'CraueFormFlowBundle') -}}
+        </button>
+    {% endif %}
+
 	<button type="submit" class="btn btn-primary">
 		{%- if flow.getCurrentStepNumber() < flow.getLastStepNumber() -%}
 			{{- 'button.next' | trans({}, 'CraueFormFlowBundle') -}}
@@ -12,13 +20,6 @@
 			{{- 'button.finish' | trans({}, 'CraueFormFlowBundle') -}}
 		{%- endif -%}
 	</button>
-
-	{% if renderBackButton %}
-		{# see http://www.html5rocks.com/en/tutorials/forms/html5forms/ #}
-		<button class="btn btn-success" type="submit" name="{{ flow.getFormTransitionKey() }}" value="back" formnovalidate="formnovalidate">
-			{{- 'button.back' | trans({}, 'CraueFormFlowBundle') -}}
-		</button>
-	{% endif %}
 
 	<button type="submit" class="btn btn-danger" name="{{ flow.getFormTransitionKey() }}" value="reset" formnovalidate="formnovalidate">
 		{{- 'button.reset' | trans({}, 'CraueFormFlowBundle') -}}

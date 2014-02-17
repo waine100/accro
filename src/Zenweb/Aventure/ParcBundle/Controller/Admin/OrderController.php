@@ -22,7 +22,7 @@ class OrderController extends Controller
 
         $parc = 0;
 
-        if($flow->getCurrentStepNumber() >= 1) {
+        if($flow->getCurrentStepNumber() > 1) {
             $parc = $flow->getFormData()->getParc()->getId();
         }
 

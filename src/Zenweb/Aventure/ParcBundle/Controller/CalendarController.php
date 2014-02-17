@@ -19,10 +19,6 @@ class CalendarController extends Controller
         $month = $date->format('m'); //to start calendar on current month
         $day   = $date->format('d');
 
-        $items = $em->getRepository('DpCalendarBundle:Item')->findBy(array(), array('position' => 'ASC')); //all items followed with the calendar
-
-        $item = $em->getRepository('DpCalendarBundle:Item')->findOneBy(array(), array('position' => 'ASC'), 1, 1)->getId(); //first item on which calendar will open
-
         $parcs = $em->getRepository('ZenwebAventureParcBundle:Parc')->findBy(array(), array('name' => 'ASC')); //all booking states for the legend
 
         $typicalDays = $em->getRepository('ZenwebAventureParcBundle:TypicalDay')->findBy(array(), array('name' => 'ASC')); //all typical days
@@ -152,7 +148,7 @@ class CalendarController extends Controller
         $return = '';
 
         $current_month = $dateUtil->getMonth($monthKey);
-        $title         = htmlentities($current_month . " " . $yearKey, ENT_QUOTES);
+        $title         = htmlentities($current_month . " " . $yearKey, ENT_QUOTES, 'ISO-8859-1');
         $return .= '"current_month" : "' . $title . '" , ';
 
         $previous_month      = $dateUtil->getOtherMonth($monthKey, $yearKey, -1); //needed to calculate the number of days of previous month

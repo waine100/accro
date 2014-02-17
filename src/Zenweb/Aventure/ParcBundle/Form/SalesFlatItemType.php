@@ -20,19 +20,18 @@ class SalesFlatItemType extends AbstractType
         $typicalDayId = $formData->getBooking()->getTypicalDay()->getId();
 
         $builder
-            //->add('createdAt', 'date')
-            //->add('updatedAt', 'date')
-            ->add('name', 'entity', array('class' => 'ZenwebAventureParcBundle:TimeSlot', 'query_builder' => function (TimeSlotRepository $er) use ($typicalDayId) {
+            ->add('name', 'genemu_jqueryselect2_entity', array('class' => 'ZenwebAventureParcBundle:TimeSlot', 'query_builder' => function (TimeSlotRepository $er) use ($typicalDayId) {
                     return $er->createQueryBuilder('u')
                         ->where('u.typicalDay = :typicalDay')
                         ->orderBy('u.beginTime', 'ASC')
                         ->setParameter('typicalDay', $typicalDayId);
-                }, 'empty_value' => 'Choisissez une activité'
+                }, 'empty_value' => 'Choisissez une activité',
+                 'label' => 'Activité'
+
             ))
-            //->add('description', 'textarea')
-            ->add('qty', 'integer')
-            ->add('basePrice', 'entity', array('class' => 'ZenwebAventureParcBundle:Price', 'empty_value' => 'Choisissez un prix'))
-            ->add('rowTotal', 'money')
+            ->add('qty', 'integer' ,array('label' => 'Quantité'))
+            ->add('basePrice', 'entity', array('class' => 'ZenwebAventureParcBundle:Price', 'empty_value' => 'Choisissez un prix', 'label' => 'Prix'))
+            ->add('rowTotal', 'money', array('label' => 'Total'))
         ;
     }
 
@@ -54,4 +53,5 @@ class SalesFlatItemType extends AbstractType
     {
         return 'zenweb_aventure_parcbundle_salesflatitem';
     }
+
 }
