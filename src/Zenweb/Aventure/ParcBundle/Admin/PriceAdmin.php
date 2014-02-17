@@ -41,6 +41,8 @@ class PriceAdmin extends Admin
         $listMapper
             ->addIdentifier('name')
             ->add('description')
+            ->add('activity')
+            ->add('groups')
             ->add('enabled', null, array('editable' => true, 'label' => 'Activé'));
 
     }
@@ -71,6 +73,8 @@ class PriceAdmin extends Admin
             ->add('activity', null, array('label' => 'Activité'))
             ->add('price', null, array('label' => 'Prix'))
             ->add('enabled', 'choice', array('label' => 'Activé', 'choices' => array(0 => 'Non', 1 => 'Oui')))
+            ->add('groups', null, array('label' => 'Groupes de client'))
+            ->add('TierPrices', 'collection', array('label' => 'Prix dégressifs', 'allow_add' => true, 'allow_delete' => true))
             ->end();
 
     }

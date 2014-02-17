@@ -41,7 +41,7 @@ class AppKernel extends Kernel
             new Dp\CalendarBundle\DpCalendarBundle(),
             new Craue\FormFlowBundle\CraueFormFlowBundle(),
             new Genemu\Bundle\FormBundle\GenemuFormBundle(),
-            new JMS\Payment\CoreBundle\JMSPaymentCoreBundle(),
+
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

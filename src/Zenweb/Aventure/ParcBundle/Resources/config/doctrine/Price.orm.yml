@@ -19,8 +19,23 @@ Zenweb\Aventure\ParcBundle\Entity\Price:
         enabled:
             type: boolean
 
+    oneToMany:
+        TierPrices:
+            targetEntity: TierPrice
+            mappedBy: activity_price
     manyToOne:
         activity:
             targetEntity: Zenweb\Aventure\ParcBundle\Entity\Activity
             inversedBy: Prices
+    manyToMany:
+        groups:
+            targetEntity: Group
+            joinTable:
+                name: prices_groups
+                joinColumns:
+                    price_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    group_id:
+                        referencedColumnName: id
     lifecycleCallbacks: {  }

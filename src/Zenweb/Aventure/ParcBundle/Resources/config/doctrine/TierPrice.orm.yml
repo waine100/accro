@@ -1,0 +1,20 @@
+Zenweb\Aventure\ParcBundle\Entity\TierPrice:
+    type: entity
+    table: null
+    repositoryClass: Zenweb\Aventure\ParcBundle\Entity\TierPriceRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        qty:
+            type: smallint
+        price:
+            type: decimal
+    manyToOne:
+        activity_price:
+            targetEntity: Zenweb\Aventure\ParcBundle\Entity\Price
+            inversedBy: TierPrices
+    lifecycleCallbacks: {  }

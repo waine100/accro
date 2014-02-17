@@ -172,4 +172,88 @@ class Price
     {
         return $this->enabled;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $groups;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add groups
+     *
+     * @param \Zenweb\Aventure\ParcBundle\Entity\Group $groups
+     * @return Price
+     */
+    public function addGroup(\Zenweb\Aventure\ParcBundle\Entity\Group $groups)
+    {
+        $this->groups[] = $groups;
+
+        return $this;
+    }
+
+    /**
+     * Remove groups
+     *
+     * @param \Zenweb\Aventure\ParcBundle\Entity\Group $groups
+     */
+    public function removeGroup(\Zenweb\Aventure\ParcBundle\Entity\Group $groups)
+    {
+        $this->groups->removeElement($groups);
+    }
+
+    /**
+     * Get groups
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGroups()
+    {
+        return $this->groups;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $TierPrices;
+
+
+    /**
+     * Add TierPrices
+     *
+     * @param \Zenweb\Aventure\ParcBundle\Entity\TierPrice $tierPrices
+     * @return Price
+     */
+    public function addTierPrice(\Zenweb\Aventure\ParcBundle\Entity\TierPrice $tierPrices)
+    {
+        $this->TierPrices[] = $tierPrices;
+
+        return $this;
+    }
+
+    /**
+     * Remove TierPrices
+     *
+     * @param \Zenweb\Aventure\ParcBundle\Entity\TierPrice $tierPrices
+     */
+    public function removeTierPrice(\Zenweb\Aventure\ParcBundle\Entity\TierPrice $tierPrices)
+    {
+        $this->TierPrices->removeElement($tierPrices);
+    }
+
+    /**
+     * Get TierPrices
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTierPrices()
+    {
+        return $this->TierPrices;
+    }
+
 }

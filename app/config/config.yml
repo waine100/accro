@@ -118,8 +118,5 @@ genemu_form:
             allowClear: false
             minimumInputLength: 0
 
-jms_payment_core:
-    secret: nnFrrhC3Ae6ssxhfse77
-
 parameters:
     sonata.user.admin.user.class: Zenweb\Aventure\ParcBundle\Admin\Model\UserAdmin
