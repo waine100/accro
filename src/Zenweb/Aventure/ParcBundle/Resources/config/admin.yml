@@ -68,7 +68,7 @@ services:
     sonata.admin.TierPrices:
         class: Zenweb\Aventure\ParcBundle\Admin\TierPriceAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Parcs", label: "Prix" }
+            - { name: sonata.admin, manager_type: orm, group: "Parcs", label: "Prix", show_in_dashboard: false }
         arguments:
             - ~
             - Zenweb\Aventure\ParcBundle\Entity\TierPrice
@@ -79,7 +79,7 @@ services:
     sonata.admin.price:
             class: Zenweb\Aventure\ParcBundle\Admin\PriceAdmin
             tags:
-                - { name: sonata.admin, manager_type: orm, group: "Parcs", label: "Prix", show_in_dashboard: false }
+                - { name: sonata.admin, manager_type: orm, group: "Parcs", label: "Prix" }
             arguments:
                 - ~
                 - Zenweb\Aventure\ParcBundle\Entity\Price

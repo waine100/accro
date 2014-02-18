@@ -22,7 +22,7 @@ class OrderController extends Controller
 
         $parc = 0;
 
-        if($flow->getCurrentStepNumber() > 1) {
+        if ($flow->getCurrentStepNumber() > 1) {
             $parc = $flow->getFormData()->getParc()->getId();
         }
 
@@ -32,7 +32,7 @@ class OrderController extends Controller
             /**
              * Needed for calendars
              */
-            if($flow->getCurrentStepNumber() >= 1) {
+            if ($flow->getCurrentStepNumber() >= 1) {
                 $parc = $flow->getFormData()->getParc()->getId();
             }
 
@@ -73,12 +73,35 @@ class OrderController extends Controller
     public function getPricesAction()
     {
         $request = $this->get('request');
-
-        if ($request->isXmlHttpRequest()) // pour vérifier la présence d'une requete Ajax
-        {
-            $idTimeSlot = $request->request->get('id');
+        //http://accro.fiducial.dom/app_dev.php/admin/order/get_prices?id=4
+        
+        //if ($request->isXmlHttpRequest()) // pour vérifier la présence d'une requete Ajax
+        //{
+            $idTimeSlot = $request->request->get('id', 1);
+            $userId = $request->request->get('userId');
+            $qty = $request->request->get('qty', 1);
 
             if ($idTimeSlot != null) {
+                $groupsId = array();
+                /**
+                 * First get the group of the User
+                 */
+                $groups = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository('ZenwebAventureParcBundle:User')
+                    ->find(8)
+                    ->getGroups();
+                foreach($groups as $group){
+                    $groupsId[] = $group->getId();
+                }
+
+                $prices = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository('ZenwebAventureParcBundle:Price')
+                    ->getAvailablePrices($groupsId);
+
+                var_dump($prices);die;
+
                 $prices = $this->getDoctrine()
                     ->getManager()
                     ->getRepository('ZenwebAventureParcBundle:Price')
@@ -91,7 +114,7 @@ class OrderController extends Controller
                 $response->setContent($prices);
                 return $response;
             }
-        }
+        //}
 
         return new Response("Something wrong happened", 400);
     }

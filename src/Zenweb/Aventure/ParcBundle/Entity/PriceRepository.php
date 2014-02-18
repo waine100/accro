@@ -18,6 +18,15 @@ class PriceRepository extends EntityRepository
             ->innerJoin("ZenwebAventureParcBundle:TimeSlot", "ts", "WITH", "ts.activity = p.activity")
             ->where("ts.id=:idTs")
             ->setParameter("idTs", $idTimeSlot)
+            //->setParameter("idTs", $idTimeSlot)
+            ->getQuery()->getArrayResult();
+    }
+
+    public function getAvailablePrices($groupsId)
+    {
+        $qb = $this->createQueryBuilder("p");
+        return $qb->join('p.groups', 'g')
+            ->where($qb->expr()->in('g.id', $groupsId))
             ->getQuery()->getArrayResult();
     }
 }
