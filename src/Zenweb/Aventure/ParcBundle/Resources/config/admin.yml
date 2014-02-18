@@ -65,16 +65,27 @@ services:
         calls:
             - [ setTranslationDomain, [ZenwebAventureParcBundle]]
 
-    sonata.admin.price:
-        class: Zenweb\Aventure\ParcBundle\Admin\PriceAdmin
+    sonata.admin.TierPrices:
+        class: Zenweb\Aventure\ParcBundle\Admin\TierPriceAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Parcs", label: "Prices" }
+            - { name: sonata.admin, manager_type: orm, group: "Parcs", label: "Prix" }
         arguments:
             - ~
-            - Zenweb\Aventure\ParcBundle\Entity\Price
+            - Zenweb\Aventure\ParcBundle\Entity\TierPrice
             - ~
         calls:
             - [ setTranslationDomain, [ZenwebAventureParcBundle]]
+
+    sonata.admin.price:
+            class: Zenweb\Aventure\ParcBundle\Admin\PriceAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: "Parcs", label: "Prix", show_in_dashboard: false }
+            arguments:
+                - ~
+                - Zenweb\Aventure\ParcBundle\Entity\Price
+                - ~
+            calls:
+                - [ setTranslationDomain, [ZenwebAventureParcBundle]]
 
     sonata.block.service.calendar:
         class: Zenweb\Aventure\ParcBundle\Block\AdminCalendarBlockService

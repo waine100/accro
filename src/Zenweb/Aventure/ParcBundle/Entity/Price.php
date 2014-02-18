@@ -217,6 +217,7 @@ class Price
     {
         return $this->groups;
     }
+
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
@@ -231,7 +232,8 @@ class Price
      */
     public function addTierPrice(\Zenweb\Aventure\ParcBundle\Entity\TierPrice $tierPrices)
     {
-        $this->TierPrices[] = $tierPrices;
+        $tierPrices->setActivityPrice($this);
+        $this->TierPrices->add($tierPrices);
 
         return $this;
     }

@@ -23,6 +23,8 @@ Zenweb\Aventure\ParcBundle\Entity\Price:
         TierPrices:
             targetEntity: TierPrice
             mappedBy: activity_price
+            cascade: ["persist", "remove"]
+            orphanRemoval: true
     manyToOne:
         activity:
             targetEntity: Zenweb\Aventure\ParcBundle\Entity\Activity

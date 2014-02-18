@@ -40,7 +40,7 @@ class AppKernel extends Kernel
              */
             new Dp\CalendarBundle\DpCalendarBundle(),
             new Craue\FormFlowBundle\CraueFormFlowBundle(),
-            new Genemu\Bundle\FormBundle\GenemuFormBundle(),
+            new Genemu\Bundle\FormBundle\GenemuFormBundle()
 
         );
 
