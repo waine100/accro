@@ -22,11 +22,18 @@ class PriceRepository extends EntityRepository
             ->getQuery()->getArrayResult();
     }
 
-    public function getAvailablePrices($groupsId)
+    public function getAvailablePrices($groupsId, $idTimeSlot, $qty)
     {
         $qb = $this->createQueryBuilder("p");
-        return $qb->join('p.groups', 'g')
+        return $qb->select('p', 'tp', $qb->expr()->min('tp.qty'))
+            ->join('p.groups', 'g')
+            ->innerJoin("ZenwebAventureParcBundle:TimeSlot", "ts", "WITH", "ts.activity = p.activity")
+            ->join('p.TierPrices', 'tp')
             ->where($qb->expr()->in('g.id', $groupsId))
+            ->andWhere("ts.id=:idTs")
+            ->andWhere("tp.qty>=:qtyWanted")
+            ->setParameter("idTs", $idTimeSlot)
+            ->setParameter("qtyWanted", $qty)
             ->getQuery()->getArrayResult();
     }
 }
