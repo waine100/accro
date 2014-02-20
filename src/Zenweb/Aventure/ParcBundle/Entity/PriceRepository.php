@@ -22,6 +22,23 @@ class PriceRepository extends EntityRepository
             ->getQuery()->getArrayResult();
     }
 
+    /**
+     * @param $groupsId
+     * @param $idTimeSlot
+     * @param $qty
+     *
+     * @return array
+     * SELECT
+      p1_.id AS id1, p1_.name AS name2, p1_.description AS description3, p1_.price AS price4,
+      p1_.enabled AS enabled5 , t0_.id AS id6,  t0_.qty AS qty7, t0_.price AS price8, p1_.activity_id AS activity_id9, t0_.activity_price_id AS activity_price_id10
+        FROM price p1_
+         INNER JOIN prices_groups p3_ ON p1_.id = p3_.price_id
+         INNER JOIN fos_user_group f2_ ON f2_.id = p3_.group_id
+         INNER JOIN TimeSlot t4_ ON (t4_.activity_id = p1_.activity_id)
+         LEFT JOIN TierPrice t0_ ON p1_.id = t0_.activity_price_id AND t0_.qty = (select min(TierPrice.qty) from TierPrice where TierPrice.qty >= 1)
+     WHERE f2_.id IN (1) AND t4_.id = 1
+     */
+
     public function getAvailablePrices($groupsId, $idTimeSlot, $qty)
     {
         $qb = $this->createQueryBuilder("p");
