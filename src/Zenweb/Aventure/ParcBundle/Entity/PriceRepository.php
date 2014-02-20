@@ -29,28 +29,37 @@ class PriceRepository extends EntityRepository
      *
      * @return array
      * SELECT
-      p1_.id AS id1, p1_.name AS name2, p1_.description AS description3, p1_.price AS price4,
-      p1_.enabled AS enabled5 , t0_.id AS id6,  t0_.qty AS qty7, t0_.price AS price8, p1_.activity_id AS activity_id9, t0_.activity_price_id AS activity_price_id10
-        FROM price p1_
-         INNER JOIN prices_groups p3_ ON p1_.id = p3_.price_id
-         INNER JOIN fos_user_group f2_ ON f2_.id = p3_.group_id
-         INNER JOIN TimeSlot t4_ ON (t4_.activity_id = p1_.activity_id)
-         LEFT JOIN TierPrice t0_ ON p1_.id = t0_.activity_price_id AND t0_.qty = (select min(TierPrice.qty) from TierPrice where TierPrice.qty >= 1)
-     WHERE f2_.id IN (1) AND t4_.id = 1
+     * p1_.id AS id1, p1_.name AS name2, p1_.description AS description3, p1_.price AS price4,
+     * p1_.enabled AS enabled5 , t0_.id AS id6,  t0_.qty AS qty7, t0_.price AS price8, p1_.activity_id AS activity_id9, t0_.activity_price_id AS activity_price_id10
+     * FROM price p1_
+     * INNER JOIN prices_groups p3_ ON p1_.id = p3_.price_id
+     * INNER JOIN fos_user_group f2_ ON f2_.id = p3_.group_id
+     * INNER JOIN TimeSlot t4_ ON (t4_.activity_id = p1_.activity_id)
+     * LEFT JOIN TierPrice t0_ ON p1_.id = t0_.activity_price_id AND t0_.qty = (select min(TierPrice.qty) from TierPrice where TierPrice.qty >= 1)
+     * WHERE f2_.id IN (1) AND t4_.id = 1
      */
 
     public function getAvailablePrices($groupsId, $idTimeSlot, $qty)
     {
+        /**
+         * Subquery to get the min of each tier price.
+         */
+        $qb2 = $this->_em->createQueryBuilder();
+        $qb2->select($qb2->expr()->max('tpmax.qty'))
+            ->from('ZenwebAventureParcBundle:TierPrice', 'tpmax')
+            ->where('tpmax.qty<=:qty')
+            ->setParameter("qty", $qty);
+        $qb2->getQuery()->getSQL();
+
         $qb = $this->createQueryBuilder("p");
-        return $qb->select('p', 'tp', $qb->expr()->min('tp.qty'))
+        return $qb->select('p', 'tp')
             ->join('p.groups', 'g')
-            ->innerJoin("ZenwebAventureParcBundle:TimeSlot", "ts", "WITH", "ts.activity = p.activity")
-            ->join('p.TierPrices', 'tp')
+            ->join("ZenwebAventureParcBundle:TimeSlot", "ts", "WITH", "ts.activity = p.activity")
+            ->leftJoin('p.TierPrices', 'tp', 'WITH', $qb->expr()->andX($qb->expr()->lte('tp.qty', ':qty'), $qb->expr()->eq('tp.qty', "($qb2)")))
             ->where($qb->expr()->in('g.id', $groupsId))
             ->andWhere("ts.id=:idTs")
-            ->andWhere("tp.qty>=:qtyWanted")
             ->setParameter("idTs", $idTimeSlot)
-            ->setParameter("qtyWanted", $qty)
+            ->setParameter("qty", $qty)
             ->getQuery()->getArrayResult();
     }
 }

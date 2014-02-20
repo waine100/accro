@@ -79,7 +79,7 @@ class OrderController extends Controller
         //{
             $idTimeSlot = $request->request->get('id', 1);
             $userId = $request->request->get('userId');
-            $qty = $request->request->get('qty', 10);
+            $qty = $request->request->get('qty', 18);
 
             if ($idTimeSlot != null) {
                 $groupsId = array();
@@ -99,13 +99,6 @@ class OrderController extends Controller
                     ->getManager()
                     ->getRepository('ZenwebAventureParcBundle:Price')
                     ->getAvailablePrices($groupsId, $idTimeSlot, $qty);
-
-                var_dump($prices);die;
-
-                $prices = $this->getDoctrine()
-                    ->getManager()
-                    ->getRepository('ZenwebAventureParcBundle:Price')
-                    ->getPricesByTimeSlot($idTimeSlot);
 
                 $response = new Response();
                 $prices = json_encode($prices);
