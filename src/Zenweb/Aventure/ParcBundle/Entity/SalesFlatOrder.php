@@ -354,6 +354,7 @@ class SalesFlatOrder
      */
     public function addItem(\Zenweb\Aventure\ParcBundle\Entity\SalesFlatItem $items)
     {
+        $items->calculateRowTotal($this->getUser()->getId());
         $this->items[] = $items;
 
         return $this;

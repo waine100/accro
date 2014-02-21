@@ -248,4 +248,24 @@ class SalesFlatItem
     {
         return $this->order;
     }
+
+    /**
+     * Update the timestamps on each save.
+     */
+    public function updatedTimestamps()
+    {
+        $this->setUpdatedAt(new \DateTime('now'));
+
+        if ($this->getCreatedAt() == null) {
+            $this->setCreatedAt(new \DateTime('now'));
+        }
+    }
+
+    /**
+     * Calculate the row total depending, on timeslot, qty and tierprice.
+     */
+    public function calculateRowTotal()
+    {
+
+    }
 }

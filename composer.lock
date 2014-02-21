@@ -638,7 +638,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Symfony Community",
@@ -2012,12 +2014,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "262c4c3c15d7cf2a4264d00bf95c910f7444b47b"
+                "reference": "2b0648889eab75aeb0c2f1a1e264ec5bf0be56b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/262c4c3c15d7cf2a4264d00bf95c910f7444b47b",
-                "reference": "262c4c3c15d7cf2a4264d00bf95c910f7444b47b",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/2b0648889eab75aeb0c2f1a1e264ec5bf0be56b8",
+                "reference": "2b0648889eab75aeb0c2f1a1e264ec5bf0be56b8",
                 "shasum": ""
             },
             "require": {
@@ -2084,7 +2086,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2014-02-17 17:19:59"
+            "time": "2014-02-20 08:45:58"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -2603,12 +2605,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataUserBundle.git",
-                "reference": "2c669e523302e8a4d486b6c14cef9490a8832395"
+                "reference": "cbba7d6cc87c96913f51426f0eeb9705c1710e49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/2c669e523302e8a4d486b6c14cef9490a8832395",
-                "reference": "2c669e523302e8a4d486b6c14cef9490a8832395",
+                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/cbba7d6cc87c96913f51426f0eeb9705c1710e49",
+                "reference": "cbba7d6cc87c96913f51426f0eeb9705c1710e49",
                 "shasum": ""
             },
             "require": {
@@ -2666,7 +2668,7 @@
                 "sonata",
                 "user"
             ],
-            "time": "2014-02-14 15:57:57"
+            "time": "2014-02-19 18:05:01"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2830,17 +2832,17 @@
         },
         {
             "name": "symfony/monolog-bundle",
-            "version": "v2.5.0",
+            "version": "v2.5.1",
             "target-dir": "Symfony/Bundle/MonologBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/MonologBundle.git",
-                "reference": "29a17a347dfc41aed34ce9b72cceaf375635c408"
+                "reference": "71ad844ac29401f86619f9d643393265451e858b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/29a17a347dfc41aed34ce9b72cceaf375635c408",
-                "reference": "29a17a347dfc41aed34ce9b72cceaf375635c408",
+                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/71ad844ac29401f86619f9d643393265451e858b",
+                "reference": "71ad844ac29401f86619f9d643393265451e858b",
                 "shasum": ""
             },
             "require": {
@@ -2873,7 +2875,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Symfony Community",
@@ -2886,7 +2890,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2014-01-19 13:23:40"
+            "time": "2014-02-19 14:49:26"
         },
         {
             "name": "symfony/swiftmailer-bundle",
@@ -2932,9 +2936,7 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
+                    "email": "fabien@symfony.com"
                 },
                 {
                     "name": "Symfony Community",

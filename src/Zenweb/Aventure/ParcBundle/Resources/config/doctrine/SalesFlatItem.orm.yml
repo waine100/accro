@@ -40,6 +40,12 @@ Zenweb\Aventure\ParcBundle\Entity\SalesFlatItem:
             joinColumn:
                 name: order_id
                 referencedColumnName: id
+    oneToOne:
+        timeSlot:
+            targetEntity: TimeSlot
+            joinColumn:
+                name: timeslot_id
+                referencedColumnName: id
     lifecycleCallbacks:
              prePersist: [updatedTimestamps]
              preUpdate: [updatedTimestamps]

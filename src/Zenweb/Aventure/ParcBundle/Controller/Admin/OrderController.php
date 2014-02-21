@@ -43,7 +43,7 @@ class OrderController extends Controller
 
                 if ($flow->getCurrentStepNumber() > 2) {
                     $date = $flow->getFormData()->getBookingDate();
-                    $em = $this->getDoctrine()->getManager()->getRepository('ZenwebAventureParcBundle:Booking');
+                    $em   = $this->getDoctrine()->getManager()->getRepository('ZenwebAventureParcBundle:Booking');
                     $flow->getFormData()->setBooking($em->findOneBy(array('theDate' => $date, 'parc' => $parc)));
                 }
                 // form for the next step
@@ -61,27 +61,28 @@ class OrderController extends Controller
         }
 
         return $this->render('ZenwebAventureParcBundle:Admin:create_order.html.twig', array(
-            'form' => $form->createView(),
-            'flow' => $flow,
+            'form'       => $form->createView(),
+            'flow'       => $flow,
             'admin_pool' => $this->get('sonata.admin.pool'),
-            'parc_id' => $parc,
-            'month' => date('m'),
-            'year' => date('Y'),
+            'parc_id'    => $parc,
+            'month'      => date('m'),
+            'year'       => date('Y'),
+            'userId'     => $formData->getUser()->getId(),
         ));
     }
 
     public function getPricesAction()
     {
         $request = $this->get('request');
-        //http://accro.fiducial.dom/app_dev.php/admin/order/get_prices?id=4
 
-        //if ($request->isXmlHttpRequest()) // pour vérifier la présence d'une requete Ajax
-        //{
-            $idTimeSlot = $request->request->get('id', 1);
-            $userId = $request->request->get('userId');
-            $qty = $request->request->get('qty', 18);
+        if ($request->isXmlHttpRequest()) {
+            // pour vérifier la présence d'une requete Ajax
 
-            if ($idTimeSlot != null) {
+            $idTimeSlot = $request->request->get('id');
+            $userId     = $request->request->get('userId');
+            $qty        = $request->request->get('qty', 1);
+
+            if (null !== $idTimeSlot && null !== $userId) {
                 $groupsId = array();
                 /**
                  * First get the group of the User
@@ -89,9 +90,10 @@ class OrderController extends Controller
                 $groups = $this->getDoctrine()
                     ->getManager()
                     ->getRepository('ZenwebAventureParcBundle:User')
-                    ->find(8)
+                    ->find($userId)
                     ->getGroups();
-                foreach($groups as $group){
+
+                foreach ($groups as $group) {
                     $groupsId[] = $group->getId();
                 }
 
@@ -101,13 +103,13 @@ class OrderController extends Controller
                     ->getAvailablePrices($groupsId, $idTimeSlot, $qty);
 
                 $response = new Response();
-                $prices = json_encode($prices);
+                $prices   = json_encode($prices);
                 $response->setStatusCode(200);
                 $response->headers->set('Content-Type', 'application/json');
                 $response->setContent($prices);
                 return $response;
             }
-        //}
+        }
 
         return new Response("Something wrong happened", 400);
     }

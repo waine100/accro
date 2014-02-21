@@ -19,15 +19,23 @@ function ajouterLienSuppression($prototype) {
 
 function addChangePriceListener($prototype) {
     $prototype.find("select:first").change(function () {
-            getPrices($(this).val(), $(this).parent().parent().find('select:last'));
+            getPrices($(this).val(), $(this).parent().parent().find('select:last'), $(this).parent().parent().find('input:first').val());
         }
 
     );
+    $prototype.find("input:first").blur(function () {
+            getPrices($(this).parent().parent().find('select:first').val(), $(this).parent().parent().find('select:last'), $(this).val());
+        }
+
+    );
+    /**
+     * @todo set total in js
+     */
 }
 
 $(document).ready(function () {
     var $container = $('div#createOrderActivity_items');
-    if($container.length){
+    if ($container.length) {
         var $table = $('table#activity_items > tbody');
         var $lienAjout = $('<a href="#" id="ajout_item" class="btn">Ajouter une activité</a>');
         $container.append($lienAjout);
@@ -36,7 +44,7 @@ $(document).ready(function () {
             e.preventDefault(); // évite qu'un # apparaisse dans l'URL
             return false;
         });
-         index = $container.find(':input').length;
+        index = $container.find(':input').length;
         if (index == 0) {
             ajouterCategorie($container, $table);
         } else {

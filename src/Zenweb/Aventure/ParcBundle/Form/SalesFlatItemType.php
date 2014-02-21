@@ -20,7 +20,7 @@ class SalesFlatItemType extends AbstractType
         $typicalDayId = $formData->getBooking()->getTypicalDay()->getId();
 
         $builder
-            ->add('name', 'genemu_jqueryselect2_entity', array('class' => 'ZenwebAventureParcBundle:TimeSlot', 'query_builder' => function (TimeSlotRepository $er) use ($typicalDayId) {
+            ->add('timeSlot', 'genemu_jqueryselect2_entity', array('class' => 'ZenwebAventureParcBundle:TimeSlot', 'query_builder' => function (TimeSlotRepository $er) use ($typicalDayId) {
                     return $er->createQueryBuilder('u')
                         ->where('u.typicalDay = :typicalDay')
                         ->orderBy('u.beginTime', 'ASC')

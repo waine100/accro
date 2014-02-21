@@ -16,8 +16,10 @@
 </table>
 <script>
     //Load prices:
-    function getPrices($tsId, $priceSelect) {
-        var DATA = 'id=' + $tsId;
+    function getPrices(tsId, $priceSelect, qty) {
+        qty = typeof qty !== 'undefined' ? qty : 1;
+        userId = {{ userId }};
+        var DATA = 'id=' + tsId + '&userId=' + userId +'&qty=' + qty;
         $.ajax({
             type: "POST",
             dataType: 'json',
@@ -26,7 +28,8 @@
             success: function (msg) {
                 $priceSelect.html('');
                 $.each(msg, function (index, price) {
-                    $priceSelect.append('<option value="' + price.id + '" selected="selected"> ' + price.name + ' (' + price.price + ' €) </option>');
+                    priceValue = typeof price.TierPrices[0] !== 'undefined' ? price.TierPrices[0].price : price.price
+                    $priceSelect.append('<option value="' + price.id + '" selected="selected"> ' + price.name + ' (' + priceValue + ' €) </option>');
                 });
             }
         });

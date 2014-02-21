@@ -249,6 +249,9 @@ class SalesFlatItem
         return $this->order;
     }
 
+    /**
+     * Update the timestamps on each save.
+     */
     public function updatedTimestamps()
     {
         $this->setUpdatedAt(new \DateTime('now'));
@@ -256,5 +259,55 @@ class SalesFlatItem
         if ($this->getCreatedAt() == null) {
             $this->setCreatedAt(new \DateTime('now'));
         }
+    }
+
+    /**
+     * Calculate the row total depending, on timeslot, qty and tierprice.
+     */
+    public function calculateRowTotal($userId)
+    {
+        /*$groupsId = array();
+        $groups = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('ZenwebAventureParcBundle:User')
+            ->find($userId)
+            ->getGroups();
+
+        foreach ($groups as $group) {
+            $groupsId[] = $group->getId();
+        }
+
+        $prices = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('ZenwebAventureParcBundle:Price')
+            ->getAvailablePrices($groupsId, $idTimeSlot, $qty);*/
+    }
+    /**
+     * @var \Zenweb\Aventure\ParcBundle\Entity\TimeSlot
+     */
+    private $timeSlot;
+
+
+    /**
+     * Set timeSlot
+     *
+     * @param \Zenweb\Aventure\ParcBundle\Entity\TimeSlot $timeSlot
+     * @return SalesFlatItem
+     */
+    public function setTimeSlot(\Zenweb\Aventure\ParcBundle\Entity\TimeSlot $timeSlot = null)
+    {
+        $this->timeSlot = $timeSlot;
+
+        return $this;
+    }
+
+    /**
+     * Get timeSlot
+     *
+     * @return \Zenweb\Aventure\ParcBundle\Entity\TimeSlot 
+     */
+    public function getTimeSlot()
+    {
+        return $this->timeSlot;
     }
 }
