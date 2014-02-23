@@ -51,14 +51,12 @@ Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder:
         items:
             targetEntity: SalesFlatItem
             mappedBy: order
-            cascade: ["persist"]
-    oneToOne:
+            cascade: ["persist", "remove"]
+            orphanRemoval: true
+    manyToOne:
         user:
             targetEntity: User
-            inversedBy: flat_order
-            joinColumn:
-                name: user_id
-                referencedColumnName: id
+            inversedBy: orders
         #parc:
         #    targetEntity: Parc
         #    inversedBy: flat_order
@@ -66,5 +64,5 @@ Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder:
         #        name: parc_id
         #        referencedColumnName: id
     lifecycleCallbacks:
-        prePersist: [updatedTimestamps]
-        preUpdate: [updatedTimestamps]
+        prePersist: [updatedTimestamps, calculateTotal]
+        preUpdate: [updatedTimestamps, calculateTotal]

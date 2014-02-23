@@ -1,17 +1,16 @@
 {{ form_errors(form.items) }}
-{{ form_widget(form.items) }}
 <table id="activity_items" class="table table-bordered table-striped">
     <thead>
     <tr class="sonata-ba-list-field-header">
         <th class="sonata-ba-list-field-header-text">Activité</th>
         <th class="sonata-ba-list-field-header-text">Quantité</th>
         <th class="sonata-ba-list-field-header-text">Prix</th>
-        <th class="sonata-ba-list-field-header-text">Total</th>
         <th class="sonata-ba-list-field-header-text">Action</th>
     </tr>
     </thead>
 
     <tbody>
+        {{ form_widget(form.items) }}
     </tbody>
 </table>
 <script>

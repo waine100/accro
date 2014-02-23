@@ -21,34 +21,6 @@ class User extends BaseUser
     {
         parent::__construct();
     }
-    /**
-     * @var \Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder
-     */
-    private $flat_order;
-
-
-    /**
-     * Set flat_order
-     *
-     * @param \Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder $flatOrder
-     * @return User
-     */
-    public function setFlatOrder(\Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder $flatOrder = null)
-    {
-        $this->flat_order = $flatOrder;
-
-        return $this;
-    }
-
-    /**
-     * Get flat_order
-     *
-     * @return \Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder
-     */
-    public function getFlatOrder()
-    {
-        return $this->flat_order;
-    }
 
     /**
      * http://stackoverflow.com/questions/8832916/remove-replace-the-username-field-with-email-using-fosuserbundle-in-symfony2
@@ -60,6 +32,7 @@ class User extends BaseUser
         parent::setEmail($email);
         $this->setUsername($email);
     }
+
     /**
      * @var string
      */
@@ -170,6 +143,49 @@ class User extends BaseUser
     public function getNewsletter()
     {
         return $this->newsletter;
+    }
+
+    public function getGroupsId()
+    {
+        $groupsId = array();
+        foreach ($this->groups as $group) {
+            $groupsId[] = $group->getId();
+        }
+        return $groupsId;
+    }
+
+    /**
+     * @var \Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder
+     */
+    private $orders;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    protected $groups;
+
+
+    /**
+     * Set orders
+     *
+     * @param \Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder $orders
+     * @return User
+     */
+    public function setOrders(\Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder $orders = null)
+    {
+        $this->orders = $orders;
+
+        return $this;
+    }
+
+    /**
+     * Get orders
+     *
+     * @return \Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder 
+     */
+    public function getOrders()
+    {
+        return $this->orders;
     }
 
 }

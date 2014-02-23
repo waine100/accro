@@ -25,10 +25,6 @@ Zenweb\Aventure\ParcBundle\Entity\SalesFlatItem:
         qty:
             type: integer
             nullable: true
-        basePrice:
-            type: decimal
-            column: base_price
-            nullable: true
         rowTotal:
             type: decimal
             column: row_total
@@ -37,15 +33,11 @@ Zenweb\Aventure\ParcBundle\Entity\SalesFlatItem:
         order:
             targetEntity: Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder
             inversedBy: items
-            joinColumn:
-                name: order_id
-                referencedColumnName: id
-    oneToOne:
         timeSlot:
             targetEntity: TimeSlot
-            joinColumn:
-                name: timeslot_id
-                referencedColumnName: id
+        basePrice:
+            targetEntity: Price
+
     lifecycleCallbacks:
-             prePersist: [updatedTimestamps]
-             preUpdate: [updatedTimestamps]
+         prePersist: [updatedTimestamps]
+         preUpdate: [updatedTimestamps]

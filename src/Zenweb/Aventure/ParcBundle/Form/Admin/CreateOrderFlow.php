@@ -49,12 +49,35 @@ class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
          * @todo populate here the booking var if possible
          *  if( $this->determineCurrentStepNumber() > 2) ...
          */
-        if( $this->determineCurrentStepNumber() > 2)
-        {
+        if ($this->determineCurrentStepNumber() > 2 && $event->getStep() == 3) {
             $parc = $event->getFormData()->getParc()->getId();
             $date = $event->getFormData()->getBookingDate();
             $em = $this->em->getRepository('ZenwebAventureParcBundle:Booking');
             $event->getFormData()->setBooking($em->findOneBy(array('theDate' => $date, 'parc' => $parc)));
+        }
+
+        /**
+         * Update the row items total.
+         */
+        if ($this->determineCurrentStepNumber() > 3 && $event->getStep() == 4) {
+            $items = $event->getFormData()->getItems();
+            $priceRepo = $this->em->getRepository('ZenwebAventureParcBundle:Price');
+
+            foreach ($items as $item) {
+                $rowTotal = 0;
+                $minPrice = $priceRepo->getMinPrice($item->getBasePrice()->getId(), $item->getQty());
+                $tierPrice = $minPrice->getTierPrices();
+
+                if (!empty($tierPrice[0])) {
+                    $rowTotal = $tierPrice[0]->getPrice() * $item->getQty();
+                } else {
+                    $rowTotal = $item->getBasePrice()->getPrice() * $item->getQty();
+                }
+                $item->setRowTotal($rowTotal);
+
+                // Set the order link.
+                $item->setOrder($event->getFormData());
+            }
         }
     }
 
@@ -77,10 +100,10 @@ class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
                 'label' => 'Choisir ses activités',
                 'type' => new CreateOrderActivitiesForm(),
             ),
-            /*array(
+            array(
                 'label' => 'Choose your options.',
-                //'type' => new CreateOrderActivitiesForm(),
-            ),*/
+                //'type' => new CreateOrderExtraForm(),
+            ),
         );
     }
 } 

@@ -354,7 +354,8 @@ class SalesFlatOrder
      */
     public function addItem(\Zenweb\Aventure\ParcBundle\Entity\SalesFlatItem $items)
     {
-        $items->calculateRowTotal($this->getUser()->getId());
+        $items->setOrder($this);
+        var_dump('flav');die;
         $this->items[] = $items;
 
         return $this;
@@ -437,5 +438,17 @@ class SalesFlatOrder
         if ($this->getCreatedAt() == null) {
             $this->setCreatedAt(new \DateTime('now'));
         }
+    }
+
+    /**
+     * Calculate order total based on its items
+     */
+    public function calculateTotal()
+    {
+        $orderTotal = 0;
+        foreach($this->items as $item) {
+            $orderTotal += $item->getRowTotal();
+        }
+        $this->setBaseTotal($orderTotal);
     }
 }

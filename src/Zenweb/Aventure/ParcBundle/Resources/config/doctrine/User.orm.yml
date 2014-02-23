@@ -21,7 +21,7 @@ Zenweb\Aventure\ParcBundle\Entity\User:
             type: boolean
 
     oneToOne:
-        flat_order:
+        orders:
             targetEntity: SalesFlatOrder
             mappedBy: user
 

@@ -56,9 +56,11 @@ class OrderController extends Controller
 
                 $flow->reset(); // remove step data from the session
 
-                return $this->redirect($this->generateUrl('home')); // redirect when done
+                return $this->redirect($this->generateUrl('sonata_admin_dashboard')); // redirect when done
             }
         }
+
+        $userId = !empty($formData->getUser()) ? $formData->getUser()->getId(): null;
 
         return $this->render('ZenwebAventureParcBundle:Admin:create_order.html.twig', array(
             'form'       => $form->createView(),
@@ -67,7 +69,7 @@ class OrderController extends Controller
             'parc_id'    => $parc,
             'month'      => date('m'),
             'year'       => date('Y'),
-            'userId'     => $formData->getUser()->getId(),
+            'userId'     => $userId,
         ));
     }
 
@@ -87,20 +89,16 @@ class OrderController extends Controller
                 /**
                  * First get the group of the User
                  */
-                $groups = $this->getDoctrine()
+                $user = $this->getDoctrine()
                     ->getManager()
                     ->getRepository('ZenwebAventureParcBundle:User')
                     ->find($userId)
-                    ->getGroups();
-
-                foreach ($groups as $group) {
-                    $groupsId[] = $group->getId();
-                }
+                    ;
 
                 $prices = $this->getDoctrine()
                     ->getManager()
                     ->getRepository('ZenwebAventureParcBundle:Price')
-                    ->getAvailablePrices($groupsId, $idTimeSlot, $qty);
+                    ->getAvailablePrices($user->getGroupsId(), $idTimeSlot, $qty);
 
                 $response = new Response();
                 $prices   = json_encode($prices);

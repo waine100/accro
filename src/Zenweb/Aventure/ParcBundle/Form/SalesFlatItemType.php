@@ -30,8 +30,7 @@ class SalesFlatItemType extends AbstractType
 
             ))
             ->add('qty', 'integer' ,array('label' => 'Quantité'))
-            ->add('basePrice', 'entity', array('class' => 'ZenwebAventureParcBundle:Price', 'empty_value' => 'Choisissez un prix', 'label' => 'Prix'))
-            ->add('rowTotal', 'money', array('label' => 'Total'))
+            ->add('basePrice')
         ;
     }
 

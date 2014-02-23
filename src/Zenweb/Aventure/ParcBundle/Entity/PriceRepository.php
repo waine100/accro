@@ -18,7 +18,6 @@ class PriceRepository extends EntityRepository
             ->innerJoin("ZenwebAventureParcBundle:TimeSlot", "ts", "WITH", "ts.activity = p.activity")
             ->where("ts.id=:idTs")
             ->setParameter("idTs", $idTimeSlot)
-            //->setParameter("idTs", $idTimeSlot)
             ->getQuery()->getArrayResult();
     }
 
@@ -28,15 +27,6 @@ class PriceRepository extends EntityRepository
      * @param $qty
      *
      * @return array
-     * SELECT
-     * p1_.id AS id1, p1_.name AS name2, p1_.description AS description3, p1_.price AS price4,
-     * p1_.enabled AS enabled5 , t0_.id AS id6,  t0_.qty AS qty7, t0_.price AS price8, p1_.activity_id AS activity_id9, t0_.activity_price_id AS activity_price_id10
-     * FROM price p1_
-     * INNER JOIN prices_groups p3_ ON p1_.id = p3_.price_id
-     * INNER JOIN fos_user_group f2_ ON f2_.id = p3_.group_id
-     * INNER JOIN TimeSlot t4_ ON (t4_.activity_id = p1_.activity_id)
-     * LEFT JOIN TierPrice t0_ ON p1_.id = t0_.activity_price_id AND t0_.qty = (select min(TierPrice.qty) from TierPrice where TierPrice.qty >= 1)
-     * WHERE f2_.id IN (1) AND t4_.id = 1
      */
 
     public function getAvailablePrices($groupsId, $idTimeSlot, $qty)
@@ -62,4 +52,23 @@ class PriceRepository extends EntityRepository
             ->setParameter("qty", $qty)
             ->getQuery()->getArrayResult();
     }
+
+    public function getMinPrice($price, $qty)
+    {
+        $qb2 = $this->_em->createQueryBuilder();
+        $qb2->select($qb2->expr()->max('tpmax.qty'))
+            ->from('ZenwebAventureParcBundle:TierPrice', 'tpmax')
+            ->where('tpmax.qty<=:qty')
+            ->setParameter("qty", $qty);
+        $qb2->getQuery()->getSQL();
+
+        $qb = $this->createQueryBuilder("p");
+        return $qb->select('p', 'tp')
+            ->leftJoin('p.TierPrices', 'tp', 'WITH', $qb->expr()->andX($qb->expr()->lte('tp.qty', ':qty'), $qb->expr()->eq('tp.qty', "($qb2)")))
+            ->where('p.id=:price')
+            ->setParameter("price", $price)
+            ->setParameter("qty", $qty)
+            ->getQuery()->getOneOrNullResult();
+    }
+
 }
