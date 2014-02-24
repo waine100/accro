@@ -89,6 +89,7 @@ sonata_block:
         sonata.user.block.menu:    # used to display the menu in profile pages
         sonata.user.block.account: # used to display menu option (login option)
         sonata.block.service.calendar: ~
+        sonata.block.service.recent_orders: ~
 
 sonata_admin:
     title: Aventure Administration
@@ -100,6 +101,7 @@ sonata_admin:
             # display a dashboard block
             - { position: left, type: sonata.admin.block.admin_list }
             - { position: right, type: sonata.block.service.calendar}
+            - { position: right, type: sonata.block.service.recent_orders}
 
 sonata_user:
     security_acl: true

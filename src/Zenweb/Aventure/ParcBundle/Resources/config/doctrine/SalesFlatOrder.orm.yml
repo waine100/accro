@@ -9,6 +9,10 @@ Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder:
             generator:
                 strategy: AUTO
     fields:
+        state:
+            type: string
+            length: 255
+            nullable: true
         createdAt:
             type: datetime
             column: created_at

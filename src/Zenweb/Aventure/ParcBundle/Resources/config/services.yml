@@ -13,3 +13,9 @@ services:
     #zenweb_aventure_parc.user_creation:
     #    class: Zenweb\Aventure\ParcBundle\Form\EventListener\UserCreationListener
     #    arguments: [ @doctrine.orm.entity_manager ]
+    zenweb_aventure_parc.order.manager:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - ZenwebAventureParcBundle\Entity\SalesFlatOrderRepository

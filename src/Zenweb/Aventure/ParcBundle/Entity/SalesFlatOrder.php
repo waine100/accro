@@ -9,6 +9,18 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class SalesFlatOrder
 {
+    const STATUS_OPEN = 0; // created but not validated
+    const STATUS_PENDING = 1; // waiting from action from the user
+    const STATUS_VALIDATED = 2; // the order is validated does not mean the payment is ok
+    const STATUS_CANCELLED = 3; // the order is cancelled
+    const STATUS_ERROR = 4; // the order has an error
+    const STATUS_STOPPED = 5; // use if the subscription has been cancelled/stopped
+
+    /**
+     * @var string $reference
+     */
+    protected $reference;
+
     /**
      * @var integer
      */
@@ -73,7 +85,7 @@ class SalesFlatOrder
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -84,6 +96,7 @@ class SalesFlatOrder
      * Set createdAt
      *
      * @param \DateTime $createdAt
+     *
      * @return SalesFlatOrder
      */
     public function setCreatedAt($createdAt)
@@ -96,7 +109,7 @@ class SalesFlatOrder
     /**
      * Get createdAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -107,6 +120,7 @@ class SalesFlatOrder
      * Set updatedAt
      *
      * @param \DateTime $updatedAt
+     *
      * @return SalesFlatOrder
      */
     public function setUpdatedAt($updatedAt)
@@ -119,7 +133,7 @@ class SalesFlatOrder
     /**
      * Get updatedAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -130,6 +144,7 @@ class SalesFlatOrder
      * Set state
      *
      * @param string $state
+     *
      * @return SalesFlatOrder
      */
     public function setState($state)
@@ -142,7 +157,7 @@ class SalesFlatOrder
     /**
      * Get state
      *
-     * @return string 
+     * @return string
      */
     public function getState()
     {
@@ -153,6 +168,7 @@ class SalesFlatOrder
      * Set status
      *
      * @param string $status
+     *
      * @return SalesFlatOrder
      */
     public function setStatus($status)
@@ -165,7 +181,7 @@ class SalesFlatOrder
     /**
      * Get status
      *
-     * @return string 
+     * @return string
      */
     public function getStatus()
     {
@@ -176,6 +192,7 @@ class SalesFlatOrder
      * Set baseTotal
      *
      * @param string $baseTotal
+     *
      * @return SalesFlatOrder
      */
     public function setBaseTotal($baseTotal)
@@ -188,7 +205,7 @@ class SalesFlatOrder
     /**
      * Get baseTotal
      *
-     * @return string 
+     * @return string
      */
     public function getBaseTotal()
     {
@@ -199,6 +216,7 @@ class SalesFlatOrder
      * Set baseTotalPaid
      *
      * @param string $baseTotalPaid
+     *
      * @return SalesFlatOrder
      */
     public function setBaseTotalPaid($baseTotalPaid)
@@ -211,7 +229,7 @@ class SalesFlatOrder
     /**
      * Get baseTotalPaid
      *
-     * @return string 
+     * @return string
      */
     public function getBaseTotalPaid()
     {
@@ -222,6 +240,7 @@ class SalesFlatOrder
      * Set parc
      *
      * @param string $parc
+     *
      * @return SalesFlatOrder
      */
     public function setParc($parc)
@@ -234,7 +253,7 @@ class SalesFlatOrder
     /**
      * Get parc
      *
-     * @return string 
+     * @return string
      */
     public function getParc()
     {
@@ -245,6 +264,7 @@ class SalesFlatOrder
      * Set bookingDate
      *
      * @param \DateTime $bookingDate
+     *
      * @return SalesFlatOrder
      */
     public function setBookingDate($bookingDate)
@@ -257,7 +277,7 @@ class SalesFlatOrder
     /**
      * Get bookingDate
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getBookingDate()
     {
@@ -268,6 +288,7 @@ class SalesFlatOrder
      * Set checkoutMethod
      *
      * @param string $checkoutMethod
+     *
      * @return SalesFlatOrder
      */
     public function setCheckoutMethod($checkoutMethod)
@@ -280,7 +301,7 @@ class SalesFlatOrder
     /**
      * Get checkoutMethod
      *
-     * @return string 
+     * @return string
      */
     public function getCheckoutMethod()
     {
@@ -291,6 +312,7 @@ class SalesFlatOrder
      * Set comment
      *
      * @param string $comment
+     *
      * @return SalesFlatOrder
      */
     public function setComment($comment)
@@ -303,7 +325,7 @@ class SalesFlatOrder
     /**
      * Get comment
      *
-     * @return string 
+     * @return string
      */
     public function getComment()
     {
@@ -314,6 +336,7 @@ class SalesFlatOrder
      * Set couponCode
      *
      * @param string $couponCode
+     *
      * @return SalesFlatOrder
      */
     public function setCouponCode($couponCode)
@@ -326,7 +349,7 @@ class SalesFlatOrder
     /**
      * Get couponCode
      *
-     * @return string 
+     * @return string
      */
     public function getCouponCode()
     {
@@ -350,12 +373,12 @@ class SalesFlatOrder
      * Add items
      *
      * @param \Zenweb\Aventure\ParcBundle\Entity\SalesFlatItem $items
+     *
      * @return SalesFlatOrder
      */
     public function addItem(\Zenweb\Aventure\ParcBundle\Entity\SalesFlatItem $items)
     {
         $items->setOrder($this);
-        var_dump('flav');die;
         $this->items[] = $items;
 
         return $this;
@@ -374,7 +397,7 @@ class SalesFlatOrder
     /**
      * Get items
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getItems()
     {
@@ -412,6 +435,7 @@ class SalesFlatOrder
      * Set user
      *
      * @param \Zenweb\Aventure\ParcBundle\Entity\User $user
+     *
      * @return SalesFlatOrder
      */
     public function setUser(\Zenweb\Aventure\ParcBundle\Entity\User $user = null)
@@ -424,7 +448,7 @@ class SalesFlatOrder
     /**
      * Get user
      *
-     * @return \Zenweb\Aventure\ParcBundle\Entity\User 
+     * @return \Zenweb\Aventure\ParcBundle\Entity\User
      */
     public function getUser()
     {
@@ -446,9 +470,59 @@ class SalesFlatOrder
     public function calculateTotal()
     {
         $orderTotal = 0;
-        foreach($this->items as $item) {
+        foreach ($this->items as $item) {
             $orderTotal += $item->getRowTotal();
         }
         $this->setBaseTotal($orderTotal);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __toString()
+    {
+        return $this->getReference() ? : 'n/a';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setReference($reference)
+    {
+        $this->reference = $reference;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getReference()
+    {
+        return $this->reference;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatusName()
+    {
+        $statusList = self::getStatusList();
+
+        return $statusList[$this->getStatus()];
+    }
+
+    /**
+     * @static
+     * @return array
+     */
+    public static function getStatusList()
+    {
+        return array(
+            self::STATUS_OPEN      => 'status_open',
+            self::STATUS_PENDING   => 'status_pending',
+            self::STATUS_VALIDATED => 'status_validated',
+            self::STATUS_CANCELLED => 'status_cancelled',
+            self::STATUS_ERROR     => 'status_error',
+            self::STATUS_STOPPED   => 'status_stopped',
+        );
     }
 }
