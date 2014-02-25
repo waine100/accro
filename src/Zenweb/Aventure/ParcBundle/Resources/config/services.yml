@@ -18,4 +18,15 @@ services:
         factory_service: doctrine.orm.entity_manager
         factory_method: getRepository
         arguments:
-            - ZenwebAventureParcBundle\Entity\SalesFlatOrderRepository
+            - Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder
+
+    zenweb_aventure_parc.order.form.status:
+        class: Sonata\CoreBundle\Form\Type\StatusType
+        arguments: [Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder, getStatusList, zenweb_order_status]
+        tags:
+            - { name: form.type, alias: zenweb_order_status }
+
+    zenweb_aventure_parc.order.listener:
+        class: Zenweb\Aventure\ParcBundle\Listener\OrderListener
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }

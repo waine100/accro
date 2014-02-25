@@ -54,25 +54,24 @@ class SalesFlatOrderAdmin extends Admin
             ->add('status');
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function configureShowFields(ShowMapper $showMapper)
-    {
-        $showMapper
-            ->with('General')
-            ->add('id')
-            ->add('createdAt')
-            ->end();
-    }
-
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
             ->with('General')
-            ->add('id')
-            ->add('createdAt')
-            ->end();
+            ->add('user')
+            ->add('bookingDate')
+            ->add('status', 'zenweb_order_status')
+            ->add('baseTotal')
+            ->add('baseTotalPaid')
+            ->end()
+            ->with('Activités')
+            ->add('items', 'sonata_type_collection', array('label' => 'Activités'), array(
+                            'edit' => 'inline',
+                            'inline' => 'table',
+                            'btn_addy' => false
+                        ))
+            ->end()
+            ;
     }
 
     /**

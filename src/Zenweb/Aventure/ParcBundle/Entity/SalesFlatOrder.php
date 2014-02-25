@@ -281,7 +281,8 @@ class SalesFlatOrder
      */
     public function getBookingDate()
     {
-        return $this->bookingDate;
+        //return $this->bookingDate;
+        return $this->bookingDate->format('Y-m-d');
     }
 
     /**

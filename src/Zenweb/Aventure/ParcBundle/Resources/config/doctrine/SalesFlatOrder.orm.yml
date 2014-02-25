@@ -9,7 +9,7 @@ Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder:
             generator:
                 strategy: AUTO
     fields:
-        state:
+        reference:
             type: string
             length: 255
             nullable: true

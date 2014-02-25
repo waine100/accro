@@ -86,13 +86,25 @@ services:
                 - ~
             calls:
                 - [ setTranslationDomain, [ZenwebAventureParcBundle]]
-    sonata.admin.price:
+
+    sonata.admin.sales_flat_order:
         class: Zenweb\Aventure\ParcBundle\Admin\SalesFlatOrderAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Vente", label: "Commandes" }
         arguments:
             - ~
             - Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder
+            - ~
+        calls:
+            - [ setTranslationDomain, [ZenwebAventureParcBundle]]
+
+    sonata.admin.sales_flat_item:
+        class: Zenweb\Aventure\ParcBundle\Admin\SalesFlatItemAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Vente", label: "Activités", show_in_dashboard: false }
+        arguments:
+            - ~
+            - Zenweb\Aventure\ParcBundle\Entity\SalesFlatItem
             - ~
         calls:
             - [ setTranslationDomain, [ZenwebAventureParcBundle]]
