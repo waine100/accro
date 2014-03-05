@@ -33,7 +33,6 @@ class SalesFlatOrderAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('id')
             ->addIdentifier('reference')
             ->addIdentifier('user');
         $listMapper
@@ -50,7 +49,7 @@ class SalesFlatOrderAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $filterMapper)
     {
         $filterMapper
-            ->add('id')
+            ->add('reference')
             ->add('status');
     }
 

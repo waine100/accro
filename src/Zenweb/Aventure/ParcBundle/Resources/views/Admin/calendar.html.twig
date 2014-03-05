@@ -180,16 +180,10 @@
                     <td class="legend_calendar">{{ td.name }}</td>
                 </tr>
             {% endfor %}
+            <tr>
+                <td><a href="#" onclick="setTypicalDay(-1);" class="colored" style="background-color:#BCADA4;border-color:#BCADA4"></a></td>
+                <td class="legend_calendar">Fermé</td>
+            </tr>
         </table>
     </div>
-
-    <div id="details_typicalDay">
-        @TODO AFFICHER LES DETAILS DE LA JOURNEE TYPE<br/>
-        {% for td in typicalDays %}
-            {% for ts in td.getTimeSlots %}
-                {{ ts.getActivity }}
-            {% endfor %}
-        {% endfor %}
-    </div>
-
 </div>

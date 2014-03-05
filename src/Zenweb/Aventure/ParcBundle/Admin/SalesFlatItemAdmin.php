@@ -33,6 +33,7 @@ class SalesFlatItemAdmin extends Admin
     {
         $formMapper
             ->with('General')
+            ->add('timeSlot', null, array('label' => 'activité'))
             ->add('qty', null, array('label' => 'Quantité'))
             ->add('rowTotal', null, array('label' => 'Total'))
             ->end();

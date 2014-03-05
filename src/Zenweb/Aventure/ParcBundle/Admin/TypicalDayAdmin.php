@@ -32,9 +32,7 @@ class TypicalDayAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $filterMapper)
     {
         $filterMapper
-            ->add('id')
-            ->add('name')
-            ->add('description');
+            ->add('name');
     }
 
     protected function configureListFields(ListMapper $listMapper)

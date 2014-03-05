@@ -17,6 +17,7 @@ Zenweb\Aventure\ParcBundle\Entity\TimeSlot:
             column: end_time
         capacity:
             type: integer
+            nullable: true
         enabled:
             type: boolean
     manyToOne:

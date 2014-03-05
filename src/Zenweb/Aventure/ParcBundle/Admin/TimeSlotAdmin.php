@@ -74,11 +74,11 @@ class TimeSlotAdmin extends Admin
     {
         $formMapper
             ->with('General')
-            ->add('typicalDay', null, array('label' => 'Journée Type'))
-            ->add('activity', null, array('label' => 'Activité'))
+            ->add('typicalDay', null, array('label' => 'Journée Type', 'required' => true))
+            ->add('activity', null, array('label' => 'Activité', 'required' => true))
             ->add('beginTime', null, array('label' => 'Heure de début'))
             ->add('endTime', null, array('label' => 'Heure de fin'))
-            ->add('capacity', null, array('label' => 'Capacité'))
+            ->add('capacity', null, array('label' => 'Capacité', 'required' => false))
             ->add('enabled', 'choice', array('label' => 'Activé', 'choices' => array(0 => 'Non', 1 => 'Oui')))
             ->end();
 

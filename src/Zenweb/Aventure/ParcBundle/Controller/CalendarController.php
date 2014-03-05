@@ -56,10 +56,13 @@ class CalendarController extends Controller
             return new Response($return, 200, array('Content-Type' => 'application/json'));
         }
 
-        $typicalDay = $em->getRepository('ZenwebAventureParcBundle:TypicalDay')->find($typicalDayId);
-        if (!$typicalDay) {
-            $return = '{"responseCode" : "400", "message" : "Something went wrong, it was impossible to find the typical day of id: ' . $typicalDayId . '"}'; // if  the state selected is not found, an ajax response is sent with a message to be displayed
-            return new Response($return, 200, array('Content-Type' => 'application/json'));
+        //remove a booking
+        if ($typicalDayId != -1) {
+            $typicalDay = $em->getRepository('ZenwebAventureParcBundle:TypicalDay')->find($typicalDayId);
+            if (!$typicalDay) {
+                $return = '{"responseCode" : "400", "message" : "Something went wrong, it was impossible to find the typical day of id: ' . $typicalDayId . '"}'; // if  the state selected is not found, an ajax response is sent with a message to be displayed
+                return new Response($return, 200, array('Content-Type' => 'application/json'));
+            }
         }
 
 
@@ -96,10 +99,17 @@ class CalendarController extends Controller
             $em->flush();
             $return .= '"color" : "' . $booking->getTypicalDay()->getColor() . '" }';
         } else { //Update it
-            $booking->setTypicalDay($typicalDay);
-            $em->persist($booking);
+            if ($typicalDayId == -1) {
+                $em->remove($booking);
+                $return .= '"color" : "BCADA4" }';
+            } else {
+                $booking->setTypicalDay($typicalDay);
+                $em->persist($booking);
+                $return .= '"color" : "' . $booking->getTypicalDay()->getColor() . '" }';
+            }
+
             $em->flush();
-            $return .= '"color" : "' . $booking->getTypicalDay()->getColor() . '" }';
+
         }
 
         $return = '{"responseCode" : "200", ' . $return;
