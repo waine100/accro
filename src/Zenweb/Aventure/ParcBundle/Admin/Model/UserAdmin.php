@@ -33,9 +33,11 @@ class UserAdmin extends SonataUserAdmin
             ->add('plainPassword', 'text', array(
                 'required' => (!$this->getSubject() || is_null($this->getSubject()->getId()))
             ))
-            ->add('phone', null, array('required' => false, 'label' => 'Téléphone portable'))
+            ->add('phone', null, array('required' => false, 'label' => 'Téléphone'))
             ->add('mobile', null, array('required' => false, 'label' => 'Téléphone portable'))
             ->add('address', null, array('required' => false, 'label' => 'Adresse'))
+            ->add('zip', null, array('required' => false, 'label' => 'Code postal'))
+            ->add('city', null, array('required' => false, 'label' => 'Ville'))
             ->add('newsletter', null, array('required' => false, 'label' => 'Inscription à la newsletter'))
             ->add('commentary', null, array('required' => false, 'label' => 'Commentaires'))
             ->end()

@@ -14,6 +14,14 @@ Zenweb\Aventure\ParcBundle\Entity\User:
         address:
             type: text
             nullable: true
+        zip:
+            type: string
+            length: 10
+            nullable: true
+        city:
+            type: string
+            length: 100
+            nullable: true
         commentary:
             type: text
             nullable: true

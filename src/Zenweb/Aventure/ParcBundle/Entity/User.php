@@ -25,6 +25,7 @@ class User extends BaseUser
     /**
      * http://stackoverflow.com/questions/8832916/remove-replace-the-username-field-with-email-using-fosuserbundle-in-symfony2
      * @param string $email
+     *
      * @return $this|void
      */
     public function setEmail($email)
@@ -46,6 +47,50 @@ class User extends BaseUser
     /**
      * @var string
      */
+    private $city;
+
+    /**
+     * @param string $city
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param string $zip
+     */
+    public function setZip($zip)
+    {
+        $this->zip = $zip;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getZip()
+    {
+        return $this->zip;
+    }
+
+    /**
+     * @var string
+     */
+    private $zip;
+
+    /**
+     * @var string
+     */
     private $commentary;
 
     /**
@@ -57,6 +102,7 @@ class User extends BaseUser
      * Set mobile
      *
      * @param string $mobile
+     *
      * @return User
      */
     public function setMobile($mobile)
@@ -80,6 +126,7 @@ class User extends BaseUser
      * Set address
      *
      * @param string $address
+     *
      * @return User
      */
     public function setAddress($address)
@@ -103,6 +150,7 @@ class User extends BaseUser
      * Set commentary
      *
      * @param string $commentary
+     *
      * @return User
      */
     public function setCommentary($commentary)
@@ -126,6 +174,7 @@ class User extends BaseUser
      * Set newsletter
      *
      * @param boolean $newsletter
+     *
      * @return User
      */
     public function setNewsletter($newsletter)
@@ -169,6 +218,7 @@ class User extends BaseUser
      * Set orders
      *
      * @param \Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder $orders
+     *
      * @return User
      */
     public function setOrders(\Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder $orders = null)
@@ -181,7 +231,7 @@ class User extends BaseUser
     /**
      * Get orders
      *
-     * @return \Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder 
+     * @return \Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder
      */
     public function getOrders()
     {

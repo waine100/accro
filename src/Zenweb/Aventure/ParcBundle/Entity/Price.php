@@ -33,7 +33,7 @@ class Price
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -44,6 +44,7 @@ class Price
      * Set name
      *
      * @param string $name
+     *
      * @return Price
      */
     public function setName($name)
@@ -56,7 +57,7 @@ class Price
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -67,6 +68,7 @@ class Price
      * Set description
      *
      * @param string $description
+     *
      * @return Price
      */
     public function setDescription($description)
@@ -79,7 +81,7 @@ class Price
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -90,6 +92,7 @@ class Price
      * Set price
      *
      * @param string $price
+     *
      * @return Price
      */
     public function setPrice($price)
@@ -102,12 +105,13 @@ class Price
     /**
      * Get price
      *
-     * @return string 
+     * @return string
      */
     public function getPrice()
     {
         return $this->price;
     }
+
     /**
      * @var \Zenweb\Aventure\ParcBundle\Entity\Activity
      */
@@ -118,6 +122,7 @@ class Price
      * Set activity
      *
      * @param \Zenweb\Aventure\ParcBundle\Entity\Activity $activity
+     *
      * @return Price
      */
     public function setActivity(\Zenweb\Aventure\ParcBundle\Entity\Activity $activity = null)
@@ -130,7 +135,7 @@ class Price
     /**
      * Get activity
      *
-     * @return \Zenweb\Aventure\ParcBundle\Entity\Activity 
+     * @return \Zenweb\Aventure\ParcBundle\Entity\Activity
      */
     public function getActivity()
     {
@@ -139,11 +144,14 @@ class Price
 
     /**
      * Display a nice name
+     *
      * @return string
      */
-    public function __toString(){
+    public function __toString()
+    {
         return $this->name;
     }
+
     /**
      * @var boolean
      */
@@ -154,6 +162,7 @@ class Price
      * Set enabled
      *
      * @param boolean $enabled
+     *
      * @return Price
      */
     public function setEnabled($enabled)
@@ -166,12 +175,13 @@ class Price
     /**
      * Get enabled
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEnabled()
     {
         return $this->enabled;
     }
+
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
@@ -183,12 +193,14 @@ class Price
     public function __construct()
     {
         $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->TierPrices = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
      * Add groups
      *
      * @param \Zenweb\Aventure\ParcBundle\Entity\Group $groups
+     *
      * @return Price
      */
     public function addGroup(\Zenweb\Aventure\ParcBundle\Entity\Group $groups)
@@ -211,7 +223,7 @@ class Price
     /**
      * Get groups
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getGroups()
     {
@@ -228,6 +240,7 @@ class Price
      * Add TierPrices
      *
      * @param \Zenweb\Aventure\ParcBundle\Entity\TierPrice $tierPrices
+     *
      * @return Price
      */
     public function addTierPrice(\Zenweb\Aventure\ParcBundle\Entity\TierPrice $tierPrices)
@@ -251,7 +264,7 @@ class Price
     /**
      * Get TierPrices
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getTierPrices()
     {
