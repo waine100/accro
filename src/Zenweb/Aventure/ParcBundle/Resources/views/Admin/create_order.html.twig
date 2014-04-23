@@ -20,11 +20,11 @@
 
         {% if flow.getCurrentStepNumber() == 1 %}
             <div>
-                {{ form_row(form.parc) }}
+                {{ form_row(form.order.parc) }}
             </div>
         {% elseif flow.getCurrentStepNumber() == 2 %}
             {% include 'ZenwebAventureParcBundle:Admin:pick_date.html.twig' %}
-        {% elseif flow.getCurrentStepNumber() == 4 %}
+        {% elseif flow.getCurrentStepNumber() == 6 %}
             {% include 'ZenwebAventureParcBundle:Admin:pick_activities.html.twig' %}
         {% endif %}
         {{ form_rest(form) }}

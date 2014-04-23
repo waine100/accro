@@ -5,13 +5,15 @@ namespace Zenweb\Aventure\ParcBundle\Controller\Admin;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
-use Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder;
+//use Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder;
+use Zenweb\Aventure\ParcBundle\Form\CreateOrder;
+use Zenweb\Aventure\ParcBundle\Entity\Group;
 
 class OrderController extends Controller
 {
     public function createOrderAction()
     {
-        $formData = new SalesFlatOrder();
+        $formData = new CreateOrder();
 
         /** @var $flow \Zenweb\Aventure\ParcBundle\Form\Admin\CreateOrderFlow */
         $flow = $this->get('zenweb_aventure_parc.form.admin.flow.create.order');
@@ -23,7 +25,7 @@ class OrderController extends Controller
         $parc = 0;
 
         if ($flow->getCurrentStepNumber() > 1) {
-            $parc = $flow->getFormData()->getParc()->getId();
+            $parc = $flow->getFormData()->order->getParc()->getId();
         }
 
         if ($flow->isValid($form)) {
@@ -33,7 +35,7 @@ class OrderController extends Controller
              * Needed for calendars
              */
             if ($flow->getCurrentStepNumber() >= 1) {
-                $parc = $flow->getFormData()->getParc()->getId();
+                $parc = $flow->getFormData()->order->getParc()->getId();
             }
 
             if ($flow->nextStep()) {
@@ -42,16 +44,16 @@ class OrderController extends Controller
                  */
 
                 if ($flow->getCurrentStepNumber() > 2) {
-                    $date = $flow->getFormData()->getBookingDate();
+                    $date = $flow->getFormData()->order->getBookingDate();
                     $em   = $this->getDoctrine()->getManager()->getRepository('ZenwebAventureParcBundle:Booking');
-                    $flow->getFormData()->setBooking($em->findOneBy(array('theDate' => $date, 'parc' => $parc)));
+                    $flow->getFormData()->order->setBooking($em->findOneBy(array('theDate' => $date, 'parc' => $parc)));
                 }
                 // form for the next step
                 $form = $flow->createForm();
             } else {
                 // flow finished
                 $em = $this->getDoctrine()->getManager();
-                $em->persist($formData);
+                $em->persist($formData->order);
                 $em->flush();
 
                 $flow->reset(); // remove step data from the session
@@ -60,7 +62,7 @@ class OrderController extends Controller
             }
         }
 
-        $userId = !empty($formData->getUser()) ? $formData->getUser()->getId(): null;
+        $userId = (!empty($formData->order->getUser()) && !empty($formData->order->getUser()->getId())) ? $formData->order->getUser()->getId() : -1;
 
         return $this->render('ZenwebAventureParcBundle:Admin:create_order.html.twig', array(
             'form'       => $form->createView(),
@@ -86,19 +88,24 @@ class OrderController extends Controller
 
             if (null !== $idTimeSlot && null !== $userId) {
                 $groupsId = array();
-                /**
-                 * First get the group of the User
-                 */
-                $user = $this->getDoctrine()
-                    ->getManager()
-                    ->getRepository('ZenwebAventureParcBundle:User')
-                    ->find($userId)
-                    ;
+                if ($userId != -1) { //Exist already
+                    /**
+                     * First get the group of the User
+                     */
+                    $user = $this->getDoctrine()
+                        ->getManager()
+                        ->getRepository('ZenwebAventureParcBundle:User')
+                        ->find($userId);
+                    $groupsId = $user->getGroupsId();
+                } else { // New user. Get the default group
+                    $groupsId[] = $this->getDoctrine()->getRepository('ZenwebAventureParcBundle:Group')->findOneByName('Particulier')->getId();
+                }
+
 
                 $prices = $this->getDoctrine()
                     ->getManager()
                     ->getRepository('ZenwebAventureParcBundle:Price')
-                    ->getAvailablePrices($user->getGroupsId(), $idTimeSlot, $qty);
+                    ->getAvailablePrices($groupsId, $idTimeSlot, $qty);
 
                 $response = new Response();
                 $prices   = json_encode($prices);

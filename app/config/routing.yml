@@ -26,3 +26,7 @@ sonata_user:
 dp_calendar:
     resource: "@DpCalendarBundle/Resources/config/routing.yml"
     prefix:
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register

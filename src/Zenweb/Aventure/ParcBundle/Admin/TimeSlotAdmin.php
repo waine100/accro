@@ -75,7 +75,7 @@ class TimeSlotAdmin extends Admin
         $formMapper
             ->with('General')
             ->add('typicalDay', null, array('label' => 'Journée Type', 'required' => true))
-            ->add('activity', null, array('label' => 'Activité', 'required' => true))
+            ->add('activity', 'sonata_type_model_list', array('label' => 'Activité', 'required' => true))
             ->add('beginTime', null, array('label' => 'Heure de début'))
             ->add('endTime', null, array('label' => 'Heure de fin'))
             ->add('capacity', null, array('label' => 'Capacité', 'required' => false))

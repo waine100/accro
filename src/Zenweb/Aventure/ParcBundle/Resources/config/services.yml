@@ -35,3 +35,8 @@ services:
         class: Zenweb\Aventure\ParcBundle\Listener\TimeSlotListener
         tags:
             - { name: doctrine.event_listener, event: prePersist }
+
+    zenweb_aventure_parc.user.listener:
+            class: Zenweb\Aventure\ParcBundle\Listener\UserListener
+            tags:
+                - { name: doctrine.event_listener, event: prePersist }

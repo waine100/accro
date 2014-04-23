@@ -6,7 +6,7 @@
  * Time: 22:00
  */
 
-namespace Zenweb\Aventure\ParcBundle\Admin\Model;
+namespace Zenweb\Aventure\ParcBundle\Admin;
 
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\UserBundle\Admin\Model\UserAdmin as SonataUserAdmin;
@@ -70,12 +70,12 @@ class UserAdmin extends SonataUserAdmin
      * Add user to Particulier group by default if no groups are selected
      * {@inheritdoc}
      */
-    public function prePersist($user)
+    /*public function prePersist($user)
     {
         parent::prePersist($user);
         if (!$user->getGroups()->count()) {
             $entity = $this->getConfigurationPool()->getContainer()->get('doctrine')->getRepository('ZenwebAventureParcBundle:Group')->findOneByName('Particulier');
             $user->addGroup($entity);
         }
-    }
+    }*/
 } 

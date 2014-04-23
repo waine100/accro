@@ -34,7 +34,7 @@ function addChangePriceListener($prototype) {
 }
 
 $(document).ready(function () {
-    var $container = $('div#createOrderActivity_items');
+    var $container = $('div#createOrderActivity_order_items');
     if ($container.length) {
         var $table = $('table#activity_items > tbody');
         var $lienAjout = $('<a href="#" id="ajout_item" class="btn">Ajouter une activité</a>');

@@ -50,22 +50,22 @@ class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
          *  if( $this->determineCurrentStepNumber() > 2) ...
          */
         if ($this->determineCurrentStepNumber() > 2 && $event->getStep() == 3) {
-            $parc = $event->getFormData()->getParc()->getId();
-            $date = $event->getFormData()->getBookingDate();
-            $em = $this->em->getRepository('ZenwebAventureParcBundle:Booking');
-            $event->getFormData()->setBooking($em->findOneBy(array('theDate' => $date, 'parc' => $parc)));
+            $parc = $event->getFormData()->order->getParc()->getId();
+            $date = $event->getFormData()->order->getBookingDate();
+            $em   = $this->em->getRepository('ZenwebAventureParcBundle:Booking');
+            $event->getFormData()->order->setBooking($em->findOneBy(array('theDate' => $date, 'parc' => $parc)));
         }
 
         /**
          * Update the row items total.
          */
-        if ($this->determineCurrentStepNumber() > 3 && $event->getStep() == 4) {
-            $items = $event->getFormData()->getItems();
+        if ($this->determineCurrentStepNumber() > 5 && $event->getStep() == 6) {
+            $items     = $event->getFormData()->order->getItems();
             $priceRepo = $this->em->getRepository('ZenwebAventureParcBundle:Price');
 
             foreach ($items as $item) {
-                $rowTotal = 0;
-                $minPrice = $priceRepo->getMinPrice($item->getBasePrice()->getId(), $item->getQty());
+                $rowTotal  = 0;
+                $minPrice  = $priceRepo->getMinPrice($item->getBasePrice()->getId(), $item->getQty());
                 $tierPrice = $minPrice->getTierPrices();
 
                 if (!empty($tierPrice[0])) {
@@ -76,7 +76,7 @@ class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
                 $item->setRowTotal($rowTotal);
 
                 // Set the order link.
-                $item->setOrder($event->getFormData());
+                $item->setOrder($event->getFormData()->order);
             }
         }
     }
@@ -86,19 +86,33 @@ class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
         return array(
             array(
                 'label' => 'Choisir un parc',
-                'type' => new CreateOrderParcForm(),
+                'type'  => new CreateOrderParcForm(),
             ),
             array(
                 'label' => 'Choisir une date',
-                'type' => new CreateOrderDateForm(),
+                'type'  => new CreateOrderDateForm(),
+            ),
+            array(
+                'label' => 'Client',
+                'type'  => new CreateOrderUserForm(),
             ),
             array(
                 'label' => 'Choisir le client',
-                'type' => new CreateOrderUserForm(),
+                'type'  => new CreateOrderChooseUserForm(),
+                'skip'  => function ($estimatedCurrentStepNumber, FormFlowInterface $flow) {
+                        return $estimatedCurrentStepNumber > 3 && $flow->getFormData()->addUser;
+                    },
+            ),
+            array(
+                'label' => 'Créer un client',
+                'type'  => new CreateOrderCreateUserForm(),
+                'skip'  => function ($estimatedCurrentStepNumber, FormFlowInterface $flow) {
+                        return $estimatedCurrentStepNumber > 3 && !$flow->getFormData()->addUser;
+                    },
             ),
             array(
                 'label' => 'Choisir ses activités',
-                'type' => new CreateOrderActivitiesForm(),
+                'type'  => new CreateOrderActivitiesForm(),
             ),
             array(
                 'label' => 'Choose your options.',

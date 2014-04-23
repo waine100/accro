@@ -54,7 +54,7 @@
                         {
                             $('#' + id + '_cell_' + count).attr("title", data.calendar[(count - 1)].dates).click(function(e){
                                 e.preventDefault();
-                                $('#createOrderDate_bookingDate').val(($(this).attr('title')));
+                                $('#createOrderDate_order_bookingDate').val(($(this).attr('title')));
                             });//This is a trick to pass an event to a non-anonymous function, which is not posible with the classic .click(function(e){myFunction()})
                         }
                         else {

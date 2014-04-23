@@ -1,4 +1,4 @@
-{{ form_errors(form.items) }}
+{{ form_errors(form.order.items) }}
 <table id="activity_items" class="table table-bordered table-striped">
     <thead>
     <tr class="sonata-ba-list-field-header">
@@ -10,7 +10,14 @@
     </thead>
 
     <tbody>
-        {{ form_widget(form.items) }}
+        {% for item in form.order.items %}
+            <tr>
+                {% for field in item %}
+                <td>{{ form_widget(field) }}</td>
+                {% endfor %}
+                <td><a href="#" class="btn btn-danger">Supprimer</a></td>
+            </tr>
+        {% endfor %}
     </tbody>
 </table>
 <script>

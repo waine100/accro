@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Zenweb\Aventure\ParcBundle\Entity\TimeSlotRepository;
 use Zenweb\Aventure\ParcBundle\Entity\TypicalDayRepository;
+use Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder;
 
 class SalesFlatItemType extends AbstractType
 {
@@ -17,7 +18,7 @@ class SalesFlatItemType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $formData = $options['form_data'];
-        $typicalDayId = $formData->getBooking()->getTypicalDay()->getId();
+        $typicalDayId = $formData->order->getBooking()->getTypicalDay()->getId();
 
         $builder
             ->add('timeSlot', 'genemu_jqueryselect2_entity', array('class' => 'ZenwebAventureParcBundle:TimeSlot', 'query_builder' => function (TimeSlotRepository $er) use ($typicalDayId) {
@@ -30,7 +31,7 @@ class SalesFlatItemType extends AbstractType
 
             ))
             ->add('qty', 'integer' ,array('label' => 'Quantité'))
-            ->add('basePrice')
+            ->add('basePrice', 'genemu_jqueryselect2_entity', array('class' => 'ZenwebAventureParcBundle:Price'))
         ;
     }
 
