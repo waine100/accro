@@ -32,7 +32,6 @@ class ExtraAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $filterMapper)
     {
         $filterMapper
-            ->add('id')
             ->add('name')
             ->add('description');
     }
