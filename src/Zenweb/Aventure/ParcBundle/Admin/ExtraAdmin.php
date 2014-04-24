@@ -32,7 +32,6 @@ class ExtraAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $filterMapper)
     {
         $filterMapper
-            ->add('id')
             ->add('name')
             ->add('description');
     }
@@ -71,7 +70,7 @@ class ExtraAdmin extends Admin
         $formMapper
             ->with('General')
             ->add('name', 'text', array('required' => true, 'help' => $this->trans('help.coupon.name')))
-            ->add('description', 'textarea', array('required' => true))
+            ->add('description', 'textarea', array('required' => true, 'attr' => array('class' => 'ckeditor')))
             ->add('parcs', null, array('expanded' => true, 'by_reference' => false, 'multiple' => true))
             ->add('typicalDays', null, array('expanded' => true, 'by_reference' => false, 'multiple' => true))
             ->add('pricePerUnit', null, array('required' => true))
