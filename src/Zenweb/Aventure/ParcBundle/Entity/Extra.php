@@ -37,7 +37,7 @@ class Extra
     /**
      * @var boolean
      */
-    private $visibility;
+    private $enabled;
 
     /**
      * @var boolean
@@ -148,26 +148,26 @@ class Extra
     }
 
     /**
-     * Set visibility
+     * Set enabled
      *
-     * @param boolean $visibility
+     * @param boolean $enabled
      * @return Extra
      */
-    public function setVisibility($visibility)
+    public function setEnabled($enabled)
     {
-        $this->visibility = $visibility;
+        $this->enabled = $enabled;
 
         return $this;
     }
 
     /**
-     * Get visibility
+     * Get enabled
      *
      * @return boolean 
      */
-    public function getVisibility()
+    public function getEnabled()
     {
-        return $this->visibility;
+        return $this->enabled;
     }
 
     /**

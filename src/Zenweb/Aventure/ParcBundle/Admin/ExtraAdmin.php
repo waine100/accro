@@ -40,7 +40,8 @@ class ExtraAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('name')
-            ->add('description');
+            ->add('description')
+            ->add('status');
 
     }
 
@@ -57,7 +58,7 @@ class ExtraAdmin extends Admin
             ->add('typicalDays')
             ->add('pricePerUnit')
             ->add('qtyMin')
-            ->add('visibility')
+            ->add('enabled')
             ->add('status')
             ->end();
     }
@@ -75,7 +76,7 @@ class ExtraAdmin extends Admin
             ->add('typicalDays', null, array('expanded' => true, 'by_reference' => false, 'multiple' => true))
             ->add('pricePerUnit', null, array('required' => true))
             ->add('qtyMin', null, array('required' => true))
-            ->add('visibility', 'choice', array('required' => true, 'choices' => array(0 => 'Non', 1 => 'Oui')))
+            ->add('enabled', 'choice', array('label' => 'Activé', 'choices' => array(0 => 'Non', 1 => 'Oui')))
             ->add('status', 'choice', array('required' => true, 'choices' => array(0 => $this->trans('choice.disable'), 1 => $this->trans('choice.enable'))))
             ->end();
 

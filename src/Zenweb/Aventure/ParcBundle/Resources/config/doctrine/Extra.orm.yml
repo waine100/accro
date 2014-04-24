@@ -20,7 +20,7 @@ Zenweb\Aventure\ParcBundle\Entity\Extra:
         qtyMin:
             type: integer
             column: qty_min
-        visibility:
+        enabled:
             type: boolean
         status:
             type: boolean
