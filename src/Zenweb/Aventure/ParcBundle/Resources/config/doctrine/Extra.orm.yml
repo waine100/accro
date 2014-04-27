@@ -22,8 +22,6 @@ Zenweb\Aventure\ParcBundle\Entity\Extra:
             column: qty_min
         enabled:
             type: boolean
-        status:
-            type: boolean
 
     manyToMany:
         parcs:

@@ -40,12 +40,6 @@ class Extra
     private $enabled;
 
     /**
-     * @var boolean
-     */
-    private $status;
-
-
-    /**
      * Get id
      *
      * @return integer 
@@ -170,28 +164,6 @@ class Extra
         return $this->enabled;
     }
 
-    /**
-     * Set status
-     *
-     * @param boolean $status
-     * @return Extra
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
-    /**
-     * Get status
-     *
-     * @return boolean 
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
