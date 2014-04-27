@@ -27,8 +27,7 @@ Zenweb\Aventure\ParcBundle\Entity\User:
             nullable: true
         newsletter:
             type: boolean
-
-    oneToOne:
+    oneToMany:
         orders:
             targetEntity: SalesFlatOrder
             mappedBy: user
