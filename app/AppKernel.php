@@ -22,7 +22,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
-            new Sonata\jQueryBundle\SonatajQueryBundle(),
+            //new Sonata\jQueryBundle\SonatajQueryBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
@@ -40,8 +40,8 @@ class AppKernel extends Kernel
              */
             new Dp\CalendarBundle\DpCalendarBundle(),
             new Craue\FormFlowBundle\CraueFormFlowBundle(),
-            new Genemu\Bundle\FormBundle\GenemuFormBundle()
-
+            new Genemu\Bundle\FormBundle\GenemuFormBundle(),
+            new Zenweb\Aventure\UserBundle\ZenwebAventureUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -1,0 +1,6 @@
+zenweb_aventure_user_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: ZenwebAventureUserBundle:Default:index }
+zenweb_aventure_user_profile_orders:
+    pattern:  /profile/orders
+    defaults: { _controller: ZenwebAventureUserBundle:Orders:index }
