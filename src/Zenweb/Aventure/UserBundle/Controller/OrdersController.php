@@ -18,7 +18,7 @@ class OrdersController extends Controller
         }
         //Get user orders:
         $em = $this->getDoctrine()->getManager();
-        $orders = $em->getRepository('ZenwebAventureParcBundle:SalesFlatOrder')->findBy(array('user' => 2));
+        $orders = $em->getRepository('ZenwebAventureParcBundle:SalesFlatOrder')->findBy(array('user' => $user->getId()));
 
         return $this->render('SonataUserBundle:Profile:show_orders.html.twig', array(
             'orders' => $orders,

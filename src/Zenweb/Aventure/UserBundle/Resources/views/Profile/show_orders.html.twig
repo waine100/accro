@@ -30,7 +30,10 @@ file that was distributed with this source code.
                             <td>{{ order.reference }}</td>
                             <td>{{ order.createdAt|date("d/m/Y", "Europe/Paris") }}</td>
                             <td class="number">{{ order.baseTotal|number_format }}</td>
-                            <td><a href="#">Détail</a></td>
+                            <td><button type="button" class="btn" data-toggle="collapse" data-target="#detail-{{ order.reference }}">Détail</button></td>
+                        </tr>
+                        <tr class="collapse out" id="detail-{{ order.reference }}">
+                            <td colspan="4">Mettre les détails de la commande!</td>
                         </tr>
                     {% endfor %}
                 </table>

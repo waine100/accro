@@ -121,6 +121,8 @@ sonata_user:
             - { route: 'sonata_user_profile_edit', label: 'link_edit_profile', domain: 'SonataUserBundle'}
             #- { route: 'sonata_user_profile_edit_authentication', label: 'link_edit_authentication', domain: 'SonataUserBundle'}
             - { route: 'zenweb_aventure_user_profile_orders', label: 'Mes réservations', domain: 'ZenwebAventureParcBundle'}
+        form:
+            type:           zenweb_user_profile
 
 genemu_form:
     date: ~

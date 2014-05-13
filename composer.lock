@@ -2007,12 +2007,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "d89d9dc1447f2e0eaac14e89558a4738385c4099"
+                "reference": "26ecdeedf85d370408564f2c48cd3bb428030aed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/d89d9dc1447f2e0eaac14e89558a4738385c4099",
-                "reference": "d89d9dc1447f2e0eaac14e89558a4738385c4099",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/26ecdeedf85d370408564f2c48cd3bb428030aed",
+                "reference": "26ecdeedf85d370408564f2c48cd3bb428030aed",
                 "shasum": ""
             },
             "require": {
@@ -2078,7 +2078,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2014-05-07 08:41:34"
+            "time": "2014-05-13 12:38:31"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -2146,22 +2146,22 @@
         },
         {
             "name": "sonata-project/cache",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/cache.git",
-                "reference": "3bd8c266c6184ebcf82846d659292e9680b979eb"
+                "reference": "7c91e7fd1ca5be4273b09388650709bff31d8966"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/cache/zipball/3bd8c266c6184ebcf82846d659292e9680b979eb",
-                "reference": "3bd8c266c6184ebcf82846d659292e9680b979eb",
+                "url": "https://api.github.com/repos/sonata-project/cache/zipball/7c91e7fd1ca5be4273b09388650709bff31d8966",
+                "reference": "7c91e7fd1ca5be4273b09388650709bff31d8966",
                 "shasum": ""
             },
             "require-dev": {
                 "doctrine/orm": "~2.2",
                 "doctrine/phpcr-odm": "~1.0",
-                "predis/predis": "~0.8",
+                "predis/predis": "~0.8,<1.0",
                 "psr/log": "~1.0"
             },
             "suggest": {
@@ -2202,7 +2202,7 @@
                 "mongodb",
                 "redis"
             ],
-            "time": "2014-02-13 15:12:33"
+            "time": "2014-05-12 08:55:48"
         },
         {
             "name": "sonata-project/core-bundle",
@@ -2366,12 +2366,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle.git",
-                "reference": "f35952c3e58e6cb50e2a773c3681859bf2469a07"
+                "reference": "79e04f7bdea76a8bdd3253e0645c2dd12276eef4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/f35952c3e58e6cb50e2a773c3681859bf2469a07",
-                "reference": "f35952c3e58e6cb50e2a773c3681859bf2469a07",
+                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/79e04f7bdea76a8bdd3253e0645c2dd12276eef4",
+                "reference": "79e04f7bdea76a8bdd3253e0645c2dd12276eef4",
                 "shasum": ""
             },
             "require": {
@@ -2384,9 +2384,11 @@
                 "symfony/framework-bundle": "~2.2",
                 "symfony/security": "~2.3"
             },
+            "provide": {
+                "sonata-project/admin-bundle-persistency-layer": "1.0.0"
+            },
             "require-dev": {
-                "simplethings/entity-audit-bundle": "~0.1",
-                "sonata-project/admin-bundle": "~2.3@dev"
+                "simplethings/entity-audit-bundle": "~0.1"
             },
             "suggest": {
                 "simplethings/entity-audit-bundle": "If you want to support for versioning of entities and their associations."
@@ -2426,7 +2428,7 @@
                 "generator",
                 "sonata"
             ],
-            "time": "2014-04-29 11:25:21"
+            "time": "2014-05-13 14:08:28"
         },
         {
             "name": "sonata-project/easy-extends-bundle",
@@ -2597,12 +2599,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataUserBundle.git",
-                "reference": "086173fd698d6bf2bc85d113f5551871d93d40aa"
+                "reference": "fd2aa9a397872424a0084b12769336f9f066bd36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/086173fd698d6bf2bc85d113f5551871d93d40aa",
-                "reference": "086173fd698d6bf2bc85d113f5551871d93d40aa",
+                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/fd2aa9a397872424a0084b12769336f9f066bd36",
+                "reference": "fd2aa9a397872424a0084b12769336f9f066bd36",
                 "shasum": ""
             },
             "require": {
@@ -2661,29 +2663,32 @@
                 "sonata",
                 "user"
             ],
-            "time": "2014-05-02 13:49:49"
+            "time": "2014-05-12 13:04:48"
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.1.0",
+            "version": "v5.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "748c01c1144713ac0118396935d10b6ceec91b68"
+                "reference": "043e336b871f17a117f76ef8e190eddfc04c8d48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/748c01c1144713ac0118396935d10b6ceec91b68",
-                "reference": "748c01c1144713ac0118396935d10b6ceec91b68",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/043e336b871f17a117f76ef8e190eddfc04c8d48",
+                "reference": "043e336b871f17a117f76ef8e190eddfc04c8d48",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
+            "require-dev": {
+                "mockery/mockery": "~0.9.1"
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.1-dev"
+                    "dev-master": "5.2-dev"
                 }
             },
             "autoload": {
@@ -2712,7 +2717,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2014-03-18 09:03:27"
+            "time": "2014-05-08 08:11:19"
         },
         {
             "name": "symfony/assetic-bundle",
