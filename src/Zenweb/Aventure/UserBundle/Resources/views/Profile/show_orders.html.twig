@@ -18,25 +18,35 @@ file that was distributed with this source code.
         </div>
         <div class="panel-body">
             {% if orders|length > 0 %}
-                <table class="table table-striped">
-                    <thead>
-                        <th>Référence</th>
-                        <th>Date de création</th>
-                        <th>Prix</th>
-                        <th>Détail</th>
-                    </thead>
+                    <div class="row">
+                        <div class="col-md-3 text-center"><strong>Référence</strong></div>
+                        <div class="col-md-3 text-center"><strong>Date de création</strong></div>
+                        <div class="col-md-3 text-center"><strong>Prix</strong></div>
+                        <div class="col-md-3 text-center"><strong>Détail</strong></div>
+                    </div>
+                    <hr>
                     {% for order in orders %}
-                        <tr>
-                            <td>{{ order.reference }}</td>
-                            <td>{{ order.createdAt|date("d/m/Y", "Europe/Paris") }}</td>
-                            <td class="number">{{ order.baseTotal|number_format }}</td>
-                            <td><button type="button" class="btn" data-toggle="collapse" data-target="#detail-{{ order.reference }}">Détail</button></td>
-                        </tr>
-                        <tr class="collapse out" id="detail-{{ order.reference }}">
-                            <td colspan="4">Mettre les détails de la commande!</td>
-                        </tr>
+                        <div class="row">
+                            <div class="col-md-3 text-center">{{ order.reference }}</div>
+                            <div class="col-md-3 text-center">{{ order.createdAt|date("d/m/Y", "Europe/Paris") }}</div>
+                            <div class="col-md-3 text-center">{{ order.baseTotal|number_format }}</div>
+                            <div class="col-md-3 text-center"><button type="button" class="btn btn-info" data-toggle="collapse" data-target="#detail-{{ order.reference }}">Détail</button></div>
+                        </div>
+                        <div class="row collapse out" id="detail-{{ order.reference }}">
+                        <div class="row">
+                            <div class="col-md-4 text-center"><strong>Activité</strong></div>
+                            <div class="col-md-4 text-center"><strong>Places</strong></div>
+                            <div class="col-md-4 text-center"><strong>Total</strong></div>
+                        </div>
+                        <hr>
+                        {% for item in order.items %}
+                            <div class="col-md-4 text-center">{{ item.timeSlot }}</div>
+                            <div class="col-md-4 text-center">{{ item.qty }}</div>
+                            <div class="col-md-4 text-center">{{ item.rowTotal }}</div>
+                        {% endfor %}
+                        </div>
+                        <hr>
                     {% endfor %}
-                </table>
             {% else %}
                 <div class="panel-body">
                         <p>Vous n'avez pas encore fait de réservation.</p>
