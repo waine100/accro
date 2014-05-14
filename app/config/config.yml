@@ -117,9 +117,8 @@ sonata_user:
                 #- { position: left, type: sonata.order.block.recent_orders, settings: { title: Recent Orders, number: 5, mode: public }}
         # Customize user portal menu by setting links
         menu:
-            - { route: 'sonata_user_profile_show', label: 'sonata_profile_title', domain: 'SonataUserBundle'}
-            - { route: 'sonata_user_profile_edit', label: 'link_edit_profile', domain: 'SonataUserBundle'}
-            #- { route: 'sonata_user_profile_edit_authentication', label: 'link_edit_authentication', domain: 'SonataUserBundle'}
+            - { route: 'sonata_user_profile_show', label: 'link_edit_profile', domain: 'SonataUserBundle'}
+            #- { route: 'sonata_user_profile_edit', label: 'link_edit_profile', domain: 'SonataUserBundle'}
             - { route: 'zenweb_aventure_user_profile_orders', label: 'Mes réservations', domain: 'ZenwebAventureParcBundle'}
         form:
             type:           zenweb_user_profile
