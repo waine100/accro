@@ -57,6 +57,11 @@ Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder:
             mappedBy: order
             cascade: ["persist", "remove"]
             orphanRemoval: true
+        extras:
+            targetEntity: SalesFlatExtra
+            mappedBy: order
+            cascade: ["persist", "remove"]
+            orphanRemoval: true
     manyToOne:
         user:
             targetEntity: User

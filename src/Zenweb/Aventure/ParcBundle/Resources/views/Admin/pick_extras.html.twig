@@ -1,0 +1,23 @@
+{{ form_errors(form.order.extras) }}
+<table id="extras_items" class="table table-bordered table-striped">
+    <thead>
+    <tr class="sonata-ba-list-field-header">
+        <th class="sonata-ba-list-field-header-text">Options</th>
+        <th class="sonata-ba-list-field-header-text">Quantité</th>
+        <th class="sonata-ba-list-field-header-text">Prix</th>
+        <th class="sonata-ba-list-field-header-text">Action</th>
+    </tr>
+    </thead>
+
+    <tbody>
+        {% for item in form.order.extras %}
+            <tr>
+                {% for field in item %}
+                <td>{{ form_widget(field) }}</td>
+                {% endfor %}
+                <td>Price</td>
+                <td><a href="#" class="btn btn-danger">Supprimer</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

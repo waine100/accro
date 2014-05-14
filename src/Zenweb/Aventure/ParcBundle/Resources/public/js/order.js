@@ -53,4 +53,25 @@ $(document).ready(function () {
             });
         }
     }
+
+
+    var $container2 = $('div#createOrderExtra_order_extras');
+    if ($container2.length) {
+        var $table = $('table#extras_items > tbody');
+        var $lienAjout = $('<a href="#" id="ajout_item" class="btn">Ajouter une option</a>');
+        $container2.append($lienAjout);
+        $lienAjout.click(function (e) {
+            ajouterCategorie($container2, $table);
+            e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+            return false;
+        });
+        index = $container2.find(':input').length;
+        if (index == 0) {
+            ajouterCategorie($container2, $table);
+        } else {
+            $container2.children('div').each(function () {
+                ajouterLienSuppression($(this));
+            });
+        }
+    }
 });
