@@ -79,6 +79,15 @@ class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
                 $item->setOrder($event->getFormData()->order);
             }
         }
+
+        if ($this->determineCurrentStepNumber() > 6 && $event->getStep() == 7) {
+            $items     = $event->getFormData()->order->getExtras();
+
+            foreach ($items as $item) {
+                $item->setOrder($event->getFormData()->order);
+                $item->setRowTotal(7*$item->getQty());
+            }
+        }
     }
 
     protected function loadStepsConfig()
@@ -115,7 +124,11 @@ class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
                 'type'  => new CreateOrderActivitiesForm(),
             ),
             array(
-                'label' => 'Choose your options.',
+                'label' => 'Choisir ses options',
+                'type' => new CreateOrderExtraForm(),
+            ),
+            array(
+                'label' => 'Récapitualtif de commande',
                 //'type' => new CreateOrderExtraForm(),
             ),
         );

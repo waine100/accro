@@ -363,11 +363,17 @@ class SalesFlatOrder
     private $items;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $extras;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->items = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->extras = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -525,5 +531,40 @@ class SalesFlatOrder
             self::STATUS_ERROR     => 'status_error',
             self::STATUS_STOPPED   => 'status_stopped',
         );
+    }
+
+    /**
+     * Add items
+     *
+     * @param \Zenweb\Aventure\ParcBundle\Entity\SalesFlatItem $items
+     *
+     * @return SalesFlatOrder
+     */
+    public function addExtra(\Zenweb\Aventure\ParcBundle\Entity\SalesFlatExtra $extras)
+    {
+        $extras->setOrder($this);
+        $this->extras[] = $extras;
+
+        return $this;
+    }
+
+    /**
+     * Remove items
+     *
+     * @param \Zenweb\Aventure\ParcBundle\Entity\SalesFlatItem $items
+     */
+    public function removeExtra(\Zenweb\Aventure\ParcBundle\Entity\SalesFlatExtra $extras)
+    {
+        $this->extras->removeElement($extras);
+    }
+
+    /**
+     * Get items
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getExtras()
+    {
+        return $this->extras;
     }
 }
