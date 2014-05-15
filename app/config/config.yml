@@ -91,6 +91,7 @@ sonata_block:
         sonata.block.service.text: # used to if you plan to use Sonata user routes
         sonata.block.service.calendar: ~
         sonata.block.service.recent_orders: ~
+        zenweb_aventure_parc.menu.top: ~
 
 sonata_admin:
     title: Aventure Administration

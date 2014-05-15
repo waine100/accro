@@ -1,39 +1,48 @@
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Aventure Aventure</a>
-    </div>
+{% extends sonata_block.templates.block_base %}
+{% block block %}
+<div class="col-md-8 col-md-offset-2">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Aventure Aventure</a>
+            </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Vos parcs <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-            </ul>
-        </li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Vos offres <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Grand public</a></li>
-                <li><a href="#">Groupes et collectivites</a></li>
-                <li><a href="#">Scolaire et centres de loisir</a></li>
-                <li><a href="#">Séminaires et Incentives Pro</a></li>
-            </ul>
-        </li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">En pratique <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Décharges</a></li>
-            </ul>
-        </li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Vos parcs <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            {% for parc in parcs %}
+                            <li><a href="#">{{ parc.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Vos offres <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/vos-offres/grand-public">Grand public</a></li>
+                            <li><a href="/vos-offres/groupes-et-collectivites">Groupes et collectivites</a></li>
+                            <li><a href="/vos-offres/scolaire-et-centres-de-loisirs">Scolaire et centres de loisir</a></li>
+                            <li><a href="/vos-offres/seminaires-et-incentives-pro">Séminaires et Incentives Pro</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">En pratique <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Décharges</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/profile">Mon compte</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+</div>
+{% endblock %}

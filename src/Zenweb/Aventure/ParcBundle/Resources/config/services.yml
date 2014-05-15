@@ -20,6 +20,13 @@ services:
         arguments:
             - Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder
 
+    zenweb_aventure_parc.parc.manager:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - Zenweb\Aventure\ParcBundle\Entity\Parc
+
     zenweb_aventure_parc.order.form.status:
         class: Sonata\CoreBundle\Form\Type\StatusType
         arguments: [Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder, getStatusList, zenweb_order_status]
@@ -37,6 +44,13 @@ services:
             - { name: doctrine.event_listener, event: prePersist }
 
     zenweb_aventure_parc.user.listener:
-            class: Zenweb\Aventure\ParcBundle\Listener\UserListener
-            tags:
-                - { name: doctrine.event_listener, event: prePersist }
+        class: Zenweb\Aventure\ParcBundle\Listener\UserListener
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+
+
+    zenweb_aventure_parc.menu.top:
+        class: Zenweb\Aventure\ParcBundle\Block\MenuTopBlockService
+        arguments: [ "zenweb_aventure_parc.menu.top", @templating, @zenweb_aventure_parc.parc.manager ]
+        tags:
+            - { name: sonata.block }
