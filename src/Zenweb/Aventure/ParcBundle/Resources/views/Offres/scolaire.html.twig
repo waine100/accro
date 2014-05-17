@@ -1,6 +1,12 @@
 {% extends "ZenwebAventureParcBundle:Front:page_layout.html.twig" %}
+{% block zenweb_fo_top_menu %} {{ render(controller('ZenwebAventureParcBundle:Front:menuTop', { 'active': 'offers' })) }} {% endblock %}
 {% block zenweb_fo_content %}
 <div class="col-md-8 col-md-offset-2">
-    OFFRES SCOLAIRE
+    <div class="panel panel-success">
+        <div class="panel-heading">OFFRES SCOLAIRE</div>
+        <div class="panel-body">
+            Panel content
+        </div>
+    </div>
 </div>
 {% endblock zenweb_fo_content %}

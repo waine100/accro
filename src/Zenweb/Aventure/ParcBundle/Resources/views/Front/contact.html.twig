@@ -1,6 +1,18 @@
 {% extends "ZenwebAventureParcBundle:Front:page_layout.html.twig" %}
+{% form_theme form 'ZenwebAventureParcBundle:Form:fields_fo.html.twig' %}
 {% block zenweb_fo_content %}
-<div class="col-md-8 col-md-offset-2">
-    CONTACT
-</div>
+    <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-success">
+            <div class="panel-heading">CONTACT</div>
+            <div class="panel-body">
+                {% if retour == 'success' %}
+                    <div class="alert alert-success">Votre message a bien été transmis.</div>
+                {% endif %}
+                {% if form_errors(form) %}
+                <div class="alert alert-danger">{{ form_errors(form) }}</div>
+                {% endif %}
+                <div class="col-md-6 form-horizontal">{{ form(form) }}</div>
+            </div>
+        </div>
+    </div>
 {% endblock zenweb_fo_content %}

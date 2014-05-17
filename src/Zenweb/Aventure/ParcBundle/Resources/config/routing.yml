@@ -33,6 +33,9 @@ zenweb_aventure_parc_fo_construction:
 zenweb_aventure_parc_fo_faq:
     pattern: /questions-pratiques
     defaults: { _controller: ZenwebAventureParcBundle:Front:faq }
+zenweb_aventure_parc_fo_show:
+    pattern: /parc/{id}
+    defaults: { _controller: ZenwebAventureParcBundle:Front:showParc }
 
 zenweb_aventure_parc_offres_gp:
     pattern: /vos-offres/grand-public
@@ -46,3 +49,11 @@ zenweb_aventure_parc_offres_scolaire:
 zenweb_aventure_parc_offres_seminaire:
     pattern: /vos-offres/seminaires-et-incentives-pro
     defaults: { _controller: ZenwebAventureParcBundle:Offres:seminaire }
+
+zenweb_aventure_parc_pratique_faq:
+    pattern: /questions-pratiques/faq
+    defaults: { _controller: ZenwebAventureParcBundle:Pratique:faq }
+
+zenweb_aventure_parc_contact:
+    pattern: /contact
+    defaults: { _controller: ZenwebAventureParcBundle:Front:contact }

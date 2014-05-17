@@ -1,5 +1,3 @@
-{% extends sonata_block.templates.block_base %}
-{% block block %}
 <div class="col-md-8 col-md-offset-2">
     <nav class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container-fluid">
@@ -11,30 +9,40 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active">
+                    <li class="dropdown {% if active == 'parcs' %} active {% endif %}">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Vos parcs <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             {% for parc in parcs %}
-                            <li><a href="#">{{ parc.name }}</a></li>
+                            <li><a href="{{ path('zenweb_aventure_parc_fo_show', { 'id': parc.id }) }}">{{ parc.name }}</a></li>
                             {% endfor %}
                         </ul>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown {% if active == 'offers' %} active {% endif %}">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Vos offres <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/vos-offres/grand-public">Grand public</a></li>
-                            <li><a href="/vos-offres/groupes-et-collectivites">Groupes et collectivites</a></li>
-                            <li><a href="/vos-offres/scolaire-et-centres-de-loisirs">Scolaire et centres de loisir</a></li>
-                            <li><a href="/vos-offres/seminaires-et-incentives-pro">Séminaires et Incentives Pro</a></li>
+                            <li><a href="{{ path('zenweb_aventure_parc_offres_gp') }}">Grand public</a></li>
+                            <li><a href="{{ path('zenweb_aventure_parc_offres_groupe') }}">Groupes et collectivites</a></li>
+                            <li><a href="{{ path('zenweb_aventure_parc_offres_scolaire') }}">Scolaire et centres de loisir</a></li>
+                            <li><a href="{{ path('zenweb_aventure_parc_offres_seminaire') }}">Séminaires et Incentives Pro</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown {% if active == 'pratique' %} active {% endif %}">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">En pratique <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Décharges</a></li>
+                            <li><a href="{{ path('zenweb_aventure_parc_pratique_faq') }}">FAQ</a></li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="{{ asset('doc/decharge.pdf') }}">Téléchargement</a>
+                                <ul>
+                                    <li><a href="{{ asset('bundles/zenwebaventureparc/doc/decharge.pdf') }}"><small>Décharges</small></a></li>
+                                    <li><a href="{{ asset('bundles/zenwebaventureparc/doc/carton invitation pea.pdf') }}"><small>Carton d'invitation Davy Crockett Aventure</small></a></li>
+                                    <li><a href="{{ asset('bundles/zenwebaventureparc/doc/carton invitation psa.pdf') }}"><small>Carton d'invitation Sainte Assise Aventure</small></a></li>
+                                    <li><a href="{{ asset('bundles/zenwebaventureparc/doc/Conditions_generales_vente.pdf') }}"><small>Condition Générale de Vente</small></a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="{{ path('zenweb_aventure_parc_contact') }}">Contact</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/profile">Mon compte</a></li>
@@ -45,4 +53,3 @@
         <!-- /.container-fluid -->
     </nav>
 </div>
-{% endblock %}

@@ -1,0 +1,55 @@
+{% block form_row %}
+    <div class="row">
+        <div class="form-group">
+            {{ form_label(form) }}
+            {{ form_errors(form) }}
+            {{ form_widget(form) }}
+        </div>
+    </div>
+{% endblock form_row %}
+{% block form_widget_simple %}
+    {% spaceless %}
+        {% set type = type|default('text') %}
+        <div class="col-md-6"><input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/></div>
+    {% endspaceless %}
+{% endblock form_widget_simple %}
+{% block textarea_widget %}
+    {% spaceless %}
+        <div class="col-md-8"><textarea {{ block('widget_attributes') }}>{{ value }}</textarea></div>
+    {% endspaceless %}
+{% endblock textarea_widget %}
+
+{% block choice_widget_collapsed %}
+    <div class="col-md-6">
+    {% spaceless %}
+        {% if required and empty_value is none and not empty_value_in_choices and not multiple %}
+            {% set required = false %}
+        {% endif %}
+        <select {{ block('widget_attributes') }}{% if multiple %} multiple="multiple"{% endif %}>
+            {% if empty_value is not none %}
+                <option value=""{% if required and value is empty %} selected="selected"{% endif %}>{{ empty_value|trans({}, translation_domain) }}</option>
+            {% endif %}
+            {% if preferred_choices|length > 0 %}
+                {% set options = preferred_choices %}
+                {{ block('choice_widget_options') }}
+                {% if choices|length > 0 and separator is not none %}
+                    <option disabled="disabled">{{ separator }}</option>
+                {% endif %}
+            {% endif %}
+            {% set options = choices %}
+            {{ block('choice_widget_options') }}
+        </select>
+    {% endspaceless %}
+    </div>
+{% endblock choice_widget_collapsed %}
+
+{% block button_widget %}
+    {% spaceless %}
+        <div class="col-md-offset-9">
+        {% if label is empty %}
+            {% set label = name|humanize %}
+        {% endif %}
+        <button type="{{ type|default('button') }}" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}</button>
+        </div>
+    {% endspaceless %}
+{% endblock button_widget %}

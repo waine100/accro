@@ -15,11 +15,8 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    {{ sonata_block_render({'type':'zenweb_aventure_parc.menu.top'}) }}
-
-    {% block zenweb_fo_content %}
-    {% endblock zenweb_fo_content %}
-
+    {% block zenweb_fo_top_menu %} {{ render(controller('ZenwebAventureParcBundle:Front:menuTop', { 'active': null })) }} {% endblock %}
+    {% block zenweb_fo_content %}{% endblock zenweb_fo_content %}
     {% include 'ZenwebAventureParcBundle:Front:menu_bot.html.twig' %}
 </body>
 </html>
