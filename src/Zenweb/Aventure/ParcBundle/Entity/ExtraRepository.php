@@ -12,4 +12,23 @@ use Doctrine\ORM\EntityRepository;
  */
 class ExtraRepository extends EntityRepository
 {
+    /**
+     * @param $id
+     *
+     * @return int
+     */
+
+    public function getPrice($id)
+    {
+        /**
+         * Subquery to get the min of each tier price.
+         */
+        $qb2 = $this->_em->createQueryBuilder();
+        return $qb2->select('price')
+            ->from('ZenwebAventureParcBundle:Extra', 'extra')
+            ->where('extra.id=:id')
+            ->setParameter("id", $id)
+            ->getFirstResult();
+
+    }
 }

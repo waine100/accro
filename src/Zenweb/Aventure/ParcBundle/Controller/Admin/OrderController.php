@@ -118,4 +118,32 @@ class OrderController extends Controller
 
         return new Response("Something wrong happened", 400);
     }
+
+    public function getPricesExtraAction()
+    {
+        $request = $this->get('request');
+
+        if ($request->isXmlHttpRequest()) {
+            // pour vérifier la présence d'une requete Ajax
+
+            $idExtra = $request->request->get('id');
+            $qty        = $request->request->get('qty', 1);
+
+            if (null !== $idExtra) {
+                $price = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository('ZenwebAventureParcBundle:Extra')
+                    ->findOneById($idExtra);
+
+                $response = new Response();
+                $price   = json_encode($price->getPricePerUnit() * $qty);
+                $response->setStatusCode(200);
+                $response->headers->set('Content-Type', 'application/json');
+                $response->setContent($price);
+                return $response;
+            }
+        }
+
+        return new Response("Something wrong happened", 400);
+    }
 }

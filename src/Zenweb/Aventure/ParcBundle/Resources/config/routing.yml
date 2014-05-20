@@ -16,6 +16,9 @@ zenweb_aventure_parc_orders:
 zenweb_aventure_parc_admin_order_create_get_prices:
     pattern:  /admin/order/get_prices
     defaults: { _controller: ZenwebAventureParcBundle:Admin/Order:getPrices }
+zenweb_aventure_parc_admin_order_create_get_prices_extra:
+    pattern:  /admin/order/get_prices_extra
+    defaults: { _controller: ZenwebAventureParcBundle:Admin/Order:getPricesExtra }
 zenweb_aventure_parc_fo_home:
     pattern: /
     defaults: { _controller: ZenwebAventureParcBundle:Front:home }

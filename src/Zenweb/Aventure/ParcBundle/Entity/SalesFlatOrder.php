@@ -480,6 +480,9 @@ class SalesFlatOrder
         foreach ($this->items as $item) {
             $orderTotal += $item->getRowTotal();
         }
+        foreach ($this->extras as $item) {
+            $orderTotal += $item->getRowTotal();
+        }
         $this->setBaseTotal($orderTotal);
     }
 

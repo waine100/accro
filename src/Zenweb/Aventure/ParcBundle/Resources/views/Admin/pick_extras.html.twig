@@ -21,3 +21,21 @@
         {% endfor %}
     </tbody>
 </table>
+<script>
+    //Load prices:
+    function getPricesExtra(tsId, $priceSelect, qty) {
+        qty = typeof qty !== 'undefined' ? qty : 1;
+        var DATA = 'id=' + tsId +'&qty=' + qty;
+        $.ajax({
+            type: "POST",
+            dataType: 'json',
+            url: "{{ path('zenweb_aventure_parc_admin_order_create_get_prices_extra') }}",
+            data: DATA,
+            success: function (msg) {
+
+                $priceSelect.html('');
+                $priceSelect.append( msg+' €');
+            }
+        });
+    }
+</script>

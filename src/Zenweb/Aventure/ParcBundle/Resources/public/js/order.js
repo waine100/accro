@@ -7,6 +7,21 @@ function ajouterCategorie($container, $table) {
     index++;
 }
 
+function ajouterCategorieExtra($container, $table) {
+    var $prototype = $($container.attr('data-prototype')//.replace(/__name__label__/g, 'Activité n°' + (index + 1))
+        .replace(/__name__/g, index));
+    ajouterFakePrice($prototype);
+    ajouterLienSuppression($prototype);
+    $table.append($prototype);
+    addChangePriceExtraListener($prototype);
+    index++;
+}
+
+function ajouterFakePrice($prototype) {
+    $prototype.append('<td class="priceLine">0 €</td>');
+}
+
+
 function ajouterLienSuppression($prototype) {
     $lienSuppression = $('<a href="#" class="btn btn-danger">Supprimer</a>');
     $prototype.append($lienSuppression);
@@ -25,6 +40,22 @@ function addChangePriceListener($prototype) {
     );
     $prototype.find("input:first").blur(function () {
             getPrices($(this).parent().parent().find('select:first').val(), $(this).parent().parent().find('select:last'), $(this).val());
+        }
+
+    );
+    /**
+     * @todo set total in js
+     */
+}
+
+function addChangePriceExtraListener($prototype) {
+    $prototype.find("select:first").change(function () {
+            getPricesExtra($(this).val(), $(this).parent().parent().find('.priceLine'), $(this).parent().parent().find('input:first').val());
+        }
+
+    );
+    $prototype.find("input:first").blur(function () {
+            getPricesExtra($(this).parent().parent().find('select:first').val(), $(this).parent().parent().find('.priceLine'), $(this).val());
         }
 
     );
@@ -61,13 +92,13 @@ $(document).ready(function () {
         var $lienAjout = $('<a href="#" id="ajout_item" class="btn">Ajouter une option</a>');
         $container2.append($lienAjout);
         $lienAjout.click(function (e) {
-            ajouterCategorie($container2, $table);
+            ajouterCategorieExtra($container2, $table);
             e.preventDefault(); // évite qu'un # apparaisse dans l'URL
             return false;
         });
         index = $container2.find(':input').length;
         if (index == 0) {
-            ajouterCategorie($container2, $table);
+            ajouterCategorieExtra($container2, $table);
         } else {
             $container2.children('div').each(function () {
                 ajouterLienSuppression($(this));

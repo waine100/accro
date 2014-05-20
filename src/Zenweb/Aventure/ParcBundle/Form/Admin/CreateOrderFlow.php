@@ -45,6 +45,7 @@ class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
 
     public function onPostBindSavedData(PostBindSavedDataEvent $event)
     {
+        $totalOrder = 0;
         /**
          * @todo populate here the booking var if possible
          *  if( $this->determineCurrentStepNumber() > 2) ...
@@ -85,9 +86,15 @@ class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
 
             foreach ($items as $item) {
                 $item->setOrder($event->getFormData()->order);
-                $item->setRowTotal(7*$item->getQty());
+                $rowTotal=$item->getQty()*$item->getName()->getPricePerUnit();
+                $item->setRowTotal($rowTotal);
             }
         }
+
+        if ($this->determineCurrentStepNumber() > 7) {
+            $event->getFormData()->order->setStatus('2');
+        }
+
     }
 
     protected function loadStepsConfig()
