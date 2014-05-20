@@ -23,6 +23,7 @@ class OrderController extends Controller
         $form = $flow->createForm();
 
         $parc = 0;
+        $typicalDayId = 0;
 
         if ($flow->getCurrentStepNumber() > 1) {
             $parc = $flow->getFormData()->order->getParc()->getId();
@@ -47,6 +48,7 @@ class OrderController extends Controller
                     $date = $flow->getFormData()->order->getBookingDate();
                     $em   = $this->getDoctrine()->getManager()->getRepository('ZenwebAventureParcBundle:Booking');
                     $flow->getFormData()->order->setBooking($em->findOneBy(array('theDate' => $date, 'parc' => $parc)));
+                    $typicalDayId = $flow->getFormData()->order->getBooking()->getTypicalDay()->getId();
                 }
                 // form for the next step
                 $form = $flow->createForm();
@@ -72,6 +74,7 @@ class OrderController extends Controller
             'month'      => date('m'),
             'year'       => date('Y'),
             'userId'     => $userId,
+            'typicalDayId' => $typicalDayId
         ));
     }
 
@@ -92,7 +95,7 @@ class OrderController extends Controller
                     /**
                      * First get the group of the User
                      */
-                    $user = $this->getDoctrine()
+                    $user     = $this->getDoctrine()
                         ->getManager()
                         ->getRepository('ZenwebAventureParcBundle:User')
                         ->find($userId);
@@ -109,6 +112,42 @@ class OrderController extends Controller
 
                 $response = new Response();
                 $prices   = json_encode($prices);
+                $response->setStatusCode(200);
+                $response->headers->set('Content-Type', 'application/json');
+                $response->setContent($prices);
+                return $response;
+            }
+        }
+
+        return new Response("Something wrong happened", 400);
+    }
+
+    public function getTimeSlotsAction()
+    {
+        $request = $this->get('request');
+
+        if ($request->isXmlHttpRequest()) {
+            // pour vérifier la présence d'une requete Ajax
+
+            $idActivity = $request->request->get('idActivity');
+            $idTypicalDay = $request->request->get('idTypicalDay');
+
+            if (null !== $idActivity && null !== $idTypicalDay) {
+
+                $ts = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository('ZenwebAventureParcBundle:TimeSlot')
+                    ->findBy(array('activity' => $idActivity, 'typicalDay' => $idTypicalDay))
+                    ;
+
+                $timeSlots = array();
+                foreach($ts as $t) {
+                    $timeSlots[$t->getId()]['name'] = $t->getBeginTime()->format("H:i"). ' -> ' . $t->getEndTime()->format("H:i");
+                    $timeSlots[$t->getId()]['id'] = $t->getId();
+                }
+
+                $response = new Response();
+                $prices   = json_encode($timeSlots);
                 $response->setStatusCode(200);
                 $response->headers->set('Content-Type', 'application/json');
                 $response->setContent($prices);

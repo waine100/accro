@@ -19,6 +19,47 @@ zenweb_aventure_parc_admin_order_create_get_prices:
 zenweb_aventure_parc_admin_order_create_get_prices_extra:
     pattern:  /admin/order/get_prices_extra
     defaults: { _controller: ZenwebAventureParcBundle:Admin/Order:getPricesExtra }
+zenweb_aventure_parc_admin_order_create_get_ts:
+    pattern:  /admin/order/get_ts
+    defaults: { _controller: ZenwebAventureParcBundle:Admin/Order:getTimeSlots }
+
+
 zenweb_aventure_parc_fo_home:
     pattern: /
     defaults: { _controller: ZenwebAventureParcBundle:Front:home }
+zenweb_aventure_parc_fo_contact:
+    pattern: /contact
+    defaults: { _controller: ZenwebAventureParcBundle:Front:contact }
+zenweb_aventure_parc_fo_mentions:
+    pattern: /mentions-legales
+    defaults: { _controller: ZenwebAventureParcBundle:Front:mentions }
+zenweb_aventure_parc_fo_construction:
+    pattern: /construction
+    defaults: { _controller: ZenwebAventureParcBundle:Front:construction }
+zenweb_aventure_parc_fo_faq:
+    pattern: /questions-pratiques
+    defaults: { _controller: ZenwebAventureParcBundle:Front:faq }
+zenweb_aventure_parc_fo_show:
+    pattern: /parc/{id}
+    defaults: { _controller: ZenwebAventureParcBundle:Front:showParc }
+
+zenweb_aventure_parc_offres_gp:
+    pattern: /vos-offres/grand-public
+    defaults: { _controller: ZenwebAventureParcBundle:Offres:gp }
+zenweb_aventure_parc_offres_groupe:
+    pattern: /vos-offres/groupes-et-collectivites
+    defaults: { _controller: ZenwebAventureParcBundle:Offres:groupe }
+zenweb_aventure_parc_offres_scolaire:
+    pattern: /vos-offres/scolaire-et-centres-de-loisirs
+    defaults: { _controller: ZenwebAventureParcBundle:Offres:scolaire }
+zenweb_aventure_parc_offres_seminaire:
+    pattern: /vos-offres/seminaires-et-incentives-pro
+    defaults: { _controller: ZenwebAventureParcBundle:Offres:seminaire }
+
+zenweb_aventure_parc_pratique_faq:
+    pattern: /questions-pratiques/faq
+    defaults: { _controller: ZenwebAventureParcBundle:Pratique:faq }
+
+zenweb_aventure_parc_contact:
+    pattern: /contact
+    defaults: { _controller: ZenwebAventureParcBundle:Front:contact }

@@ -37,6 +37,8 @@ Zenweb\Aventure\ParcBundle\Entity\SalesFlatItem:
             targetEntity: TimeSlot
         basePrice:
             targetEntity: Price
+        activity:
+            targetEntity: Activity
 
     lifecycleCallbacks:
          prePersist: [updatedTimestamps]

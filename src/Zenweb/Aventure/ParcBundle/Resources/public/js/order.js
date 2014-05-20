@@ -34,12 +34,17 @@ function ajouterLienSuppression($prototype) {
 
 function addChangePriceListener($prototype) {
     $prototype.find("select:first").change(function () {
+            getTimeSlots($(this).val(), $(this).parent().next().find('select'));
+        }
+
+    );
+    $prototype.find("input:first").parent().prev().find('select').change(function () {
             getPrices($(this).val(), $(this).parent().parent().find('select:last'), $(this).parent().parent().find('input:first').val());
         }
 
     );
     $prototype.find("input:first").blur(function () {
-            getPrices($(this).parent().parent().find('select:first').val(), $(this).parent().parent().find('select:last'), $(this).val());
+            getPrices($(this).parent().prev().find('select').val(), $(this).parent().parent().find('select:last'), $(this).val());
         }
 
     );

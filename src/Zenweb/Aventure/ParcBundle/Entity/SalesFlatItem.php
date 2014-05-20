@@ -289,4 +289,32 @@ class SalesFlatItem
     {
         return $this->timeSlot;
     }
+    /**
+     * @var \Zenweb\Aventure\ParcBundle\Entity\Activity
+     */
+    private $activity;
+
+
+    /**
+     * Set activity
+     *
+     * @param \Zenweb\Aventure\ParcBundle\Entity\Activity $activity
+     * @return SalesFlatItem
+     */
+    public function setActivity(\Zenweb\Aventure\ParcBundle\Entity\Activity $activity = null)
+    {
+        $this->activity = $activity;
+
+        return $this;
+    }
+
+    /**
+     * Get activity
+     *
+     * @return \Zenweb\Aventure\ParcBundle\Entity\Activity 
+     */
+    public function getActivity()
+    {
+        return $this->activity;
+    }
 }

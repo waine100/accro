@@ -1,6 +1,7 @@
 Zenweb\Aventure\ParcBundle\Entity\Parc:
     type: entity
     table: null
+    repositoryClass: Zenweb\Aventure\ParcBundle\Entity\ParcRepository
     id:
         id:
             type: integer

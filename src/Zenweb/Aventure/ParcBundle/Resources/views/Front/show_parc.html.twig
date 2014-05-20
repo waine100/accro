@@ -1,0 +1,16 @@
+{% extends "ZenwebAventureParcBundle:Front:page_layout.html.twig" %}
+{% block zenweb_fo_top_menu %} {{ render(controller('ZenwebAventureParcBundle:Front:menuTop', { 'active': 'parcs' })) }} {% endblock %}
+{% block zenweb_fo_content %}
+<div class="col-md-8 col-md-offset-2">
+    {% if parc|length > 0 %}
+        <div>{{ parc.name }}</div>
+        <div>{{ parc.description }}</div>
+        <div>{{ parc.address }}</div>
+        <div>{{ parc.mail }}</div>
+        <div>Télécharger le plan d'accès <a href="/{{ parc.getWebPlan }}">ici</a></div>
+        <div><img src="/{{ parc.getWebImage }}" /></div>
+    {% else %}
+        <div class="alert alert-danger">Ce parc n'existe pas.</div>
+    {% endif %}
+</div>
+{% endblock zenweb_fo_content %}

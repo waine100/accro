@@ -31,6 +31,9 @@ class OrderListener
 
                 $entity->setReference($reference);
 
+                //To be setted with a nice value
+                $entity->setStatus(2);
+
             } catch (\Exception $e) {
                 throw $e;
             }

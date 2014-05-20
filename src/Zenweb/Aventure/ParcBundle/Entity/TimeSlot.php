@@ -170,6 +170,10 @@ class TimeSlot
      * Now some real methods
      */
 
+    public function getName(){
+        return $this->activity->getName().' ('.$this->beginTime->format("H:i").' -> '.$this->endTime->format("H:i").')';
+    }
+
     /**
      * Display a nice name
      *

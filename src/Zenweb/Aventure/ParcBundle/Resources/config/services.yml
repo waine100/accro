@@ -37,6 +37,6 @@ services:
             - { name: doctrine.event_listener, event: prePersist }
 
     zenweb_aventure_parc.user.listener:
-            class: Zenweb\Aventure\ParcBundle\Listener\UserListener
-            tags:
-                - { name: doctrine.event_listener, event: prePersist }
+        class: Zenweb\Aventure\ParcBundle\Listener\UserListener
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
