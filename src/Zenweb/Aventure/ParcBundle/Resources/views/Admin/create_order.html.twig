@@ -14,29 +14,32 @@
     </li>
 {% endblock %}
 {% block sonata_page_content %}
-    {% include 'ZenwebAventureParcBundle:Admin:stepList.html.twig' %}
-    <form method="post" {{ form_enctype(form) }}>
-        {{ form_errors(form) }}
+    <section class="content">
+        <div class="panel panel-default panel-primary">
+            <div class="panel-heading">Création de commande</div>
+            <div class="panel-body">
+            {% include 'ZenwebAventureParcBundle:Admin:stepList.html.twig' %}
+            <form method="post" {{ form_enctype(form) }}>
+                {{ form_errors(form) }}
 
-        {% if flow.getCurrentStepNumber() == 1 %}
-            <div>
-                {{ form_row(form.order.parc) }}
+                {% if flow.getCurrentStepNumber() == 1 %}
+                    <div>
+                        {{ form_row(form.order.parc) }}
+                    </div>
+                {% elseif flow.getCurrentStepNumber() == 2 %}
+                    {% include 'ZenwebAventureParcBundle:Admin:pick_date.html.twig' %}
+                {% elseif flow.getCurrentStepNumber() == 6 %}
+                    {% include 'ZenwebAventureParcBundle:Admin:pick_activities.html.twig' %}
+                {% elseif flow.getCurrentStepNumber() == 7 %}
+                    {% include 'ZenwebAventureParcBundle:Admin:pick_extras.html.twig' %}
+                {% endif %}
+                {{ form_rest(form) }}
+
+
+                {% include 'ZenwebAventureParcBundle:Admin:buttons.html.twig' %}
+            </form>
             </div>
-        {% elseif flow.getCurrentStepNumber() == 2 %}
-            {% include 'ZenwebAventureParcBundle:Admin:pick_date.html.twig' %}
-        {% elseif flow.getCurrentStepNumber() == 6 %}
-            {% include 'ZenwebAventureParcBundle:Admin:pick_activities.html.twig' %}
-        {% elseif flow.getCurrentStepNumber() == 7 %}
-            {% include 'ZenwebAventureParcBundle:Admin:pick_extras.html.twig' %}
-        {% endif %}
-        {{ form_rest(form) }}
-
-
-        {% include 'ZenwebAventureParcBundle:Admin:buttons.html.twig' %}
-    </form>
-    <!-- Javascript needed for activites -->
-    <script type="text/javascript">
-
-    </script>
+        </div>
+    </section>
 {% endblock %}
 

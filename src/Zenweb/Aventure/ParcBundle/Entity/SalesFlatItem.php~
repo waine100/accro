@@ -262,27 +262,6 @@ class SalesFlatItem
     }
 
     /**
-     * Calculate the row total depending, on timeslot, qty and tierprice.
-     */
-    public function calculateRowTotal($userId)
-    {
-        /*$groupsId = array();
-        $groups = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('ZenwebAventureParcBundle:User')
-            ->find($userId)
-            ->getGroups();
-
-        foreach ($groups as $group) {
-            $groupsId[] = $group->getId();
-        }
-
-        $prices = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('ZenwebAventureParcBundle:Price')
-            ->getAvailablePrices($groupsId, $idTimeSlot, $qty);*/
-    }
-    /**
      * @var \Zenweb\Aventure\ParcBundle\Entity\TimeSlot
      */
     private $timeSlot;
