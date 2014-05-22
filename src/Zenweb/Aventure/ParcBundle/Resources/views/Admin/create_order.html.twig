@@ -32,6 +32,8 @@
                     {% include 'ZenwebAventureParcBundle:Admin:pick_activities.html.twig' %}
                 {% elseif flow.getCurrentStepNumber() == 7 %}
                     {% include 'ZenwebAventureParcBundle:Admin:pick_extras.html.twig' %}
+                {% elseif flow.getCurrentStepNumber() == 8 %}
+                    {% include 'ZenwebAventureParcBundle:Admin:order_recap.html.twig' with {'order': order}%}
                 {% endif %}
                 {{ form_rest(form) }}
 
