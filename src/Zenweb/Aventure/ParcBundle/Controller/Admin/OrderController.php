@@ -74,7 +74,9 @@ class OrderController extends Controller
             'month'      => date('m'),
             'year'       => date('Y'),
             'userId'     => $userId,
-            'typicalDayId' => $typicalDayId
+            'typicalDayId' => $typicalDayId,
+            'user'         => $formData->order->getUser(),
+            'order'        => $flow->getFormData()->order
         ));
     }
 

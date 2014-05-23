@@ -91,8 +91,8 @@ class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
             }
         }
 
-        if ($this->determineCurrentStepNumber() > 7) {
-            $event->getFormData()->order->setStatus('2');
+        if ($this->determineCurrentStepNumber() > 7 && $event->getStep() == 7) {
+
         }
 
     }
@@ -136,7 +136,11 @@ class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
             ),
             array(
                 'label' => 'Récapitualtif de commande',
-                //'type' => new CreateOrderExtraForm(),
+                'type' => new CreateOrderRecapForm(),
+            ),
+            array(
+                'label' => 'Paiement',
+                //'type' => new CreateOrderPaymentForm(),
             ),
         );
     }
