@@ -59,7 +59,6 @@ class SalesFlatItemType extends AbstractType
                 'auto_initialize' => false,
                 'query_builder'   => function (TimeSlotRepository $repository) use ($activity, $typicalDayId) {
                         $qb = $repository->createQueryBuilder('timeSlot');
-
                         $qb = $qb->where('timeSlot.activity = :activity_id')->setParameter('activity_id', $activity);
                         return $qb;
                     }

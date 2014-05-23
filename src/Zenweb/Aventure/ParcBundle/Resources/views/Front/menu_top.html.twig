@@ -17,32 +17,6 @@
                             {% endfor %}
                         </ul>
                     </li>
-                    <li class="dropdown {% if active == 'offers' %} active {% endif %}">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Vos offres <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ path('zenweb_aventure_parc_offres_gp') }}">Grand public</a></li>
-                            <li><a href="{{ path('zenweb_aventure_parc_offres_groupe') }}">Groupes et collectivites</a></li>
-                            <li><a href="{{ path('zenweb_aventure_parc_offres_scolaire') }}">Scolaire et centres de loisir</a></li>
-                            <li><a href="{{ path('zenweb_aventure_parc_offres_seminaire') }}">Séminaires et Incentives Pro</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown {% if active == 'pratique' %} active {% endif %}">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">En pratique <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ path('zenweb_aventure_parc_pratique_faq') }}">FAQ</a></li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="{{ asset('doc/decharge.pdf') }}">Téléchargement</a>
-                                <ul>
-                                    <li><a href="{{ asset('bundles/zenwebaventureparc/doc/decharge.pdf') }}"><small>Décharges</small></a></li>
-                                    <li><a href="{{ asset('bundles/zenwebaventureparc/doc/carton invitation pea.pdf') }}"><small>Carton d'invitation Davy Crockett Aventure</small></a></li>
-                                    <li><a href="{{ asset('bundles/zenwebaventureparc/doc/carton invitation psa.pdf') }}"><small>Carton d'invitation Sainte Assise Aventure</small></a></li>
-                                    <li><a href="{{ asset('bundles/zenwebaventureparc/doc/Conditions_generales_vente.pdf') }}"><small>Condition Générale de Vente</small></a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="{{ path('zenweb_aventure_parc_contact') }}">Contact</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/profile">Mon compte</a></li>
