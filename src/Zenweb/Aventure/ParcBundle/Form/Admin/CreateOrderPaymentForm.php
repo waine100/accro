@@ -11,7 +11,7 @@ class CreateOrderPaymentForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $orderForm = $builder->create('order', 'form', array('data_class' => get_class(new SalesFlatOrder())));
-        $orderForm->add('cgv', 'checkbox', array('required' => true, 'label' => 'Merci de valider les CGV', 'mapped' => false);
+        $orderForm->add('checkoutMethod', 'choice', array('expanded' => true, 'choices' => array('at_arrival' => 'A l\'arrivé', 'cb' => 'Par carte bancaire'),'required' => true, 'label' => 'Moyen de paiement'));
         $builder->add($orderForm);
     }
 

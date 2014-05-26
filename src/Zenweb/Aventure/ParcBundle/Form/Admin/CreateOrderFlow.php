@@ -91,8 +91,8 @@ class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
             }
         }
 
-        if ($this->determineCurrentStepNumber() > 7 && $event->getStep() == 7) {
-
+        if ($this->determineCurrentStepNumber() > 8) {
+            $event->getFormData()->order->setCheckoutMethod($event->getFormData()->order->getCheckoutMethod());
         }
 
     }
@@ -140,7 +140,7 @@ class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
             ),
             array(
                 'label' => 'Paiement',
-                //'type' => new CreateOrderPaymentForm(),
+                'type' => new CreateOrderPaymentForm(),
             ),
         );
     }
