@@ -34,7 +34,7 @@ class AppKernel extends Kernel
              * Zenweb Bundles
              */
             new Zenweb\Aventure\ParcBundle\ZenwebAventureParcBundle(),
-
+            new Zenweb\Aventure\ParcPaymentBundle\ZenwebAventureParcPaymentBundle(),
             /**
              * Third party bundles
              */

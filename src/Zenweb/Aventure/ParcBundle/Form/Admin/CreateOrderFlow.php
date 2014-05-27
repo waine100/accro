@@ -16,6 +16,7 @@ use Doctrine\ORM\EntityManager;
 
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder;
 
 class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
 {
@@ -95,6 +96,14 @@ class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
             $event->getFormData()->order->setCheckoutMethod($event->getFormData()->order->getCheckoutMethod());
         }
 
+    }
+
+    public function onGetSteps(GetStepsEvent $event) {
+        if($event->getStep() == 8) {
+            $event->getFormData()->order->setStatus(SalesFlatOrder::STATUS_PENDING);
+        } else {
+            $event->getFormData()->order->setStatus(SalesFlatOrder::STATUS_ERROR);
+        }
     }
 
     protected function loadStepsConfig()

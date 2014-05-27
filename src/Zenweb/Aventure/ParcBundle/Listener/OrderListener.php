@@ -32,7 +32,13 @@ class OrderListener
                 $entity->setReference($reference);
 
                 //To be setted with a nice value
-                $entity->setStatus(2);
+                if($entity->getCheckoutMethod() == 'at_arrival') {
+                    $entity->setStatus(SalesFlatOrder::STATUS_PAYMENT_ARRIVAL);
+                } elseif ($entity->getCheckoutMethod() == 'cb'){
+                    $entity->setStatus(SalesFlatOrder::STATUS_PAYMENT_CB_OK);
+                } else {
+                    $entity->setStatus(SalesFlatOrder::STATUS_STOPPED);
+                }
 
             } catch (\Exception $e) {
                 throw $e;

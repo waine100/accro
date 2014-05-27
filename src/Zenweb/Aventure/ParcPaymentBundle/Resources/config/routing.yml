@@ -1,0 +1,3 @@
+zenweb_aventure_parc_payment:
+    pattern: /admin/payment
+    defaults: { _controller: ZenwebAventureParcPaymentBundle:Payment:payment }

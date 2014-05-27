@@ -2,6 +2,10 @@ zenweb_aventure_parc:
     resource: "@ZenwebAventureParcBundle/Resources/config/routing.yml"
     prefix:   /
 
+zenweb_aventure_parc_payment:
+    resource: "@ZenwebAventureParcPaymentBundle/Resources/config/routing.yml"
+    prefix:   /
+
 zenweb_aventure_user:
     resource: "@ZenwebAventureUserBundle/Resources/config/routing.yml"
     prefix:   /

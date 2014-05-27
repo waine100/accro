@@ -15,6 +15,9 @@ class SalesFlatOrder
     const STATUS_CANCELLED = 3; // the order is cancelled
     const STATUS_ERROR = 4; // the order has an error
     const STATUS_STOPPED = 5; // use if the subscription has been cancelled/stopped
+    const STATUS_PAYMENT_ARRIVAL = 6; // use if the user choose to pay on arrival at site
+    const STATUS_PAYMENT_CB_OK = 7; // use if the user has paid in CB ans return code from bank is ok
+    const STATUS_PAYMENT_CB_KO = 8; // use if the user has paid in CB ans return code from bank is ko
 
     /**
      * @var string $reference
@@ -372,6 +375,7 @@ class SalesFlatOrder
      */
     public function __construct()
     {
+        $this->setStatus(SalesFlatOrder::STATUS_OPEN);
         $this->items = new \Doctrine\Common\Collections\ArrayCollection();
         $this->extras = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -527,12 +531,15 @@ class SalesFlatOrder
     public static function getStatusList()
     {
         return array(
-            self::STATUS_OPEN      => 'status_open',
-            self::STATUS_PENDING   => 'status_pending',
-            self::STATUS_VALIDATED => 'status_validated',
-            self::STATUS_CANCELLED => 'status_cancelled',
-            self::STATUS_ERROR     => 'status_error',
-            self::STATUS_STOPPED   => 'status_stopped',
+            self::STATUS_OPEN               => 'status_open',
+            self::STATUS_PENDING            => 'status_pending',
+            self::STATUS_VALIDATED          => 'status_validated',
+            self::STATUS_CANCELLED          => 'status_cancelled',
+            self::STATUS_ERROR              => 'status_error',
+            self::STATUS_STOPPED            => 'status_stopped',
+            self::STATUS_PAYMENT_ARRIVAL    => 'status_payment_arrival',
+            self::STATUS_PAYMENT_CB_OK      => 'status_payment_ok',
+            self::STATUS_PAYMENT_CB_KO      => 'status_payment_ko',
         );
     }
 
