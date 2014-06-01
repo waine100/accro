@@ -1,0 +1,45 @@
+{% extends 'ZenwebAventureParcBundle:Front:page_layout.html.twig' %}
+{% form_theme form 'ZenwebAventureParcBundle:Form:fields.html.twig' %}
+{% block zenweb_fo_css %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/zenwebaventureparc/css/step.css') }}" media="all">
+    <link rel="stylesheet" href="{{ asset('bundles/zenwebaventureparc/css/calendarstyle.css') }}" media="all">
+{% endblock %}
+{% block zenweb_fo_js %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/zenwebaventureparc/js/order.js') }}"></script>
+{% endblock %}
+{% block zenweb_fo_content %}
+    <div class="col-md-8 col-md-offset-2">
+        <section class="content">
+            <div class="panel panel-default panel-primary">
+                <div class="panel-heading">Création de commande</div>
+                <div class="panel-body">
+                    {% include 'ZenwebAventureParcBundle:Admin:stepList.html.twig' %}
+                    {{ form_errors(form) }}
+                    {% if flow.getCurrentStepNumber() == 1 %}
+                        {% render controller("SonataUserBundle:SecurityFOSUser1:login") %}
+                    {% endif %}
+                    <form method="post" {{ form_enctype(form) }}>
+                        {{ form_errors(form) }}
+                        {% if flow.getCurrentStepNumber() == 1 %}
+                        {% elseif flow.getCurrentStepNumber() == 3 %}
+                            {% include 'ZenwebAventureParcBundle:Front:pick_date.html.twig' %}
+                        {% elseif flow.getCurrentStepNumber() == 4 %}
+                            {% include 'ZenwebAventureParcBundle:Admin:pick_activities.html.twig' %}
+                        {% elseif flow.getCurrentStepNumber() == 5 %}
+                            {% include 'ZenwebAventureParcBundle:Admin:pick_extras.html.twig' %}
+                        {% elseif flow.getCurrentStepNumber() == 6 %}
+                            {% include 'ZenwebAventureParcBundle:Admin:order_recap.html.twig' with {'order': order}%}
+                        {% endif %}
+                        {{ form_rest(form) }}
+                        {% include 'ZenwebAventureParcBundle:Admin:buttons.html.twig' %}
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+    {% if flow.getCurrentStepNumber() == 9 %}
+        {% include 'ZenwebAventureParcBundle:Admin:payment.html.twig' with {'order': paymentForm}%}
+    {% endif %}
+{% endblock %}

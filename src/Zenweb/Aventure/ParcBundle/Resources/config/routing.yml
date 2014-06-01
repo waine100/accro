@@ -4,8 +4,8 @@
 zenweb_aventure_parc_calendar_ajax_admin:
     pattern:  /admin/calendar/ajax_admin
     defaults: { _controller: ZenwebAventureParcBundle:Calendar:ajaxAdmin }
-zenweb_aventure_parc_calendar_admin_load:
-    pattern:  /admin/calendar/load
+zenweb_aventure_parc_calendar_load:
+    pattern:  /calendar/load
     defaults: { _controller: ZenwebAventureParcBundle:Calendar:load }
 zenweb_aventure_parc_order_create_form:
     pattern:  /admin/order/create
@@ -13,15 +13,15 @@ zenweb_aventure_parc_order_create_form:
 zenweb_aventure_parc_orders:
     pattern:  /admin/order
     defaults: { _controller: ZenwebAventureParcBundle:Admin/Order:list }
-zenweb_aventure_parc_admin_order_create_get_prices:
-    pattern:  /admin/order/get_prices
-    defaults: { _controller: ZenwebAventureParcBundle:Admin/Order:getPrices }
-zenweb_aventure_parc_admin_order_create_get_prices_extra:
-    pattern:  /admin/order/get_prices_extra
-    defaults: { _controller: ZenwebAventureParcBundle:Admin/Order:getPricesExtra }
-zenweb_aventure_parc_admin_order_create_get_ts:
-    pattern:  /admin/order/get_ts
-    defaults: { _controller: ZenwebAventureParcBundle:Admin/Order:getTimeSlots }
+zenweb_aventure_parc_order_create_get_prices:
+    pattern:  /order/get_prices
+    defaults: { _controller: ZenwebAventureParcBundle:Front:getPrices }
+zenweb_aventure_parc_order_create_get_prices_extra:
+    pattern:  /order/get_prices_extra
+    defaults: { _controller: ZenwebAventureParcBundle:Front:getPricesExtra }
+zenweb_aventure_parc_order_create_get_ts:
+    pattern:  /order/get_ts
+    defaults: { _controller: ZenwebAventureParcBundle:Front:getTimeSlots }
 
 
 zenweb_aventure_parc_fo_home:

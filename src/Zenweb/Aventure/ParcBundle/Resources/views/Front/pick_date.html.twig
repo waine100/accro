@@ -36,7 +36,7 @@
             cal.find('a').removeClass().unbind();//clear classes and events of <a> elements inside the calendar before applying the new styles and events based on ajax response
             cal.find('a').css('background-color',"#bcada4");
 
-            var url = "{{ path('zenweb_aventure_parc_calendar_admin_load') }}";
+            var url = "{{ path('zenweb_aventure_parc_calendar_load') }}";
             var id = cal.attr('id');
             $.post(url, {
                 month: mois,

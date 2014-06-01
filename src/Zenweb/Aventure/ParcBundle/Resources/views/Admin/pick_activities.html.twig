@@ -30,7 +30,7 @@
         $.ajax({
             type: "POST",
             dataType: 'json',
-            url: "{{ path('zenweb_aventure_parc_admin_order_create_get_prices') }}",
+            url: "{{ path('zenweb_aventure_parc_order_create_get_prices') }}",
             data: DATA,
             success: function (msg) {
                 $priceSelect.html('');
@@ -48,7 +48,7 @@
         $.ajax({
             type: "POST",
             dataType: 'json',
-            url: "{{ path('zenweb_aventure_parc_admin_order_create_get_ts') }}",
+            url: "{{ path('zenweb_aventure_parc_order_create_get_ts') }}",
             data: DATA,
             success: function (msg) {
                 $tsSelect.html('');
