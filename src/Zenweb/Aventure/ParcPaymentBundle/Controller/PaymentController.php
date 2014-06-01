@@ -123,12 +123,12 @@ class PaymentController extends Controller
 
     public function paymentErrorAction()
     {
-
+        return $this->render('ZenwebAventureParcPaymentBundle:Default:error.html.twig');
     }
 
     public function paymentSuccessAction()
     {
-
+        return $this->render('ZenwebAventureParcPaymentBundle:Default:success.html.twig');
     }
 
 }
