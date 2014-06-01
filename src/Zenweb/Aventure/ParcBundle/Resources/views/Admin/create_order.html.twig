@@ -43,7 +43,4 @@
             </div>
         </div>
     </section>
-    {% if flow.getCurrentStepNumber() == 9 %}
-        {% include 'ZenwebAventureParcBundle:Admin:payment.html.twig' with {'order': paymentForm}%}
-    {% endif %}
 {% endblock %}

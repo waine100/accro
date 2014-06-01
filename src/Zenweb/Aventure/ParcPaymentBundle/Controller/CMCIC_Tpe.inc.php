@@ -15,14 +15,14 @@
  *
  *****************************************************************************/
 
-//define("CMCIC_CTLHMAC","V1.04.sha1.php--[CtlHmac%s%s]-%s");
-/*define("CMCIC_CTLHMACSTR", "CtlHmac%s%s");
+define("CMCIC_CTLHMAC","V1.04.sha1.php--[CtlHmac%s%s]-%s");
+define("CMCIC_CTLHMACSTR", "CtlHmac%s%s");
 define("CMCIC_CGI2_RECEIPT","version=2\ncdr=%s");
 define("CMCIC_CGI2_MACOK","0");
 define("CMCIC_CGI2_MACNOTOK","1\n");
 define("CMCIC_CGI2_FIELDS", "%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*");
 define("CMCIC_CGI1_FIELDS", "%s*%s*%s%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s");
-define("CMCIC_URLPAIEMENT", "paiement.cgi");*/
+define("CMCIC_URLPAIEMENT", "paiement.cgi");
 
 
 /*****************************************************************************

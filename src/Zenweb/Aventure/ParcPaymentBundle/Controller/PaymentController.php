@@ -10,7 +10,7 @@ require_once __DIR__.'/CMCIC_Config.php';
 
 class PaymentController extends Controller
 {
-    public function PaymentAction($montant = 32.01)
+    public function PaymentAction($price = 32.01)
     {
 
         $sOptions = "";
@@ -24,7 +24,7 @@ class PaymentController extends Controller
         $sReference = "ref" . date("His");
 
 // Amount : format  "xxxxx.yy" (no spaces)
-        $sMontant = $montant;
+        $sMontant = $price;
 
 // Currency : ISO 4217 compliant
         $sDevise  = "EUR";
@@ -122,6 +122,11 @@ class PaymentController extends Controller
     }
 
     public function paymentErrorAction()
+    {
+
+    }
+
+    public function paymentSuccessAction()
     {
 
     }
