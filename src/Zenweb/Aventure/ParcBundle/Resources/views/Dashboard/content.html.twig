@@ -1,0 +1,50 @@
+<!-- description + recherche -->
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h4 class="panel-title">{{ "Description journée" | trans({}, 'ParcBundle')}}</h4>
+    </div>
+    <div class="panel-body">
+        <div class="col-md-4 text-center">
+            {{ typicalDay.name }} : {{ typicalDay.description }}<br/>
+            {% for timeSlot in timeSlots %}
+                {{ timeSlot.beginTime|date("H:i") }} -> {{ timeSlot.endTime|date("H:i") }}<br/>
+            {%  else %}
+                Aucun créneau
+            {% endfor %}
+        </div>
+        <div class="col-md-4 text-center">
+            Rechercher
+        </div>
+    </div>
+</div>
+<!-- end description + recherche -->
+<!-- synthèse -->
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        <h4 class="panel-title">{{ "Synthèse" | trans({}, 'ParcBundle')}}</h4>
+    </div>
+    <div class="panel-body">
+        <div class="col-md-4 text-center">
+            Activité
+        </div>
+        <div class="col-md-4 text-center">
+            Extras
+        </div>
+    </div>
+</div>
+<!-- end synthèse -->
+<!-- réservations -->
+<div class="panel panel-danger">
+    <div class="panel-heading">
+        <h4 class="panel-title">{{ "Réservations" | trans({}, 'ParcBundle')}}</h4>
+    </div>
+    <div class="panel-body">
+        <div class="col-md-4 text-center">
+            efsef
+        </div>
+        <div class="col-md-4 text-center">
+            fsefes
+        </div>
+    </div>
+</div>
+<!-- end reservations -->
