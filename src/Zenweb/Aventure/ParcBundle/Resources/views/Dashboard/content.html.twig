@@ -6,11 +6,13 @@
     <div class="panel-body">
         <div class="col-md-4 text-center">
             {{ typicalDay.name }} : {{ typicalDay.description }}<br/>
-            {% for timeSlot in timeSlots %}
-                {{ timeSlot.beginTime|date("H:i") }} -> {{ timeSlot.endTime|date("H:i") }}<br/>
-            {%  else %}
-                Aucun créneau
-            {% endfor %}
+            <ul>
+                {% for timeSlot in timeSlots %}
+                    <li>{{ timeSlot.beginTime|date("H:i") }} -> {{ timeSlot.endTime|date("H:i") }}</li>
+                {%  else %}
+                    <li>Aucun créneau</li>
+                {% endfor %}
+            </ul>
         </div>
         <div class="col-md-4 text-center">
             Rechercher
@@ -39,12 +41,58 @@
         <h4 class="panel-title">{{ "Réservations" | trans({}, 'ParcBundle')}}</h4>
     </div>
     <div class="panel-body">
-        <div class="col-md-4 text-center">
-            efsef
-        </div>
-        <div class="col-md-4 text-center">
-            fsefes
-        </div>
+        {% for timeSlot in timeSlots %}
+            <div class="row">
+                <div class="col-md-4 text-center"><strong>Arrivée à {{ timeSlot.beginTime|date("H:i") }} jusqu'à {{ timeSlot.endTime|date("H:i") }}</strong></div>
+                <div class="col-md-6 text-center"><strong>Total : X client - Y Places restantes</strong></div>
+                <div class="col-md-1 text-center"><button type="button" class="btn btn-info" data-toggle="collapse" data-target="#detail-{{ timeSlot.beginTime|date("Hi") }}">Détail</button></div>
+            </div>
+            <hr>
+            <div class="row collapse out" id="detail-{{ timeSlot.beginTime|date("Hi") }}">
+            {% set almostOneOrder = false %}
+            {% for order in orders %}
+                {% set orderTimeslot = [] %}
+                {% for item in order.items %}
+                    {% set orderTimeslot = orderTimeslot|merge({ 0: item.timeSlot.id }) %}
+                {%  endfor %}
+                {%  if timeSlot.id in orderTimeslot %}
+                    {% if not almostOneOrder %}
+                        <div class="row">
+                            <div class="col-md-1 text-center"><strong>Référence</strong></div>
+                            <div class="col-md-1 text-center"><strong>Client</strong></div>
+                            <div class="col-md-1 text-center"><strong>Téléphone - Email</strong></div>
+                            <div class="col-md-3 text-center"><strong>Activités</strong></div>
+                            <div class="col-md-3 text-center"><strong>Options</strong></div>
+                            <div class="col-md-1 text-center"><strong>Paiement</strong></div>
+                            <div class="col-md-1 text-center"><strong>Statut</strong></div>
+                        </div>
+                        <hr>
+                    {% endif %}
+                    {% set almostOneOrder = true %}
+                    <div class="row">
+                        <div class="col-md-1 text-center">{{ order.reference }}</div>
+                        <div class="col-md-1 text-center">{{ order.user.firstname }} {{ order.user.lastname }}</div>
+                        <div class="col-md-1 text-center">{{ order.user.phone }} - {{ order.user.email }}</div>
+                        <div class="col-md-3 text-center">
+                            {% for item in order.items  %}
+                                {%  if timeSlot.id == item.timeSlot.id %}
+                                    <strong>{{ item.activity.name }}</strong><br>
+                                    {{ item.basePrice.name }} : {{ item.qty }} -> {{ item.rowTotal }} €
+                                {%  endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="col-md-3 text-center">Extras</div>
+                        <div class="col-md-1 text-center">{{ order.checkoutMethod }} - {{ order.baseTotalPaid }}</div>
+                        <div class="col-md-1 text-center">{{ order.status }}</div>
+                    </div>
+                    <hr>
+                {% endif %}
+            {% endfor %}
+            {% if not almostOneOrder %}
+                <p class="text-center">Aucune réservation pour ce créneau.</p>
+            {% endif %}
+            </div>
+        {% endfor %}
     </div>
 </div>
 <!-- end reservations -->

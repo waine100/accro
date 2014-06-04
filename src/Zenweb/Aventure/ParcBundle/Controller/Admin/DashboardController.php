@@ -27,10 +27,12 @@ class DashboardController extends Controller
         $manager = $this->getDoctrine()->getManager();
         $dateTime = new \DateTime(implode('-',array_reverse(explode('/',$date))));
         $booking =  $manager->getRepository('ZenwebAventureParcBundle:Booking')->findOneBy(array('theDate' => $dateTime, 'parc' => $parc));
+        $orders =   $manager->getRepository('ZenwebAventureParcBundle:SalesFlatOrder')->findByBookingDate($dateTime);
         return $this->render('ZenwebAventureParcBundle:Dashboard:content.html.twig',
             array(
                 'typicalDay' => $booking->getTypicalDay(),
-                'timeSlots'  => $booking->getTypicalDay()->getTimeSlots()
+                'timeSlots'  => $booking->getTypicalDay()->getTimeSlots(),
+                'orders'     => $orders
             )
         );
     }
