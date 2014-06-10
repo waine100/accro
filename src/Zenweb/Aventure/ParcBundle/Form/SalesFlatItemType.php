@@ -15,10 +15,18 @@ use Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder;
 ///import form events namespace
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormEvents;
+use Zenweb\Aventure\ParcBundle\Form\ChoiceList\TiersPricesChoiceList;
 
 //http://stackoverflow.com/questions/9052916/how-to-use-select-box-related-on-another-select-box
 class SalesFlatItemType extends AbstractType
 {
+    private $em;
+
+    public function __construct($em)
+    {
+        $this->em = $em;
+    }
+
     /**
      * @param FormBuilderInterface $builder
      * @param array                $options
@@ -27,6 +35,7 @@ class SalesFlatItemType extends AbstractType
     {
         $formData     = $options['form_data'];
         $typicalDayId = $formData->order->getBooking()->getTypicalDay()->getId();
+        $userId = $formData->order->getUser()->getId();
 
         $builder
             ->add('activity')
@@ -41,7 +50,10 @@ class SalesFlatItemType extends AbstractType
             ))*/
             ->add('timeSlot')
             ->add('qty', 'integer', array('label' => 'Quantité'))
-            ->add('basePrice', 'genemu_jqueryselect2_entity', array('class' => 'ZenwebAventureParcBundle:Price'));
+            ->add('basePrice')
+
+            //->add('basePrice', 'genemu_jqueryselect2_entity', array('class' => 'ZenwebAventureParcBundle:Price'));
+        ;
 
         $factory = $builder->getFormFactory();
 
@@ -55,7 +67,7 @@ class SalesFlatItemType extends AbstractType
             $form->add($factory->createNamed('timeSlot', 'entity', null, array(
                 'class'           => 'Zenweb\Aventure\ParcBundle\Entity\TimeSlot',
                 'property'        => 'name',
-                'label'           => 'register.region.label',
+                'label'           => 'timeslot',
                 'auto_initialize' => false,
                 'query_builder'   => function (TimeSlotRepository $repository) use ($activity, $typicalDayId) {
                         $qb = $repository->createQueryBuilder('timeSlot');
@@ -71,13 +83,15 @@ class SalesFlatItemType extends AbstractType
          * @param $form
          * @param $activity
          */
-        $refreshPrices = function ($form, $activity) use ($factory, $typicalDayId) {
-            $form->add($factory->createNamed('basePrice', 'entity', null, array(
-                'class'           => 'Zenweb\Aventure\ParcBundle\Entity\Price',
-                'property'        => 'name',
+        $refreshPrices = function ($form, $userId, $data) use ($factory) {
+            $ts = !empty($data) ? $data->getTimeSlot()->getId() : null;
+            $qty = !empty($data) ? $data->getQty() : null;
+
+            $form->add($factory->createNamed('basePrice', 'choice', null, array(
                 'label'           => 'prices',
                 'auto_initialize' => false,
-                'query_builder'   => function (PriceRepository $repository) use ($activity, $typicalDayId) {
+                'choice_list' => new TiersPricesChoiceList($this->em, $userId, $ts, $qty)
+                /*'query_builder'   => function (PriceRepository $repository) use ($activity, $typicalDayId) {
                         $qb2 = $repository->createQueryBuilder('Prices');
                         $qb2->select($qb2->expr()->max('tpmax.qty'))
                             ->from('ZenwebAventureParcBundle:TierPrice', 'tpmax')
@@ -95,26 +109,27 @@ class SalesFlatItemType extends AbstractType
                             ->setParameter("idTs", 1)
                             ->setParameter("qty", 15);
 
-                    }
+                    }*/
             )));
         };
 
 
-        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) use ($refreshTimeSlot, $refreshPrices) {
+        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) use ($refreshTimeSlot, $refreshPrices, $userId) {
             $form = $event->getForm();
             $data = $event->getData();
-            //var_dump($data[0]);
+
             if ($data == null) {
                 $refreshTimeSlot($form, null);
-                //$refreshPrices($form, null);
+                $refreshPrices($form, null, null);
             }
 
             if ($data instanceof SalesFlatItem) {
                 $refreshTimeSlot($form, $data->getActivity());
+                $refreshPrices($form, $userId, $data);
             }
         });
 
-        $builder->addEventListener(FormEvents::PRE_BIND, function (FormEvent $event) use ($refreshTimeSlot, $refreshPrices) {
+        /*$builder->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) use ($refreshTimeSlot, $refreshPrices) {
             $form = $event->getForm();
             $data = $event->getData();
 
@@ -124,7 +139,7 @@ class SalesFlatItemType extends AbstractType
             if (array_key_exists('basePrice', $data)) {
                 //$refreshPrices($form, $data['basePrice']);
             }
-        });
+        });*/
     }
 
     /**
