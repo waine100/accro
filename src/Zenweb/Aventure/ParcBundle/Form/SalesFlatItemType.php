@@ -35,24 +35,16 @@ class SalesFlatItemType extends AbstractType
     {
         $formData     = $options['form_data'];
         $typicalDayId = $formData->order->getBooking()->getTypicalDay()->getId();
-        $userId = $formData->order->getUser()->getId();
+        $userId       = $formData->order->getUser()->getId();
 
         $builder
             ->add('activity')
-            /*->add('timeSlot', 'genemu_jqueryselect2_entity', array('class' => 'ZenwebAventureParcBundle:TimeSlot', 'query_builder' => function (TimeSlotRepository $er) use ($typicalDayId) {
-                    return $er->createQueryBuilder('u')
-                        ->where('u.typicalDay = :typicalDay')
-                        ->orderBy('u.beginTime', 'ASC')
-                        ->setParameter('typicalDay', $typicalDayId);
-                }, 'empty_value' => 'Choisissez une activité',
-                 'label' => 'Activité'
+            ->add('timeSlot', 'genemu_jqueryselect2_entity', array('class' => 'ZenwebAventureParcBundle:TimeSlot', 'empty_value' => 'Choisissez une activité',
+                                                                   'label' => 'Activité'
 
-            ))*/
-            ->add('timeSlot')
+            ))
             ->add('qty', 'integer', array('label' => 'Quantité'))
-            ->add('basePrice')
-
-            //->add('basePrice', 'genemu_jqueryselect2_entity', array('class' => 'ZenwebAventureParcBundle:Price'));
+            ->add('basePrice', 'genemu_jqueryselect2_entity', array('class' => 'ZenwebAventureParcBundle:Price'));
         ;
 
         $factory = $builder->getFormFactory();
@@ -84,32 +76,19 @@ class SalesFlatItemType extends AbstractType
          * @param $activity
          */
         $refreshPrices = function ($form, $userId, $data) use ($factory) {
-            $ts = !empty($data) ? $data->getTimeSlot()->getId() : null;
-            $qty = !empty($data) ? $data->getQty() : null;
+            if (is_array($data)) {
+                $ts  = !empty($data) ? $data['timeSlot'] : null;
+                $qty = !empty($data) ? $data['qty'] : null;
+            } else {
+                $ts  = !empty($data) ? $data->getTimeSlot()->getId() : null;
+                $qty = !empty($data) ? $data->getQty() : null;
+            }
+
 
             $form->add($factory->createNamed('basePrice', 'choice', null, array(
                 'label'           => 'prices',
                 'auto_initialize' => false,
-                'choice_list' => new TiersPricesChoiceList($this->em, $userId, $ts, $qty)
-                /*'query_builder'   => function (PriceRepository $repository) use ($activity, $typicalDayId) {
-                        $qb2 = $repository->createQueryBuilder('Prices');
-                        $qb2->select($qb2->expr()->max('tpmax.qty'))
-                            ->from('ZenwebAventureParcBundle:TierPrice', 'tpmax')
-                            ->where('tpmax.qty<=:qty')
-                            ->setParameter("qty", 15);
-                        $qb2->getQuery()->getSQL();
-
-                        $qb = $repository->createQueryBuilder("p");
-                        return $qb->select('p', 'tp')
-                            ->join('p.groups', 'g')
-                            ->join("ZenwebAventureParcBundle:TimeSlot", "ts", "WITH", "ts.activity = p.activity")
-                            ->leftJoin('p.TierPrices', 'tp', 'WITH', $qb->expr()->andX($qb->expr()->lte('tp.qty', ':qty'), $qb->expr()->eq('tp.qty', "($qb2)")))
-                            ->where($qb->expr()->in('g.id', 1))
-                            ->andWhere("ts.id=:idTs")
-                            ->setParameter("idTs", 1)
-                            ->setParameter("qty", 15);
-
-                    }*/
+                'choice_list'     => new TiersPricesChoiceList($this->em, $userId, $ts, $qty)
             )));
         };
 
@@ -129,17 +108,17 @@ class SalesFlatItemType extends AbstractType
             }
         });
 
-        /*$builder->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) use ($refreshTimeSlot, $refreshPrices) {
+        $builder->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) use ($refreshTimeSlot, $refreshPrices, $userId) {
             $form = $event->getForm();
             $data = $event->getData();
 
             if (array_key_exists('timeSlot', $data)) {
-                $refreshTimeSlot($form, $data['timeSlot']);
+                $refreshTimeSlot($form, $data['activity']);
             }
             if (array_key_exists('basePrice', $data)) {
-                //$refreshPrices($form, $data['basePrice']);
+                $refreshPrices($form, $userId, $data);
             }
-        });*/
+        });
     }
 
     /**

@@ -55,6 +55,7 @@ class PriceRepository extends EntityRepository
 
     public function getMinPrice($price, $qty)
     {
+        $price=1;
         $qb2 = $this->_em->createQueryBuilder();
         $qb2->select($qb2->expr()->max('tpmax.qty'))
             ->from('ZenwebAventureParcBundle:TierPrice', 'tpmax')

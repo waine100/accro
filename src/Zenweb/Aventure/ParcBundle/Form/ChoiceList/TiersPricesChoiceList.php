@@ -11,6 +11,7 @@ namespace Zenweb\Aventure\ParcBundle\Form\ChoiceList;
 use Symfony\Component\Form\Extension\Core\ChoiceList\LazyChoiceList;
 use Symfony\Component\Form\Extension\Core\ChoiceList\ChoiceList;
 use Doctrine\ORM\EntityManager;
+use Symfony\Component\Form\Extension\Core\ChoiceList\SimpleChoiceList;
 
 class TiersPricesChoiceList extends LazyChoiceList
 {
@@ -37,8 +38,7 @@ class TiersPricesChoiceList extends LazyChoiceList
                 /**
                  * First get the group of the User
                  */
-                $user     = $this->getDoctrine()
-                    ->getManager()
+                $user     = $this->em
                     ->getRepository('ZenwebAventureParcBundle:User')
                     ->find($this->userId);
                 $groupsId = $user->getGroupsId();
@@ -46,15 +46,13 @@ class TiersPricesChoiceList extends LazyChoiceList
                 $groupsId[] = $this->getDoctrine()->getRepository('ZenwebAventureParcBundle:Group')->findOneByName('Particulier')->getId();
             }
             $prices = $this->em->getRepository('ZenwebAventureParcBundle:Price')
-                ->getAvailablePrices($this->userId, $this->idTimeSlot, $this->qty);
+                ->getAvailablePrices($groupsId, $this->idTimeSlot, $this->qty);
 
-var_dump($prices);die;
             foreach ($prices as $price) {
-                $choices[] = $price['id'];
-                $labels[]  = $price['name'];
+                $choices[$price['id']] = $price['name'];
             }
         }
-        return new ChoiceList($choices, $labels);
+        return new SimpleChoiceList($choices);
 
     }
 } 

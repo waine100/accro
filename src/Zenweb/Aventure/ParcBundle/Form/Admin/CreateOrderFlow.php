@@ -68,13 +68,13 @@ class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
 
             foreach ($items as $item) {
                 $rowTotal  = 0;
-                $minPrice  = $priceRepo->getMinPrice($item->getBasePrice()->getId(), $item->getQty());
+                $minPrice  = $priceRepo->getMinPrice($item->getBasePrice(), $item->getQty());
                 $tierPrice = $minPrice->getTierPrices();
 
                 if (!empty($tierPrice[0])) {
                     $rowTotal = $tierPrice[0]->getPrice() * $item->getQty();
                 } else {
-                    $rowTotal = $item->getBasePrice()->getPrice() * $item->getQty();
+                    $rowTotal = $minPrice->getPrice() * $item->getQty();
                 }
                 $item->setRowTotal($rowTotal);
 
