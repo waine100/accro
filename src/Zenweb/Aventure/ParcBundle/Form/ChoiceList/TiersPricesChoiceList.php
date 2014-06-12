@@ -49,7 +49,11 @@ class TiersPricesChoiceList extends LazyChoiceList
                 ->getAvailablePrices($groupsId, $this->idTimeSlot, $this->qty);
 
             foreach ($prices as $price) {
-                $choices[$price['id']] = $price['name'];
+                $displayPrice = " (" . $price['price'] . " €)";
+                if (!empty($price['TierPrices'])) {
+                    $displayPrice = " (" . $price['TierPrices'][0]['price'] . " €)";
+                }
+                $choices[$price['id']] = $price['name'] . ' ' . $displayPrice;
             }
         }
         return new SimpleChoiceList($choices);

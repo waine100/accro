@@ -39,12 +39,12 @@ class SalesFlatItemType extends AbstractType
 
         $builder
             ->add('activity')
-            ->add('timeSlot', 'genemu_jqueryselect2_entity', array('class' => 'ZenwebAventureParcBundle:TimeSlot', 'empty_value' => 'Choisissez une activité',
+            ->add('timeSlot', 'entity', array('class' => 'ZenwebAventureParcBundle:TimeSlot', 'empty_value' => 'Choisissez une activité',
                                                                    'label' => 'Activité'
 
             ))
             ->add('qty', 'integer', array('label' => 'Quantité'))
-            ->add('basePrice', 'genemu_jqueryselect2_entity', array('class' => 'ZenwebAventureParcBundle:Price'));
+            ->add('basePrice', 'entity', array('class' => 'ZenwebAventureParcBundle:Price'));
         ;
 
         $factory = $builder->getFormFactory();

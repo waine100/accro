@@ -171,7 +171,8 @@ class TimeSlot
      */
 
     public function getName(){
-        return $this->activity->getName().' ('.$this->beginTime->format("H:i").' -> '.$this->endTime->format("H:i").')';
+        return $this->beginTime->format("H:i").' -> '.$this->endTime->format("H:i");
+        //return $this->activity->getName().' ('.$this->beginTime->format("H:i").' -> '.$this->endTime->format("H:i").')';
     }
 
     /**
