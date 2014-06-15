@@ -1,0 +1,80 @@
+<form method="post" class="form-horizontal" {{ form_enctype(form) }}>
+    <div class="alert alert-success">
+        <a href="#" class="alert-link">Vous avez choisi de vous rendre au parc {{ order.parc.name }}</a>
+    </div>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ "Récapitulatif de votre commande" | trans({}, 'SonataUserBundle')}}</h3>
+        </div>
+        <div class="panel-body">
+            {% if order|length > 0 %}
+                    {% set orderTotal = 0 %}
+                    <div class="row">
+                            <div class="text-center">
+                                <span class="glyphicon glyphicon-calendar">
+                                    <strong>Jour de réservation :</strong>  {{ order.bookingDate|date("d/m/Y", "Europe/Paris") }}
+                                </span>
+                            </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-md-4 text-center"><strong>Activité</strong></div>
+                            <div class="col-md-4 text-center"><strong>Place(s)</strong></div>
+                            <div class="col-md-4 text-center"><strong>Total</strong></div>
+                        </div>
+                        {% for item in order.items %}
+                            <div class="col-md-4 text-center">{{ item.timeSlot }}</div>
+                            <div class="col-md-4 text-center">{{ item.qty }}</div>
+                            <div class="col-md-4 text-center">{{ item.rowTotal }} €</div>
+                            {% set orderTotal = orderTotal + item.rowTotal %}
+                        {% endfor %}
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-md-4 text-center"><strong>Option</strong></div>
+                            <div class="col-md-4 text-center"><strong>Quantité(s)</strong></div>
+                            <div class="col-md-4 text-center"><strong>Total</strong></div>
+                        </div>
+                        {% for extra in order.extras %}
+                            <div class="col-md-4 text-center">{{ extra.name }}</div>
+                            <div class="col-md-4 text-center">{{ extra.qty }}</div>
+                            <div class="col-md-4 text-center">{{ extra.rowTotal }} €</div>
+                            {% set orderTotal = orderTotal + extra.rowTotal %}
+                        {% endfor %}
+                    </div>
+
+
+
+                <hr>
+                    <div class="row">
+                        <div class="text-center"><strong>Total à payer : </strong>  {{ orderTotal }} €</div>
+                    </div>
+                    <hr>
+
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">{{ "Vos informations personnelles" | trans({}, 'SonataUserBundle')}}</h3>
+                        </div>
+                        <div class="panel-body">
+                            <address>
+                                <strong>{{ user.lastname }} {{ user.firstname }}</strong><br>
+                                {{ user.address }}<br>
+                                {{ user.zip }} {{ user.city }}<br>
+                                <abbr title="Phone">Tel : </abbr>{{ user.phone }}<br>
+                                <abbr title="Email">Email : </abbr><a href="mailto:#">{{ user.email }}</a>
+                            </address>
+                        </div>
+                    </div>
+            {% else %}
+                <div class="panel-body">
+                    <p>Erreur dans la composition de votre commande</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    {{ form_rest(form) }}
+    {% include 'ZenwebAventureParcBundle:Admin:buttons.html.twig' %}
+</form>

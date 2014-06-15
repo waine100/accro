@@ -16,25 +16,22 @@
                 <div class="panel-heading">Création de commande</div>
                 <div class="panel-body">
                     {% include 'ZenwebAventureParcBundle:Admin:stepList.html.twig' %}
-                    {{ form_errors(form) }}
-                    {% if flow.getCurrentStepNumber() == 1 %}
-                        {% render controller("SonataUserBundle:SecurityFOSUser1:login") %}
-                    {% endif %}
-                    <form method="post" {{ form_enctype(form) }}>
-                        {{ form_errors(form) }}
-                        {% if flow.getCurrentStepNumber() == 1 %}
-                        {% elseif flow.getCurrentStepNumber() == 3 %}
-                            {% include 'ZenwebAventureParcBundle:Front:pick_date.html.twig' %}
-                        {% elseif flow.getCurrentStepNumber() == 4 %}
-                            {% include 'ZenwebAventureParcBundle:Admin:pick_activities.html.twig' %}
-                        {% elseif flow.getCurrentStepNumber() == 5 %}
-                            {% include 'ZenwebAventureParcBundle:Admin:pick_extras.html.twig' %}
-                        {% elseif flow.getCurrentStepNumber() == 6 %}
-                            {% include 'ZenwebAventureParcBundle:Admin:order_recap.html.twig' with {'order': order}%}
+                        {% if form.order.vars.errors|length %}
+                            <div class="alert alert-danger">{{ form_errors(form) }}</div>
                         {% endif %}
-                        {{ form_rest(form) }}
-                        {% include 'ZenwebAventureParcBundle:Admin:buttons.html.twig' %}
-                    </form>
+                        {% if flow.getCurrentStepNumber() == 1 %}
+                            {% include 'ZenwebAventureParcBundle:Checkout:identification.html.twig' %}
+                        {% elseif flow.getCurrentStepNumber() == 2 %}
+                            {% include 'ZenwebAventureParcBundle:Checkout:parc.html.twig' %}
+                        {% elseif flow.getCurrentStepNumber() == 3 %}
+                            {% include 'ZenwebAventureParcBundle:Checkout:pick_date.html.twig' %}
+                        {% elseif flow.getCurrentStepNumber() == 4 %}
+                            {% include 'ZenwebAventureParcBundle:Checkout:pick_activities.html.twig' %}
+                        {% elseif flow.getCurrentStepNumber() == 5 %}
+                            {% include 'ZenwebAventureParcBundle:Checkout:pick_extras.html.twig' %}
+                        {% elseif flow.getCurrentStepNumber() == 6 %}
+                            {% include 'ZenwebAventureParcBundle:Checkout:order_recap.html.twig' with {'order': order}%}
+                        {% endif %}
                 </div>
             </div>
         </section>

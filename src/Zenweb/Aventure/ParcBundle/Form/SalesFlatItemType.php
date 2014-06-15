@@ -84,7 +84,6 @@ class SalesFlatItemType extends AbstractType
                 $qty = !empty($data) ? $data->getQty() : null;
             }
 
-
             $form->add($factory->createNamed('basePrice', 'choice', null, array(
                 'label'           => 'prices',
                 'auto_initialize' => false,

@@ -33,8 +33,8 @@ class TiersPricesChoiceList extends LazyChoiceList
         $choices = array();
         $labels  = array();
 
-        if (!empty($this->userId) && !empty($this->idTimeSlot) && !empty($this->qty)) {
-            if ($this->userId != -1) { //Exist already
+        if (!empty($this->idTimeSlot) && !empty($this->qty)) {
+            if ($this->userId != -1 && !is_null($this->userId)) { //Exist already
                 /**
                  * First get the group of the User
                  */
@@ -43,7 +43,7 @@ class TiersPricesChoiceList extends LazyChoiceList
                     ->find($this->userId);
                 $groupsId = $user->getGroupsId();
             } else { // New user. Get the default group
-                $groupsId[] = $this->getDoctrine()->getRepository('ZenwebAventureParcBundle:Group')->findOneByName('Particulier')->getId();
+                $groupsId[] = $this->em->getRepository('ZenwebAventureParcBundle:Group')->findOneByName('Particulier')->getId();
             }
             $prices = $this->em->getRepository('ZenwebAventureParcBundle:Price')
                 ->getAvailablePrices($groupsId, $this->idTimeSlot, $this->qty);

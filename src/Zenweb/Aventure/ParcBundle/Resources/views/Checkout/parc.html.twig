@@ -1,0 +1,10 @@
+<form method="post" class="form-horizontal" {{ form_enctype(form) }}>
+    <div class="form-group">
+        {{ form_label(form.order.parc, null, {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.order.parc, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    {{ form_rest(form) }}
+    {% include 'ZenwebAventureParcBundle:Admin:buttons.html.twig' %}
+</form>

@@ -1,0 +1,65 @@
+<form method="post" class="form-horizontal" {{ form_enctype(form) }}>
+<table id="activity_items" class="table table-bordered table-striped">
+    <thead>
+    <tr class="sonata-ba-list-field-header">
+        <th class="sonata-ba-list-field-header-text">Activité</th>
+        <th class="sonata-ba-list-field-header-text">Créneau</th>
+        <th class="sonata-ba-list-field-header-text">Quantité</th>
+        <th class="sonata-ba-list-field-header-text">Prix</th>
+        <th class="sonata-ba-list-field-header-text">Action</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for item in form.order.items %}
+        <tr>
+            {% for field in item %}
+                <td>{{ form_widget(field) }}</td>
+            {% endfor %}
+            <td><a href="#" class="btn btn-danger">Supprimer</a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<script>
+    //Load prices:
+    function getPrices(tsId, $priceSelect, qty) {
+        qty = typeof qty !== 'undefined' ? qty : 1;
+        userId = {{ userId }};
+        var DATA = 'id=' + tsId + '&userId=' + userId + '&qty=' + qty;
+        $.ajax({
+            type: "POST",
+            dataType: 'json',
+            url: "{{ path('zenweb_aventure_parc_order_create_get_prices') }}",
+            data: DATA,
+            success: function (msg) {
+                $priceSelect.html('');
+                $.each(msg, function (index, price) {
+                    priceValue = typeof price.TierPrices[0] !== 'undefined' ? price.TierPrices[0].price : price.price
+                    $priceSelect.append('<option value="' + price.id + '" selected="selected"> ' + price.name + ' (' + priceValue + ' €) </option>');
+                });
+            }
+        });
+    }
+
+    function getTimeSlots(activityId, $tsSelect) {
+        userId = {{ userId }};
+        var DATA = 'idActivity=' + activityId + '&idTypicalDay=' + {{ typicalDayId }};
+        $.ajax({
+            type: "POST",
+            dataType: 'json',
+            url: "{{ path('zenweb_aventure_parc_order_create_get_ts') }}",
+            data: DATA,
+            success: function (msg) {
+                $tsSelect.html('');
+                $.each(msg, function (index, timeslot) {
+                    $tsSelect.append('<option value="' + timeslot.id + '" selected="selected"> ' + timeslot.name + ' </option>');
+                });
+                getPrices($tsSelect.val(), $tsSelect.parent().parent().find('select:last'), $tsSelect.parent().parent().find('input:first').val());
+            }
+        });
+    }
+</script>
+    {{ form_rest(form) }}
+    {% include 'ZenwebAventureParcBundle:Admin:buttons.html.twig' %}
+</form>

@@ -90,7 +90,7 @@ class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
 
             foreach ($items as $item) {
                 $rowTotal  = 0;
-                $minPrice  = $priceRepo->getMinPrice($item->getBasePrice()->getId(), $item->getQty());
+                $minPrice  = $priceRepo->getMinPrice($item->getBasePrice(), $item->getQty());
                 $tierPrice = $minPrice->getTierPrices();
 
                 if (!empty($tierPrice[0])) {
@@ -139,9 +139,9 @@ class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
                  * Attention le skip change le nombre d'étapes et donc le workflow peut être impacté.
                  * A voir comment régler ce problème.
                  */
-                /*'skip'  => function ($estimatedCurrentStepNumber, FormFlowInterface $flow) {
-                        return $estimatedCurrentStepNumber === 1 && $flow->skipUser;
-                    },*/
+                'skip'  => function ($estimatedCurrentStepNumber, FormFlowInterface $flow) {
+                        return $flow->skipUser;
+                    },
             ),
             array(
                 'label' => 'Choisir un parc',
