@@ -1,4 +1,5 @@
 <!-- description + recherche -->
+{% if error is not defined %}
 <div class="panel panel-success">
     <div class="panel-heading">
         <h4 class="panel-title">{{ "Description journée" | trans({}, 'ParcBundle')}}</h4>
@@ -26,11 +27,41 @@
         <h4 class="panel-title">{{ "Synthèse" | trans({}, 'ParcBundle')}}</h4>
     </div>
     <div class="panel-body">
+        {% set totalActivity = [] %}
+        {% set activityName = [] %}
+        {% for order in orders %}
+            {% for item in order.items  %}
+                {% set key = item.basePrice.id~'-'~item.basePrice.name %}
+                {%  if key in totalActivity|keys %}
+                    {% set total = totalActivity[key]+item.qty %}
+                    {% set totalActivity=totalActivity|merge({(key):total}) %}
+                {% else %}
+                    {% set totalActivity=totalActivity+{(key):item.qty} %}
+                    {% set activityName=activityName+{(key):item.basePrice.name} %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
         <div class="col-md-4 text-center">
-            Activité
+            {% for key,activity in totalActivity %}
+                {{ activityName[key] }} : {{ activity }} personne(s)<br/>
+            {% endfor %}
         </div>
+        {% set totalExtras = [] %}
+        {% for order in orders %}
+            {% for item in order.extras  %}
+                {% set key =item.name %}
+                {%  if key in totalExtras|keys %}
+                    {% set total = totalExtras[key]+item.qty %}
+                    {% set totalExtras=totalExtras|merge({(key):total}) %}
+                {% else %}
+                    {% set totalExtras=totalExtras+{(key):item.qty} %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
         <div class="col-md-4 text-center">
-            Extras
+            {% for key,number in totalExtras %}
+                {{ key }} : {{ number }} personne(s)<br/>
+            {% endfor %}
         </div>
     </div>
 </div>
@@ -127,3 +158,10 @@
     </div>
 </div>
 <!-- end reservations -->
+{%  else %}
+<div class="panel panel-danger">
+    <div class="panel-heading">
+        <h4 class="panel-title">{{ error | trans({}, 'ParcBundle')}}</h4>
+    </div>
+</div>
+{% endif %}

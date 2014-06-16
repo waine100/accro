@@ -15,7 +15,7 @@ class DashboardController extends Controller
         return $this->render('ZenwebAventureParcBundle:Dashboard:homepage.html.twig',
             array(
                 'admin_pool' => $this->get('sonata.admin.pool'),
-                'date' => date("d/m/Y"),
+                'date' => date("d.m.Y"),
                 'parcs' => $parcs,
                 'activities' => $activities
             )
@@ -25,15 +25,24 @@ class DashboardController extends Controller
     public function contentAction($parc='',$date='',$activity='')
     {
         $manager = $this->getDoctrine()->getManager();
-        $dateTime = new \DateTime(implode('-',array_reverse(explode('/',$date))));
+        $dateTime = new \DateTime(implode('-',array_reverse(explode('.',$date))));
         $booking =  $manager->getRepository('ZenwebAventureParcBundle:Booking')->findOneBy(array('theDate' => $dateTime, 'parc' => $parc));
         $orders =   $manager->getRepository('ZenwebAventureParcBundle:SalesFlatOrder')->findByBookingDate($dateTime);
-        return $this->render('ZenwebAventureParcBundle:Dashboard:content.html.twig',
-            array(
-                'typicalDay' => $booking->getTypicalDay(),
-                'timeSlots'  => $booking->getTypicalDay()->getTimeSlots(),
-                'orders'     => $orders
-            )
-        );
+        if(is_object($booking)) {
+            return $this->render('ZenwebAventureParcBundle:Dashboard:content.html.twig',
+                array(
+                    'typicalDay' => $booking->getTypicalDay(),
+                    'timeSlots'  => $booking->getTypicalDay()->getTimeSlots(),
+                    'orders'     => $orders
+                )
+            );
+        } else {
+            return $this->render('ZenwebAventureParcBundle:Dashboard:content.html.twig',
+                array(
+                    'error' => 'Journée non définie pour cette date'
+                )
+            );
+        }
+
     }
 }
