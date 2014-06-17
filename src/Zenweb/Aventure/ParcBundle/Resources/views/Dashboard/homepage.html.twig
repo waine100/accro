@@ -45,10 +45,40 @@
     </div>
 {%  endblock %}
 {% block javascripts %}
-    {{ parent() }}
+        {{ parent() }}
         <script>
             $( document ).ready(function() {
+                getContentDashboard()
                 $( "#datepicker" ).datepicker();
+
+                $( '#chooseParc' ).change(function() {
+                    getContentDashboard()
+                });
+
+                $( '#datepicker' ).change(function() {
+                    getContentDashboard()
+                });
+
+                $( '#chooseActivity' ).change(function() {
+                    getContentDashboard()
+                });
             });
+            function getContentDashboard() {
+                var parc = $( '#chooseParc option:selected').val();
+                var date = $( '#datepicker').val();
+                var activity = $( '#chooseActivity option:selected').val();
+                var data = '/'+parc+'/'+date+'/'+activity;
+                $('#contentDashboard').html('');
+                $('#contentDashboard').append( 'Rechargement en cours ...');
+                $.ajax({
+                    type: "POST",
+                    dataType: 'html',
+                    url: "{{ path('zenweb_aventure_parc_admin_dashboard_content') }}"+ data,
+                    success: function (msg) {
+                        $('#contentDashboard').html('');
+                        $('#contentDashboard').append( msg);
+                    }
+                });
+            }
         </script>
 {%  endblock %}

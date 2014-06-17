@@ -26,7 +26,7 @@ zenweb_aventure_parc_admin_dashboard:
     pattern:  /admin/backoffice
     defaults: { _controller: ZenwebAventureParcBundle:Admin/Dashboard:list }
 zenweb_aventure_parc_admin_dashboard_content:
-    pattern:  /admin/backoffice/content/{parc]/{date}/{activity}
+    pattern:  /admin/backoffice/content/{parc}/{date}/{activity}
     defaults: { _controller: ZenwebAventureParcBundle:Admin/Dashboard:content, parc: null, date: null, activity: null }
 
 zenweb_aventure_parc_fo_home:
