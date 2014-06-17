@@ -6,7 +6,7 @@
             <h4 class="panel-title">{{ "Description journée" | trans({}, 'ParcBundle')}}</h4>
         </div>
         <div class="panel-body">
-            <div class="col-md-4 text-center">
+            <div class="col-md-6 text-center">
                 {{ typicalDay.name }} : {{ typicalDay.description }}<br/>
                 <ul>
                     {% for timeSlot in timeSlots %}
@@ -16,8 +16,38 @@
                     {% endfor %}
                 </ul>
             </div>
-            <div class="col-md-4 text-center">
-                Rechercher
+            <div class="col-md-6">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">{{ "Recherche" | trans({}, 'ParcBundle')}}</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-md-2">
+                            Date:
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" value="{{ nom }}" id="nameSearch"><br/>
+                        </div>
+                        <div class="col-md-2">
+                            Référence:
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" value="{{ ref }}" id="refSearch"><br/>
+                        </div>
+                        <div class="col-md-2">
+                            E-mail:
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" value="{{ mail }}" id="mailSearch"><br/>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <br/>
+                            <button type="button" class="btn btn-default" id="searchButton">
+                                <span class="glyphicon glyphicon-search"></span> Filtrer
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -169,3 +199,11 @@
     </div>
     {% endif %}
 </div>
+
+<script>
+    $( document ).ready(function() {
+        $( '#searchButton' ).click(function() {
+            getContentDashboard()
+        });
+    });
+</script>

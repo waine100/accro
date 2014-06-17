@@ -22,18 +22,31 @@ class DashboardController extends Controller
         );
     }
 
-    public function contentAction($parc='',$date='',$activity='')
+    public function contentAction($parc='',$date='',$activity='',$name='', $ref='', $mail='')
     {
+        if($name == 'undefined') {
+            $name = '';
+        }
+        if($ref == 'undefined') {
+            $ref = '';
+        }
+        if($mail == 'undefined') {
+            $mail = '';
+        }
         $manager = $this->getDoctrine()->getManager();
         $dateTime = new \DateTime(implode('-',array_reverse(explode('.',$date))));
         $booking =  $manager->getRepository('ZenwebAventureParcBundle:Booking')->findOneBy(array('theDate' => $dateTime, 'parc' => $parc));
         $orders =   $manager->getRepository('ZenwebAventureParcBundle:SalesFlatOrder')->findByBookingDate($dateTime);
         if(is_object($booking)) {
+            $this->filterBookingByParameters($orders,$activity,$name,$ref,$mail);
             return $this->render('ZenwebAventureParcBundle:Dashboard:content.html.twig',
                 array(
                     'typicalDay' => $booking->getTypicalDay(),
                     'timeSlots'  => $booking->getTypicalDay()->getTimeSlots(),
-                    'orders'     => $orders
+                    'orders'     => $this->filterBookingByParameters($orders,$activity,$name,$ref,$mail),
+                    'nom'        => $name,
+                    'ref'        => $ref,
+                    'mail'       => $mail
                 )
             );
         } else {
@@ -44,5 +57,9 @@ class DashboardController extends Controller
             );
         }
 
+    }
+
+    private function filterBookingByParameters($orders, $activity, $name, $ref, $mail) {
+        return $orders;
     }
 }

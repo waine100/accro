@@ -48,7 +48,7 @@
         {{ parent() }}
         <script>
             $( document ).ready(function() {
-                getContentDashboard()
+                getContentDashboard();
                 $( "#datepicker" ).datepicker();
 
                 $( '#chooseParc' ).change(function() {
@@ -62,12 +62,16 @@
                 $( '#chooseActivity' ).change(function() {
                     getContentDashboard()
                 });
+
             });
             function getContentDashboard() {
                 var parc = $( '#chooseParc option:selected').val();
                 var date = $( '#datepicker').val();
                 var activity = $( '#chooseActivity option:selected').val();
-                var data = '/'+parc+'/'+date+'/'+activity;
+                var name = $( '#nameSearch').val();
+                var ref = $( '#refSearch').val();
+                var mail = $( '#mailSearch').val();
+                var data = '/'+parc+'/'+date+'/'+activity+'/'+name+'/'+ref+'/'+mail;
                 $('#contentDashboard').html('');
                 $('#contentDashboard').append( 'Rechargement en cours ...');
                 $.ajax({
@@ -77,6 +81,10 @@
                     success: function (msg) {
                         $('#contentDashboard').html('');
                         $('#contentDashboard').append( msg);
+                    },
+                    error: function (msg) {
+                        $('#contentDashboard').html('');
+                        $('#contentDashboard').append( 'Erreur lors du chargement... Veuillez réessayer.');
                     }
                 });
             }
