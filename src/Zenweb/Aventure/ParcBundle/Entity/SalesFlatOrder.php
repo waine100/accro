@@ -544,6 +544,25 @@ class SalesFlatOrder
     }
 
     /**
+     * @static
+     * @return array
+     */
+    public static function getStatusHtmlTraduction()
+    {
+        return array(
+            self::STATUS_OPEN               => '<span class="label label-warning">Commande ouverte</span>',
+            self::STATUS_PENDING            => '<span class="label label-default">Commande bloquée</span>',
+            self::STATUS_VALIDATED          => '<span class="label label-success">Commande validée</span>',
+            self::STATUS_CANCELLED          => '<span class="label label-danger">Commande annulée</span>',
+            self::STATUS_ERROR              => '<span class="label label-danger">Commande en erreur</span>',
+            self::STATUS_STOPPED            => '<span class="label label-danger">Commande stoppée</span>',
+            self::STATUS_PAYMENT_ARRIVAL    => '<span class="label label-info">Paiement à l\'arrivée</span>',
+            self::STATUS_PAYMENT_CB_OK      => '<span class="label label-success">Paiement CB OK</span>',
+            self::STATUS_PAYMENT_CB_KO      => '<span class="label label-danger">Paiement CB KO</span>',
+        );
+    }
+
+    /**
      * Add items
      *
      * @param \Zenweb\Aventure\ParcBundle\Entity\SalesFlatItem $items

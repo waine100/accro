@@ -4,6 +4,7 @@ namespace Zenweb\Aventure\ParcBundle\Controller\Admin;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder;
 
 class DashboardController extends Controller
 {
@@ -43,7 +44,8 @@ class DashboardController extends Controller
                     'nom'        => $name,
                     'ref'        => $ref,
                     'mail'       => $mail,
-                    'activeFilter' => $activeFilter
+                    'activeFilter' => $activeFilter,
+                    'statusOrder'  => SalesFlatOrder::getStatusHtmlTraduction()
                 )
             );
         } else {

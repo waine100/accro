@@ -185,8 +185,10 @@
                                     <u>Total :</u> {{ total }} €
                                 {% endif %}
                             </div>
-                            <div class="col-md-1 text-center">{{ order.checkoutMethod }} - {{ order.baseTotalPaid }}</div>
-                            <div class="col-md-1 text-center">{{ order.status }}</div>
+                            <div class="col-md-1 text-center">{{ order.checkoutMethod }} <br/> {% if order.baseTotalPaid is not null %} {{ order.baseTotalPaid }}{% else %}0{% endif %} €/{{ order.baseTotal }} €</div>
+                            <div class="col-md-1 text-center">
+                                {{ statusOrder[order.status]|raw }}
+                            </div>
                         </div>
                         <hr>
                     {% endif %}
