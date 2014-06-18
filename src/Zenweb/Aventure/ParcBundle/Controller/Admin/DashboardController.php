@@ -24,15 +24,11 @@ class DashboardController extends Controller
 
     public function contentAction($parc='',$date='',$activity='',$name='', $ref='', $mail='')
     {
-        if($name == 'undefined') {
-            $name = '';
-        }
-        if($ref == 'undefined') {
-            $ref = '';
-        }
-        if($mail == 'undefined') {
-            $mail = '';
-        }
+        $name = ($name == 'undefined') ? '' : $name;
+        $ref = ($ref == 'undefined') ? '' : $ref;
+        $mail = ($mail == 'undefined') ? '' : $mail;
+        $activeFilter = ($name == '' && $ref == '' && $mail == '') ? false : true;
+
         $manager = $this->getDoctrine()->getManager();
         $dateTime = new \DateTime(implode('-',array_reverse(explode('.',$date))));
         $booking =  $manager->getRepository('ZenwebAventureParcBundle:Booking')->findOneBy(array('theDate' => $dateTime, 'parc' => $parc));
@@ -46,7 +42,8 @@ class DashboardController extends Controller
                     'orders'     => $this->filterBookingByParameters($orders,$activity,$name,$ref,$mail),
                     'nom'        => $name,
                     'ref'        => $ref,
-                    'mail'       => $mail
+                    'mail'       => $mail,
+                    'activeFilter' => $activeFilter
                 )
             );
         } else {
@@ -60,6 +57,46 @@ class DashboardController extends Controller
     }
 
     private function filterBookingByParameters($orders, $activity, $name, $ref, $mail) {
-        return $orders;
+        $filterOrders = array();
+        foreach ($orders as $order){
+            // filtering on activity
+            if ($activity == 'all') {
+                $filterOrders[] = $order;
+            } else {
+                foreach ($order->getItems() as $item) {
+                    if($item->getActivity()->getId() == $activity) {
+                        $filterOrders[] = $order;
+                    }
+                }
+            }
+        }
+        $orders = $filterOrders;
+        $filterOrders = array();
+        // filtering on name
+        foreach ($orders as $order){
+            if ($name == '' || preg_match("/".$name."/i", $order->getUser()->getLastname())) {
+                $filterOrders[] = $order;
+            }
+        }
+
+        $orders = $filterOrders;
+        $filterOrders = array();
+        // filtering on ref
+        foreach ($orders as $order){
+            if ($ref == '' || preg_match("/".$ref."/i", $order->getReference())) {
+                $filterOrders[] = $order;
+            }
+        }
+
+        $orders = $filterOrders;
+        $filterOrders = array();
+        // filtering on mail
+        foreach ($orders as $order){
+            if ($mail == '' || preg_match("/".$mail."/i", $order->getUser()->getEmail())) {
+                $filterOrders[] = $order;
+            }
+        }
+
+        return $filterOrders;
     }
 }

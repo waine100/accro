@@ -68,9 +68,9 @@
                 var parc = $( '#chooseParc option:selected').val();
                 var date = $( '#datepicker').val();
                 var activity = $( '#chooseActivity option:selected').val();
-                var name = $( '#nameSearch').val();
-                var ref = $( '#refSearch').val();
-                var mail = $( '#mailSearch').val();
+                var name = $( '#nameSearch').val() != '' ? $( '#nameSearch').val() : 'undefined';
+                var ref = $( '#refSearch').val() != '' ? $( '#refSearch').val() : 'undefined';
+                var mail = $( '#mailSearch').val() != '' ? $( '#mailSearch').val() : 'undefined';
                 var data = '/'+parc+'/'+date+'/'+activity+'/'+name+'/'+ref+'/'+mail;
                 $('#contentDashboard').html('');
                 $('#contentDashboard').append( 'Rechargement en cours ...');
