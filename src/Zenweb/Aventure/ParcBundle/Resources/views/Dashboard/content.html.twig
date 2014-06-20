@@ -23,7 +23,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="col-md-2">
-                            Date:
+                            Nom:
                         </div>
                         <div class="col-md-10">
                             <input type="text" value="{{ nom }}" id="nameSearch"><br/>
@@ -58,44 +58,50 @@
             <h4 class="panel-title">{{ "Synthèse" | trans({}, 'ParcBundle')}}</h4>
         </div>
         <div class="panel-body">
-            {% set totalActivity = [] %}
-            {% set activityName = [] %}
-            {% for order in orders %}
-                {% for item in order.items  %}
-                    {% set key = item.basePrice.id~'-'~item.basePrice.name %}
-                    {%  if key in totalActivity|keys %}
-                        {% set total = totalActivity[key]+item.qty %}
-                        {% set totalActivity=totalActivity|merge({(key):total}) %}
-                    {% else %}
-                        {% set totalActivity=totalActivity+{(key):item.qty} %}
-                        {% set activityName=activityName+{(key):item.basePrice.name} %}
-                    {% endif %}
+            {% if activeFilter %}
+                <div class="col-md-12 text-center">
+                    Synthèse inactive lors du filtrage
+                </div>
+            {% else %}
+                {% set totalActivity = [] %}
+                {% set activityName = [] %}
+                {% for order in orders %}
+                    {% for item in order.items  %}
+                        {% set key = item.basePrice.id~'-'~item.basePrice.name %}
+                        {%  if key in totalActivity|keys %}
+                            {% set total = totalActivity[key]+item.qty %}
+                            {% set totalActivity=totalActivity|merge({(key):total}) %}
+                        {% else %}
+                            {% set totalActivity=totalActivity+{(key):item.qty} %}
+                            {% set activityName=activityName+{(key):item.basePrice.name} %}
+                        {% endif %}
+                    {% endfor %}
                 {% endfor %}
-            {% endfor %}
-            <div class="col-md-6 text-center">
-                <b>Prix</b><br/>
-                {% for key,activity in totalActivity %}
-                    {{ activityName[key] }} : {{ activity }} personne(s)<br/>
+                <div class="col-md-6 text-center">
+                    <b>Prix</b><br/>
+                    {% for key,activity in totalActivity %}
+                        {{ activityName[key] }} : {{ activity }} personne(s)<br/>
+                    {% endfor %}
+                </div>
+                {% set totalExtras = [] %}
+                {% for order in orders %}
+                    {% for item in order.extras  %}
+                        {% set key =item.name %}
+                        {%  if key in totalExtras|keys %}
+                            {% set total = totalExtras[key]+item.qty %}
+                            {% set totalExtras=totalExtras|merge({(key):total}) %}
+                        {% else %}
+                            {% set totalExtras=totalExtras+{(key):item.qty} %}
+                        {% endif %}
+                    {% endfor %}
                 {% endfor %}
-            </div>
-            {% set totalExtras = [] %}
-            {% for order in orders %}
-                {% for item in order.extras  %}
-                    {% set key =item.name %}
-                    {%  if key in totalExtras|keys %}
-                        {% set total = totalExtras[key]+item.qty %}
-                        {% set totalExtras=totalExtras|merge({(key):total}) %}
-                    {% else %}
-                        {% set totalExtras=totalExtras+{(key):item.qty} %}
-                    {% endif %}
-                {% endfor %}
-            {% endfor %}
-            <div class="col-md-6 text-center">
-                <b>Options</b><br/>
-                {% for key,number in totalExtras %}
-                    {{ key }} : {{ number }} personne(s)<br/>
-                {% endfor %}
-            </div>
+                <div class="col-md-6 text-center">
+                    <b>Options</b><br/>
+                    {% for key,number in totalExtras %}
+                        {{ key }} : {{ number }} personne(s)<br/>
+                    {% endfor %}
+                </div>
+            {% endif %}
         </div>
     </div>
     <!-- end synthèse -->
@@ -109,6 +115,7 @@
 
                 {# client in this time slot #}
                 {% set totalClient = 0 %}
+                {% set orderConcerned = 0 %}
                 {% for order in orders %}
                     {% set orderTimeslot = [] %}
                     {% for item in order.items %}
@@ -118,13 +125,14 @@
                         {% for item in order.items  %}
                             {%  if timeSlot.id == item.timeSlot.id %}
                                 {% set totalClient = totalClient + item.qty %}
+                                {% set orderConcerned = orderConcerned + 1 %}
                             {%  endif %}
                         {% endfor %}
                     {% endif %}
                 {% endfor %}
                 <div class="row">
                     <div class="col-md-4 text-center"><strong>Arrivée à {{ timeSlot.beginTime|date("H:i") }} jusqu'à {{ timeSlot.endTime|date("H:i") }}</strong></div>
-                    <div class="col-md-6 text-center"><strong>Total : {{ totalClient }} client - {{ timeSlot.capacity-totalClient }} Places restantes</strong></div>
+                    <div class="col-md-6 text-center"><strong>{% if activeFilter %} {{ orderConcerned }} commande(s) trouvé(s) {% else %}Total : {{ orderConcerned }} commande(s) / {{ totalClient }} client(s) - {{ timeSlot.capacity-totalClient }} Places restantes{% endif %}</strong></div>
                     <div class="col-md-1 text-center"><button type="button" class="btn btn-info" data-toggle="collapse" data-target="#detail-{{ timeSlot.beginTime|date("Hi") }}">Détail</button></div>
                 </div>
                 <hr>
@@ -177,8 +185,10 @@
                                     <u>Total :</u> {{ total }} €
                                 {% endif %}
                             </div>
-                            <div class="col-md-1 text-center">{{ order.checkoutMethod }} - {{ order.baseTotalPaid }}</div>
-                            <div class="col-md-1 text-center">{{ order.status }}</div>
+                            <div class="col-md-1 text-center">{{ order.checkoutMethod }} <br/> {% if order.baseTotalPaid is not null %} {{ order.baseTotalPaid }}{% else %}0{% endif %} €/{{ order.baseTotal }} €</div>
+                            <div class="col-md-1 text-center">
+                                {{ statusOrder[order.status]|raw }}
+                            </div>
                         </div>
                         <hr>
                     {% endif %}
