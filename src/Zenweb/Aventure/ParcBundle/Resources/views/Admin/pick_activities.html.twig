@@ -22,6 +22,9 @@
     </tbody>
 </table>
 <script>
+    $('#activity_items>tbody>tr').each(function( index ) {
+        addChangePriceListener($(this));
+    });
     //Load prices:
     function getPrices(tsId, $priceSelect, qty) {
         qty = typeof qty !== 'undefined' ? qty : 1;

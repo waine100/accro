@@ -27,7 +27,7 @@
                         {{ form_row(form.order.parc) }}
                     </div>
                 {% elseif flow.getCurrentStepNumber() == 2 %}
-                    {% include 'ZenwebAventureParcBundle:Front:pick_date.html.twig' %}
+                    {% include 'ZenwebAventureParcBundle:Checkout:pick_date.html.twig' %}
                 {% elseif flow.getCurrentStepNumber() == 6 %}
                     {% include 'ZenwebAventureParcBundle:Admin:pick_activities.html.twig' %}
                 {% elseif flow.getCurrentStepNumber() == 7 %}
