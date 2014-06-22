@@ -44,8 +44,7 @@ class DashboardController extends Controller
                     'nom'        => $name,
                     'ref'        => $ref,
                     'mail'       => $mail,
-                    'activeFilter' => $activeFilter,
-                    'statusOrder'  => SalesFlatOrder::getStatusHtmlTraduction()
+                    'activeFilter' => $activeFilter
                 )
             );
         } else {

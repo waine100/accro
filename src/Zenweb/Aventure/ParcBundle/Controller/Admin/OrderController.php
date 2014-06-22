@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 //use Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder;
+use Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder;
 use Zenweb\Aventure\ParcBundle\Form\CreateOrder;
 use Zenweb\Aventure\ParcBundle\Entity\Group;
 
@@ -62,6 +63,7 @@ class OrderController extends Controller
                 $flow->reset(); // remove step data from the session
 
                 if($checkoutMethod == 'cb') {
+                    $flow->getFormData()->order->setStatus(SalesFlatOrder::STATUS_PAYMENT_CB_PENDING);
                     return $this->forward( 'ZenwebAventureParcPaymentBundle:Payment:Payment', array('order' =>$flow->getFormData()->order )); // redirect when done
                 } else {
                     return $this->redirect($this->generateUrl('sonata_admin_dashboard')); // redirect when done
