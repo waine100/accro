@@ -10,7 +10,7 @@ require_once __DIR__.'/CMCIC_Config.php';
 
 class PaymentController extends Controller
 {
-    public function PaymentAction($price = 32.01)
+    public function PaymentAction($order = null)
     {
 
         $sOptions = "";
@@ -21,25 +21,25 @@ class PaymentController extends Controller
 // -----------------------------------------------------------------------------
 
 // Reference: unique, alphaNum (A-Z a-z 0-9), 12 characters max
-        $sReference = "ref" . date("His");
+        $sReference = $order->getReference();
 
 // Amount : format  "xxxxx.yy" (no spaces)
-        $sMontant = $price;
+        $sMontant = $order->getBaseTotal();
 
 // Currency : ISO 4217 compliant
         $sDevise  = "EUR";
 
 // free texte : a bigger reference, session context for the return on the merchant website
-        $sTexteLibre = "Parc Aventure";
+        $sTexteLibre = "ParcAventure";
 
 // transaction date : format d/m/y:h:m:s
-        $sDate = date("d/m/Y:H:i:s");
+        $sDate = date("d/m/y:h:m:s");
 
 // Language of the company code
         $sLangue = "FR";
 
 // customer email
-        $sEmail = "testr@tr.fr";
+        $sEmail = "test@accro.fr";
 
 // ----------------------------------------------------------------------------
 

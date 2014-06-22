@@ -62,7 +62,7 @@ class OrderController extends Controller
                 $flow->reset(); // remove step data from the session
 
                 if($checkoutMethod == 'cb') {
-                    return $this->redirect($this->generateUrl('zenweb_aventure_parc_payment', array('price' =>$priceToPaid ))); // redirect when done
+                    return $this->forward( 'ZenwebAventureParcPaymentBundle:Payment:Payment', array('order' =>$flow->getFormData()->order )); // redirect when done
                 } else {
                     return $this->redirect($this->generateUrl('sonata_admin_dashboard')); // redirect when done
                 }
