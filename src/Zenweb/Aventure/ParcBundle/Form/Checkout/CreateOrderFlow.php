@@ -31,7 +31,7 @@ class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
 
     public function getName()
     {
-        return 'createOrder';
+        return 'createOrderFront';
     }
 
     public function setEventDispatcher(EventDispatcherInterface $dispatcher)
@@ -96,7 +96,7 @@ class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
                 if (!empty($tierPrice[0])) {
                     $rowTotal = $tierPrice[0]->getPrice() * $item->getQty();
                 } else {
-                    $rowTotal = $item->getBasePrice()->getPrice() * $item->getQty();
+                    $rowTotal = $minPrice->getPrice() * $item->getQty();
                 }
                 $item->setRowTotal($rowTotal);
 

@@ -24,27 +24,14 @@ class FrontController extends Controller
         $parc = 0;
         $typicalDayId = 0;
 
+
         if ($flow->isValid($form)) {
             $flow->saveCurrentStepData($form);
-
-            /**
-             * Needed for calendars
-             */
-            if ($flow->getCurrentStepNumber() >= 2) {
-                $parc = $flow->getFormData()->order->getParc()->getId();
-            }
 
             if ($flow->nextStep()) {
                 /**
                  * We have choose a date and a parc, get the typicalDayId needed for other purpose.
                  */
-
-                if ($flow->getCurrentStepNumber() > 3) {
-                    $date = $flow->getFormData()->order->getBookingDate();
-                    $em   = $this->getDoctrine()->getManager()->getRepository('ZenwebAventureParcBundle:Booking');
-                    $flow->getFormData()->order->setBooking($em->findOneBy(array('theDate' => $date, 'parc' => $parc)));
-                    $typicalDayId = $flow->getFormData()->order->getBooking()->getTypicalDay()->getId();
-                }
                 // form for the next step
                 $form = $flow->createForm();
             } else {
@@ -57,6 +44,20 @@ class FrontController extends Controller
 
                 return $this->redirect($this->generateUrl('zenweb_aventure_parc_fo_home')); // redirect when done
             }
+        }
+
+        /**
+         * Needed for calendars
+         */
+        if ($flow->getCurrentStepNumber() >= 2) {
+            $parc = $flow->getFormData()->order->getParc()->getId();
+        }
+
+        if ($flow->getCurrentStepNumber() > 3) {
+            $date = $flow->getFormData()->order->getBookingDate();
+            $em   = $this->getDoctrine()->getManager()->getRepository('ZenwebAventureParcBundle:Booking');
+            $flow->getFormData()->order->setBooking($em->findOneBy(array('theDate' => $date, 'parc' => $parc)));
+            $typicalDayId = $flow->getFormData()->order->getBooking()->getTypicalDay()->getId();
         }
 
         $userId = (!empty($formData->order->getUser()) && !empty($formData->order->getUser()->getId())) ? $formData->order->getUser()->getId() : -1;

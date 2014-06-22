@@ -16,7 +16,7 @@
                 <div class="panel-heading">Création de commande</div>
                 <div class="panel-body">
                     {% include 'ZenwebAventureParcBundle:Admin:stepList.html.twig' %}
-                        {% if form.order.vars.errors|length %}
+                        {% if form.vars.errors|length %}
                             <div class="alert alert-danger">{{ form_errors(form) }}</div>
                         {% endif %}
                         {% if flow.getCurrentStepNumber() == 1 %}

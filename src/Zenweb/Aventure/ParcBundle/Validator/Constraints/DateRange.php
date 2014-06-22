@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Exception\MissingOptionsException;
 
 class DateRange extends Constraint {
-    public $minMessage = 'La date doit être supérieur à {{ limit }}.';
+    public $minMessage = 'La date doit être supérieur au {{ limit }}.';
     public $invalidMessage = 'La date n\'est pas valide.';
     public $min;
 

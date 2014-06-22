@@ -29,4 +29,44 @@ Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder:
             - Date: ~
             - Zenweb\Aventure\ParcBundle\Validator\Constraints\DateRange:
                 min: "today"
-                groups: [flow_createOrder_step2]
+                groups: [flow_createOrder_step2, flow_createOrderFront_step3]
+        items:
+            - Count:
+                min: 1
+                minMessage: "Vous devez indiquer au moins une activité."
+                groups: [flow_createOrderFront_step4]
+
+
+Zenweb\Aventure\ParcBundle\Entity\User:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: email
+    properties:
+        lastname:
+            - NotBlank:
+                message: "Veuillez remplir le champ Nom"
+                groups: [flow_createOrderFront_step1]
+            - Length:
+                min: 5
+                max: 64
+                minMessage: "Votre nom doit faire au moins {{ limit }} caractères"
+                maxMessage: "Votre nom ne peut pas être plus long que {{ limit }} caractères"
+                groups: [flow_createOrderFront_step1]
+        firstname:
+            - NotBlank:
+                message: "Veuillez remplir le champ Prénom"
+                groups: [flow_createOrderFront_step1]
+            - Length:
+                min: 5
+                max: 64
+                minMessage: "Votre prénom doit faire au moins {{ limit }} caractères"
+                maxMessage: "Votre prénom ne peut pas être plus long que {{ limit }} caractères"
+                groups: [flow_createOrderFront_step1]
+        email:
+            - Email:
+                message: "{{ value }} n'est pas un email valide."
+                checkMX: true
+                groups: [flow_createOrderFront_step1]
+        plainPassword:
+            - NotBlank:
+                message: "Veuillez remplir le champ Mot de passe"
+                groups: [flow_createOrderFront_step1]

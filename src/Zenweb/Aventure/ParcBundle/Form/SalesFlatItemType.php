@@ -80,7 +80,7 @@ class SalesFlatItemType extends AbstractType
                 $ts  = !empty($data) ? $data['timeSlot'] : null;
                 $qty = !empty($data) ? $data['qty'] : null;
             } else {
-                $ts  = !empty($data) ? $data->getTimeSlot()->getId() : null;
+                $ts  = !empty($data) && !empty($data->getTimeSlot()) ? $data->getTimeSlot()->getId() : null;
                 $qty = !empty($data) ? $data->getQty() : null;
             }
 
@@ -127,7 +127,8 @@ class SalesFlatItemType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'Zenweb\Aventure\ParcBundle\Entity\SalesFlatItem',
-            'form_data'  => array()
+            'form_data'  => array(),
+            'cascade_validation' => true
         ));
     }
 
