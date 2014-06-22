@@ -21,7 +21,7 @@ Zenweb\Aventure\ParcBundle\Entity\Activity:
             column: qty_min
     oneToMany:
         Prices:
-            targetEntity: Price
-            mappedBy: price
+            targetEntity: Zenweb\Aventure\ParcBundle\Entity\Price
+            mappedBy: activity
 
     lifecycleCallbacks: {  }

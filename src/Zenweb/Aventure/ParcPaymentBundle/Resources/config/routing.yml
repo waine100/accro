@@ -7,6 +7,6 @@ zenweb_aventure_parc_payment_error:
     defaults: { _controller: ZenwebAventureParcPaymentBundle:Payment:paymentError }
 
 zenweb_aventure_parc_payment:
-    pattern: /payment/{price}
-    defaults: { _controller: ZenwebAventureParcPaymentBundle:Payment:payment, price: null }
+    pattern: /payment/{order}
+    defaults: { _controller: ZenwebAventureParcPaymentBundle:Payment:payment, order: null }
 
