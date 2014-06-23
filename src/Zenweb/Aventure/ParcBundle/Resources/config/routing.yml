@@ -28,6 +28,9 @@ zenweb_aventure_parc_admin_dashboard:
 zenweb_aventure_parc_admin_dashboard_content:
     pattern:  /admin/backoffice/content/{parc}/{date}/{activity}/{name}/{ref}/{mail}
     defaults: { _controller: ZenwebAventureParcBundle:Admin/Dashboard:content, parc: null, date: null, activity: null, name: null, ref: null, mail: null }
+zenweb_aventure_parc_flat_order_status:
+    pattern:  /content/flatorder/status/{id}
+    defaults: { _controller: ZenwebAventureParcBundle:FlatOrder:status, parc: null, date: null, activity: null, name: null, ref: null, mail: null }
 
 zenweb_aventure_parc_fo_home:
     pattern: /
