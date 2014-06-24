@@ -108,7 +108,20 @@
     <!-- réservations -->
     <div class="panel panel-danger">
         <div class="panel-heading">
-            <h4 class="panel-title">{{ "Réservations" | trans({}, 'ParcBundle')}}</h4>
+            <h4 class="panel-title">{{ "Réservations" | trans({}, 'ParcBundle')}}
+                <!-- activity select -->
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-{% if activitySelected == 'all' or activitySelected == 'undefined' %}danger{% else %}default{% endif %}">
+                        <input type="radio" name="options-act" id="option" {% if activitySelected == 'all' %}checked="checked"{% endif %} value="all">Toutes
+                    </label>
+                    {% for activity in activities %}
+                        <label class="btn btn-{% if activitySelected == activity.id %}danger{% else %}default{% endif %}">
+                            <input type="radio" name="options-act" id="option{{ activity.id }}" value="{{ activity.id }}" {% if activitySelected == activity.id %}checked="checked"{% endif %}>{{ activity.name }}
+                        </label>
+                    {% endfor %}
+                </div>
+                <!-- end activity select -->
+            </h4>
         </div>
         <div class="panel-body">
             {% for timeSlot in timeSlots %}
@@ -214,6 +227,17 @@
     $( document ).ready(function() {
         $( '#searchButton' ).click(function() {
             getContentDashboard()
+        });
+        $(".btn-group .btn").click(function(){
+            $(this).parent().find('.btn').each(function( index ) {
+                $(this).removeClass('btn-danger');
+                $(this).addClass('btn-default');
+            });
+            $(this).children('input').prop('checked', 'checked');
+            $(this).removeClass('btn-default');
+            $(this).addClass('btn-danger');
+            $(this).delay(5000);
+            getContentDashboard();
         });
     });
 </script>

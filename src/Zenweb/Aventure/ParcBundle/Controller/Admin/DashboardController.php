@@ -12,13 +12,11 @@ class DashboardController extends Controller
     {
         $manager = $this->getDoctrine()->getManager();
         $parcs =  $manager->getRepository('ZenwebAventureParcBundle:Parc')->findAll();
-        $activities =  $manager->getRepository('ZenwebAventureParcBundle:Activity')->findAll();
         return $this->render('ZenwebAventureParcBundle:Dashboard:homepage.html.twig',
             array(
                 'admin_pool' => $this->get('sonata.admin.pool'),
                 'date' => date("d.m.Y"),
-                'parcs' => $parcs,
-                'activities' => $activities
+                'parcs' => $parcs
             )
         );
     }
@@ -34,6 +32,7 @@ class DashboardController extends Controller
         $dateTime = new \DateTime(implode('-',array_reverse(explode('.',$date))));
         $booking =  $manager->getRepository('ZenwebAventureParcBundle:Booking')->findOneBy(array('theDate' => $dateTime, 'parc' => $parc));
         $orders =   $manager->getRepository('ZenwebAventureParcBundle:SalesFlatOrder')->findByBookingDate($dateTime);
+        $activities =  $manager->getRepository('ZenwebAventureParcBundle:Activity')->findAll();
         if(is_object($booking)) {
             $this->filterBookingByParameters($orders,$activity,$name,$ref,$mail);
             return $this->render('ZenwebAventureParcBundle:Dashboard:content.html.twig',
@@ -44,7 +43,9 @@ class DashboardController extends Controller
                     'nom'        => $name,
                     'ref'        => $ref,
                     'mail'       => $mail,
-                    'activeFilter' => $activeFilter
+                    'activeFilter' => $activeFilter,
+                    'activities' => $activities,
+                    'activitySelected' => $activity
                 )
             );
         } else {

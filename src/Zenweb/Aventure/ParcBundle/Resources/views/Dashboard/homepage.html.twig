@@ -27,15 +27,6 @@
                             Date :
                             <input type="text" value="{{ date }}" id="datepicker"></p>
                         </div>
-                        <div class="col-md-4 text-center">
-                            Activité :
-                            <select id="chooseActivity" >
-                                <option value="all">Toutes</option>
-                                {% for activity in activities %}
-                                    <option value="{{ activity.id }}">{{ activity.name }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -48,6 +39,8 @@
         {{ parent() }}
         <script>
             $( document ).ready(function() {
+
+
                 getContentDashboard();
                 $( "#datepicker" ).datepicker();
 
@@ -67,7 +60,7 @@
             function getContentDashboard() {
                 var parc = $( '#chooseParc option:selected').val();
                 var date = $( '#datepicker').val();
-                var activity = $( '#chooseActivity option:selected').val();
+                var activity = $( "input[name='options-act']:checked").val();
                 var name = $( '#nameSearch').val() != '' ? $( '#nameSearch').val() : 'undefined';
                 var ref = $( '#refSearch').val() != '' ? $( '#refSearch').val() : 'undefined';
                 var mail = $( '#mailSearch').val() != '' ? $( '#mailSearch').val() : 'undefined';
