@@ -36,17 +36,33 @@ Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder:
                 minMessage: "Vous devez indiquer au moins une activité."
                 groups: [flow_createOrderFront_step4]
 
+Zenweb\Aventure\ParcBundle\Entity\SalesFlatItem:
+    constraints:
+        - Zenweb\Aventure\ParcBundle\Validator\Constraints\ActivityQuantity:
+            groups: [flow_createOrderFront_step4]
+    properties:
+        qty:
+            - NotBlank:
+                message: "Veuillez remplir une quantité"
+                groups: [flow_createOrderFront_step4]
+            - Range:
+                min: 1
+                max: 50
+                minMessage: "Veuillez saisir une quantité supérieure à 1."
+                maxMessage: Vous ne devez pas dépasser 180cm
+                groups: [flow_createOrderFront_step4]
+
 
 Zenweb\Aventure\ParcBundle\Entity\User:
     constraints:
-        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: email
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: {fields: [email], groups: [flow_createOrderFront_step1], message:"Cet email est déjà utilisé."}
     properties:
         lastname:
             - NotBlank:
                 message: "Veuillez remplir le champ Nom"
                 groups: [flow_createOrderFront_step1]
             - Length:
-                min: 5
+                min: 2
                 max: 64
                 minMessage: "Votre nom doit faire au moins {{ limit }} caractères"
                 maxMessage: "Votre nom ne peut pas être plus long que {{ limit }} caractères"
@@ -56,7 +72,7 @@ Zenweb\Aventure\ParcBundle\Entity\User:
                 message: "Veuillez remplir le champ Prénom"
                 groups: [flow_createOrderFront_step1]
             - Length:
-                min: 5
+                min: 2
                 max: 64
                 minMessage: "Votre prénom doit faire au moins {{ limit }} caractères"
                 maxMessage: "Votre prénom ne peut pas être plus long que {{ limit }} caractères"

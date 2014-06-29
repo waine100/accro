@@ -8,6 +8,24 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Zenweb\Aventure\ParcBundle\Form\CreateOrder;
 
+/**
+ * Class FrontController
+ * @package Zenweb\Aventure\ParcBundle\Controller
+ */
+
+/**
+ * Install:
+ * git clone https://github.com/Dorn-/accro.git dossier
+ * curl -s https://getcomposer.org/installer | php
+ * cd dossier
+ * php composer.php update
+ * Faire une nouvelle DBB
+ * Editer le fichier de conf
+ * Vider les caches.
+ * Faire un htaccess.
+ * Créer un compte admin.
+ * Dbb: aventure/ErJ7twRMTd6ZVvCv
+ */
 class FrontController extends Controller
 {
     public function homeAction()
@@ -49,15 +67,15 @@ class FrontController extends Controller
         /**
          * Needed for calendars
          */
-        if ($flow->getCurrentStepNumber() >= 2) {
-            $parc = $flow->getFormData()->order->getParc()->getId();
-        }
 
-        if ($flow->getCurrentStepNumber() > 3) {
+        if ($flow->getCurrentStepNumber() >= 3) {
+            $parc = $flow->getFormData()->order->getParc()->getId();
             $date = $flow->getFormData()->order->getBookingDate();
-            $em   = $this->getDoctrine()->getManager()->getRepository('ZenwebAventureParcBundle:Booking');
-            $flow->getFormData()->order->setBooking($em->findOneBy(array('theDate' => $date, 'parc' => $parc)));
-            $typicalDayId = $flow->getFormData()->order->getBooking()->getTypicalDay()->getId();
+            if(!empty($date)) {
+                $em   = $this->getDoctrine()->getManager()->getRepository('ZenwebAventureParcBundle:Booking');
+                $flow->getFormData()->order->setBooking($em->findOneBy(array('theDate' => $date, 'parc' => $parc)));
+                $typicalDayId = $flow->getFormData()->order->getBooking()->getTypicalDay()->getId();
+            }
         }
 
         $userId = (!empty($formData->order->getUser()) && !empty($formData->order->getUser()->getId())) ? $formData->order->getUser()->getId() : -1;

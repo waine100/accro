@@ -12,4 +12,16 @@ use Doctrine\ORM\EntityRepository;
  */
 class SalesFlatOrderRepository extends EntityRepository
 {
+    public function getPlacesReserved($date, $tsId) {
+        $qb = $this->createQueryBuilder("sfo");
+        return $qb->select('SUM(sfi.qty) as places')
+            ->join("ZenwebAventureParcBundle:SalesFlatItem", "sfi", "WITH", "sfo.id = sfi.order")
+            ->where('sfo.bookingDate = :bookedDate')
+            ->andWhere('sfi.timeSlot = :tsId')
+            ->groupBy('sfi.timeSlot')
+            ->setParameter("bookedDate", $date)
+            ->setParameter("tsId", $tsId)
+            ->getQuery()->getOneOrNullResult();
+
+    }
 }

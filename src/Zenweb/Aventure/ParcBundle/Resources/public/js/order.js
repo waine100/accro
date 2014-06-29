@@ -73,8 +73,8 @@ $(document).ready(function () {
     var $container = $('div#createOrderActivity_order_items');
     if ($container.length) {
         var $table = $('table#activity_items > tbody');
-        var $lienAjout = $('<a href="#" id="ajout_item" class="btn">Ajouter une activité</a>');
-        $container.append($lienAjout);
+        var $lienAjout = $('<button class="btn btn-info" id="ajout_item"><i class="icon-white icon-plus"></i> Ajouter une activité</button>');
+        $('#add_item_contener').append($lienAjout);
         $lienAjout.click(function (e) {
             ajouterCategorie($container, $table);
             e.preventDefault(); // évite qu'un # apparaisse dans l'URL
