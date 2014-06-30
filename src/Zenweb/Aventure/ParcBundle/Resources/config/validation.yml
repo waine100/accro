@@ -24,6 +24,9 @@ Zenweb\Aventure\ParcBundle\Entity\Parc:
                 mimeTypesMessage: Choisissez un fichier PDF valide
 
 Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder:
+    constraints:
+        - Zenweb\Aventure\ParcBundle\Validator\Constraints\ActivityQuantity:
+            groups: [flow_createOrderFront_step4]
     properties:
         bookingDate:
             - Date: ~
@@ -37,9 +40,6 @@ Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder:
                 groups: [flow_createOrderFront_step4]
 
 Zenweb\Aventure\ParcBundle\Entity\SalesFlatItem:
-    constraints:
-        - Zenweb\Aventure\ParcBundle\Validator\Constraints\ActivityQuantity:
-            groups: [flow_createOrderFront_step4]
     properties:
         qty:
             - NotBlank:
