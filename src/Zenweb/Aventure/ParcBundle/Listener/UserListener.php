@@ -7,6 +7,11 @@ use Zenweb\Aventure\ParcBundle\Entity\User;
 
 class UserListener
 {
+    /**
+     * ADD the user group Particulier if no groups have been affected.
+     *
+     * @param LifecycleEventArgs $args
+     */
     public function prePersist(LifecycleEventArgs $args)
     {
 

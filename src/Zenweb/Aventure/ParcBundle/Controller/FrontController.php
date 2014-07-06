@@ -42,11 +42,25 @@ class FrontController extends Controller
         $parc = 0;
         $typicalDayId = 0;
 
+        $parc = $flow->getFormData()->order->getParc();
+        if(!empty($parc)) {
+            $parc = $parc->getId();
+        }
 
         if ($flow->isValid($form)) {
             $flow->saveCurrentStepData($form);
 
             if ($flow->nextStep()) {
+                /**
+                 * Set the typical Id.
+                 */
+                if ($flow->getCurrentStepNumber() == 4) {
+                    $date = $flow->getFormData()->order->getBookingDate();
+                    if (!empty($date)) {
+                        $em = $this->getDoctrine()->getManager()->getRepository('ZenwebAventureParcBundle:Booking');
+                        $flow->getFormData()->order->setBooking($em->findOneBy(array('theDate' => $date, 'parc' => $parc)));
+                    }
+                }
                 /**
                  * We have choose a date and a parc, get the typicalDayId needed for other purpose.
                  */
@@ -64,33 +78,29 @@ class FrontController extends Controller
             }
         }
 
-        /**
-         * Needed for calendars
-         */
+        $parc = $flow->getFormData()->order->getParc();
+        if(!empty($parc)) {
+            $parc = $parc->getId();
+        }
 
-        if ($flow->getCurrentStepNumber() >= 3) {
-            $parc = $flow->getFormData()->order->getParc()->getId();
-            $date = $flow->getFormData()->order->getBookingDate();
-            if(!empty($date)) {
-                $em   = $this->getDoctrine()->getManager()->getRepository('ZenwebAventureParcBundle:Booking');
-                $flow->getFormData()->order->setBooking($em->findOneBy(array('theDate' => $date, 'parc' => $parc)));
-                $typicalDayId = $flow->getFormData()->order->getBooking()->getTypicalDay()->getId();
-            }
+        $booking = $flow->getFormData()->order->getBooking();
+        if (!empty($booking)) {
+            $typicalDayId = $flow->getFormData()->order->getBooking()->getTypicalDay()->getId();
         }
 
         $userId = (!empty($formData->order->getUser()) && !empty($formData->order->getUser()->getId())) ? $formData->order->getUser()->getId() : -1;
 
         return $this->render('ZenwebAventureParcBundle:Checkout:create_order.html.twig', array(
-            'form'       => $form->createView(),
-            'flow'       => $flow,
-            'parc_id'    => $parc,
-            'month'      => date('m'),
-            'year'       => date('Y'),
-            'userId'     => $userId,
+            'form' => $form->createView(),
+            'flow' => $flow,
+            'parc_id' => $parc,
+            'month' => date('m'),
+            'year' => date('Y'),
+            'userId' => $userId,
             'typicalDayId' => $typicalDayId,
-            'user'         => $formData->order->getUser(),
-            'order'        => $flow->getFormData()->order,
-            'paymentForm'  => $formPayment
+            'user' => $formData->order->getUser(),
+            'order' => $flow->getFormData()->order,
+            'paymentForm' => $formPayment
         ));
     }
 
@@ -114,8 +124,8 @@ class FrontController extends Controller
             // pour vérifier la présence d'une requete Ajax
 
             $idTimeSlot = $request->request->get('id');
-            $userId     = $request->request->get('userId');
-            $qty        = $request->request->get('qty', 1);
+            $userId = $request->request->get('userId');
+            $qty = $request->request->get('qty', 1);
 
             if (null !== $idTimeSlot && null !== $userId) {
                 $groupsId = array();
@@ -123,7 +133,7 @@ class FrontController extends Controller
                     /**
                      * First get the group of the User
                      */
-                    $user     = $this->getDoctrine()
+                    $user = $this->getDoctrine()
                         ->getManager()
                         ->getRepository('ZenwebAventureParcBundle:User')
                         ->find($userId);
@@ -139,7 +149,7 @@ class FrontController extends Controller
                     ->getAvailablePrices($groupsId, $idTimeSlot, $qty);
 
                 $response = new Response();
-                $prices   = json_encode($prices);
+                $prices = json_encode($prices);
                 $response->setStatusCode(200);
                 $response->headers->set('Content-Type', 'application/json');
                 $response->setContent($prices);
@@ -165,17 +175,16 @@ class FrontController extends Controller
                 $ts = $this->getDoctrine()
                     ->getManager()
                     ->getRepository('ZenwebAventureParcBundle:TimeSlot')
-                    ->findBy(array('activity' => $idActivity, 'typicalDay' => $idTypicalDay))
-                ;
+                    ->findBy(array('activity' => $idActivity, 'typicalDay' => $idTypicalDay));
 
                 $timeSlots = array();
-                foreach($ts as $t) {
-                    $timeSlots[$t->getId()]['name'] = $t->getBeginTime()->format("H:i"). ' -> ' . $t->getEndTime()->format("H:i");
+                foreach ($ts as $t) {
+                    $timeSlots[$t->getId()]['name'] = $t->getBeginTime()->format("H:i") . ' -> ' . $t->getEndTime()->format("H:i");
                     $timeSlots[$t->getId()]['id'] = $t->getId();
                 }
 
                 $response = new Response();
-                $prices   = json_encode($timeSlots);
+                $prices = json_encode($timeSlots);
                 $response->setStatusCode(200);
                 $response->headers->set('Content-Type', 'application/json');
                 $response->setContent($prices);
@@ -194,7 +203,7 @@ class FrontController extends Controller
             // pour vérifier la présence d'une requete Ajax
 
             $idExtra = $request->request->get('id');
-            $qty        = $request->request->get('qty', 1);
+            $qty = $request->request->get('qty', 1);
 
             if (null !== $idExtra) {
                 $price = $this->getDoctrine()
@@ -203,7 +212,7 @@ class FrontController extends Controller
                     ->findOneById($idExtra);
 
                 $response = new Response();
-                $price   = json_encode($price->getPricePerUnit() * $qty);
+                $price = json_encode($price->getPricePerUnit() * $qty);
                 $response->setStatusCode(200);
                 $response->headers->set('Content-Type', 'application/json');
                 $response->setContent($price);

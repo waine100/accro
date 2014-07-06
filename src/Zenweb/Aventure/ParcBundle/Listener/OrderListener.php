@@ -7,6 +7,12 @@ use Zenweb\Aventure\ParcBundle\Entity\SalesFlatOrder;
 
 class OrderListener
 {
+    /**
+     * Set a reference and a status before saving an order.
+     *
+     * @param LifecycleEventArgs $args
+     * @throws \Exception
+     */
     public function prePersist(LifecycleEventArgs $args)
     {
 
