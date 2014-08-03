@@ -1,26 +1,48 @@
 {{ form_errors(form.order.extras) }}
-<table id="extras_items" class="table table-bordered table-striped">
-    <thead>
-    <tr class="sonata-ba-list-field-header">
-        <th class="sonata-ba-list-field-header-text">Options</th>
-        <th class="sonata-ba-list-field-header-text">Quantité</th>
-        <th class="sonata-ba-list-field-header-text">Prix</th>
-        <th class="sonata-ba-list-field-header-text">Action</th>
-    </tr>
-    </thead>
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Choisissez vos options</div>
+    <div class="panel-body">
+        {% for item in form.order.extras.vars.prototype.children.name.vars.choices %}
+            <div class="row extra">
+                <div class="col-md-2 text-left"><button type="button" class="btn btn-default navbar-btn" id-select="{{ loop.index }}">{{ item.data.name }}</button></div>
+                <div class="col-md-1 text-center" style="margin-top:15px;"><span class="glyphicon glyphicon-hand-right"></span></div>
+                <div class="col-md-9 text-left" style="margin-top:15px;">{{ item.data.description }}</div>
+            </div>
+        {%  endfor %}
+    </div>
+</div>
+<br/>
 
-    <tbody>
-        {% for item in form.order.extras %}
-            <tr>
-                {% for field in item %}
-                <td>{{ form_widget(field) }}</td>
-                {% endfor %}
-                <td>Price</td>
-                <td><a href="#" class="btn btn-danger">Supprimer</a></td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class="panel panel-default extras-quantity">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Ajustez les quantités</div>
+    <div class="panel-body">
+    </div>
+    <table id="extras_items" class="table table-bordered table-striped">
+        <thead>
+        <tr class="sonata-ba-list-field-header">
+            <th class="sonata-ba-list-field-header-text">Options</th>
+            <th class="sonata-ba-list-field-header-text">Quantité</th>
+            <th class="sonata-ba-list-field-header-text">Prix</th>
+            <th class="sonata-ba-list-field-header-text">Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+            {% for item in form.order.extras %}
+                <tr>
+                    {% for field in item %}
+                    <td>{{ form_widget(field) }}</td>
+                    {% endfor %}
+                    <td class="priceLine">Price</td>
+                    <td><a href="#" class="btn btn-danger">Supprimer</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
 <script>
     //Load prices:
     function getPricesExtra(tsId, $priceSelect, qty) {

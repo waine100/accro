@@ -8,6 +8,7 @@ function ajouterCategorie($container, $table) {
 }
 
 function ajouterCategorieExtra($container, $table) {
+    $('.extras-quantity').show();
     var $prototype = $($container.attr('data-prototype')//.replace(/__name__label__/g, 'Activité n°' + (index + 1))
         .replace(/__name__/g, index));
     ajouterFakePrice($prototype);
@@ -23,7 +24,7 @@ function ajouterFakePrice($prototype) {
 
 
 function ajouterLienSuppression($prototype) {
-    $lienSuppression = $('<a href="#" class="btn btn-danger">Supprimer</a>');
+    $lienSuppression = $('<td><a href="#" class="btn btn-danger">Supprimer</a></td>');
     $prototype.append($lienSuppression);
     $lienSuppression.click(function (e) {
         $prototype.remove();
@@ -93,8 +94,25 @@ $(document).ready(function () {
 
     var $container2 = $('div#createOrderExtra_order_extras');
     if ($container2.length) {
+        $('.extras-quantity').hide();
         var $table = $('table#extras_items > tbody');
         var $lienAjout = $('<a href="#" id="ajout_item" class="btn">Ajouter une option</a>');
+
+        // add click action on button extra
+        $('.row.extra button').each(function( key, value ) {
+            $(this).click(function(e) {
+                ajouterCategorieExtra($container2, $table);
+                e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+
+                var test = $.find('select:last option[value="4"]');
+                var test2 = $(this).attr('id-select');
+                //auto select input
+                //$.find('select:last option[value="'+$(this).attr('id-select')+'"]').prop('selected', true);
+                $('select:last option[value="'+$(this).attr('id-select')+'"]').attr('selected', true);
+                return false;
+            });
+        });
+
         $container2.append($lienAjout);
         $lienAjout.click(function (e) {
             ajouterCategorieExtra($container2, $table);
@@ -102,9 +120,7 @@ $(document).ready(function () {
             return false;
         });
         index = $container2.find(':input').length;
-        if (index == 0) {
-            ajouterCategorieExtra($container2, $table);
-        } else {
+        if (index != 0) {
             $container2.children('div').each(function () {
                 ajouterLienSuppression($(this));
             });
