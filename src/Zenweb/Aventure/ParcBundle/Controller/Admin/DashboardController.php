@@ -62,7 +62,7 @@ class DashboardController extends Controller
         $filterOrders = array();
         foreach ($orders as $order){
             // filtering on activity
-            if ($activity == 'all') {
+            if ($activity == 'all' || $activity == '' || $activity == 'undefined') {
                 $filterOrders[] = $order;
             } else {
                 foreach ($order->getItems() as $item) {
