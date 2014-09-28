@@ -82,8 +82,9 @@ class OrderController extends Controller
 
             }
         }
+        $user = (!empty($formData->order->getUser()) && !empty($formData->order->getUser()->getId()));
 
-        $userId = (!empty($formData->order->getUser()) && !empty($formData->order->getUser()->getId())) ? $formData->order->getUser()->getId() : -1;
+        $userId = $user ? $formData->order->getUser()->getId() : -1;
 
         return $this->render('ZenwebAventureParcBundle:Admin:create_order.html.twig', array(
             'form'         => $form->createView(),
