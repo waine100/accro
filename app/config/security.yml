@@ -42,6 +42,7 @@ security:
                 use_forward:    false
                 check_path:     /login_check
                 failure_path:   null
+                use_referer: true
             logout:       true
             anonymous:    true
 

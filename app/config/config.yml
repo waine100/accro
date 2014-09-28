@@ -93,7 +93,7 @@ sonata_block:
         sonata.block.service.recent_orders: ~
 
 sonata_admin:
-    title: Aventure Administration
+    title: Aventure
     templates:
         layout: ZenwebAventureParcBundle:Admin:standard_layout.html.twig
         edit:   ZenwebAventureParcBundle:CRUD:base_edit.html.twig
