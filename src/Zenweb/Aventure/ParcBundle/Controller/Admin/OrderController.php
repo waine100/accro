@@ -22,7 +22,7 @@ class OrderController extends Controller
         // form of the current step
         $form = $flow->createForm();
 
-        $parc         = 0;
+        $parc = 0;
         $typicalDayId = 0;
 
         if ($flow->getCurrentStepNumber() > 1) {
@@ -35,7 +35,7 @@ class OrderController extends Controller
 
         if ($flow->getCurrentStepNumber() > 2) {
             $date = $flow->getFormData()->order->getBookingDate();
-            $em   = $this->getDoctrine()->getManager()->getRepository('ZenwebAventureParcBundle:Booking');
+            $em = $this->getDoctrine()->getManager()->getRepository('ZenwebAventureParcBundle:Booking');
             $flow->getFormData()->order->setBooking($em->findOneBy(array('theDate' => $date, 'parc' => $parc)));
             $typicalDayId = $flow->getFormData()->order->getBooking()->getTypicalDay()->getId();
         }
@@ -69,34 +69,38 @@ class OrderController extends Controller
                 $em->persist($formData->order);
                 $em->flush();
 
-                $priceToPaid    = $flow->getFormData()->order->getBaseTotal();
+                $priceToPaid = $flow->getFormData()->order->getBaseTotal();
                 $checkoutMethod = $flow->getFormData()->order->getCheckoutMethod();
                 $flow->reset(); // remove step data from the session
 
-                if($checkoutMethod == 'cb') {
+                if ($checkoutMethod == 'cb') {
                     $flow->getFormData()->order->setStatus(SalesFlatOrder::STATUS_PAYMENT_CB_PENDING);
-                    return $this->forward( 'ZenwebAventureParcPaymentBundle:Payment:Payment', array('order' =>$flow->getFormData()->order )); // redirect when done
+                    return $this->forward('ZenwebAventureParcPaymentBundle:Payment:Payment', array('order' => $flow->getFormData()->order)); // redirect when done
                 } else {
                     return $this->redirect($this->generateUrl('sonata_admin_dashboard')); // redirect when done
                 }
 
             }
         }
-        $user = (!empty($formData->order->getUser()) && !empty($formData->order->getUser()->getId()));
 
-        $userId = $user ? $formData->order->getUser()->getId() : -1;
+        $user = $formData->order->getUser();
+        $userId = -1;
+        if (!empty($user)) {
+            $userId = $formData->order->getUser()->getId();
+        }
+        
 
         return $this->render('ZenwebAventureParcBundle:Admin:create_order.html.twig', array(
-            'form'         => $form->createView(),
-            'flow'         => $flow,
-            'admin_pool'   => $this->get('sonata.admin.pool'),
-            'parc_id'      => $parc,
-            'month'        => date('m'),
-            'year'         => date('Y'),
-            'userId'       => $userId,
+            'form' => $form->createView(),
+            'flow' => $flow,
+            'admin_pool' => $this->get('sonata.admin.pool'),
+            'parc_id' => $parc,
+            'month' => date('m'),
+            'year' => date('Y'),
+            'userId' => $userId,
             'typicalDayId' => $typicalDayId,
-            'user'         => $formData->order->getUser(),
-            'order'        => $flow->getFormData()->order
+            'user' => $formData->order->getUser(),
+            'order' => $flow->getFormData()->order
         ));
     }
 
