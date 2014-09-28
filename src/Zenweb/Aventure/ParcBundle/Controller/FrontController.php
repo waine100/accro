@@ -88,7 +88,11 @@ class FrontController extends Controller
             $typicalDayId = $flow->getFormData()->order->getBooking()->getTypicalDay()->getId();
         }
 
-        $userId = (!empty($formData->order->getUser()) && !empty($formData->order->getUser()->getId())) ? $formData->order->getUser()->getId() : -1;
+        $user = $formData->order->getUser();
+        $userId = -1;
+        if (!empty($user)) {
+            $userId = $formData->order->getUser()->getId();
+        }
 
         return $this->render('ZenwebAventureParcBundle:Checkout:create_order.html.twig', array(
             'form' => $form->createView(),
