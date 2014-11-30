@@ -1,4 +1,24 @@
-<form method="post" class="form-horizontal" {{ form_enctype(form) }}>
+{{ form_errors(form.order.extras) }}
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Choisissez vos options</div>
+    <div class="panel-body">
+        {% for item in form.order.extras.vars.prototype.children.name.vars.choices %}
+            <div class="row extra">
+                <div class="col-md-2 text-left"><button type="button" class="btn btn-default navbar-btn" id-select="{{ loop.index }}">{{ item.data.name }}</button></div>
+                <div class="col-md-1 text-center" style="margin-top:15px;"><span class="glyphicon glyphicon-hand-right"></span></div>
+                <div class="col-md-9 text-left" style="margin-top:15px;">{{ item.data.description }}</div>
+            </div>
+        {%  endfor %}
+    </div>
+</div>
+<br/>
+
+<div class="panel panel-default extras-quantity">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Ajustez les quantités</div>
+    <div class="panel-body">
+    </div>
     <table id="extras_items" class="table table-bordered table-striped">
         <thead>
         <tr class="sonata-ba-list-field-header">
@@ -10,35 +30,34 @@
         </thead>
 
         <tbody>
-            {% for item in form.order.extras %}
-                <tr>
-                    {% for field in item %}
+        {% for item in form.order.extras %}
+            <tr>
+                {% for field in item %}
                     <td>{{ form_widget(field) }}</td>
-                    {% endfor %}
-                    <td>Price</td>
-                    <td><a href="#" class="btn btn-danger">Supprimer</a></td>
-                </tr>
-            {% endfor %}
+                {% endfor %}
+                <td class="priceLine">Price</td>
+                <td><a href="#" class="btn btn-danger">Supprimer</a></td>
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
-    <script>
-        //Load prices:
-        function getPricesExtra(tsId, $priceSelect, qty) {
-            qty = typeof qty !== 'undefined' ? qty : 1;
-            var DATA = 'id=' + tsId +'&qty=' + qty;
-            $.ajax({
-                type: "POST",
-                dataType: 'json',
-                url: "{{ path('zenweb_aventure_parc_order_create_get_prices_extra') }}",
-                data: DATA,
-                success: function (msg) {
+</div>
 
-                    $priceSelect.html('');
-                    $priceSelect.append( msg+' €');
-                }
-            });
-        }
-    </script>
-    {{ form_rest(form) }}
-{% include 'ZenwebAventureParcBundle:Admin:buttons.html.twig' %}
-</form>
+<script>
+    //Load prices:
+    function getPricesExtra(tsId, $priceSelect, qty) {
+        qty = typeof qty !== 'undefined' ? qty : 1;
+        var DATA = 'id=' + tsId +'&qty=' + qty;
+        $.ajax({
+            type: "POST",
+            dataType: 'json',
+            url: "{{ path('zenweb_aventure_parc_order_create_get_prices_extra') }}",
+            data: DATA,
+            success: function (msg) {
+
+                $priceSelect.html('');
+                $priceSelect.append( msg+' €');
+            }
+        });
+    }
+</script>
