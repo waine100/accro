@@ -22,7 +22,7 @@ class SalesFlatExtraType extends AbstractType
         $parcId = $formData->order->getBooking()->getParc()->getId();
 
         $builder
-            ->add('name', 'genemu_jqueryselect2_entity', array('class' => 'ZenwebAventureParcBundle:Extra', 'query_builder' => function (ExtraRepository $er) use ($parcId) {
+            ->add('name', 'entity', array('class' => 'ZenwebAventureParcBundle:Extra', 'query_builder' => function (ExtraRepository $er) use ($parcId) {
                     return $er->createQueryBuilder('u');
                         //->where('u.parcs = :parcId')
                         //->orderBy('u.beginTime', 'ASC');

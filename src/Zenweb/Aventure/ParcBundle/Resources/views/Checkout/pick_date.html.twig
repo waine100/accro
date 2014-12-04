@@ -47,14 +47,19 @@
                 if (data.responseCode == 200) {
                     var days_previous_month = data.days_previous_month;
                     var nb_days_prev = data.nb_days_prev;
+                    var current_day = data.current_day;
                     $('#' + id + '_title').html(data.current_month);
                     var count = 1;
                     while (count < 43) {
-                        if (data.calendar[(count - 1)].dates != "")//in admin, if the date is valid, we attach an action to change date state on the click event
+                        if ((data.calendar[(count - 1)].dates != "") && (data.calendar[(count - 1)].booked == 1))//in admin, if the date is valid, we attach an action to change date state on the click event
                         {
                             $('#' + id + '_cell_' + count).attr("title", data.calendar[(count - 1)].dates).click(function(e){
                                 e.preventDefault();
                                 $('#createOrderDate_order_bookingDate').val(($(this).attr('title')));
+                                $('.selected').css('background-color',"#B6F0B7");
+                                $('.selected').removeClass('selected');
+                                $(this).addClass('selected');
+                                $(this).css('background-color',"#198A1B");
                             });//This is a trick to pass an event to a non-anonymous function, which is not posible with the classic .click(function(e){myFunction()})
                         }
                         else {
@@ -69,9 +74,14 @@
                         }
                         if (data.calendar[(count - 1)].booked == 1) {
                             var square_color = data.calendar[(count - 1)].couleur;
-                            $('#' + id + '_cell_' + count).css('background-color',"#"+square_color);
+                            $('#' + id + '_cell_' + count).css('background-color',"#B6F0B7");
+                            $('#' + id + '_cell_' + count).addClass('bookable');
                         } else if (data.calendar[(count - 1)].booked < 0){
                             $('#' + id + '_cell_' + count).addClass("dates_preview");
+                        }
+                        if (count == current_day && !(data.calendar[(count - 1)].booked < 0)) {
+                            $('#' + id + '_cell_' + count).css('background-color',"#198A1B");
+                            $('#' + id + '_cell_' + count).addClass('selected');
                         }
                         count++;
                     }

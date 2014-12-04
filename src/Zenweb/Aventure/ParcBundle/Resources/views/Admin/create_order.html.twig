@@ -19,15 +19,27 @@
             <div class="panel-heading">Création de commande</div>
             <div class="panel-body">
             {% include 'ZenwebAventureParcBundle:Admin:stepList.html.twig' %}
-            <form method="post" {{ form_enctype(form) }}>
-                {{ form_errors(form) }}
-
                 {% if flow.getCurrentStepNumber() == 1 %}
                     <div>
-                        {{ form_row(form.order.parc) }}
+                        <form method="post" class="form-horizontal" {{ form_enctype(form) }}>
+                            {{ form_row(form.order.parc) }}
+                            {{ form_rest(form) }}
+                            {% include 'ZenwebAventureParcBundle:Admin:buttons.html.twig' %}
+                        </form>
+
                     </div>
                 {% elseif flow.getCurrentStepNumber() == 2 %}
                     {% include 'ZenwebAventureParcBundle:Checkout:pick_date.html.twig' %}
+                {% elseif flow.getCurrentStepNumber() == 3 %}
+                    <form method="post" class="form-horizontal" {{ form_enctype(form) }}>
+                        {{ form_rest(form) }}
+                        {% include 'ZenwebAventureParcBundle:Admin:buttons.html.twig' %}
+                    </form>
+                {% elseif flow.getCurrentStepNumber() == 4 %}
+                    <form method="post" class="form-horizontal" {{ form_enctype(form) }}>
+                        {{ form_rest(form) }}
+                        {% include 'ZenwebAventureParcBundle:Admin:buttons.html.twig' %}
+                    </form>
                 {% elseif flow.getCurrentStepNumber() == 6 %}
                     {% include 'ZenwebAventureParcBundle:Admin:pick_activities.html.twig' %}
                 {% elseif flow.getCurrentStepNumber() == 7 %}
@@ -35,11 +47,6 @@
                 {% elseif flow.getCurrentStepNumber() == 8 %}
                     {% include 'ZenwebAventureParcBundle:Admin:order_recap.html.twig' with {'order': order}%}
                 {% endif %}
-                {{ form_rest(form) }}
-
-
-                {% include 'ZenwebAventureParcBundle:Admin:buttons.html.twig' %}
-            </form>
             </div>
         </div>
     </section>

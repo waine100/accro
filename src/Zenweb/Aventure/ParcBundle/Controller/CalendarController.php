@@ -160,7 +160,7 @@ class CalendarController extends Controller
         $current_month = $dateUtil->getMonth($monthKey);
         $title         = htmlentities($current_month . " " . $yearKey, ENT_QUOTES, 'ISO-8859-1');
         $return .= '"current_month" : "' . $title . '" , ';
-
+        $return .= '"current_day" : "' . date('d') . '" , ';
         $previous_month      = $dateUtil->getOtherMonth($monthKey, $yearKey, -1); //needed to calculate the number of days of previous month
         $days_previous_month = date('t', mktime(0, 0, 0, $previous_month[$monthKey], 1, $previous_month[$yearKey])); //number of days of the previous month, used to populate the calendar cells corresponding to the previous month.
         $return .= '"days_previous_month" : "' . $days_previous_month . '" , ';

@@ -1,4 +1,6 @@
 {{ form_errors(form.order.extras) }}
+
+<form method="post" class="form-horizontal" {{ form_enctype(form) }}>
 <div class="panel panel-default">
     <!-- Default panel contents -->
     <div class="panel-heading">Choisissez vos options</div>
@@ -7,7 +9,7 @@
             <div class="row extra">
                 <div class="col-md-2 text-left"><button type="button" class="btn btn-default navbar-btn" id-select="{{ loop.index }}">{{ item.data.name }}</button></div>
                 <div class="col-md-1 text-center" style="margin-top:15px;"><span class="glyphicon glyphicon-hand-right"></span></div>
-                <div class="col-md-9 text-left" style="margin-top:15px;">{{ item.data.description }}</div>
+                <div class="col-md-9 text-left" style="margin-top:15px;">Prix : {{ item.data.pricePerUnit }} € -> {{ item.data.description }}</div>
             </div>
         {%  endfor %}
     </div>
@@ -35,7 +37,7 @@
                     {% for field in item %}
                     <td>{{ form_widget(field) }}</td>
                     {% endfor %}
-                    <td class="priceLine">Price</td>
+                    <td class="priceLine"></td>
                     <td><a href="#" class="btn btn-danger">Supprimer</a></td>
                 </tr>
             {% endfor %}
@@ -43,6 +45,11 @@
     </table>
 </div>
 
+    <div id="createOrderExtra_order_extras" data-prototype='<tr><td class="sonata-ba-list-field sonata-ba-list-field-text">{{ form_widget(form.order.extras.vars.prototype.name) }}</td><td class="sonata-ba-list-field sonata-ba-list-field-text">{{ form_widget(form.order.extras.vars.prototype.qty) }}</td></tr>'>
+    </div>
+    {{ form_widget(form._token) }}
+    {% include 'ZenwebAventureParcBundle:Admin:buttons.html.twig' %}
+</form>
 <script>
     //Load prices:
     function getPricesExtra(tsId, $priceSelect, qty) {

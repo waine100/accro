@@ -15,7 +15,9 @@ class CreateOrderDateForm extends AbstractType
         $orderForm->add('bookingDate', 'date', array(
             'widget' => 'single_text',
             //'read_only' => true,
+            'data' => new \DateTime('now'),
             'required' => true,
+            'error_bubbling' => true
         ));
         $builder->add($orderForm);
     }

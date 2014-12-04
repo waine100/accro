@@ -1,4 +1,6 @@
 {{ form_errors(form.order.extras) }}
+
+<form method="post" class="form-horizontal" {{ form_enctype(form) }}>
 <div class="panel panel-default">
     <!-- Default panel contents -->
     <div class="panel-heading">Choisissez vos options</div>
@@ -42,7 +44,9 @@
         </tbody>
     </table>
 </div>
-
+{{ form_rest(form) }}
+            {% include 'ZenwebAventureParcBundle:Admin:buttons.html.twig' %}
+</form>
 <script>
     //Load prices:
     function getPricesExtra(tsId, $priceSelect, qty) {

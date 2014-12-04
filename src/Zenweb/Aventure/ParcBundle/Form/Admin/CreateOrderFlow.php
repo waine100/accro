@@ -83,7 +83,7 @@ class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
             }
         }
 
-        if ($this->determineCurrentStepNumber() > 6 && $event->getStep() == 7) {
+        //if ($this->determineCurrentStepNumber() > 6 && $event->getStep() == 7) {
             $items     = $event->getFormData()->order->getExtras();
 
             foreach ($items as $item) {
@@ -91,7 +91,7 @@ class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
                 $rowTotal=$item->getQty()*$item->getName()->getPricePerUnit();
                 $item->setRowTotal($rowTotal);
             }
-        }
+        //}
 
         if ($this->determineCurrentStepNumber() > 8) {
             $event->getFormData()->order->setCheckoutMethod($event->getFormData()->order->getCheckoutMethod());

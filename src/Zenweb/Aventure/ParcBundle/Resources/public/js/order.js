@@ -8,14 +8,18 @@ function ajouterCategorie($container, $table) {
 }
 
 function ajouterCategorieExtra($container, $table) {
+    var $index = $('table tr').length;
+    $index--;
     $('.extras-quantity').show();
     var $prototype = $($container.attr('data-prototype')//.replace(/__name__label__/g, 'Activité n°' + (index + 1))
-        .replace(/__name__/g, index));
+        .replace(/__name__/g, $index));
     ajouterFakePrice($prototype);
     ajouterLienSuppression($prototype);
     $table.append($prototype);
     addChangePriceExtraListener($prototype);
-    index++;
+    $("select").select2({
+        minimumResultsForSearch: -1
+    });
 }
 
 function ajouterFakePrice($prototype) {
@@ -94,9 +98,12 @@ $(document).ready(function () {
 
     var $container2 = $('div#createOrderExtra_order_extras');
     if ($container2.length) {
-        $('.extras-quantity').hide();
+        var $show = $('table tbody tr').length;
+        if(!$show) {
+            $('.extras-quantity').hide();
+        }
         var $table = $('table#extras_items > tbody');
-        var $lienAjout = $('<a href="#" id="ajout_item" class="btn">Ajouter une option</a>');
+        var $lienAjout = $('<button class="btn btn-info" id="ajout_item"><i class="icon-white icon-plus"></i> Ajouter une option</button>');
 
         // add click action on button extra
         $('.row.extra button').each(function( key, value ) {
@@ -104,11 +111,13 @@ $(document).ready(function () {
                 ajouterCategorieExtra($container2, $table);
                 e.preventDefault(); // évite qu'un # apparaisse dans l'URL
 
-                var test = $.find('select:last option[value="4"]');
-                var test2 = $(this).attr('id-select');
                 //auto select input
                 //$.find('select:last option[value="'+$(this).attr('id-select')+'"]').prop('selected', true);
                 $('select:last option[value="'+$(this).attr('id-select')+'"]').attr('selected', true);
+
+                $("select").select2({
+                    minimumResultsForSearch: -1
+                });
                 return false;
             });
         });
@@ -126,4 +135,9 @@ $(document).ready(function () {
             });
         }
     }
+
+    $( "select option:selected" ).each(function() {
+        var to = $(this).parent().parent().parent().find('td:nth-child(2) input').val();
+        getPricesExtra($(this).val(), $(this).parent().parent().parent().find('.priceLine'), $(this).parent().parent().parent().find('td:nth-child(2) input').val());
+    });
 });

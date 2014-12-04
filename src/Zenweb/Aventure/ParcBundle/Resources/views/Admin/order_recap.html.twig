@@ -2,6 +2,7 @@
     <a href="#" class="alert-link">Vous avez choisi de vous rendre au parc {{ order.parc.name }}</a>
 </div>
 
+<form method="post" class="form-horizontal" {{ form_enctype(form) }}>
 <div class="panel panel-info">
     <div class="panel-heading">
         <h3 class="panel-title">{{ "Récapitulatif de votre commande" | trans({}, 'SonataUserBundle')}}</h3>
@@ -47,7 +48,7 @@
                     {% else %}
                         <div class="alert alert-warning">
                             <a href="#" class="alert-link">Vous n'avez pas choisi d'option</a>
-                        </div
+                        </div>
                     {% endif %}
                 </div>
 
@@ -80,3 +81,7 @@
         {% endif %}
     </div>
 </div>
+
+{{ form_rest(form) }}
+            {% include 'ZenwebAventureParcBundle:Admin:buttons.html.twig' %}
+</form>
