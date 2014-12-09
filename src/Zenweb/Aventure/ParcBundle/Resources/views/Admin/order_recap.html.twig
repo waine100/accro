@@ -42,8 +42,8 @@
                         {% for extra in order.extras %}
                             <div class="col-md-4 text-center">{{ extra.name }}</div>
                             <div class="col-md-4 text-center">{{ extra.qty }}</div>
-                            <div class="col-md-4 text-center">{{ extra.rowTotal }} €</div>
-                            {% set orderTotal = orderTotal + extra.rowTotal %}
+                            <div class="col-md-4 text-center">{{ extra.name.pricePerUnit * extra.qty }} €</div>
+                            {% set orderTotal = orderTotal + extra.name.pricePerUnit * extra.qty %}
                         {% endfor %}
                     {% else %}
                         <div class="alert alert-warning">

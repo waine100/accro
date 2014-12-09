@@ -10,6 +10,11 @@ function ajouterCategorie($container, $table) {
 function ajouterCategorieExtra($container, $table) {
     var $index = $('table tr').length;
     $index--;
+    if ( $index > 0) {
+        // get last index of collection
+        $index = $('table tr:last td:nth-child(2) input').attr('name').substr(32,1);
+        $index++;
+    }
     $('.extras-quantity').show();
     var $prototype = $($container.attr('data-prototype')//.replace(/__name__label__/g, 'Activité n°' + (index + 1))
         .replace(/__name__/g, $index));
@@ -139,5 +144,11 @@ $(document).ready(function () {
     $( "select option:selected" ).each(function() {
         var to = $(this).parent().parent().parent().find('td:nth-child(2) input').val();
         getPricesExtra($(this).val(), $(this).parent().parent().parent().find('.priceLine'), $(this).parent().parent().parent().find('td:nth-child(2) input').val());
+    });
+
+    $("td a.btn-danger").click(function (e) {
+        $(this).parent().parent().remove();
+        e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+        return false;
     });
 });

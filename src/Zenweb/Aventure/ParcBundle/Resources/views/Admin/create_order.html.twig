@@ -46,6 +46,11 @@
                     {% include 'ZenwebAventureParcBundle:Admin:pick_extras.html.twig' %}
                 {% elseif flow.getCurrentStepNumber() == 8 %}
                     {% include 'ZenwebAventureParcBundle:Admin:order_recap.html.twig' with {'order': order}%}
+                {% else %}
+                    <form method="post" class="form-horizontal" {{ form_enctype(form) }}>
+                        {{ form_rest(form) }}
+                        {% include 'ZenwebAventureParcBundle:Admin:buttons.html.twig' %}
+                    </form>
                 {% endif %}
             </div>
         </div>

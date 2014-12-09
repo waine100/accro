@@ -190,7 +190,7 @@
                                 {% set total = 0 %}
                                 {% for extra in order.extras  %}
                                     <strong>{{ extra.name }}</strong><br>
-                                    qté : {{ extra.qty }} -> {{ extra.rowTotal }} €
+                                    qté : {{ extra.qty }} -> {{ extra.rowTotal }} €<br>
                                     {% set total = total + extra.rowTotal %}
                                 {% endfor %}
                                 <br/>

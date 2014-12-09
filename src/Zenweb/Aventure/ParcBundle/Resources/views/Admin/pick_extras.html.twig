@@ -48,6 +48,9 @@
     <div id="createOrderExtra_order_extras" data-prototype='<tr><td class="sonata-ba-list-field sonata-ba-list-field-text">{{ form_widget(form.order.extras.vars.prototype.name) }}</td><td class="sonata-ba-list-field sonata-ba-list-field-text">{{ form_widget(form.order.extras.vars.prototype.qty) }}</td></tr>'>
     </div>
     {{ form_widget(form._token) }}
+    <div class="hide">
+        {{ form_rest(form) }}
+    </div>
     {% include 'ZenwebAventureParcBundle:Admin:buttons.html.twig' %}
 </form>
 <script>

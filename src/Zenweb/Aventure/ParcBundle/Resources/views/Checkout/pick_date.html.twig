@@ -72,14 +72,14 @@
                         } else {
                             $('#' + id + '_cell_' + count).html(data.calendar[(count - 1)].fill);
                         }
-                        if (data.calendar[(count - 1)].booked == 1) {
+                        if ((data.calendar[(count - 1)].booked == 1 && data.real_month == 1 && count >= current_day) || (data.calendar[(count - 1)].booked == 1 && data.real_month == 0) ) {
                             var square_color = data.calendar[(count - 1)].couleur;
                             $('#' + id + '_cell_' + count).css('background-color',"#B6F0B7");
                             $('#' + id + '_cell_' + count).addClass('bookable');
                         } else if (data.calendar[(count - 1)].booked < 0){
                             $('#' + id + '_cell_' + count).addClass("dates_preview");
                         }
-                        if (count == current_day && !(data.calendar[(count - 1)].booked < 0)) {
+                        if (count == current_day && !(data.calendar[(count - 1)].booked < 0) && data.real_month == 1) {
                             $('#' + id + '_cell_' + count).css('background-color',"#198A1B");
                             $('#' + id + '_cell_' + count).addClass('selected');
                         }
