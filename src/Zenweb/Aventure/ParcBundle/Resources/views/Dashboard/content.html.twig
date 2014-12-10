@@ -160,8 +160,9 @@
                         {% if not almostOneOrder %}
                             <div class="row">
                                 <div class="col-md-1 text-center"><strong>Référence</strong></div>
-                                <div class="col-md-1 text-center"><strong>Client</strong></div>
-                                <div class="col-md-1 text-center"><strong>Téléphone - Email</strong></div>
+                                <div class="col-md-2 text-center">
+                                    <strong>Client</strong>-<strong>Téléphone</strong>-<strong>Email</strong>
+                                </div>
                                 <div class="col-md-3 text-center"><strong>Activités</strong></div>
                                 <div class="col-md-3 text-center"><strong>Options</strong></div>
                                 <div class="col-md-1 text-center"><strong>Paiement</strong></div>
@@ -172,8 +173,13 @@
                         {% set almostOneOrder = true %}
                         <div class="row">
                             <div class="col-md-1 text-center">{{ order.reference }}</div>
-                            <div class="col-md-1 text-center">{{ order.user.firstname }} {{ order.user.lastname }}</div>
-                            <div class="col-md-1 text-center">{{ order.user.phone }} - {{ order.user.email }}</div>
+                            <div class="col-md-2 text-center">
+                                {{ order.user.firstname }} {{ order.user.lastname }}
+                                <br>
+                                {{ order.user.phone }}
+                                <br>
+                                {{ order.user.email }}
+                            </div>
                             <div class="col-md-3 text-center">
                                 {% set total = 0 %}
                                 {% for item in order.items  %}
