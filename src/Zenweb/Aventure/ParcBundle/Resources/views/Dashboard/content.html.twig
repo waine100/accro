@@ -179,7 +179,7 @@
                                 {% for item in order.items  %}
                                     {%  if timeSlot.id == item.timeSlot.id %}
                                         <strong>{{ item.activity.name }}</strong><br>
-                                        {{ item.basePrice.name }} : {{ item.qty }} -> {{ item.rowTotal }} €
+                                        {{ item.basePrice.name }} : {{ item.qty }} -> {{ item.rowTotal }} €<br>
                                         {% set total = total + item.rowTotal %}
                                     {%  endif %}
                                 {% endfor %}

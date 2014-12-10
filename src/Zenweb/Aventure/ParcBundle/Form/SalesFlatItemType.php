@@ -38,7 +38,7 @@ class SalesFlatItemType extends AbstractType
         $userId       = $formData->order->getUser()->getId();
 
         $builder
-            ->add('activity')
+            ->add('activity', 'entity',array('class' => 'ZenwebAventureParcBundle:Activity', 'empty_value' => 'Choisissez une activité'))
             ->add('timeSlot', 'entity', array('class' => 'ZenwebAventureParcBundle:TimeSlot', 'empty_value' => 'Choisissez une activité',
                                                                    'label' => 'Activité'
 

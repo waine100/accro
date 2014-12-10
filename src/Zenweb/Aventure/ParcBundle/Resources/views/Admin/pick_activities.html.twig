@@ -33,7 +33,11 @@
                 //Load prices:
                 function getPrices(tsId, $priceSelect, qty) {
                     qty = typeof qty !== 'undefined' ? qty : 1;
-                    userId = {{ userId }};
+                    {% if userId is not null %}
+                        userId = {{ userId }};
+                    {% else %}
+                        userId= '-1';
+                    {% endif %}
                     var DATA = 'id=' + tsId + '&userId=' + userId + '&qty=' + qty;
                     $.ajax({
                         type: "POST",
@@ -46,12 +50,14 @@
                                 priceValue = typeof price.TierPrices[0] !== 'undefined' ? price.TierPrices[0].price : price.price
                                 $priceSelect.append('<option value="' + price.id + '" selected="selected"> ' + price.name + ' (' + priceValue + ' €) </option>');
                             });
+                            $("select").select2({
+                                minimumResultsForSearch: -1
+                            });
                         }
                     });
                 }
 
                 function getTimeSlots(activityId, $tsSelect) {
-                    userId = {{ userId }};
                     var DATA = 'idActivity=' + activityId + '&idTypicalDay=' + {{ typicalDayId }};
                     $.ajax({
                         type: "POST",
@@ -64,11 +70,18 @@
                                 $tsSelect.append('<option value="' + timeslot.id + '" selected="selected"> ' + timeslot.name + ' </option>');
                             });
                             getPrices($tsSelect.val(), $tsSelect.parent().parent().find('select:last'), $tsSelect.parent().parent().find('input:first').val());
+                            $("select").select2({
+                                minimumResultsForSearch: -1
+                            });
                         }
                     });
                 }
             </script>
-            {{ form_rest(form) }}
+            <div id="createOrderActivity_order_items" data-prototype='<tr><td class="sonata-ba-list-field sonata-ba-list-field-text">{{ form_widget(form.order.items.vars.prototype.activity) }}</td><td class="sonata-ba-list-field sonata-ba-list-field-text">{{ form_widget(form.order.items.vars.prototype.timeSlot) }}</td><td class="sonata-ba-list-field sonata-ba-list-field-text">{{ form_widget(form.order.items.vars.prototype.qty) }}</td><td class="sonata-ba-list-field sonata-ba-list-field-text">{{ form_widget(form.order.items.vars.prototype.basePrice) }}</td></tr>'>
+            </div>
+            <div class="hide">
+                {{ form_rest(form) }}
+            </div>
             {% include 'ZenwebAventureParcBundle:Admin:buttons.html.twig' %}
         </form>
     </div>

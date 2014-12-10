@@ -1,10 +1,19 @@
 function ajouterCategorie($container, $table) {
+    var $index = $('table tr').length;
+    $index--;
+    if ( $index > 0) {
+        // get last index of collection
+        $index = $('table tr:last td:nth-child(3) input').attr('name').substr(34,1);
+        $index++;
+    }
     var $prototype = $($container.attr('data-prototype')//.replace(/__name__label__/g, 'Activité n°' + (index + 1))
-        .replace(/__name__/g, index));
+        .replace(/__name__/g, $index));
     ajouterLienSuppression($prototype);
     $table.append($prototype);
     addChangePriceListener($prototype);
-    index++;
+    $("select").select2({
+        minimumResultsForSearch: -1
+    });
 }
 
 function ajouterCategorieExtra($container, $table) {
@@ -91,7 +100,7 @@ $(document).ready(function () {
             return false;
         });
         index = $container.find(':input').length;
-        if (index == 0) {
+        if (index == 0 && $('table tbody tr').length == 0) {
             ajouterCategorie($container, $table);
         } else {
             $container.children('div').each(function () {
@@ -139,16 +148,21 @@ $(document).ready(function () {
                 ajouterLienSuppression($(this));
             });
         }
+        $( "select option:selected" ).each(function() {
+            var to = $(this).parent().parent().parent().find('td:nth-child(2) input').val();
+            getPricesExtra($(this).val(), $(this).parent().parent().parent().find('.priceLine'), $(this).parent().parent().parent().find('td:nth-child(2) input').val());
+        });
     }
 
-    $( "select option:selected" ).each(function() {
-        var to = $(this).parent().parent().parent().find('td:nth-child(2) input').val();
-        getPricesExtra($(this).val(), $(this).parent().parent().parent().find('.priceLine'), $(this).parent().parent().parent().find('td:nth-child(2) input').val());
-    });
 
     $("td a.btn-danger").click(function (e) {
         $(this).parent().parent().remove();
         e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+        var $index = $('table tr').length;
+        $index--;
+        if ( $index == 0) {
+            $('table').hide();
+        }
         return false;
     });
 });

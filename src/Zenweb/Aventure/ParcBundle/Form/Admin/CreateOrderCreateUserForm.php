@@ -13,16 +13,12 @@ class CreateOrderCreateUserForm extends AbstractType
     {
         $orderForm = $builder->create('order', 'form', array('data_class' => get_class(new SalesFlatOrder())));
         $userForm  = $builder->create('user', 'form', array('data_class' => get_class(new User())));
-        $userForm->add('gender', 'sonata_user_gender', array(
-            'required'           => true,
-            'translation_domain' => 'SonataUserBundle',
-            'label'              => 'Civilité'
-        ))
+        $userForm->add('gender', 'choice', array('required' => true,'label' => 'Civilité', 'choices' => array(0 => 'Monsieur', 1 => 'Madame')))
             ->add('lastname', null, array('required' => true, 'label' => 'Nom'))
             ->add('firstname', null, array('required' => true, 'label' => 'Prénom'))
             ->add('email')
 
-            ->add('plainPassword', 'text', array(
+            ->add('plainPassword', 'password', array(
                 'required' => true, 'label' => 'Mot de passe'
             ))
             ->add('newsletter', null, array('required' => false, 'label' => 'Inscription à la newsletter'))

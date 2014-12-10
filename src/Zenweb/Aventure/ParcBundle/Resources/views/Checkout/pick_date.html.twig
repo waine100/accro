@@ -51,7 +51,10 @@
                     $('#' + id + '_title').html(data.current_month);
                     var count = 1;
                     while (count < 43) {
-                        if ((data.calendar[(count - 1)].dates != "") && (data.calendar[(count - 1)].booked == 1))//in admin, if the date is valid, we attach an action to change date state on the click event
+                        if (((data.calendar[(count - 1)].dates != "") && (data.calendar[(count - 1)].booked == 1) && (data.real_month == 1) && (count >= current_day))
+                                ||
+                             ((data.calendar[(count - 1)].dates != "") && (data.calendar[(count - 1)].booked == 1) && (data.real_month != 1) )
+                        )//in admin, if the date is valid, we attach an action to change date state on the click event
                         {
                             $('#' + id + '_cell_' + count).attr("title", data.calendar[(count - 1)].dates).click(function(e){
                                 e.preventDefault();
