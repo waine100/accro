@@ -1,6 +1,6 @@
 <form method="post" class="form-horizontal" {{ form_enctype(form) }}>
     <div class="alert alert-success">
-        <a href="#" class="alert-link">Vous avez choisi de vous rendre au parc {{ order.parc.name }}</a>
+        <p class="alert-link">Vous avez choisi de vous rendre au parc <strong> {{ order.parc.name }}</strong></p>
     </div>
 
     <div class="panel panel-info">
@@ -13,7 +13,7 @@
                     <div class="row">
                             <div class="text-center">
                                 <span class="glyphicon glyphicon-calendar">
-                                    <strong>Jour de réservation :</strong>  {{ order.bookingDate|date("d/m/Y", "Europe/Paris") }}
+                                    <strong>Date :</strong>  {{ order.bookingDate|date("d/m/Y", "Europe/Paris") }}
                                 </span>
                             </div>
                     </div>
@@ -46,13 +46,14 @@
                         {% endfor %}
                     </div>
 
+                    <hr>
 
-
-                <hr>
                     <div class="row">
                         <div class="text-center"><strong>Total à payer : </strong>  {{ orderTotal }} €</div>
                     </div>
-                    <hr>
+                    <div style="clear:both">&nbsp;</div>
+                </div>
+        </div>
 
                     <div class="panel panel-info">
                         <div class="panel-heading">
@@ -73,8 +74,7 @@
                     <p>Erreur dans la composition de votre commande</p>
                 </div>
             {% endif %}
-        </div>
-    </div>
+
     {{ form_rest(form) }}
     {% include 'ZenwebAventureParcBundle:Admin:buttons.html.twig' %}
 </form>

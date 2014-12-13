@@ -3,7 +3,7 @@
 <form method="post" class="form-horizontal" {{ form_enctype(form) }}>
 <div class="panel panel-default">
     <!-- Default panel contents -->
-    <div class="panel-heading">Choisissez vos options</div>
+    <div class="panel-heading">Choisissez les options de vos activités</div>
     <div class="panel-body">
         {% for item in form.order.extras.vars.prototype.children.name.vars.choices %}
             <div class="row extra">

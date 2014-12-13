@@ -138,23 +138,23 @@ class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
                     },
             ),
             array(
-                'label' => 'Choisir un parc',
+                'label' => 'Votre parc',
                 'type'  => new CreateOrderParcForm(),
             ),
             array(
-                'label' => 'Choisir une date',
+                'label' => 'Date',
                 'type'  => new CreateOrderDateForm(),
             ),
             array(
-                'label' => 'Choisir ses activités',
+                'label' => 'Vos activités',
                 'type'  => new CreateOrderActivitiesForm(),
             ),
             array(
-                'label' => 'Choisir ses options',
+                'label' => 'Vos options',
                 'type' => new CreateOrderExtraForm(),
             ),
             array(
-                'label' => 'Récapitualtif de commande',
+                'label' => 'Récapitualtif',
                 'type' => new CreateOrderRecapForm(),
             ),
             array(

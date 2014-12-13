@@ -1,136 +1,78 @@
-/* = STEPS CONTAINER
-----------------------------*/
-.stepList {
-    margin:20px 10px 0px 10px;
-    padding:0px;
+.stepwizard-row div p {
+    margin-top: 10px;
+}
+
+.stepwizard-row {
+    display: table-row;
+}
+
+.stepwizard {
+    display: table;
+    width: 100%;
     position: relative;
-    clear:both;
-    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.stepwizard-row div button[disabled] {
+    opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
+}
+
+.stepwizard-row:before {
+    top: 14px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    z-order: 0;
+}
+
+.craue_formflow_current_step a{
+    color: #fff !important;
+    background-color: #428bca !important;
+    border-color: #357ebd !important;
+}
+
+.craue_formflow_current_step p{
     font-weight: bold;
 }
 
-.stepList div {
-    position:relative;
+.stepwizard-row div{
+    display: table-cell;
+    text-align: center;
+    position: relative;
 }
-/* = STEP NUMBERS
-----------------------------*/
-.stepList span {
-    display: block;
-    float: left;
-    font-size: 10px;
-    text-align:center;
-    width:15px;
-    margin: 2px 5px 0px 0px;
-    line-height:15px;
-    color: #ccc;
-    background: #FFF;
-    border: 2px solid #CCC;
-    -webkit-border-radius:10px;
-    -moz-border-radius:10px;
-    border-radius:10px;
+
+.stepwizard-row div a {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+    background-color: white;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid #BABABA;
+    white-space: nowrap;
+    color: #333;
 }
-/* = DEFAULT STEPS
-----------------------------*/
-.stepList a {
-    position:relative;
-    display:block;
-    width:auto;
-    height:24px;
-    margin-right: 18px;
-    padding:0px 10px 0px 3px;
-    float: left;
-    font-size:11px;
-    line-height:24px;
-    color:#666;
-    background: #F0EEE3;
+
+.stepwizard-row div a:focus,.craue_formflow_current_step a:focus{
     text-decoration:none;
-    text-shadow:1px 1px 1px rgba(255,255,255, 0.8);
-}
-.stepList a:before {
-    width:0px;
-    height:0px;
-    border-top: 12px solid #F0EEE3;
-    border-bottom: 12px solid #F0EEE3;
-    border-left:12px solid transparent;
-    position: absolute;
-    content: "";
-    top: 0px;
-    left: -12px;
-}
-.stepList a:after {
-    width: 0;
-    height: 0;
-    border-top: 12px solid transparent;
-    border-bottom: 12px solid transparent;
-    border-left:12px solid #F0EEE3;
-    position: absolute;
-    content: "";
-    top: 0px;
-    right: -12px;
 }
 
-/* = COMPLETED STEPS
-----------------------------*/
-
-.stepList .craue_formflow_done_step a {
-    color:#163038;
-    background: #A3C1C9;
-}
-.stepList .craue_formflow_done_step a:before {
-    border-top: 12px solid #A3C1C9;
-    border-bottom: 12px solid #A3C1C9;
-}
-.stepList .craue_formflow_done_step a:after {
-    border-left: 12px solid #A3C1C9;
-}
-.stepList .craue_formflow_done_step span {
-    border: 2px solid #163038;
-    color: #163038;
-    text-shadow:none;
-}
-/* = ACTIVE STEPS
-----------------------------*/
-.stepList .craue_formflow_current_step a {
-    color:#A3C1C9;
-    background: #163038;
-    text-shadow:1px 1px 1px rgba(0,0,0, 0.8);
-}
-.stepList .craue_formflow_current_step a:before {
-    border-top: 12px solid #163038;
-    border-bottom: 12px solid #163038;
-}
-.stepList .craue_formflow_current_step a:after {
-    border-left: 12px solid #163038;
-}
-.stepList .craue_formflow_current_step span {
-    color: #163038;
-    -webkit-box-shadow:0px 0px 2px rgba(0,0,0, 0.8);
-    -moz-box-shadow:0px 0px 2px rgba(0,0,0, 0.8);
-    box-shadow:0px 0px 2px rgba(0,0,0, 0.8);
-    text-shadow:none;
-    border: 2px solid #A3C1C9;
-}
-/* = HOVER STATES
-----------------------------*/
-.stepList .craue_formflow_done_step:hover a, .stepList .craue_formflow_current_step:hover a {
-    color:#fff;
-    background: #8F061E;
-    text-shadow:1px 1px 1px rgba(0,0,0, 0.8);
-}
-.stepList .craue_formflow_done_step:hover span, .stepList .craue_formflow_current_step:hover span {
-    color:#8F061E;
-}
-.stepList .craue_formflow_done_step:hover a:before, .stepList .craue_formflow_current_step:hover a:before {
-    border-top: 12px solid #8F061E;
-    border-bottom: 12px solid #8F061E;
-}
-.stepList .craue_formflow_done_step:hover a:after, .stepList .craue_formflow_current_step:hover a:after {
-    border-left: 12px solid #8F061E;
+.stepwizard-row div a:hover {
+    color: #333;
+    background-color: #D8D8D8 !important;
+    text-decoration: none;
 }
 
-/**
-* Random
-*/
-.craue_formflow_buttons {
-    margin-top : 25px;
+.craue_formflow_buttons{
+    text-align:center;
 }

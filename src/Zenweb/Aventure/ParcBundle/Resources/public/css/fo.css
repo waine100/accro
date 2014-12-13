@@ -1,8 +1,137 @@
 /**
 * TODO
 */
-#test {
-    color: #F00;
-    border: 1px solid #000000;
-    border-color: #000;
+
+body {
+    background-color: #AFEAAA;
+    font-family: 'Raleway', sans-serif;
+}
+
+.navbar{
+    margin-bottom:0px;
+    display:none;
+}
+
+.panel-primary>.panel-heading {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.noborder{
+    border:none;
+}
+
+.panel{
+    box-shadow:initial;
+}
+
+.panel-body form{
+    margin-bottom:0px;
+}
+
+.btn-primary{
+    background-image:none;
+    border:none;
+    background-color: FE8402;
+}
+
+.btn-default, .btn-primary, .btn-success, .btn-info, .btn-warning, .btn-danger{
+    text-shadow: initial;
+    box-shadow:initial;
+
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #D8D8D8;
+    background-position: 0 -15px;
+}
+
+.btn{
+    border-radius:0px;
+    min-width:150px;
+    min-height: 40px;
+}
+
+.panel-title{
+    text-transform: none;
+    text-align: center;
+}
+
+.panel-top {
+    background-color: white;
+    color:#357ebd ;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2em;
+    font-weight: bold;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    padding:20px 0px 10px 0px;
+}
+.first-log{
+    background-image: -webkit-linear-gradient(top,#d9edf7 0,#c4e3f3 100%) !important;
+    background-image: linear-gradient(to bottom,#d9edf7 0,#c4e3f3 100%) !important;
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd9edf7', endColorstr='#ffc4e3f3', GradientType=0);
+    color:#333;
+}
+
+.panel-info form input {
+    background-color: white;
+    border:1px solid #c4e3f3 ;
+    color:#5F90A9 ;
+}
+
+/*Activity part*/
+
+.sonata-ba-list-field-header-text{
+    text-align:center;
+}
+
+.sonata-ba-list-field select, .sonata-ba-list-field input{
+    height:40px;
+    width:100%;
+    text-align: center;
+}
+
+.btn-danger{
+    min-width:inherit;
+}
+
+.activity{
+    width:25%;
+}
+.hours{
+    width:25%
+}
+.quantity{
+    width:10%;
+}
+.price{
+    width:30%;
+}
+table{
+    font-size:14px;
+}
+/*summary*/
+.alert .alert-link{
+    font-weight: normal;
+}
+
+.glyphicon-calendar:before{
+    content: initial;
+}
+
+.glyphicon{
+    font-family: inherit;
+}
+
+.panel-heading {
+    background-image: linear-gradient(to bottom, #428BCA 0px, #357EBD 100%);
+    background-repeat: repeat-x;
+    color:white;
 }

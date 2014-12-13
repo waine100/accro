@@ -5,7 +5,6 @@
     position:relative;
     padding:30px 36px 36px 36px;
     background:#fff;
-    font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
     font-size:100%;
     line-height:1.5em;
     color:#333;
@@ -24,9 +23,9 @@
 
 .shadow_effect {
     position:relative;
-    -webkit-box-shadow:0 1px 3px rgba(0, 0, 0, 0.1), 0 0 40px rgba(100, 100, 100, 0.1) inset;
+    /*-webkit-box-shadow:0 1px 3px rgba(0, 0, 0, 0.1), 0 0 40px rgba(100, 100, 100, 0.1) inset;
        -moz-box-shadow:0 1px 3px rgba(0, 0, 0, 0.1), 0 0 40px rgba(100, 100, 100, 0.1) inset;
-            box-shadow:0 1px 3px rgba(0, 0, 0, 0.1), 0 0 40px rgba(100, 100, 100, 0.1) inset;
+            box-shadow:0 1px 3px rgba(0, 0, 0, 0.1), 0 0 40px rgba(100, 100, 100, 0.1) inset;*/
 }
 
 /* -------------------  CALENDAR  ------------------- */
@@ -38,10 +37,10 @@
 }
 
 .calendar_wrapper {
-    background:#e1d6ca url(../images/loading.gif) no-repeat 50% 50%;
+    /*background:#e1d6ca url(../images/loading.gif) no-repeat 50% 50%;*/
     float: left;
     margin-right: 15px;
-    width:240px;
+    width:252px;
     height:260px;
 }
 
@@ -51,7 +50,7 @@
     
 .calendar {
     width:auto;
-    background:#e1d6ca;
+    /*background:#e1d6ca;*/
     padding:1px 0 0 1px;
 }
 
@@ -68,24 +67,25 @@
     color:#333;
     border:1px solid transparent;
     background:transparent;
+    text-decoration: none;
 }
 
 .calendar .cell_jour span, .calendar a {
-    width:28px;
+    width:35px;
 }
 
 .calendar .title_calendar span {
     text-transform:uppercase;
     font-size:.875em;
-    border-bottom:1px solid #fff;
+    border-bottom:1px solid #333;
 }
 
 #calendars_container .calendar_wrapper:first-child .title_calendar span {
-    text-align:right;
+    text-align:center;
 }
 
 #calendars_container .calendar_wrapper:last-child .title_calendar span {
-    text-align:left;
+    text-align:center;
 }
 
 .calendar .cell_jour span {
@@ -94,8 +94,24 @@
 
 .calendar a {
     font-size:.75em;
-    border:1px solid #cdbfb4;
+   /* border:1px solid #cdbfb4;*/
     background:#cdbfb4;
+}
+
+.calendar a:{
+    text-decoration: none;
+}
+
+.calendar a:hover{
+    background-color:#41924B !important;
+    text-decoration: none;
+    color: white;
+}
+
+.cell_calendar .bookable .selected {
+    background-color: #41924B !important;
+    text-decoration: none !important;
+    color: white !important;
 }
 
 #symfocal .calendar a, a.dates_preview {
@@ -137,17 +153,18 @@
 }
 
 #symfocal_admin .cell_calendar a:not(.dates_preview):active {
-    background:#bcada4;
-    border:1px solid #bcada4;
+    background:#cdbfb4;
+    border:1px solid #cdbfb4;
 }
 
 /* -------------------  CALENDAR CONTROL LINKS  ------------------- */
 
 #control_nav {
-    position:absolute;
+    position:relative;
     padding:5px 10px;
     width:730px;
     z-index:10;
+    min-height: 40px;
 }
 
 #control_nav a {
@@ -231,9 +248,14 @@
 /* -------------------  SELECTS  ------------------- */
 
 #manager {
-    height:30px;
-    margin:0 0 5px;
+     height:30px;
+     margin:0 0 5px;
+ }
+
+#manager span{
+    font-weight:bold;
 }
+
 
 #selects {
     font-size:.875em;

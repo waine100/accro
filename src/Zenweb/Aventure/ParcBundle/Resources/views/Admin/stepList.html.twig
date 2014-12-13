@@ -1,7 +1,8 @@
 {% use 'CraueFormFlowBundle:FormFlow:stepList_blocks.html.twig' %}
 
 {%- if flow.getStepLabels() is not empty -%}
-    <div class="stepList">
+    <div class="stepwizard">
+    <div class="stepwizard-row">
         {% for stepLabel in flow.getStepLabels() %}
             <div{{ block('craue_flow_stepList_class') }}>
                 {%- if craue_isStepLinkable(flow, loop.index) -%}
@@ -11,10 +12,11 @@
                         {{- block('craue_flow_stepLabel') -}}
                     </a>
                 {%- else -%}
-                <a href="#"><span>{{ loop.index }}</span>{{- block('craue_flow_stepLabel') -}}</a>
+                    <a href="#"><span>{{ loop.index }}</span></a><p>{{- block('craue_flow_stepLabel') -}}</p>
                 {%- endif -%}
             </div>
         {% endfor %}
+    </div>
     </div>
     <div style="clear:both">&nbsp;</div>
 {%- endif -%}

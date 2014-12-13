@@ -1,8 +1,8 @@
 <form method="post" class="form-horizontal" {{ form_enctype(form) }}>
-    <div class="col-md-5">
+    <div class="col-md-5 col-md-offset-1">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h2 class="panel-title">Nouveau client</h2>
+                <h2 class="panel-title">Nouveau client ?</h2>
             </div>
             <div class="panel-body">
                 <div class="form-group">
@@ -36,17 +36,17 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-offset-4 col-sm-8">
+                    <div class="col-sm-offset-3 col-sm-8">
                         <div class="checkbox control-group">
                             <label for="newsletter">
                                 {{ form_widget(form.order.user.newsletter) }}
-                                Inscription à la newsletter
+                                <em>Je souhaite m'inscrire à la newsletter et recevoir des bons plans</em>
                             </label>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-offset-4 col-sm-8">
+                    <div class="col-sm-offset-3 col-sm-8">
                         <input type="submit" class="btn btn-primary" value="{{- 'button.next' | trans({}, 'CraueFormFlowBundle') -}}">
                     </div>
                 </div>

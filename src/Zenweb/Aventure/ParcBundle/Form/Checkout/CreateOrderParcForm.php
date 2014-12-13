@@ -13,7 +13,7 @@ class CreateOrderParcForm extends AbstractType
         $orderForm = $builder->create('order', 'form', array('data_class' => get_class(new SalesFlatOrder())));
         $orderForm->add('parc', 'entity',
             array('class'      => 'ZenwebAventureParcBundle:Parc',
-                  'label'      => "Veuillez sélectionner le parc"
+                  'label'      => "Sur quel parc souhaitez-vous venir ?"
             ));
         $builder->add($orderForm);
     }
