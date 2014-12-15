@@ -11,7 +11,7 @@ class CreateOrderRecapForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $orderForm = $builder->create('order', 'form', array('data_class' => get_class(new SalesFlatOrder())));
-        $orderForm->add('cgv', 'checkbox', array('required' => true, 'label' => 'Merci d'accepter les CGV', 'mapped' => false));
+        $orderForm->add('cgv', 'checkbox', array('required' => true, 'label' => 'Merci d\'accepter les CGV', 'mapped' => false));
         $builder->add($orderForm);
     }
 
