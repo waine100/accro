@@ -171,8 +171,7 @@ class TimeSlot
      */
 
     public function getName(){
-        return $this->beginTime->format("H:i").' -> '.$this->endTime->format("H:i");
-        //return $this->activity->getName().' ('.$this->beginTime->format("H:i").' -> '.$this->endTime->format("H:i").')';
+        return 'de '.$this->beginTime->format("H:i").' à '.$this->endTime->format("H:i");
     }
 
     /**
@@ -182,11 +181,8 @@ class TimeSlot
      */
     public function __toString()
     {
-        /**
-         * @TODO add a nice display name
-         */
         if (!empty($this->activity)) {
-            return $this->activity->getName().' ('.$this->beginTime->format("H:i").' -> '.$this->endTime->format("H:i").')';
+            return $this->activity->getName().' (de '.$this->beginTime->format("H:i").' à '.$this->endTime->format("H:i").')';
         }
     }
     /**

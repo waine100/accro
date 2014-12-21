@@ -183,7 +183,7 @@ class FrontController extends Controller
 
                 $timeSlots = array();
                 foreach ($ts as $t) {
-                    $timeSlots[$t->getId()]['name'] = $t->getBeginTime()->format("H:i") . ' -> ' . $t->getEndTime()->format("H:i");
+                    $timeSlots[$t->getId()]['name'] = 'de '.$t->getBeginTime()->format("H:i") . ' à ' . $t->getEndTime()->format("H:i");
                     $timeSlots[$t->getId()]['id'] = $t->getId();
                 }
 
