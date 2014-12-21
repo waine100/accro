@@ -158,7 +158,7 @@ class CalendarController extends Controller
         $return = '';
 
         $current_month = $dateUtil->getMonth($monthKey);
-        $title         = htmlentities($current_month . " " . $yearKey, ENT_QUOTES, 'ISO-8859-1');
+        $title         = htmlentities($current_month . " " . $yearKey, ENT_QUOTES);
         $real_month = $dateUtil->getMonth((int) date('n'));
         $return .= '"current_month" : "' . $title . '" , ';
         $return .= '"current_day" : "' . date('d') . '" , ';

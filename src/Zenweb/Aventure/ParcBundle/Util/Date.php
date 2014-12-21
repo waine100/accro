@@ -16,7 +16,7 @@ class Date
 {
     public function __construct()
     {
-        setlocale(LC_TIME, "fr_FR");
+        setlocale('LC_TIME', 'fr_FR.UTF-8');
     }
 
     /**
