@@ -69,7 +69,7 @@ class CreateOrderFlow extends FormFlow implements EventSubscriberInterface
         if ($user instanceof UserInterface) {
             $event->getFormData()->order->setUser($user);
         }
-        
+
         if ($this->determineCurrentStepNumber() > 2 && $event->getStep() == 3) {
             $parc = $event->getFormData()->order->getParc()->getId();
             $date = $event->getFormData()->order->getBookingDate();
