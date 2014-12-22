@@ -43,23 +43,22 @@ class ActivityQuantityValidator extends ConstraintValidator
                 $placesWanted[$tsId] = $qtyWanted;
             }
 
-
-            if ($qtyWanted > $qtyMax) {
-                $this->context->addViolation($constraint->tooMuchMessage, array('{{ max }}' => $qtyMax, '{{ timeSlot }}' => $timeSlot, '{{ activity }}' => $activity));
-            }
-
-            if ($qtyWanted < $qtyMin) {
-                $this->context->addViolation($constraint->tooLessMessage, array('{{ min }}' => $qtyMin, '{{ timeSlot }}' => $timeSlot, '{{ activity }}' => $activity));
-            }
-
             /**
              * Check how many places we have left
              */
             $placesReserved = $this->em->getRepository('ZenwebAventureParcBundle:SalesFlatOrder')->getPlacesReserved($date, $tsId);
-            $placesLeft     = $qtyMax - $placesReserved - $placesWanted[$tsId];
+            $placesLeft     = $qtyMax - $placesReserved;
 
-            if ($placesLeft < 0) {
+            if ($placesLeft < $placesWanted[$tsId]) {
                 $this->context->addViolation($constraint->message, array('{{ limit }}' => $placesLeft, '{{ timeSlot }}' => $timeSlot, '{{ activity }}' => $activity));
+            } else {
+                if ($qtyWanted > $qtyMax) {
+                    $this->context->addViolation($constraint->tooMuchMessage, array('{{ max }}' => $qtyMax, '{{ timeSlot }}' => $timeSlot, '{{ activity }}' => $activity));
+                }
+
+                if ($qtyWanted < $qtyMin) {
+                    $this->context->addViolation($constraint->tooLessMessage, array('{{ min }}' => $qtyMin, '{{ timeSlot }}' => $timeSlot, '{{ activity }}' => $activity));
+                }
             }
         }
     }

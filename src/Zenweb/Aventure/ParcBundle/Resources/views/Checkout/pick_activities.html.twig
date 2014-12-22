@@ -33,7 +33,11 @@
                 //Load prices:
                 function getPrices(tsId, $priceSelect, qty) {
                     qty = typeof qty !== 'undefined' ? qty : 1;
+                    {% if userId is not null %}
                     userId = {{ userId }};
+                    {% else %}
+                    userId= '-1';
+                    {% endif %}
                     var DATA = 'id=' + tsId + '&userId=' + userId + '&qty=' + qty;
                     $.ajax({
                         type: "POST",
@@ -51,7 +55,11 @@
                 }
 
                 function getTimeSlots(activityId, $tsSelect) {
+                    {% if userId is not null %}
                     userId = {{ userId }};
+                    {% else %}
+                    userId= '-1';
+                    {% endif %}
                     var DATA = 'idActivity=' + activityId + '&idTypicalDay=' + {{ typicalDayId }};
                     $.ajax({
                         type: "POST",
