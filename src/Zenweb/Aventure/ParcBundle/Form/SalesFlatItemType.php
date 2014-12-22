@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Zenweb\Aventure\ParcBundle\Entity\ActivityRepository;
 use Zenweb\Aventure\ParcBundle\Entity\SalesFlatItem;
 use Zenweb\Aventure\ParcBundle\Entity\TimeSlotRepository;
 use Zenweb\Aventure\ParcBundle\Entity\PriceRepository;
@@ -38,9 +39,11 @@ class SalesFlatItemType extends AbstractType
         $userId       = $formData->order->getUser()->getId();
 
         $builder
-            ->add('activity', 'entity',array('class' => 'ZenwebAventureParcBundle:Activity', 'empty_value' => 'Choisissez une activité'))
-            ->add('timeSlot', 'entity', array('class' => 'ZenwebAventureParcBundle:TimeSlot', 'empty_value' => 'Choisissez une activité',
-                                                                   'label' => 'Activité'
+            ->add('activity', 'entity',array('class' => 'ZenwebAventureParcBundle:Activity','query_builder' => function(ActivityRepository $repository) use ($typicalDayId) {
+                return $repository->getActivitiesByTypicalDay($typicalDayId);
+            }, 'empty_value' => 'Choisissez une activité'))
+            ->add('timeSlot', 'entity', array('class' => 'ZenwebAventureParcBundle:TimeSlot', 'empty_value' => 'Choisissez un créneau',
+                                                                   'label' => 'Créneau'
 
             ))
             ->add('qty', 'integer', array('label' => 'Quantité'))

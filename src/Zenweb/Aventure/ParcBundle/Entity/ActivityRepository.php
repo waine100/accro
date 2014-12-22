@@ -12,4 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class ActivityRepository extends EntityRepository
 {
+    public function getActivitiesByTypicalDay($idTypicalDay)
+    {
+        return $this->createQueryBuilder("p")
+            ->innerJoin("ZenwebAventureParcBundle:TimeSlot", "ts", "WITH", "ts.activity = p.id")
+            ->where("ts.id=:idTs and ts.enabled=:enabled")
+            ->setParameter("idTs", $idTypicalDay)
+            ->setParameter("enabled", true)
+            ;
+    }
 }

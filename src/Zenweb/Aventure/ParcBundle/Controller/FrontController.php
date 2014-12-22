@@ -196,6 +196,7 @@ class FrontController extends Controller
                     $placesReserved = $this->getDoctrine()
                                         ->getManager()->getRepository('ZenwebAventureParcBundle:SalesFlatOrder')->getPlacesReserved($idDate, $t->getId());
                     $placesLeft     = $t->getCapacity() - $placesReserved;
+                    $placesLeft =  ($placesLeft < 0) ? 0 : $placesLeft;
                     $timeSlots[$t->getId()]['pl'] = $placesLeft;
                 }
 
