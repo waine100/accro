@@ -60,7 +60,7 @@
                     {% else %}
                     userId= '-1';
                     {% endif %}
-                    var DATA = 'idActivity=' + activityId + '&idTypicalDay=' + {{ typicalDayId }};
+                    var DATA = 'idActivity=' + activityId + '&idTypicalDay=' + {{ typicalDayId }} + '&idDate='+ {{ app.session.get('idDate') }};
                     $.ajax({
                         type: "POST",
                         dataType: 'json',
@@ -69,7 +69,7 @@
                         success: function (msg) {
                             $tsSelect.html('');
                             $.each(msg, function (index, timeslot) {
-                                $tsSelect.append('<option value="' + timeslot.id + '" selected="selected"> ' + timeslot.name + ' </option>');
+                                $tsSelect.append('<option value="' + timeslot.id + '" selected="selected"> ' + timeslot.name + ' (' + timeslot.pl + ' places disponibles) </option>');
                             });
                             getPrices($tsSelect.val(), $tsSelect.parent().parent().find('select:last'), $tsSelect.parent().parent().find('input:first').val());
                         }

@@ -7,6 +7,7 @@ use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Zenweb\Aventure\ParcBundle\Form\CreateOrder;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * Class FrontController
@@ -30,6 +31,7 @@ class FrontController extends Controller
 {
     public function homeAction()
     {
+        $session = new Session();
         $formData = new CreateOrder();
         $formPayment = null;
         /** @var $flow \Zenweb\Aventure\ParcBundle\Form\Admin\CreateOrderFlow */
@@ -58,8 +60,10 @@ class FrontController extends Controller
                     $date = $flow->getFormData()->order->getBookingDate();
                     if (!empty($date)) {
                         $em = $this->getDoctrine()->getManager()->getRepository('ZenwebAventureParcBundle:Booking');
-                        $flow->getFormData()->order->setBooking($em->findOneBy(array('theDate' => $date, 'parc' => $parc)));
+                        $date = $em->findOneBy(array('theDate' => $date, 'parc' => $parc));
+                        $flow->getFormData()->order->setBooking($date);
                     }
+                    $session->set('idDate', $date->getId());
                 }
                 /**
                  * We have choose a date and a parc, get the typicalDayId needed for other purpose.
@@ -117,7 +121,7 @@ class FrontController extends Controller
     public function menuTopAction($active)
     {
         $parcs = $this->getDoctrine()->getManager()->getRepository('ZenwebAventureParcBundle:Parc')->findByEnabled(true);
-        return $this->render('ZenwebAventureParcBundle:Front:menu_top.html.twig', array('parcs' => $parcs, 'active' => $active, 'toto' => 'tata'));
+        return $this->render('ZenwebAventureParcBundle:Front:menu_top.html.twig', array('parcs' => $parcs, 'active' => $active));
     }
 
     public function getPricesAction()
@@ -173,8 +177,9 @@ class FrontController extends Controller
 
             $idActivity = $request->request->get('idActivity');
             $idTypicalDay = $request->request->get('idTypicalDay');
+            $idDate = $request->request->get('idDate');
 
-            if (null !== $idActivity && null !== $idTypicalDay) {
+            if (null !== $idActivity && null !== $idTypicalDay && null !== $idDate) {
 
                 $ts = $this->getDoctrine()
                     ->getManager()
@@ -185,6 +190,13 @@ class FrontController extends Controller
                 foreach ($ts as $t) {
                     $timeSlots[$t->getId()]['name'] = 'de '.$t->getBeginTime()->format("H:i") . ' à ' . $t->getEndTime()->format("H:i");
                     $timeSlots[$t->getId()]['id'] = $t->getId();
+                    /**
+                     * Check how many places we have left
+                     */
+                    $placesReserved = $this->getDoctrine()
+                                        ->getManager()->getRepository('ZenwebAventureParcBundle:SalesFlatOrder')->getPlacesReserved($idDate, $t->getId());
+                    $placesLeft     = $t->getCapacity() - $placesReserved;
+                    $timeSlots[$t->getId()]['pl'] = $placesLeft;
                 }
 
                 $response = new Response();
